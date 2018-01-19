@@ -2,8 +2,8 @@ import React from 'react'
 import TimePicker from './timepicker.js'
 import Calendar from './calendar.js'
 import styled from 'styled-components'
-import {VhAlignedWrapper} from '../sharedStyledComponents.js'
-import ClosePopupListener from '../../helpers/closePopupListener.js'
+import {VhAlignedWrapper,FixedDivWrapper} from '../sharedStyledComponents.js'
+//import ClosePopupListener from '../../helpers/closePopupListener.js'
 import DatetimeInput from './input.js'
 
 const Wrapper = styled.div`
@@ -44,9 +44,11 @@ export default class DateTimePicker extends React.PureComponent{
 		this.setItem = this.setItem.bind(this)
 		this.setTime = this.setTime.bind(this)
 		this.setDateTime = this.setDateTime.bind(this)
+		this.closePopup = this.closePopup.bind(this)
+		this.stopBubbling = this.stopBubbling.bind(this)
 
 		this.state = {
-			openTime : true,
+			openTime : false,
 			openCalendar : false,
 			date : datetime.date,
 			time : datetime.time
@@ -54,20 +56,16 @@ export default class DateTimePicker extends React.PureComponent{
 	}
 
 	componentWillMount(){
-		this.closePopupKey = ClosePopupListener.addListenerFunc(this.closePopup.bind(this))
 	}
 
 	closePopup(e){
-		if(!e.target.closest('#'+this.props.name)){
-			this.setState({
+		this.setState({
 				openTime : false,
 				openCalendar : false
 			})
-		}
 	}
 
 	componentWillUnmount(){
-		ClosePopupListener.removeListenerFunc(this.closePopupKey)
 	}
 
 	componentWillReceiveProps(nextProps){
@@ -176,10 +174,6 @@ export default class DateTimePicker extends React.PureComponent{
 		})
 	}
 
-	stopBubbling(e){
-		e.stopPropagation()
-	}
-
 	handleDateSelect(timestamp){
 		this.setItem(timestamp,this.state.time)
 	}
@@ -188,10 +182,14 @@ export default class DateTimePicker extends React.PureComponent{
 		this.setItem(date,time)
 	}
 
+	stopBubbling(e){
+		e.stopPropagation()
+	}
+
 	render(){
 		let props = this.props
 		return (
-				<Wrapper id={props.name}>
+				<Wrapper>
 					<DatetimeInput showdate={props.showdate}
 									showtime={props.showtime}
 									time={this.state.time}
@@ -200,22 +198,24 @@ export default class DateTimePicker extends React.PureComponent{
 					<DateInputWrapper showdate={props.showdate} 
 										onClick={this.toggleCalendar}>
 					</DateInputWrapper>
-					<VhAlignedWrapper open={this.state.openCalendar}>
-					{
-						this.state.openCalendar?<Calendar selectedDate={this.state.date}
-								onDateSelection={this.handleDateSelect}/>:
-								null
-					}
-					</VhAlignedWrapper>
 					<TimeInputWrapper showtime={props.showtime} 
 										onClick={this.toggleDropdown}>			
 					</TimeInputWrapper>
-					<VhAlignedWrapper open={this.state.openTime}>
-						<TimePicker open={this.state.openTime}
-									closeTimePicker={this.closeTimePicker}
-									setItem={this.setTime}
-									time={this.state.time}/>
-					</VhAlignedWrapper>	
+					<FixedDivWrapper open={this.state.openCalendar || this.state.openTime} 
+									onClick={this.closePopup}>
+						<VhAlignedWrapper open={this.state.openCalendar || this.state.openTime}
+									onClick={this.stopBubbling}>
+							{
+								this.state.openCalendar?<Calendar selectedDate={this.state.date}
+										onDateSelection={this.handleDateSelect}/>:
+										null
+							}
+							<TimePicker open={this.state.openTime}
+										closeTimePicker={this.closeTimePicker}
+										setItem={this.setTime}
+										time={this.state.time}/>
+						</VhAlignedWrapper>	
+					</FixedDivWrapper>	
 				</Wrapper>
 			)
 	}

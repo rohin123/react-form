@@ -56,7 +56,8 @@ export default class LabeledInput extends React.PureComponent{
 							onChange={this.changeHandler}
 							disabled={props.isDisabled}
 							onFocus={this.focusHandler}
-							onBlur={this.blurHandler}/>
+							onBlur={this.blurHandler}
+							readOnly = {props.readOnly}/>
 					<AnimatedBorder focused={this.state.isFocused}
 									valid={props.isValid||props.isPristine}/>		
 					<label>{props.label}</label>		

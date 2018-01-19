@@ -54,26 +54,32 @@ class Dropdown extends React.PureComponent{
 	}
 
 	toggleList(){
-		this.setState((prevState,props)=>{
-			return {
-				listOpen:!prevState.listOpen,
-				filteredList:null
-			}
-		})
+		if(!this.props.readOnly){
+			this.setState((prevState,props)=>{
+				return {
+					listOpen:!prevState.listOpen,
+					filteredList:null
+				}
+			})
+		}
 	}
 
 	openList(){
-		this.setState({
+		if(!this.props.readOnly){
+			this.setState({
 				listOpen:true,
 				filteredList:null
 			})
+		}
 	}
 
 	closeList(){
-		this.setState({
+		if(!this.props.readOnly){
+			this.setState({
 				listOpen:false,
 				filteredList:null
 			})
+		}
 	}
 
 	setOption(e){

@@ -44,6 +44,7 @@ export default {
 	TIME_PICKER_FOOTER_BG_COLOR : 'whitesmoke',
 	HEADING_FONT_SIZE : '1.1rem',
 	SUB_HEADING_FONT_SIZE : '1rem',
-	DATE_PICKER_SHADOW : '1px 1px 4px 2px #c3c3c3',
-	TIME_PICKER_SHADOW : '1px 1px 4px 2px #c3c3c3'
+	DATE_PICKER_SHADOW : 'none',
+	TIME_PICKER_SHADOW : 'none',
+	POPUP_BG_COLOR : 'rgba(0,0,0,0.6)'
 }

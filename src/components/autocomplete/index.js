@@ -17,6 +17,7 @@ class AutoComplete extends React.PureComponent{
 		this.handleKeyPress = this.handleKeyPress.bind(this)
 		this.preventDropdownClose = this.preventDropdownClose.bind(this)
 		this.setItem = this.setItem.bind(this)
+		this.onListItemClick = this.onListItemClick.bind(this)
 		
 		this.state = {
 			isDown : props.value && props.value.name ? false : true ,
@@ -140,6 +141,10 @@ class AutoComplete extends React.PureComponent{
 		}	
 	}
 
+	onListItemClick(e){
+		this.setItem(e.target.id)
+	}
+
 	handleKeyPress(e){
 		if(e.keyCode=='13'){
 			this.setSelectedItem()
@@ -164,13 +169,13 @@ class AutoComplete extends React.PureComponent{
 		let innerHtml = this.state.isFocused && list.map((item,index)=>{
 			if(index == this.state.selectedListIndex){
 				return <SelectedListItem id={item.id} 
-								onClick={this.setItem}
+								onClick={this.onListItemClick}
 								onMouseDown={this.preventDropdownClose}>
 							{item.label}
 						</SelectedListItem>
 			}
 			return <ListItem id={item.id} 
-								onClick={this.setItem}
+								onClick={this.onListItemClick}
 								onMouseDown={this.preventDropdownClose}>
 							{item.label}
 						</ListItem>
@@ -186,7 +191,8 @@ class AutoComplete extends React.PureComponent{
 							<input type='text' value={(this.state.value && this.state.value.name)||''}
 												onChange={this.onChangeHandler}
 												onBlur={this.blurHandler}
-												onFocus={this.focusHandler}/>
+												onFocus={this.focusHandler}
+												readOnly = {props.readOnly}/>
 							<label>{props.label}</label>
 							<AnimatedBorder valid={props.isValid || props.isPristine }
 											focused={this.state.isFocused}/>

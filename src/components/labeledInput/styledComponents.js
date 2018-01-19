@@ -26,8 +26,8 @@ const InputWrapper = styled.div`
 		z-index:1;
 		outline:none;
 		border:none;
-		border:${props=>props.isValid?'1px solid':'none'};
-		border-color: var(--inputBorderColor);
+		border-bottom:${props=>props.isValid?'1px solid':'none'};
+		border-bottom-color: var(--inputBorderColor);
 		color: var(--inputColor);
 		width:100%;
 		background:transparent;

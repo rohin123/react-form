@@ -60,6 +60,7 @@ const CSSVariables = styled.div`
   --subheadingFontSize : ${props => props.SUB_HEADING_FONT_SIZE};
   --calendarShadow : ${props => props.DATE_PICKER_SHADOW};
   --timepickerShadow : ${props => props.TIME_PICKER_SHADOW};
+  --popupBgColor : ${props => props.POPUP_BG_COLOR};
 `;
 
 const FormWrapper = styled.div`
@@ -127,7 +128,9 @@ export default class GenericForm extends React.PureComponent{
 	}
 
 	componentWillReceiveProps(nextProps){
-		this.formState = this.init(nextProps.formData)
+		if(nextProps.formUpdated){
+			this.formState = this.init(nextProps.formData)
+		}	
 	}
 
 	init(formData){
@@ -153,10 +156,14 @@ export default class GenericForm extends React.PureComponent{
 				}
 			}
 
+			if(formItem.readOnly){
+				formItem.isValid = true
+			}
+
 			let name = formItem.name
 
 			res[name] = objectAssign({},formItem,{
-				isValid:!formItem.required,
+				isValid:formItem.isValid?true : !formItem.required,
 				isPristine:true
 			})
 
@@ -374,10 +381,11 @@ export default class GenericForm extends React.PureComponent{
 			}),
 			buttonsHtml = this.props.formButtons.map((item)=>{
 					return <Button {...item} onClick={this.onClickHandler.bind(this,item)}>{item.label}</Button>
-			})
+			}),
+			styleConfig = this.props.colorConfig || ColorConfig
 
 		return(
-				<CSSVariables {this.props.colorConfig || ...ColorConfig}>
+				<CSSVariables {...ColorConfig}>
 					<FormWrapper>
 						<InputWrapper>
 							{formHtml}

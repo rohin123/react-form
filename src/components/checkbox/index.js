@@ -23,7 +23,8 @@ export default class CheckBox extends React.PureComponent{
 							<input id={props.name} type='checkbox' 
 								name={props.name}
 								onChange={this.onChangeHandler}/>
-								<Tick checked={props.checked}/>
+								<Tick checked={props.checked}
+								readOnly = {props.readOnly}/>
 						</InputWrapper>
 						<label htmlFor={props.name}>{props.label}</label>
 						

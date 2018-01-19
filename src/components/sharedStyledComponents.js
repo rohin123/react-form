@@ -36,15 +36,11 @@ const AnimatedBorder = styled.div`
 `
 
 const VhAlignedWrapper = styled.div`
-	position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+	position: absolute;
+    top: 50%;
+    left: 50%;
     width: 300px;
-    height: 300px;
-    margin: auto;
-    z-index: 2;
+  	transform : translate(-50%,-50%);
     font-size: 1rem;
     display : ${props => props.open?'block':'none'};
 `
@@ -52,5 +48,16 @@ const VhAlignedWrapper = styled.div`
 const InlineWrapper = styled.div`
 	display : inline-block;
 `
+const FixedDivWrapper = styled.div`
+	position : fixed ; 
+	top : 0;
+	left : 0;
+	bottom : 0;
+	right : 0;
+	background-color : var(--popupBgColor);
+	z-index : 2;
+	display : ${props => props.open?'block':'none'};
+`
 
-export {BlockWrapper,AnimatedBorder,HeadingWrapper,VhAlignedWrapper,InlineWrapper,SubHeadingWrapper}
+export {BlockWrapper,AnimatedBorder,HeadingWrapper,VhAlignedWrapper,
+		InlineWrapper,SubHeadingWrapper,FixedDivWrapper}
