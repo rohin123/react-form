@@ -36,6 +36,12 @@ An array of input objects with below properties.
 - showtime ==> boolean for input type datetime
 - value ==> value of input
 
+### formButtons
+An array of button objects with below properties.
+- label 
+- checkValidity
+- onClickHandler 
+
 
 
 
