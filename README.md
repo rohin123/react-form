@@ -1,11 +1,13 @@
 # React Form
-import {reactForm} from 'react-components'
+import {ReactForm} from 'react-components'
 
 ## Example Usage
 Check TestForm for complete usage.
 
+<ReactFrom formData={formData} formButtons={formButtons} colorConfig={colorConfig}/> 
+
 ## Props
-formData, formButtons
+formData, formButtons, colorConfig(optional prop)
 
 ### formData
 An array of input objects with below properties.
@@ -38,20 +40,57 @@ An array of input objects with below properties.
 
 ### formButtons
 An array of button objects with below properties.
-- label 
-- checkValidity
-- onClickHandler 
+- label ==> Label for button
+- checkValidity ==> boolean for whether to check form validity before invoking onClickHandler
+- onClickHandler ==> Function called when button clicked
 
-
-
-
-
-
-
-
-
-
-
-
-	
-	
+### colorConfig
+A javascript object with following properties
+- FLEX_BASIS : 
+- LABEL_FONT_SIZE : 
+- DROPDOWN_LABEL_FONT_SIZE : 
+- INPUT_FONT_SIZE : 
+- INFO_FONT_SIZE :
+- FORM_BACKGROUND:
+- LABEL_COLOR:
+- INPUT_COLOR:
+- INPUT_BORDER_COLOR:
+- HELPTEXT_COLOR:
+- ERRORTEXT_COLOR:
+- DROPDOWN_COLOR:
+- DROPDOWN_BACKGROUND:
+- DROPDOWN_INPUT_BACKGROUND:
+- DROPDOWN_HOVER_COLOR:
+- DROPDOWN_HOVER_BG_COLOR : 
+- DROPDOWN_INPUT_SHADOW :
+- DROPDOWN_SHADOW : 
+- DEFAULT_GREEN_COLOR:
+- DEFAULT_BLUE_COLOR:
+- DEFAULT_RED_COLOR:
+- CHECKBOX_BORDER_FALSE : 
+- CHECKBOX_BORDER_TRUE : 
+- CHECKBOX_TICK_COLOR : 
+- INFO_BG_COLOR : 
+- INFO_BOX_SHADOW : 
+- HEADING_BORDER : 
+- DATE_PICKER_BG_COLOR :
+- DATE_PICKER_HEADER_COLOR : 
+- DATE_PICKER_HEADER_BORDER : 
+- DATE_PICKER_ARROW_COLOR : 
+- DATE_PICKER_DATE_COLOR : 
+- DATE_PICKER_SELECTED_DATE_BG_COLOR : 
+- DATE_PICKER_SELECTED_DATE_COLOR : 
+- TIME_PICKER_HEADER_BG_COLOR : 
+- TIME_PICKER_HEADER_COLOR : 
+- TIME_PICKER_HEADER_BORDER_COLOR :
+- TIME_PICKER_COLUMN_BORDER_COLOR :
+- TIME_PICKER_COLUMN_BG_COLOR : 
+- TIME_PICKER_COLUMN_COLOR : 
+- TIME_PICKER_SELECTED_CELL_COLOR :
+- TIME_PICKER_FOOTER_COLOR : 
+- TIME_PICKER_FOOTER_BG_COLOR : 
+- HEADING_FONT_SIZE : 
+- SUB_HEADING_FONT_SIZE : 
+- DATE_PICKER_SHADOW : 
+- TIME_PICKER_SHADOW : 
+- POPUP_BG_COLOR : 
