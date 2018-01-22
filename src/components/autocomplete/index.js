@@ -4,7 +4,7 @@ import {AnimatedBorder} from '../sharedStyledComponents.js'
 import debounce from 'debounce'
 import KeyPressHandlerOnList from '../../helpers/keyPressHandlerOnList.js'
 import {Wrapper,SearchBox,SearchList,ListItem,SelectedListItem} from './styledComponents.js'
-
+import PropTypes from 'prop-types'
 
 class AutoComplete extends React.PureComponent{
 
@@ -30,6 +30,7 @@ class AutoComplete extends React.PureComponent{
 
 	componentWillMount(){
 		this.closePopupKey = ClosePopupListener.addListenerFunc(this.closePopup.bind(this))
+		//ClosePopupListener.addListenerFunc(this.closePopup.bind(this))
 	}
 
 	closePopup(e){
@@ -43,6 +44,7 @@ class AutoComplete extends React.PureComponent{
 
 	componentWillUnmount(){
 		ClosePopupListener.removeListenerFunc(this.closePopupKey)
+		//ClosePopupListener.removeListenerFunc(this.closePopup)
 	}
 
 	debounceOnChangeHandler(value){
@@ -203,6 +205,13 @@ class AutoComplete extends React.PureComponent{
 					</Wrapper>
 				)
 	}
+}
+
+AutoComplete.propTypes = {
+	label : PropTypes.string.isRequired,
+	name : PropTypes.string.isRequired,
+	setItem : PropTypes.func.isRequired,
+	fetchFunc : PropTypes.func.isRequired,
 }
 
 export default AutoComplete

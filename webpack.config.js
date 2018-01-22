@@ -2,11 +2,12 @@ const path = require('path');
 //const ExtractTextPlugin = require('extract-text-webpack-plugin');
 var webpack = require('webpack')
 const CLIENT_DIR = path.resolve(__dirname, 'src');
+const EXAMPLE_DIR = path.resolve(__dirname, 'example');
 const DIST_DIR = path.resolve(__dirname, 'dist');
 
 const loaders = [{
   test: /\.js$/,
-  include: [CLIENT_DIR],
+  include: [CLIENT_DIR,EXAMPLE_DIR],
   loader: 'babel-loader',
   query: {
     presets: ['es2015', 'react','stage-0']
@@ -14,7 +15,7 @@ const loaders = [{
 },
 {
   test: /\.jsx?$/,
-    include: [CLIENT_DIR],
+      include: [CLIENT_DIR,EXAMPLE_DIR],
       loader: 'babel-loader', // 'babel-loader' is also a legal name to reference
       query: {
         presets: ['es2015','react','stage-0']
@@ -45,18 +46,27 @@ module.exports = [{
     loaders: loaders
   },
   resolve: {
-    // alias: {
-    //   components: path.resolve(CLIENT_DIR, 'components')
-    // }
   },
   plugins: [
-    //new ExtractTextPlugin('bundle.css', {allChunks: true}),
-   //  new webpack.DefinePlugin({ 
-   //    'process.env': { 
-   //     'NODE_ENV': JSON.stringify('production'),
-   //    } 
-   //  }),
-   // new webpack.optimize.UglifyJsPlugin(),
-   // new webpack.optimize.DedupePlugin()
   ]
-}];
+},
+{
+  name: 'example',
+  target: 'web',
+  context: EXAMPLE_DIR,
+  entry: './app.js',
+  output: {
+    //library: 'reactformlib',
+    //libraryTarget: 'umd',
+    path: DIST_DIR,
+    filename: 'example.js'
+  },
+  module: {
+    loaders: loaders
+  },
+  resolve: {
+  },
+  plugins: [
+  ]
+}
+];

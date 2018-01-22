@@ -84,7 +84,7 @@ const FormWrapper = styled.div`
 	}
 `
 
-const InputWrapper = styled.div`
+const InputsWrapper = styled.div`
 	display:flex;
 	flex-direction:row;
 	flex-wrap:wrap;
@@ -109,6 +109,12 @@ const Button = styled.div`
 	border-radius:3px;
 `
 
+const InputWrapper = styled.div`
+	flex-basis: var(--flexBasis);
+	margin: 10px;
+	flex-grow : 1;
+`
+
 export default class GenericForm extends React.PureComponent{
 	constructor(props){
 		super(props)
@@ -120,11 +126,11 @@ export default class GenericForm extends React.PureComponent{
 	}
 
 	componentWillMount(){
-		ClosePopupListener.init()
+		//ClosePopupListener.init()
 	}
 
 	componentWillUnmount(){
-		ClosePopupListener.destroy()
+		//ClosePopupListener.destroy()
 	}
 
 	componentWillReceiveProps(nextProps){
@@ -286,23 +292,29 @@ export default class GenericForm extends React.PureComponent{
 
 			case 'number':{
 
-				ret = <LabeledInput {...formItem} 
-									setItem={this.setItem}/>	
+				ret = 	<InputWrapper>
+							<LabeledInput {...formItem} 
+									setItem={this.setItem}/>
+					 	</InputWrapper>				
 				break					
 			}
 
 			case 'dropdown':{
 
-				ret = <Dropdown {...formItem}
+				ret = 	<InputWrapper>
+							<Dropdown {...formItem}
 									setItem={this.setItem}/>
+						</InputWrapper>			
 				break									
 			}
 
 			case 'checkbox':{
 
-				ret = <CheckBox {...formItem}
+				ret = 	<InputWrapper>
+							<CheckBox {...formItem}
 									checked={formItem.value}
 									setItem={this.setItem}/>
+						</InputWrapper>			
 				break					
 			}
 
@@ -313,48 +325,54 @@ export default class GenericForm extends React.PureComponent{
 
 			case 'autocomplete':{
 
-				ret = <AutoComplete {...formItem}
+				ret = 	<InputWrapper>
+							<AutoComplete {...formItem}
 									setItem={this.setItem}/>
+						</InputWrapper>			
 				break						
 
 			}
 
 			case 'select':{
 
-				ret =  <Selectbox {...formItem}
+				ret =  	<InputWrapper>
+							<Selectbox {...formItem}
 									setItem={this.setItem}/>
+						</InputWrapper>			
 				break					
 			}
 
 			case 'radiogroup':{
 
-				ret =  <RadioButtonGroup {...formItem}
+				ret =  	<InputWrapper>
+							<RadioButtonGroup {...formItem}
 									setItem={this.setItem}/>
+						</InputWrapper>			
 				break					
 			}
 
 			case 'heading' : {
 
-				ret = <HeadingWrapper>
+				ret = 	<HeadingWrapper>
 							{formItem.label}
 						</HeadingWrapper>
-
 				break		
 			}
 
 			case 'subheading' : {
 				
-				ret = <SubHeadingWrapper>
-							{formItem.label}
+				ret = 	<SubHeadingWrapper>
+								{formItem.label}
 						</SubHeadingWrapper>
-
 				break
 			}
 
 			case 'datetime' : {
 
-				ret = <DateTime {...formItem}
+				ret = 	<InputWrapper>
+							<DateTime {...formItem}
 								setItem={this.setItem}/>
+						</InputWrapper>		
 				break
 			}	
 
@@ -384,12 +402,14 @@ export default class GenericForm extends React.PureComponent{
 			}),
 			styleConfig = this.props.colorConfig || ColorConfig
 
+			console.log(styleConfig)
+
 		return(
-				<CSSVariables {...ColorConfig}>
+				<CSSVariables {...styleConfig}>
 					<FormWrapper>
-						<InputWrapper>
+						<InputsWrapper>
 							{formHtml}
-						</InputWrapper>	
+						</InputsWrapper>	
 						<ButtonsWrapper>
 							{buttonsHtml}
 						</ButtonsWrapper>	

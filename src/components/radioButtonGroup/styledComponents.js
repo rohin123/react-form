@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 const Wrapper = styled.div`
 	padding:10px 0 0;
-	margin:10px;
+	//margin:10px;
 	p{
 		margin:0px;
 		font-size : var(--labelFontSize);

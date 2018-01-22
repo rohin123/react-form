@@ -3,9 +3,9 @@ import styled from 'styled-components'
 const InputWrapper = styled.div`
 	padding:15px 0 0;
 	position:relative;
-	flex-basis:var(--flexBasis);
-	margin: 10px;
-	flex-grow : 1;
+	//flex-basis:var(--flexBasis);
+	//margin: 10px;
+	//flex-grow : 1;
 
 	&:after{
         content:"${props=>props.isValid?props.helpText:props.errorText}";

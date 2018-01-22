@@ -1,10 +1,11 @@
 import styled from 'styled-components'
 
 const Wrapper = styled.div`
-	flex-basis: var(--flexBasis);
+	//flex-basis: var(--flexBasis);
+	width : 100%;
     position: relative;
-    margin: 10px;
-    flex-grow : 1;
+    //margin: 10px;
+    //flex-grow : 1;
     outline : none;
 `
 

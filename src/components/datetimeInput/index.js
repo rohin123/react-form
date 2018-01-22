@@ -7,14 +7,14 @@ import {VhAlignedWrapper,FixedDivWrapper} from '../sharedStyledComponents.js'
 import DatetimeInput from './input.js'
 
 const Wrapper = styled.div`
-	flex-basis : var(--flexBasis);
+	//flex-basis : var(--flexBasis);
 	display : flex;
 	flex-direction : row;
 	padding : 5px 5px 0px;
-	margin : 10px;
+	//margin : 10px;
 	align-items: flex-end;
     border-bottom: 1px solid var(--labelColor);
-    flex-grow : 1;
+    //flex-grow : 1;
 `
 
 const TimeInputWrapper = styled.div`

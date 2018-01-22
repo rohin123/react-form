@@ -9,9 +9,7 @@
   },
   "author": "",
   "license": "ISC",
-  "peerDependencies": {
-    "react": "^15.3.0"
-  },
+  "peerDependencies": {},
   "devDependencies": {
     "babel-cli": "^6.18.0",
     "babel-core": "^6.21.0",
@@ -30,6 +28,9 @@
   },
   "dependencies": {
     "debounce": "^1.1.0",
+    "promise": "^8.0.1",
+    "react": "^15.5.0",
+    "react-dom": "^15.5.0",
     "styled-components": "^2.4.0"
   }
 }

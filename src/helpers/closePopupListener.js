@@ -1,6 +1,6 @@
 import CommonFunc from './commonFunc.js'
 
-class ClosePopupListener{
+/*class ClosePopupListener{
 	init(){
 		this.eventListeners = {}
 		document.addEventListener('click',this.eventListenersFunc.bind(this))
@@ -33,6 +33,16 @@ class ClosePopupListener{
 
 	destroy(){
 		document.removeEventListener('click',this.eventListenersFunc.bind(this))
+	}
+}*/
+
+class ClosePopupListener{
+	addListenerFunc(func){
+		document.addEventListener('click',func)
+	}
+
+	removeListenerFunc(func){
+		document.removeEventListener('click',func)
 	}
 }
 

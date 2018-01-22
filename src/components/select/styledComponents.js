@@ -2,10 +2,10 @@ import styled from 'styled-components'
 
 const Wrapper = styled.div`
 	position: relative;
-    flex-basis: var(--flexBasis);
+    //flex-basis: var(--flexBasis);
     padding: 10px 0;
-    margin: 10px;
-    flex-grow : 1;
+    //margin: 10px;
+    //flex-grow : 1;
     select{
     	-webkit-appearance: none;
 	    border: none;

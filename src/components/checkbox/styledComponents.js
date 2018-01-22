@@ -2,9 +2,9 @@ import styled from 'styled-components'
 
 const Wrapper = styled.div`
 	position:relative;
-	flex-basis : var(--flexBasis);
+	//flex-basis : var(--flexBasis);
 	padding : 15px 0 0;
-	margin: 10px;
+	//margin: 10px;
 	input[type='checkbox']{
 		-webkit-appearance: none;
 	    width: 16px;
