@@ -22,11 +22,8 @@ const CSSVariables = styled.div`
 `
 
 const Wrapper = styled.div`
-	//flex-basis: var(--flexBasis);
 	width : 100%;
     position: relative;
-    //margin: 10px;
-    //flex-grow : 1;
     outline : none;
 `
 
@@ -34,9 +31,9 @@ const SearchBox = styled.div`
 	position : relative;
 	padding: 15px 0 0;
 	input{
-		position:relative;
-		z-index:1;
-		width: 100%;
+      position:relative;
+      z-index:1;
+      width: 100%;
 	    border: none;
 	    border-bottom: ${props=>props.isValid?'1px solid':'none'};
 	    border-bottom-color: var(--inputBorderColor);

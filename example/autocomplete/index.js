@@ -3,7 +3,14 @@ import AutoComplete from '../../src/components/autocomplete'
 import styled from 'styled-components'
 import Promise from 'promise'
 
-const Wrapper = styled.div`
+const Wrapper = styled.div`	
+`
+const InfoWrapper = styled.div`
+	h1,h2,h3{
+		background-color : whitesmoke;
+	}
+`
+const InputWrapper = styled.div`
 	width : 300px;
 `
 
@@ -64,8 +71,26 @@ export default class AutocompleteExample extends React.Component{
 
 		return(
 			<Wrapper>
-				<AutoComplete inputConfig={config}/>
-			</Wrapper>					
+				<InfoWrapper>
+					<h1>Code</h1>
+					<p>{"import {" +"AutoComplete} "+"from 'react-ui-components'"}</p> 
+					<h2>Props</h2>
+					<span>{"inputConfig(required), styleConfig(optional)"}</span>
+					<h3>{"inputConfig object properties"}</h3>
+					<pre>
+						{
+							"label ==> label for your autocomplete \n" +
+							"name  ==> name for your autocomplete \n" + 
+							"setItem ==> function with name and value as parameters \n" + 
+							"fetchFunc ==> promise to fetch autocomplete list \n" + 
+							"value ==> initial value or selected value of autocomplete" 
+						}
+					</pre>
+				</InfoWrapper>	
+				<InputWrapper>
+					<AutoComplete inputConfig={config}/>
+				</InputWrapper>		
+			</Wrapper>				
 			)
 	}
 
