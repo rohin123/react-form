@@ -49,55 +49,65 @@ const CSSVariables = styled.div`
   --calendarShadow : ${props => props.DATE_PICKER_SHADOW};
   --timepickerShadow : ${props => props.TIME_PICKER_SHADOW};
   --popupBgColor : ${props => props.POPUP_BG_COLOR};
+`;
+
+const FormWrapper = styled.div`
+	display:flex;
+	flex-direction:column;
+	background:var(--formBgColor);
+	font-weight:300;
+	input{
+		font-weight:300;
+		padding:4px;
+	}
+
+	input[type='number'] {
+	    -moz-appearance:textfield;
+	}
+	/* Webkit browsers like Safari and Chrome */
+	input[type=number]::-webkit-inner-spin-button,
+	input[type=number]::-webkit-outer-spin-button {
+	    -webkit-appearance: none;
+	    margin: 0;
+	}
 `
 
+const InputsWrapper = styled.div`
+	display:flex;
+	flex-direction:row;
+	flex-wrap:wrap;
+	justify-content:flex-start;
+	align-items : center;
+	padding:10px;
+	font-size:20px;
+`
+
+const ButtonsWrapper = styled.div`
+	display:flex;
+	flex-direction:row;
+	flex-wrap:wrap;
+	justify-content:center;
+	padding:10px 0;
+`
+
+const Button = styled.div`
+	padding:6px 15px;
+	color:${props => props.color||'#333'};
+	background-color:${props => props.bgColor||'#c3c3c3'};
+	border-radius:3px;
+`
 
 const InputWrapper = styled.div`
-	padding:15px 0 0;
-	position:relative;
-	//flex-basis:var(--flexBasis);
-	//margin: 10px;
-	//flex-grow : 1;
-
-	&:after{
-        content:"${props=>props.isValid?props.helpText:props.errorText}";
-        position: absolute;
-        left:0px;
-        font-size: var(--infoFontSize);
-        color: ${props=>props.isValid?'var(--defaultGreen)':'var(--defaultRed)'};
-	    background: var(--infoBgColor);
-	    padding: 5px;
-	    box-shadow: var(--infoBoxShadow);
-	    display: ${props=>( (props.isValid && props.helpText) || 
-    						(!props.isValid && props.errorText) )?'block':'none'};
-	    z-index: 1;
-    }
-
-	input{
-		position:relative;
-		z-index:1;
-		outline:none;
-		border:none;
-		border-bottom:${props=>props.isValid?'1px solid':'none'};
-		border-bottom-color: var(--inputBorderColor);
-		color: var(--inputColor);
-		width:100%;
-		background:transparent;
-		font-size : var(--inputFontSize);
-		box-sizing : border-box;
-	}
-
-	label{
-		position:absolute;
-		left:0px;
-		top:14px;
-		color: var(--labelColor);
-		transform:${props=>props.isDown?"translateY(0) scale(1)":
-										"translateY(-10px) scale(0.6)"};
-		transform-origin:top left;
-		transition:all 0.4s;	
-		font-size : var(--labelFontSize);							
-	}
+	flex-basis: var(--flexBasis);
+	margin: 10px;
+	flex-grow : 1;
 `
 
-export {CSSVariables,InputWrapper}
+export {  
+          CSSVariables,
+          FormWrapper,
+          InputsWrapper,
+          ButtonsWrapper,
+          Button,
+          InputWrapper
+        }

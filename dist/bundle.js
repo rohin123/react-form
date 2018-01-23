@@ -56,531 +56,31 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	'use strict';
 
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
 	Object.defineProperty(exports, "__esModule", {
-		value: true
+	  value: true
 	});
-
-	var _extends = Object.assign || function (target) {
-		for (var i = 1; i < arguments.length; i++) {
-			var source = arguments[i];for (var key in source) {
-				if (Object.prototype.hasOwnProperty.call(source, key)) {
-					target[key] = source[key];
-				}
-			}
-		}return target;
-	};
-
-	var _createClass = function () {
-		function defineProperties(target, props) {
-			for (var i = 0; i < props.length; i++) {
-				var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
-			}
-		}return function (Constructor, protoProps, staticProps) {
-			if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
-		};
-	}();
-
-	var _templateObject = _taggedTemplateLiteral(['\n  --formBgColor : ', ';\n  --labelColor : ', ';\n  --inputColor : ', ';\n  --inputBorderColor : ', ';\n  --helpTextColor : ', ';\n  --errorTextColor : ', ';\n  --dropdownColor : ', ';\n  --dropdownBgColor : ', ';\n  --dropdownInputBgColor : ', ';\n  --dropdownHoverColor : ', ';\n  --dropdownHoverBgColor : ', ';\n  --defaultGreen : ', ';\n  --defaultRed : ', ';\n  --defaultBlue :', ';\n  --checkboxBorderTrue : ', ';\n  --checkboxBorderFalse : ', ';\n  --checkboxTrikColor : ', ';\n  --flexBasis : ', ';\n  --labelFontSize : ', ';\n  --dropdownLabelFontSize : ', ';\n  --inputFontSize : ', ';\n  --infoFontSize : ', ';\n  --dropdownInputShadow : ', ';\n  --dropdownShadow : ', ';\n  --infoBgColor : ', ';\n  --infoBoxShadow : ', ';\n  --headingBorder : ', ';\n  --datePickerBgColor : ', ';\n  --datePickerHeaderColor : ', ';\n  --datePickerHeaderBorder : ', ';\n  --datePickerArrowColor : ', ';\n  --datePickerDateColor : ', ';\n  --datePickerSelectedDateColor : ', ';\n  --datePickerSelectedDateBgColor : ', ';\n  --timepickerHeaderBgColor : ', ';\n  --timepickerHeaderColor : ', ';\n  --timepickerHeaderBorderColor : ', ';\n  --timepickerColumnBorderColor : ', ';\n  --timepickerColumnBgColor : ', ';\n  --timepickerColumnColor : ', ';\n  --timepickerSelectedCellColor : ', ';\n  --timepickerFooterColor : ', ';\n  --timepickerFooterBgColor : ', ';\n  --headingFontSize : ', ';\n  --subheadingFontSize : ', ';\n  --calendarShadow : ', ';\n  --timepickerShadow : ', ';\n  --popupBgColor : ', ';\n'], ['\n  --formBgColor : ', ';\n  --labelColor : ', ';\n  --inputColor : ', ';\n  --inputBorderColor : ', ';\n  --helpTextColor : ', ';\n  --errorTextColor : ', ';\n  --dropdownColor : ', ';\n  --dropdownBgColor : ', ';\n  --dropdownInputBgColor : ', ';\n  --dropdownHoverColor : ', ';\n  --dropdownHoverBgColor : ', ';\n  --defaultGreen : ', ';\n  --defaultRed : ', ';\n  --defaultBlue :', ';\n  --checkboxBorderTrue : ', ';\n  --checkboxBorderFalse : ', ';\n  --checkboxTrikColor : ', ';\n  --flexBasis : ', ';\n  --labelFontSize : ', ';\n  --dropdownLabelFontSize : ', ';\n  --inputFontSize : ', ';\n  --infoFontSize : ', ';\n  --dropdownInputShadow : ', ';\n  --dropdownShadow : ', ';\n  --infoBgColor : ', ';\n  --infoBoxShadow : ', ';\n  --headingBorder : ', ';\n  --datePickerBgColor : ', ';\n  --datePickerHeaderColor : ', ';\n  --datePickerHeaderBorder : ', ';\n  --datePickerArrowColor : ', ';\n  --datePickerDateColor : ', ';\n  --datePickerSelectedDateColor : ', ';\n  --datePickerSelectedDateBgColor : ', ';\n  --timepickerHeaderBgColor : ', ';\n  --timepickerHeaderColor : ', ';\n  --timepickerHeaderBorderColor : ', ';\n  --timepickerColumnBorderColor : ', ';\n  --timepickerColumnBgColor : ', ';\n  --timepickerColumnColor : ', ';\n  --timepickerSelectedCellColor : ', ';\n  --timepickerFooterColor : ', ';\n  --timepickerFooterBgColor : ', ';\n  --headingFontSize : ', ';\n  --subheadingFontSize : ', ';\n  --calendarShadow : ', ';\n  --timepickerShadow : ', ';\n  --popupBgColor : ', ';\n']),
-	    _templateObject2 = _taggedTemplateLiteral(['\n\tdisplay:flex;\n\tflex-direction:column;\n\tbackground:var(--formBgColor);\n\tfont-weight:300;\n\tinput{\n\t\tfont-weight:300;\n\t\tpadding:4px;\n\t}\n\n\tinput[type=\'number\'] {\n\t    -moz-appearance:textfield;\n\t}\n\t/* Webkit browsers like Safari and Chrome */\n\tinput[type=number]::-webkit-inner-spin-button,\n\tinput[type=number]::-webkit-outer-spin-button {\n\t    -webkit-appearance: none;\n\t    margin: 0;\n\t}\n'], ['\n\tdisplay:flex;\n\tflex-direction:column;\n\tbackground:var(--formBgColor);\n\tfont-weight:300;\n\tinput{\n\t\tfont-weight:300;\n\t\tpadding:4px;\n\t}\n\n\tinput[type=\'number\'] {\n\t    -moz-appearance:textfield;\n\t}\n\t/* Webkit browsers like Safari and Chrome */\n\tinput[type=number]::-webkit-inner-spin-button,\n\tinput[type=number]::-webkit-outer-spin-button {\n\t    -webkit-appearance: none;\n\t    margin: 0;\n\t}\n']),
-	    _templateObject3 = _taggedTemplateLiteral(['\n\tdisplay:flex;\n\tflex-direction:row;\n\tflex-wrap:wrap;\n\tjustify-content:flex-start;\n\talign-items : center;\n\tpadding:10px;\n\tfont-size:20px;\n'], ['\n\tdisplay:flex;\n\tflex-direction:row;\n\tflex-wrap:wrap;\n\tjustify-content:flex-start;\n\talign-items : center;\n\tpadding:10px;\n\tfont-size:20px;\n']),
-	    _templateObject4 = _taggedTemplateLiteral(['\n\tdisplay:flex;\n\tflex-direction:row;\n\tflex-wrap:wrap;\n\tjustify-content:center;\n\tpadding:10px 0;\n'], ['\n\tdisplay:flex;\n\tflex-direction:row;\n\tflex-wrap:wrap;\n\tjustify-content:center;\n\tpadding:10px 0;\n']),
-	    _templateObject5 = _taggedTemplateLiteral(['\n\tpadding:6px 15px;\n\tcolor:', ';\n\tbackground-color:', ';\n\tborder-radius:3px;\n'], ['\n\tpadding:6px 15px;\n\tcolor:', ';\n\tbackground-color:', ';\n\tborder-radius:3px;\n']),
-	    _templateObject6 = _taggedTemplateLiteral(['\n\tflex-basis: var(--flexBasis);\n\tmargin: 10px;\n\tflex-grow : 1;\n'], ['\n\tflex-basis: var(--flexBasis);\n\tmargin: 10px;\n\tflex-grow : 1;\n']);
+	exports.AutoComplete = undefined;
 
 	var _react = __webpack_require__(1);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _labeledInput = __webpack_require__(37);
-
-	var _labeledInput2 = _interopRequireDefault(_labeledInput);
-
-	var _styledComponents = __webpack_require__(39);
-
-	var _styledComponents2 = _interopRequireDefault(_styledComponents);
-
-	var _objectAssign = __webpack_require__(4);
-
-	var _objectAssign2 = _interopRequireDefault(_objectAssign);
-
-	var _autocomplete = __webpack_require__(81);
+	var _autocomplete = __webpack_require__(37);
 
 	var _autocomplete2 = _interopRequireDefault(_autocomplete);
 
-	var _select = __webpack_require__(87);
-
-	var _select2 = _interopRequireDefault(_select);
-
-	var _dropdown = __webpack_require__(89);
-
-	var _dropdown2 = _interopRequireDefault(_dropdown);
-
-	var _colorConfig = __webpack_require__(91);
-
-	var _colorConfig2 = _interopRequireDefault(_colorConfig);
-
-	var _checkbox = __webpack_require__(92);
-
-	var _checkbox2 = _interopRequireDefault(_checkbox);
-
-	var _radioButtonGroup = __webpack_require__(94);
-
-	var _radioButtonGroup2 = _interopRequireDefault(_radioButtonGroup);
-
-	var _sharedStyledComponents = __webpack_require__(38);
-
-	var _datetimeInput = __webpack_require__(96);
-
-	var _datetimeInput2 = _interopRequireDefault(_datetimeInput);
-
-	var _closePopupListener = __webpack_require__(82);
-
-	var _closePopupListener2 = _interopRequireDefault(_closePopupListener);
-
 	function _interopRequireDefault(obj) {
-		return obj && obj.__esModule ? obj : { default: obj };
+	  return obj && obj.__esModule ? obj : { default: obj };
 	}
 
-	function _classCallCheck(instance, Constructor) {
-		if (!(instance instanceof Constructor)) {
-			throw new TypeError("Cannot call a class as a function");
-		}
-	}
+	// import CheckBox from './components/checkbox'
+	// import DateTime from './components/datetimeInput'
+	// import DropDown from './components/dropdown'
+	// import ReactForm from './components/form'
+	// import TextInput from './components/labeledInput'
 
-	function _possibleConstructorReturn(self, call) {
-		if (!self) {
-			throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-		}return call && ((typeof call === "undefined" ? "undefined" : _typeof(call)) === "object" || typeof call === "function") ? call : self;
-	}
 
-	function _inherits(subClass, superClass) {
-		if (typeof superClass !== "function" && superClass !== null) {
-			throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === "undefined" ? "undefined" : _typeof(superClass)));
-		}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
-	}
-
-	function _taggedTemplateLiteral(strings, raw) {
-		return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
-	}
-
-	var CSSVariables = _styledComponents2.default.div(_templateObject, function (props) {
-		return props.FORM_BACKGROUND;
-	}, function (props) {
-		return props.LABEL_COLOR;
-	}, function (props) {
-		return props.INPUT_COLOR;
-	}, function (props) {
-		return props.INPUT_BORDER_COLOR;
-	}, function (props) {
-		return props.HELPTEXT_COLOR;
-	}, function (props) {
-		return props.ERRORTEXT_COLOR;
-	}, function (props) {
-		return props.DROPDOWN_COLOR;
-	}, function (props) {
-		return props.DROPDOWN_BACKGROUND;
-	}, function (props) {
-		return props.DROPDOWN_INPUT_BACKGROUND;
-	}, function (props) {
-		return props.DROPDOWN_HOVER_COLOR;
-	}, function (props) {
-		return props.DROPDOWN_HOVER_BG_COLOR;
-	}, function (props) {
-		return props.DEFAULT_GREEN_COLOR;
-	}, function (props) {
-		return props.DEFAULT_RED_COLOR;
-	}, function (props) {
-		return props.DEFAULT_BLUE_COLOR;
-	}, function (props) {
-		return props.CHECKBOX_BORDER_TRUE;
-	}, function (props) {
-		return props.CHECKBOX_BORDER_FALSE;
-	}, function (props) {
-		return props.CHECKBOX_TICK_COLOR;
-	}, function (props) {
-		return props.FLEX_BASIS;
-	}, function (props) {
-		return props.LABEL_FONT_SIZE;
-	}, function (props) {
-		return props.DROPDOWN_LABEL_FONT_SIZE;
-	}, function (props) {
-		return props.INPUT_FONT_SIZE;
-	}, function (props) {
-		return props.INFO_FONT_SIZE;
-	}, function (props) {
-		return props.DROPDOWN_INPUT_SHADOW;
-	}, function (props) {
-		return props.DROPDOWN_SHADOW;
-	}, function (props) {
-		return props.INFO_BG_COLOR;
-	}, function (props) {
-		return props.INFO_BOX_SHADOW;
-	}, function (props) {
-		return props.HEADING_BORDER;
-	}, function (props) {
-		return props.DATE_PICKER_BG_COLOR;
-	}, function (props) {
-		return props.DATE_PICKER_HEADER_COLOR;
-	}, function (props) {
-		return props.DATE_PICKER_HEADER_BORDER;
-	}, function (props) {
-		return props.DATE_PICKER_ARROW_COLOR;
-	}, function (props) {
-		return props.DATE_PICKER_DATE_COLOR;
-	}, function (props) {
-		return props.DATE_PICKER_SELECTED_DATE_COLOR;
-	}, function (props) {
-		return props.DATE_PICKER_SELECTED_DATE_BG_COLOR;
-	}, function (props) {
-		return props.TIME_PICKER_HEADER_BG_COLOR;
-	}, function (props) {
-		return props.TIME_PICKER_HEADER_COLOR;
-	}, function (props) {
-		return props.TIME_PICKER_HEADER_BORDER_COLOR;
-	}, function (props) {
-		return props.TIME_PICKER_COLUMN_BORDER_COLOR;
-	}, function (props) {
-		return props.TIME_PICKER_COLUMN_BG_COLOR;
-	}, function (props) {
-		return props.TIME_PICKER_COLUMN_COLOR;
-	}, function (props) {
-		return props.TIME_PICKER_SELECTED_CELL_COLOR;
-	}, function (props) {
-		return props.TIME_PICKER_FOOTER_COLOR;
-	}, function (props) {
-		return props.TIME_PICKER_FOOTER_BG_COLOR;
-	}, function (props) {
-		return props.HEADING_FONT_SIZE;
-	}, function (props) {
-		return props.SUB_HEADING_FONT_SIZE;
-	}, function (props) {
-		return props.DATE_PICKER_SHADOW;
-	}, function (props) {
-		return props.TIME_PICKER_SHADOW;
-	}, function (props) {
-		return props.POPUP_BG_COLOR;
-	});
-
-	var FormWrapper = _styledComponents2.default.div(_templateObject2);
-
-	var InputsWrapper = _styledComponents2.default.div(_templateObject3);
-
-	var ButtonsWrapper = _styledComponents2.default.div(_templateObject4);
-
-	var Button = _styledComponents2.default.div(_templateObject5, function (props) {
-		return props.color || '#333';
-	}, function (props) {
-		return props.bgColor || '#c3c3c3';
-	});
-
-	var InputWrapper = _styledComponents2.default.div(_templateObject6);
-
-	var GenericForm = function (_React$PureComponent) {
-		_inherits(GenericForm, _React$PureComponent);
-
-		function GenericForm(props) {
-			_classCallCheck(this, GenericForm);
-
-			var _this = _possibleConstructorReturn(this, (GenericForm.__proto__ || Object.getPrototypeOf(GenericForm)).call(this, props));
-
-			_this.formState = _this.init(props.formData);
-			_this.setItem = _this.setItem.bind(_this);
-			_this.state = {
-				reRender: false
-			};
-			return _this;
-		}
-
-		_createClass(GenericForm, [{
-			key: 'componentWillMount',
-			value: function componentWillMount() {
-				_closePopupListener2.default.init();
-			}
-		}, {
-			key: 'componentWillUnmount',
-			value: function componentWillUnmount() {
-				_closePopupListener2.default.destroy();
-			}
-		}, {
-			key: 'componentWillReceiveProps',
-			value: function componentWillReceiveProps(nextProps) {
-				if (nextProps.formUpdated) {
-					this.formState = this.init(nextProps.formData);
-				}
-			}
-		}, {
-			key: 'init',
-			value: function init(formData) {
-				console.log('GenericForm', formData);
-				var res = {},
-				    headingIndex = 0;
-
-				formData.map(function (formItem) {
-
-					if (formItem.type == 'heading' || formItem.type == 'subheading') {
-						formItem.name = 'heading_' + headingIndex;
-						formItem.required = false;
-						headingIndex++;
-					}
-
-					if (formItem.type == 'datetime' && !formItem.value) {
-						formItem.isValid = true;
-						if (formItem.showtime) {
-							formItem.value = 0;
-						}
-						if (formItem.showdate) {
-							formItem.value = new Date().setHours(0, 0, 0, 0);
-						}
-					}
-
-					if (formItem.readOnly) {
-						formItem.isValid = true;
-					}
-
-					var name = formItem.name;
-
-					res[name] = (0, _objectAssign2.default)({}, formItem, {
-						isValid: formItem.isValid ? true : !formItem.required,
-						isPristine: true
-					});
-				});
-
-				console.log(res);
-				return res;
-			}
-		}, {
-			key: 'setItemHelper',
-			value: function setItemHelper(formItem, value) {
-
-				if (value && value.dependent) {
-					for (var key in value.dependent) {
-						var dependentItem = this.formState[key];
-						dependentItem = (0, _objectAssign2.default)({}, dependentItem, value.dependent[key]);
-						dependentItem.isValid = this.checkValidity(dependentItem);
-						this.formState[key] = dependentItem;
-					}
-				}
-
-				formItem.value = value;
-				formItem.isValid = this.checkValidity(formItem);
-				formItem.isPristine = false;
-				this.setState(function (state) {
-					return {
-						reRender: !state.reRender
-					};
-				});
-			}
-		}, {
-			key: 'setItem',
-			value: function setItem(name, value) {
-				var _this2 = this;
-
-				var formItem = this.formState[name],
-				    dependentFetchItem = {};
-
-				if (formItem.dependentFetchFunc) {
-					formItem.dependentFetchFunc(value).then(function (res) {
-						dependentFetchItem = res;
-						var mergedDependency = (0, _objectAssign2.default)({}, value.dependent || {}, res || {});
-						value.dependent = mergedDependency;
-						_this2.setItemHelper(formItem, value);
-					}).catch(function (err) {
-
-						dependentFetchItem = null;
-						_this2.setItemHelper(formItem, value);
-					});
-				} else {
-					this.setItemHelper(formItem, value);
-				}
-			}
-		}, {
-			key: 'checkValidity',
-			value: function checkValidity(formItem) {
-
-				var value = formItem.value;
-				if (value && toString.call(value) == "[object Object]") {
-					return true;
-				} else if (value || value === 0) {
-
-					if (formItem.validityRegex) {
-						var pat = new RegExp(formItem.validityRegex);
-						formItem.errorText = formItem.validityErrorText;
-						return pat.test(value);
-					}
-
-					return true;
-				} else {
-
-					if (formItem.requiredCondition && typeof formItem.requiredCondition == "function") {
-						formItem.required = formItem.requiredCondition(this.formState);
-					}
-
-					if (formItem.required) {
-						formItem.errorText = 'Required Input. Please Fill.';
-						return false;
-					}
-
-					return true;
-				}
-			}
-		}, {
-			key: 'onClickHandler',
-			value: function onClickHandler(button) {
-				if (!button.checkValidity || this.checkFormValidity()) {
-					button.onClickHandler(this.formState);
-				} else {
-					console.log(this.formState);
-					this.setState(function (state) {
-						return {
-							reRender: !state.reRender
-						};
-					});
-				}
-			}
-		}, {
-			key: 'checkFormValidity',
-			value: function checkFormValidity() {
-				var ret = true;
-				for (var key in this.formState) {
-					if (this.formState[key].isPristine) {
-						this.formState[key].isPristine = false;
-					}
-
-					if (!this.checkValidity(this.formState[key])) {
-						ret = false;
-						this.formState[key].isValid = false;
-					}
-				}
-				return ret;
-			}
-		}, {
-			key: 'getFormElement',
-			value: function getFormElement(formItem) {
-
-				var ret = null;
-
-				switch (formItem.type) {
-
-					case 'text':
-						{}
-
-					case 'number':
-						{
-
-							ret = _react2.default.createElement(InputWrapper, null, _react2.default.createElement(_labeledInput2.default, _extends({}, formItem, {
-								setItem: this.setItem })));
-							break;
-						}
-
-					case 'dropdown':
-						{
-
-							ret = _react2.default.createElement(InputWrapper, null, _react2.default.createElement(_dropdown2.default, _extends({}, formItem, {
-								setItem: this.setItem })));
-							break;
-						}
-
-					case 'checkbox':
-						{
-
-							ret = _react2.default.createElement(InputWrapper, null, _react2.default.createElement(_checkbox2.default, _extends({}, formItem, {
-								checked: formItem.value,
-								setItem: this.setItem })));
-							break;
-						}
-
-					case 'file':
-						{
-
-							return null;
-						}
-
-					case 'autocomplete':
-						{
-
-							ret = _react2.default.createElement(InputWrapper, null, _react2.default.createElement(_autocomplete2.default, _extends({}, formItem, {
-								setItem: this.setItem })));
-							break;
-						}
-
-					case 'select':
-						{
-
-							ret = _react2.default.createElement(InputWrapper, null, _react2.default.createElement(_select2.default, _extends({}, formItem, {
-								setItem: this.setItem })));
-							break;
-						}
-
-					case 'radiogroup':
-						{
-
-							ret = _react2.default.createElement(InputWrapper, null, _react2.default.createElement(_radioButtonGroup2.default, _extends({}, formItem, {
-								setItem: this.setItem })));
-							break;
-						}
-
-					case 'heading':
-						{
-
-							ret = _react2.default.createElement(_sharedStyledComponents.HeadingWrapper, null, formItem.label);
-							break;
-						}
-
-					case 'subheading':
-						{
-
-							ret = _react2.default.createElement(_sharedStyledComponents.SubHeadingWrapper, null, formItem.label);
-							break;
-						}
-
-					case 'datetime':
-						{
-
-							ret = _react2.default.createElement(InputWrapper, null, _react2.default.createElement(_datetimeInput2.default, _extends({}, formItem, {
-								setItem: this.setItem })));
-							break;
-						}
-
-					default:
-						{
-							return null;
-						}
-				}
-
-				if (formItem.display == 'block') {
-					return _react2.default.createElement(_sharedStyledComponents.BlockWrapper, null, ret);
-				}
-
-				return ret;
-			}
-		}, {
-			key: 'render',
-			value: function render() {
-				var _this3 = this;
-
-				console.log('render GenericForm', this.formState);
-				var formStateKeys = Object.keys(this.formState) || [],
-				    formHtml = formStateKeys.map(function (key) {
-					var formItem = _this3.formState[key];
-					return _this3.getFormElement(formItem);
-				}),
-				    buttonsHtml = this.props.formButtons.map(function (item) {
-					return _react2.default.createElement(Button, _extends({}, item, { onClick: _this3.onClickHandler.bind(_this3, item) }), item.label);
-				}),
-				    styleConfig = this.props.colorConfig || _colorConfig2.default;
-
-				console.log(styleConfig);
-
-				return _react2.default.createElement(CSSVariables, styleConfig, _react2.default.createElement(FormWrapper, null, _react2.default.createElement(InputsWrapper, null, formHtml), _react2.default.createElement(ButtonsWrapper, null, buttonsHtml)));
-			}
-		}]);
-
-		return GenericForm;
-	}(_react2.default.PureComponent);
-
-	exports.default = GenericForm;
+	exports.AutoComplete = _autocomplete2.default;
 
 /***/ }),
 /* 1 */
@@ -5186,9 +4686,15 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _sharedStyledComponents = __webpack_require__(38);
+	var _core = __webpack_require__(38);
 
-	var _styledComponents = __webpack_require__(80);
+	var _core2 = _interopRequireDefault(_core);
+
+	var _colorConfig = __webpack_require__(86);
+
+	var _colorConfig2 = _interopRequireDefault(_colorConfig);
+
+	var _styledComponents = __webpack_require__(85);
 
 	function _interopRequireDefault(obj) {
 		return obj && obj.__esModule ? obj : { default: obj };
@@ -5212,38 +4718,186 @@ return /******/ (function(modules) { // webpackBootstrap
 		}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
 	}
 
-	var LabeledInput = function (_React$PureComponent) {
-		_inherits(LabeledInput, _React$PureComponent);
+	var AutoComplete = function (_React$Component) {
+		_inherits(AutoComplete, _React$Component);
 
-		function LabeledInput(props) {
-			_classCallCheck(this, LabeledInput);
+		function AutoComplete() {
+			_classCallCheck(this, AutoComplete);
 
-			var _this = _possibleConstructorReturn(this, (LabeledInput.__proto__ || Object.getPrototypeOf(LabeledInput)).call(this, props));
+			return _possibleConstructorReturn(this, (AutoComplete.__proto__ || Object.getPrototypeOf(AutoComplete)).apply(this, arguments));
+		}
 
-			_this.changeHandler = _this.changeHandler.bind(_this);
-			_this.focusHandler = _this.focusHandler.bind(_this);
+		_createClass(AutoComplete, [{
+			key: 'render',
+			value: function render() {
+				var props = this.props,
+				    styleConfig = props.colorConfig || _colorConfig2.default,
+				    inputConfig = props.inputConfig;
+
+				return _react2.default.createElement(_styledComponents.CSSVariables, styleConfig, _react2.default.createElement(_core2.default, inputConfig));
+			}
+		}]);
+
+		return AutoComplete;
+	}(_react2.default.Component);
+
+	exports.default = AutoComplete;
+
+/***/ }),
+/* 38 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _createClass = function () {
+		function defineProperties(target, props) {
+			for (var i = 0; i < props.length; i++) {
+				var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
+			}
+		}return function (Constructor, protoProps, staticProps) {
+			if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
+		};
+	}();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _closePopupListener = __webpack_require__(39);
+
+	var _closePopupListener2 = _interopRequireDefault(_closePopupListener);
+
+	var _sharedStyledComponents = __webpack_require__(41);
+
+	var _debounce = __webpack_require__(83);
+
+	var _debounce2 = _interopRequireDefault(_debounce);
+
+	var _keyPressHandlerOnList = __webpack_require__(84);
+
+	var _keyPressHandlerOnList2 = _interopRequireDefault(_keyPressHandlerOnList);
+
+	var _styledComponents = __webpack_require__(85);
+
+	var _propTypes = __webpack_require__(49);
+
+	var _propTypes2 = _interopRequireDefault(_propTypes);
+
+	function _interopRequireDefault(obj) {
+		return obj && obj.__esModule ? obj : { default: obj };
+	}
+
+	function _classCallCheck(instance, Constructor) {
+		if (!(instance instanceof Constructor)) {
+			throw new TypeError("Cannot call a class as a function");
+		}
+	}
+
+	function _possibleConstructorReturn(self, call) {
+		if (!self) {
+			throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+		}return call && ((typeof call === "undefined" ? "undefined" : _typeof(call)) === "object" || typeof call === "function") ? call : self;
+	}
+
+	function _inherits(subClass, superClass) {
+		if (typeof superClass !== "function" && superClass !== null) {
+			throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === "undefined" ? "undefined" : _typeof(superClass)));
+		}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+	}
+
+	var AutoComplete = function (_React$PureComponent) {
+		_inherits(AutoComplete, _React$PureComponent);
+
+		function AutoComplete(props) {
+			_classCallCheck(this, AutoComplete);
+
+			var _this = _possibleConstructorReturn(this, (AutoComplete.__proto__ || Object.getPrototypeOf(AutoComplete)).call(this, props));
+
 			_this.blurHandler = _this.blurHandler.bind(_this);
+			_this.focusHandler = _this.focusHandler.bind(_this);
+			_this.onChangeHandler = _this.onChangeHandler.bind(_this);
+			_this.keyPressHandlerInstance = new _keyPressHandlerOnList2.default(0);
+			_this.handleKeyPress = _this.handleKeyPress.bind(_this);
+			_this.preventDropdownClose = _this.preventDropdownClose.bind(_this);
+			_this.setItem = _this.setItem.bind(_this);
+			_this.onListItemClick = _this.onListItemClick.bind(_this);
+
 			_this.state = {
-				isDown: props.value ? false : true,
-				isFocused: false
+				isDown: props.value && props.value.label ? false : true,
+				autoCompList: [],
+				value: props.value || null,
+				isFocused: false,
+				selectedListIndex: -1
 			};
 			return _this;
 		}
 
-		_createClass(LabeledInput, [{
-			key: 'componentWillReceiveProps',
-			value: function componentWillReceiveProps(nextProps) {
-				this.setState({
-					isDown: nextProps.value ? false : true
+		_createClass(AutoComplete, [{
+			key: 'componentWillMount',
+			value: function componentWillMount() {
+				//this.closePopupKey = ClosePopupListener.addListenerFunc(this.closePopup.bind(this))
+				//ClosePopupListener.addListenerFunc(this.closePopup.bind(this))
+			}
+		}, {
+			key: 'closePopup',
+			value: function closePopup(e) {
+				if (!e.target.closest('#' + this.props.name)) {
+					this.keyPressHandlerInstance.updateListLength.call(this.keyPressHandlerInstance, 0);
+					this.setState({
+						autoCompList: []
+					});
+				}
+			}
+		}, {
+			key: 'componentWillUnmount',
+			value: function componentWillUnmount() {
+				//ClosePopupListener.removeListenerFunc(this.closePopupKey)
+				//ClosePopupListener.removeListenerFunc(this.closePopup)
+			}
+		}, {
+			key: 'debounceOnChangeHandler',
+			value: function debounceOnChangeHandler(value) {
+				var _this2 = this;
+
+				var fetchPromise = this.props.fetchFunc;
+				fetchPromise(value).then(function (res) {
+					_this2.keyPressHandlerInstance.updateListLength.call(_this2.keyPressHandlerInstance, res.length);
+					_this2.setState({
+						autoCompList: res
+					});
+				}, function (err) {
+					_this2.keyPressHandlerInstance.updateListLength.call(_this2.keyPressHandlerInstance, 0);
+					_this2.setState({
+						autoCompList: []
+					});
 				});
 			}
 		}, {
-			key: 'componentDidMount',
-			value: function componentDidMount() {}
+			key: 'onChangeHandler',
+			value: function onChangeHandler(e) {
+				var value = e.target.value;
+				(0, _debounce2.default)(this.debounceOnChangeHandler(value), 200);
+
+				this.setState({
+					value: {
+						label: value,
+						isAutoCompleteListItem: false
+					}
+				});
+			}
 		}, {
-			key: 'changeHandler',
-			value: function changeHandler(e) {
-				this.props.setItem(this.props.name, e.target.value);
+			key: 'componentWillReceiveProps',
+			value: function componentWillReceiveProps(nextProps) {
+				this.setState({
+					value: nextProps.value || null,
+					isDown: nextProps.value && nextProps.value.label ? false : true
+				});
 			}
 		}, {
 			key: 'focusHandler',
@@ -5256,38 +4910,279 @@ return /******/ (function(modules) { // webpackBootstrap
 		}, {
 			key: 'blurHandler',
 			value: function blurHandler(e) {
-				this.setState({
-					isFocused: false
-				});
+				if (!this.forceDropdownOpen) {
 
-				if (!e.target.value) {
 					this.setState({
-						isDown: true
+						isFocused: false
+					});
+
+					if (!this.state.value) {
+						this.setState({
+							isDown: true
+						});
+					} else if (this.state.value && !this.state.value.isAutoCompleteListItem) {
+						this.props.setItem(this.props.name, this.state.value);
+					}
+				}
+
+				this.forceDropdownOpen = false;
+			}
+		}, {
+			key: 'setSelectedItem',
+			value: function setSelectedItem() {
+				var selectedListItemId = null;
+				if (this.state.selectedListIndex >= 0) {
+
+					selectedListItemId = this.state.autoCompList[this.state.selectedListIndex].id;
+				}
+
+				if (selectedListItemId) {
+					this.setItem(selectedListItemId);
+				}
+			}
+		}, {
+			key: 'setItem',
+			value: function setItem(id) {
+
+				var ret = null,
+				    list = this.state.autoCompList;
+
+				for (var i = 0; i < list.length; i++) {
+					var item = list[i];
+					if (item.id == id) {
+						ret = item;
+						break;
+					}
+				}
+
+				if (ret) {
+					ret.isAutoCompleteListItem = true;
+					this.props.setItem(this.props.name, ret);
+					this.keyPressHandlerInstance.updateListLength.call(this.keyPressHandlerInstance, 0);
+					this.setState({
+						autoCompList: [],
+						value: ret
 					});
 				}
 			}
 		}, {
+			key: 'onListItemClick',
+			value: function onListItemClick(e) {
+				this.setItem(e.target.id);
+			}
+		}, {
+			key: 'handleKeyPress',
+			value: function handleKeyPress(e) {
+				if (e.keyCode == '13') {
+					this.setSelectedItem();
+				} else {
+					var index = this.keyPressHandlerInstance.handleKeyPress.call(this.keyPressHandlerInstance, e.keyCode);
+					console.log(index);
+					this.setState({
+						selectedListIndex: index
+					});
+				}
+			}
+		}, {
+			key: 'preventDropdownClose',
+			value: function preventDropdownClose() {
+				this.forceDropdownOpen = true;
+			}
+		}, {
 			key: 'render',
 			value: function render() {
-				var props = this.props;
-				return _react2.default.createElement(_styledComponents.InputWrapper, { isValid: props.isValid || props.isPristine, errorText: props.errorText || '', helpText: props.helpText || '',
-					isDown: this.state.isDown }, _react2.default.createElement('input', { type: props.type, value: props.value || '',
-					onChange: this.changeHandler,
-					disabled: props.isDisabled,
-					onFocus: this.focusHandler,
+				var _this3 = this;
+
+				var props = this.props,
+				    list = this.state.autoCompList;
+
+				var innerHtml = this.state.isFocused && list.map(function (item, index) {
+					if (index == _this3.state.selectedListIndex) {
+						return _react2.default.createElement(_styledComponents.SelectedListItem, { id: item.id,
+							onClick: _this3.onListItemClick,
+							onMouseDown: _this3.preventDropdownClose }, item.label);
+					}
+					return _react2.default.createElement(_styledComponents.ListItem, { id: item.id,
+						onClick: _this3.onListItemClick,
+						onMouseDown: _this3.preventDropdownClose }, item.label);
+				});
+
+				return _react2.default.createElement(_styledComponents.Wrapper, { tabIndex: -1, id: props.name,
+					onKeyDown: this.handleKeyPress }, _react2.default.createElement(_styledComponents.SearchBox, { isDown: this.state.isDown,
+					isValid: props.isValid || props.isPristine,
+					errorText: props.errorText || '',
+					helpText: props.helpText || '' }, _react2.default.createElement('input', { type: 'text', value: this.state.value && this.state.value.label || '',
+					onChange: this.onChangeHandler,
 					onBlur: this.blurHandler,
-					readOnly: props.readOnly }), _react2.default.createElement(_sharedStyledComponents.AnimatedBorder, { focused: this.state.isFocused,
-					valid: props.isValid || props.isPristine }), _react2.default.createElement('label', null, props.label));
+					onFocus: this.focusHandler,
+					readOnly: props.readOnly }), _react2.default.createElement('label', null, props.label), _react2.default.createElement(_sharedStyledComponents.AnimatedBorder, { valid: props.isValid || props.isPristine,
+					focused: this.state.isFocused })), _react2.default.createElement(_styledComponents.SearchList, null, innerHtml));
 			}
 		}]);
 
-		return LabeledInput;
+		return AutoComplete;
 	}(_react2.default.PureComponent);
 
-	exports.default = LabeledInput;
+	AutoComplete.propTypes = {
+		label: _propTypes2.default.string.isRequired,
+		name: _propTypes2.default.string.isRequired,
+		setItem: _propTypes2.default.func.isRequired,
+		fetchFunc: _propTypes2.default.func.isRequired
+	};
+
+	exports.default = AutoComplete;
 
 /***/ }),
-/* 38 */
+/* 39 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _createClass = function () {
+		function defineProperties(target, props) {
+			for (var i = 0; i < props.length; i++) {
+				var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
+			}
+		}return function (Constructor, protoProps, staticProps) {
+			if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
+		};
+	}();
+
+	var _commonFunc = __webpack_require__(40);
+
+	var _commonFunc2 = _interopRequireDefault(_commonFunc);
+
+	function _interopRequireDefault(obj) {
+		return obj && obj.__esModule ? obj : { default: obj };
+	}
+
+	function _classCallCheck(instance, Constructor) {
+		if (!(instance instanceof Constructor)) {
+			throw new TypeError("Cannot call a class as a function");
+		}
+	}
+
+	/*class ClosePopupListener{
+		init(){
+			this.eventListeners = {}
+			document.addEventListener('click',this.eventListenersFunc.bind(this))
+		}
+
+		eventListenersFunc(e){
+			(Object.keys(this.eventListeners)||[]).map((key)=>{
+				(this.eventListeners[key])(e)
+			})
+		}
+
+		addListenerFunc(func){
+			if(typeof func != "function"){
+				return null
+			}
+			let key = CommonFunc.randString(10)
+			while(this.eventListeners[key]){
+				key = CommonFunc.randString(10)
+			}
+
+			this.eventListeners[key] = func
+			return key
+		}
+
+		removeListenerFunc(key){
+			if(key){
+				delete this.eventListeners[key]
+			}
+		}
+
+		destroy(){
+			document.removeEventListener('click',this.eventListenersFunc.bind(this))
+		}
+	}*/
+
+	var ClosePopupListener = function () {
+		function ClosePopupListener() {
+			_classCallCheck(this, ClosePopupListener);
+		}
+
+		_createClass(ClosePopupListener, [{
+			key: 'addListenerFunc',
+			value: function addListenerFunc(func) {
+				document.addEventListener('click', func);
+			}
+		}, {
+			key: 'removeListenerFunc',
+			value: function removeListenerFunc(func) {
+				document.removeEventListener('click', func);
+			}
+		}]);
+
+		return ClosePopupListener;
+	}();
+
+	exports.default = new ClosePopupListener();
+
+/***/ }),
+/* 40 */
+/***/ (function(module, exports) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _createClass = function () {
+		function defineProperties(target, props) {
+			for (var i = 0; i < props.length; i++) {
+				var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
+			}
+		}return function (Constructor, protoProps, staticProps) {
+			if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
+		};
+	}();
+
+	function _classCallCheck(instance, Constructor) {
+		if (!(instance instanceof Constructor)) {
+			throw new TypeError("Cannot call a class as a function");
+		}
+	}
+
+	var CommonFunc = function () {
+		function CommonFunc() {
+			_classCallCheck(this, CommonFunc);
+		}
+
+		_createClass(CommonFunc, [{
+			key: "randString",
+			value: function randString(x) {
+				var s = "";
+				while (s.length < x && x > 0) {
+					var r = Math.random();
+					s += r < 0.1 ? Math.floor(r * 100) : String.fromCharCode(Math.floor(r * 26) + (r > 0.5 ? 97 : 65));
+				}
+				return s;
+			}
+		}, {
+			key: "isUndefined",
+			value: function isUndefined(value) {
+				if (value || value === 0 || value == "" || value == false) {
+					return false;
+				}
+
+				return true;
+			}
+		}]);
+
+		return CommonFunc;
+	}();
+
+	exports.default = new CommonFunc();
+
+/***/ }),
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5305,7 +5200,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    _templateObject6 = _taggedTemplateLiteral(['\n\tdisplay : inline-block;\n'], ['\n\tdisplay : inline-block;\n']),
 	    _templateObject7 = _taggedTemplateLiteral(['\n\tposition : fixed ; \n\ttop : 0;\n\tleft : 0;\n\tbottom : 0;\n\tright : 0;\n\tbackground-color : var(--popupBgColor);\n\tz-index : 2;\n\tdisplay : ', ';\n'], ['\n\tposition : fixed ; \n\ttop : 0;\n\tleft : 0;\n\tbottom : 0;\n\tright : 0;\n\tbackground-color : var(--popupBgColor);\n\tz-index : 2;\n\tdisplay : ', ';\n']);
 
-	var _styledComponents = __webpack_require__(39);
+	var _styledComponents = __webpack_require__(42);
 
 	var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
@@ -5347,7 +5242,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.FixedDivWrapper = FixedDivWrapper;
 
 /***/ }),
-/* 39 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5355,59 +5250,59 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.__esModule = true;
 	exports.StyleSheetManager = exports.ServerStyleSheet = exports.withTheme = exports.ThemeProvider = exports.injectGlobal = exports.keyframes = exports.css = undefined;
 
-	var _flatten = __webpack_require__(40);
+	var _flatten = __webpack_require__(43);
 
 	var _flatten2 = _interopRequireDefault(_flatten);
 
-	var _stringifyRules = __webpack_require__(48);
+	var _stringifyRules = __webpack_require__(51);
 
 	var _stringifyRules2 = _interopRequireDefault(_stringifyRules);
 
-	var _generateAlphabeticName = __webpack_require__(51);
+	var _generateAlphabeticName = __webpack_require__(54);
 
 	var _generateAlphabeticName2 = _interopRequireDefault(_generateAlphabeticName);
 
-	var _css = __webpack_require__(52);
+	var _css = __webpack_require__(55);
 
 	var _css2 = _interopRequireDefault(_css);
 
-	var _ServerStyleSheet = __webpack_require__(54);
+	var _ServerStyleSheet = __webpack_require__(57);
 
 	var _ServerStyleSheet2 = _interopRequireDefault(_ServerStyleSheet);
 
-	var _StyleSheetManager = __webpack_require__(59);
+	var _StyleSheetManager = __webpack_require__(62);
 
 	var _StyleSheetManager2 = _interopRequireDefault(_StyleSheetManager);
 
-	var _StyledComponent2 = __webpack_require__(60);
+	var _StyledComponent2 = __webpack_require__(63);
 
 	var _StyledComponent3 = _interopRequireDefault(_StyledComponent2);
 
-	var _ComponentStyle2 = __webpack_require__(71);
+	var _ComponentStyle2 = __webpack_require__(74);
 
 	var _ComponentStyle3 = _interopRequireDefault(_ComponentStyle2);
 
-	var _styled2 = __webpack_require__(73);
+	var _styled2 = __webpack_require__(76);
 
 	var _styled3 = _interopRequireDefault(_styled2);
 
-	var _keyframes2 = __webpack_require__(75);
+	var _keyframes2 = __webpack_require__(78);
 
 	var _keyframes3 = _interopRequireDefault(_keyframes2);
 
-	var _injectGlobal2 = __webpack_require__(76);
+	var _injectGlobal2 = __webpack_require__(79);
 
 	var _injectGlobal3 = _interopRequireDefault(_injectGlobal2);
 
-	var _constructWithOptions2 = __webpack_require__(77);
+	var _constructWithOptions2 = __webpack_require__(80);
 
 	var _constructWithOptions3 = _interopRequireDefault(_constructWithOptions2);
 
-	var _ThemeProvider = __webpack_require__(68);
+	var _ThemeProvider = __webpack_require__(71);
 
 	var _ThemeProvider2 = _interopRequireDefault(_ThemeProvider);
 
-	var _withTheme = __webpack_require__(78);
+	var _withTheme = __webpack_require__(81);
 
 	var _withTheme2 = _interopRequireDefault(_withTheme);
 
@@ -5446,7 +5341,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.StyleSheetManager = _StyleSheetManager2.default;
 
 /***/ }),
-/* 40 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5454,17 +5349,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.__esModule = true;
 	exports.objToCss = undefined;
 
-	var _hyphenateStyleName = __webpack_require__(41);
+	var _hyphenateStyleName = __webpack_require__(44);
 
 	var _hyphenateStyleName2 = _interopRequireDefault(_hyphenateStyleName);
 
-	var _isPlainObject = __webpack_require__(43);
+	var _isPlainObject = __webpack_require__(46);
 
 	var _isPlainObject2 = _interopRequireDefault(_isPlainObject);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var babelPluginFlowReactPropTypes_proptype_Interpolation = __webpack_require__(45).babelPluginFlowReactPropTypes_proptype_Interpolation || __webpack_require__(46).any;
+	var babelPluginFlowReactPropTypes_proptype_Interpolation = __webpack_require__(48).babelPluginFlowReactPropTypes_proptype_Interpolation || __webpack_require__(49).any;
 
 	var objToCss = exports.objToCss = function objToCss(obj, prevKey) {
 	  var css = Object.keys(obj).filter(function (key) {
@@ -5509,7 +5404,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = flatten;
 
 /***/ }),
-/* 41 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
@@ -5523,7 +5418,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	'use strict';
 
-	var hyphenate = __webpack_require__(42);
+	var hyphenate = __webpack_require__(45);
 
 	var msPattern = /^ms-/;
 
@@ -5550,7 +5445,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = hyphenateStyleName;
 
 /***/ }),
-/* 42 */
+/* 45 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -5585,7 +5480,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = hyphenate;
 
 /***/ }),
-/* 43 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/*!
@@ -5597,7 +5492,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	'use strict';
 
-	var isObject = __webpack_require__(44);
+	var isObject = __webpack_require__(47);
 
 	function isObjectObject(o) {
 	  return isObject(o) === true
@@ -5628,7 +5523,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ }),
-/* 44 */
+/* 47 */
 /***/ (function(module, exports) {
 
 	/*!
@@ -5646,22 +5541,22 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ }),
-/* 45 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 
 	/* todo: I want this to actually be an array of Function | string but that causes errors */
 	if (true) Object.defineProperty(exports, "babelPluginFlowReactPropTypes_proptype_StyleSheet", {
-	  value: __webpack_require__(46).shape({
-	    create: __webpack_require__(46).func.isRequired
+	  value: __webpack_require__(49).shape({
+	    create: __webpack_require__(49).func.isRequired
 	  })
 	});
 
 	/* eslint-disable no-undef */
 
 /***/ }),
-/* 46 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -5690,13 +5585,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	} else {
 	  // By explicitly using `prop-types` you are opting into new production behavior.
 	  // http://fb.me/prop-types-in-prod
-	  module.exports = __webpack_require__(47)();
+	  module.exports = __webpack_require__(50)();
 	}
 
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ }),
-/* 47 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
@@ -5760,20 +5655,20 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ }),
-/* 48 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	exports.__esModule = true;
 
-	var _stylis = __webpack_require__(49);
+	var _stylis = __webpack_require__(52);
 
 	var _stylis2 = _interopRequireDefault(_stylis);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var babelPluginFlowReactPropTypes_proptype_Interpolation = __webpack_require__(45).babelPluginFlowReactPropTypes_proptype_Interpolation || __webpack_require__(46).any;
+	var babelPluginFlowReactPropTypes_proptype_Interpolation = __webpack_require__(48).babelPluginFlowReactPropTypes_proptype_Interpolation || __webpack_require__(49).any;
 
 	var stylis = new _stylis2.default({
 	  global: false,
@@ -5796,7 +5691,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ }),
-/* 49 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(module) {/*
@@ -7408,10 +7303,10 @@ return /******/ (function(modules) { // webpackBootstrap
 		return stylis
 	}));
 
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(50)(module)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(53)(module)))
 
 /***/ }),
-/* 50 */
+/* 53 */
 /***/ (function(module, exports) {
 
 	module.exports = function(module) {
@@ -7427,7 +7322,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ }),
-/* 51 */
+/* 54 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -7452,26 +7347,26 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ }),
-/* 52 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	exports.__esModule = true;
 
-	var _interleave = __webpack_require__(53);
+	var _interleave = __webpack_require__(56);
 
 	var _interleave2 = _interopRequireDefault(_interleave);
 
-	var _flatten = __webpack_require__(40);
+	var _flatten = __webpack_require__(43);
 
 	var _flatten2 = _interopRequireDefault(_flatten);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var babelPluginFlowReactPropTypes_proptype_RuleSet = __webpack_require__(45).babelPluginFlowReactPropTypes_proptype_RuleSet || __webpack_require__(46).any;
+	var babelPluginFlowReactPropTypes_proptype_RuleSet = __webpack_require__(48).babelPluginFlowReactPropTypes_proptype_RuleSet || __webpack_require__(49).any;
 
-	var babelPluginFlowReactPropTypes_proptype_Interpolation = __webpack_require__(45).babelPluginFlowReactPropTypes_proptype_Interpolation || __webpack_require__(46).any;
+	var babelPluginFlowReactPropTypes_proptype_Interpolation = __webpack_require__(48).babelPluginFlowReactPropTypes_proptype_Interpolation || __webpack_require__(49).any;
 
 	exports.default = function (strings) {
 	  for (var _len = arguments.length, interpolations = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
@@ -7484,14 +7379,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ }),
-/* 53 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	exports.__esModule = true;
 
-	var babelPluginFlowReactPropTypes_proptype_Interpolation = __webpack_require__(45).babelPluginFlowReactPropTypes_proptype_Interpolation || __webpack_require__(46).any;
+	var babelPluginFlowReactPropTypes_proptype_Interpolation = __webpack_require__(48).babelPluginFlowReactPropTypes_proptype_Interpolation || __webpack_require__(49).any;
 
 	exports.default = function (strings, interpolations) {
 	  return interpolations.reduce(function (array, interp, i) {
@@ -7502,7 +7397,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ }),
-/* 54 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -7515,15 +7410,15 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _StyleSheet = __webpack_require__(55);
+	var _StyleSheet = __webpack_require__(58);
 
 	var _StyleSheet2 = _interopRequireDefault(_StyleSheet);
 
-	var _StyleSheetManager = __webpack_require__(59);
+	var _StyleSheetManager = __webpack_require__(62);
 
 	var _StyleSheetManager2 = _interopRequireDefault(_StyleSheetManager);
 
-	var _nonce = __webpack_require__(58);
+	var _nonce = __webpack_require__(61);
 
 	var _nonce2 = _interopRequireDefault(_nonce);
 
@@ -7533,7 +7428,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	/* eslint-disable no-underscore-dangle */
 
 
-	var babelPluginFlowReactPropTypes_proptype_Tag = __webpack_require__(55).babelPluginFlowReactPropTypes_proptype_Tag || __webpack_require__(46).any;
+	var babelPluginFlowReactPropTypes_proptype_Tag = __webpack_require__(58).babelPluginFlowReactPropTypes_proptype_Tag || __webpack_require__(49).any;
 
 	var ServerTag = function () {
 	  function ServerTag(isLocal) {
@@ -7676,7 +7571,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ }),
-/* 55 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -7692,11 +7587,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _BrowserStyleSheet = __webpack_require__(56);
+	var _BrowserStyleSheet = __webpack_require__(59);
 
 	var _BrowserStyleSheet2 = _interopRequireDefault(_BrowserStyleSheet);
 
-	var _ServerStyleSheet = __webpack_require__(54);
+	var _ServerStyleSheet = __webpack_require__(57);
 
 	var _ServerStyleSheet2 = _interopRequireDefault(_ServerStyleSheet);
 
@@ -7881,7 +7776,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = StyleSheet;
 
 /***/ }),
-/* 56 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -7889,15 +7784,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.__esModule = true;
 	exports.COMPONENTS_PER_TAG = undefined;
 
-	var _extractCompsFromCSS = __webpack_require__(57);
+	var _extractCompsFromCSS = __webpack_require__(60);
 
 	var _extractCompsFromCSS2 = _interopRequireDefault(_extractCompsFromCSS);
 
-	var _nonce = __webpack_require__(58);
+	var _nonce = __webpack_require__(61);
 
 	var _nonce2 = _interopRequireDefault(_nonce);
 
-	var _StyleSheet = __webpack_require__(55);
+	var _StyleSheet = __webpack_require__(58);
 
 	var _StyleSheet2 = _interopRequireDefault(_StyleSheet);
 
@@ -7923,7 +7818,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * */
 
 
-	var babelPluginFlowReactPropTypes_proptype_Tag = __webpack_require__(55).babelPluginFlowReactPropTypes_proptype_Tag || __webpack_require__(46).any;
+	var babelPluginFlowReactPropTypes_proptype_Tag = __webpack_require__(58).babelPluginFlowReactPropTypes_proptype_Tag || __webpack_require__(49).any;
 
 	var COMPONENTS_PER_TAG = exports.COMPONENTS_PER_TAG = 40;
 
@@ -8076,7 +7971,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ }),
-/* 57 */
+/* 60 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -8104,7 +7999,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ }),
-/* 58 */
+/* 61 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -8119,7 +8014,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ }),
-/* 59 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -8132,15 +8027,15 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _propTypes = __webpack_require__(46);
+	var _propTypes = __webpack_require__(49);
 
 	var _propTypes2 = _interopRequireDefault(_propTypes);
 
-	var _StyleSheet = __webpack_require__(55);
+	var _StyleSheet = __webpack_require__(58);
 
 	var _StyleSheet2 = _interopRequireDefault(_StyleSheet);
 
-	var _ServerStyleSheet = __webpack_require__(54);
+	var _ServerStyleSheet = __webpack_require__(57);
 
 	var _ServerStyleSheet2 = _interopRequireDefault(_ServerStyleSheet);
 
@@ -8188,7 +8083,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ }),
-/* 60 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -8201,45 +8096,45 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _react = __webpack_require__(1);
 
-	var _propTypes = __webpack_require__(46);
+	var _propTypes = __webpack_require__(49);
 
 	var _propTypes2 = _interopRequireDefault(_propTypes);
 
-	var _createWarnTooManyClasses = __webpack_require__(61);
+	var _createWarnTooManyClasses = __webpack_require__(64);
 
 	var _createWarnTooManyClasses2 = _interopRequireDefault(_createWarnTooManyClasses);
 
-	var _validAttr = __webpack_require__(62);
+	var _validAttr = __webpack_require__(65);
 
 	var _validAttr2 = _interopRequireDefault(_validAttr);
 
-	var _isTag = __webpack_require__(63);
+	var _isTag = __webpack_require__(66);
 
 	var _isTag2 = _interopRequireDefault(_isTag);
 
-	var _isStyledComponent = __webpack_require__(64);
+	var _isStyledComponent = __webpack_require__(67);
 
 	var _isStyledComponent2 = _interopRequireDefault(_isStyledComponent);
 
-	var _getComponentName = __webpack_require__(65);
+	var _getComponentName = __webpack_require__(68);
 
 	var _getComponentName2 = _interopRequireDefault(_getComponentName);
 
-	var _determineTheme = __webpack_require__(66);
+	var _determineTheme = __webpack_require__(69);
 
 	var _determineTheme2 = _interopRequireDefault(_determineTheme);
 
-	var _escape = __webpack_require__(67);
+	var _escape = __webpack_require__(70);
 
 	var _escape2 = _interopRequireDefault(_escape);
 
-	var _ThemeProvider = __webpack_require__(68);
+	var _ThemeProvider = __webpack_require__(71);
 
-	var _StyleSheet = __webpack_require__(55);
+	var _StyleSheet = __webpack_require__(58);
 
 	var _StyleSheet2 = _interopRequireDefault(_StyleSheet);
 
-	var _ServerStyleSheet = __webpack_require__(54);
+	var _ServerStyleSheet = __webpack_require__(57);
 
 	var _ServerStyleSheet2 = _interopRequireDefault(_ServerStyleSheet);
 
@@ -8253,11 +8148,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var babelPluginFlowReactPropTypes_proptype_Theme = __webpack_require__(68).babelPluginFlowReactPropTypes_proptype_Theme || __webpack_require__(46).any;
+	var babelPluginFlowReactPropTypes_proptype_Theme = __webpack_require__(71).babelPluginFlowReactPropTypes_proptype_Theme || __webpack_require__(49).any;
 
-	var babelPluginFlowReactPropTypes_proptype_Target = __webpack_require__(45).babelPluginFlowReactPropTypes_proptype_Target || __webpack_require__(46).any;
+	var babelPluginFlowReactPropTypes_proptype_Target = __webpack_require__(48).babelPluginFlowReactPropTypes_proptype_Target || __webpack_require__(49).any;
 
-	var babelPluginFlowReactPropTypes_proptype_RuleSet = __webpack_require__(45).babelPluginFlowReactPropTypes_proptype_RuleSet || __webpack_require__(46).any;
+	var babelPluginFlowReactPropTypes_proptype_RuleSet = __webpack_require__(48).babelPluginFlowReactPropTypes_proptype_RuleSet || __webpack_require__(49).any;
 
 	// HACK for generating all static styles without needing to allocate
 	// an empty execution context every single time...
@@ -8538,7 +8433,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ }),
-/* 61 */
+/* 64 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -8567,7 +8462,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ }),
-/* 62 */
+/* 65 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -8605,7 +8500,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ }),
-/* 63 */
+/* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -8613,7 +8508,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.__esModule = true;
 	exports.default = isTag;
 
-	var babelPluginFlowReactPropTypes_proptype_Target = __webpack_require__(45).babelPluginFlowReactPropTypes_proptype_Target || __webpack_require__(46).any;
+	var babelPluginFlowReactPropTypes_proptype_Target = __webpack_require__(48).babelPluginFlowReactPropTypes_proptype_Target || __webpack_require__(49).any;
 
 	function isTag(target) /* : %checks */{
 	  return typeof target === 'string';
@@ -8621,7 +8516,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ }),
-/* 64 */
+/* 67 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -8629,7 +8524,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.__esModule = true;
 	exports.default = isStyledComponent;
 
-	var babelPluginFlowReactPropTypes_proptype_Target = __webpack_require__(45).babelPluginFlowReactPropTypes_proptype_Target || __webpack_require__(46).any;
+	var babelPluginFlowReactPropTypes_proptype_Target = __webpack_require__(48).babelPluginFlowReactPropTypes_proptype_Target || __webpack_require__(49).any;
 
 	function isStyledComponent(target) /* : %checks */{
 	  return typeof target === 'function' && typeof target.styledComponentId === 'string';
@@ -8637,7 +8532,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ }),
-/* 65 */
+/* 68 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -8653,7 +8548,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ }),
-/* 66 */
+/* 69 */
 /***/ (function(module, exports) {
 
 	"use strict";
@@ -8675,7 +8570,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports["default"];
 
 /***/ }),
-/* 67 */
+/* 70 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -8700,7 +8595,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ }),
-/* 68 */
+/* 71 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -8716,19 +8611,19 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _propTypes = __webpack_require__(46);
+	var _propTypes = __webpack_require__(49);
 
 	var _propTypes2 = _interopRequireDefault(_propTypes);
 
-	var _isPlainObject = __webpack_require__(43);
+	var _isPlainObject = __webpack_require__(46);
 
 	var _isPlainObject2 = _interopRequireDefault(_isPlainObject);
 
-	var _createBroadcast = __webpack_require__(69);
+	var _createBroadcast = __webpack_require__(72);
 
 	var _createBroadcast2 = _interopRequireDefault(_createBroadcast);
 
-	var _once = __webpack_require__(70);
+	var _once = __webpack_require__(73);
 
 	var _once2 = _interopRequireDefault(_once);
 
@@ -8742,7 +8637,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	/* globals React$Element */
 
 
-	var babelPluginFlowReactPropTypes_proptype_Broadcast = __webpack_require__(69).babelPluginFlowReactPropTypes_proptype_Broadcast || __webpack_require__(46).any;
+	var babelPluginFlowReactPropTypes_proptype_Broadcast = __webpack_require__(72).babelPluginFlowReactPropTypes_proptype_Broadcast || __webpack_require__(49).any;
 
 	// NOTE: DO NOT CHANGE, changing this is a semver major change!
 	var CHANNEL = exports.CHANNEL = '__styled-components__';
@@ -8755,7 +8650,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	});
 
 	if (true) Object.defineProperty(exports, 'babelPluginFlowReactPropTypes_proptype_Theme', {
-	  value: __webpack_require__(46).shape({})
+	  value: __webpack_require__(49).shape({})
 	});
 
 
@@ -8866,8 +8761,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	}(_react.Component);
 
 	ThemeProvider.propTypes = {
-	  children: __webpack_require__(46).any,
-	  theme: __webpack_require__(46).oneOfType([__webpack_require__(46).shape({}), __webpack_require__(46).func]).isRequired
+	  children: __webpack_require__(49).any,
+	  theme: __webpack_require__(49).oneOfType([__webpack_require__(49).shape({}), __webpack_require__(49).func]).isRequired
 	};
 
 
@@ -8878,17 +8773,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ }),
-/* 69 */
+/* 72 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 
 	exports.__esModule = true;
 	if (true) Object.defineProperty(exports, "babelPluginFlowReactPropTypes_proptype_Broadcast", {
-	  value: __webpack_require__(46).shape({
-	    publish: __webpack_require__(46).func.isRequired,
-	    subscribe: __webpack_require__(46).func.isRequired,
-	    unsubscribe: __webpack_require__(46).func.isRequired
+	  value: __webpack_require__(49).shape({
+	    publish: __webpack_require__(49).func.isRequired,
+	    subscribe: __webpack_require__(49).func.isRequired,
+	    unsubscribe: __webpack_require__(49).func.isRequired
 	  })
 	});
 	/**
@@ -8936,7 +8831,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports["default"];
 
 /***/ }),
-/* 70 */
+/* 73 */
 /***/ (function(module, exports) {
 
 	"use strict";
@@ -8958,22 +8853,22 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports["default"];
 
 /***/ }),
-/* 71 */
+/* 74 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(module, process) {'use strict';
 
 	exports.__esModule = true;
 
-	var _hash = __webpack_require__(72);
+	var _hash = __webpack_require__(75);
 
 	var _hash2 = _interopRequireDefault(_hash);
 
-	var _StyleSheet = __webpack_require__(55);
+	var _StyleSheet = __webpack_require__(58);
 
 	var _StyleSheet2 = _interopRequireDefault(_StyleSheet);
 
-	var _isStyledComponent = __webpack_require__(64);
+	var _isStyledComponent = __webpack_require__(67);
 
 	var _isStyledComponent2 = _interopRequireDefault(_isStyledComponent);
 
@@ -8981,13 +8876,13 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	var babelPluginFlowReactPropTypes_proptype_Stringifier = __webpack_require__(45).babelPluginFlowReactPropTypes_proptype_Stringifier || __webpack_require__(46).any;
+	var babelPluginFlowReactPropTypes_proptype_Stringifier = __webpack_require__(48).babelPluginFlowReactPropTypes_proptype_Stringifier || __webpack_require__(49).any;
 
-	var babelPluginFlowReactPropTypes_proptype_Flattener = __webpack_require__(45).babelPluginFlowReactPropTypes_proptype_Flattener || __webpack_require__(46).any;
+	var babelPluginFlowReactPropTypes_proptype_Flattener = __webpack_require__(48).babelPluginFlowReactPropTypes_proptype_Flattener || __webpack_require__(49).any;
 
-	var babelPluginFlowReactPropTypes_proptype_NameGenerator = __webpack_require__(45).babelPluginFlowReactPropTypes_proptype_NameGenerator || __webpack_require__(46).any;
+	var babelPluginFlowReactPropTypes_proptype_NameGenerator = __webpack_require__(48).babelPluginFlowReactPropTypes_proptype_NameGenerator || __webpack_require__(49).any;
 
-	var babelPluginFlowReactPropTypes_proptype_RuleSet = __webpack_require__(45).babelPluginFlowReactPropTypes_proptype_RuleSet || __webpack_require__(46).any;
+	var babelPluginFlowReactPropTypes_proptype_RuleSet = __webpack_require__(48).babelPluginFlowReactPropTypes_proptype_RuleSet || __webpack_require__(49).any;
 
 	var isStaticRules = function isStaticRules(rules, attrs) {
 	  for (var i = 0; i < rules.length; i += 1) {
@@ -9090,10 +8985,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 	module.exports = exports['default'];
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(50)(module), __webpack_require__(3)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(53)(module), __webpack_require__(3)))
 
 /***/ }),
-/* 72 */
+/* 75 */
 /***/ (function(module, exports) {
 
 	"use strict";
@@ -9167,20 +9062,20 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports["default"];
 
 /***/ }),
-/* 73 */
+/* 76 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	exports.__esModule = true;
 
-	var _domElements = __webpack_require__(74);
+	var _domElements = __webpack_require__(77);
 
 	var _domElements2 = _interopRequireDefault(_domElements);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var babelPluginFlowReactPropTypes_proptype_Target = __webpack_require__(45).babelPluginFlowReactPropTypes_proptype_Target || __webpack_require__(46).any;
+	var babelPluginFlowReactPropTypes_proptype_Target = __webpack_require__(48).babelPluginFlowReactPropTypes_proptype_Target || __webpack_require__(49).any;
 
 	exports.default = function (styledComponent, constructWithOptions) {
 	  var styled = function styled(tag) {
@@ -9198,7 +9093,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ }),
-/* 74 */
+/* 77 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -9214,28 +9109,28 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ }),
-/* 75 */
+/* 78 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	exports.__esModule = true;
 
-	var _hash = __webpack_require__(72);
+	var _hash = __webpack_require__(75);
 
 	var _hash2 = _interopRequireDefault(_hash);
 
-	var _StyleSheet = __webpack_require__(55);
+	var _StyleSheet = __webpack_require__(58);
 
 	var _StyleSheet2 = _interopRequireDefault(_StyleSheet);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var babelPluginFlowReactPropTypes_proptype_Stringifier = __webpack_require__(45).babelPluginFlowReactPropTypes_proptype_Stringifier || __webpack_require__(46).any;
+	var babelPluginFlowReactPropTypes_proptype_Stringifier = __webpack_require__(48).babelPluginFlowReactPropTypes_proptype_Stringifier || __webpack_require__(49).any;
 
-	var babelPluginFlowReactPropTypes_proptype_NameGenerator = __webpack_require__(45).babelPluginFlowReactPropTypes_proptype_NameGenerator || __webpack_require__(46).any;
+	var babelPluginFlowReactPropTypes_proptype_NameGenerator = __webpack_require__(48).babelPluginFlowReactPropTypes_proptype_NameGenerator || __webpack_require__(49).any;
 
-	var babelPluginFlowReactPropTypes_proptype_Interpolation = __webpack_require__(45).babelPluginFlowReactPropTypes_proptype_Interpolation || __webpack_require__(46).any;
+	var babelPluginFlowReactPropTypes_proptype_Interpolation = __webpack_require__(48).babelPluginFlowReactPropTypes_proptype_Interpolation || __webpack_require__(49).any;
 
 	var replaceWhitespace = function replaceWhitespace(str) {
 	  return str.replace(/\s|\\n/g, '');
@@ -9265,26 +9160,26 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ }),
-/* 76 */
+/* 79 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	exports.__esModule = true;
 
-	var _hash = __webpack_require__(72);
+	var _hash = __webpack_require__(75);
 
 	var _hash2 = _interopRequireDefault(_hash);
 
-	var _StyleSheet = __webpack_require__(55);
+	var _StyleSheet = __webpack_require__(58);
 
 	var _StyleSheet2 = _interopRequireDefault(_StyleSheet);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var babelPluginFlowReactPropTypes_proptype_Stringifier = __webpack_require__(45).babelPluginFlowReactPropTypes_proptype_Stringifier || __webpack_require__(46).any;
+	var babelPluginFlowReactPropTypes_proptype_Stringifier = __webpack_require__(48).babelPluginFlowReactPropTypes_proptype_Stringifier || __webpack_require__(49).any;
 
-	var babelPluginFlowReactPropTypes_proptype_Interpolation = __webpack_require__(45).babelPluginFlowReactPropTypes_proptype_Interpolation || __webpack_require__(46).any;
+	var babelPluginFlowReactPropTypes_proptype_Interpolation = __webpack_require__(48).babelPluginFlowReactPropTypes_proptype_Interpolation || __webpack_require__(49).any;
 
 	exports.default = function (stringifyRules, css) {
 	  var injectGlobal = function injectGlobal(strings) {
@@ -9307,7 +9202,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ }),
-/* 77 */
+/* 80 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -9316,9 +9211,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-	var babelPluginFlowReactPropTypes_proptype_Target = __webpack_require__(45).babelPluginFlowReactPropTypes_proptype_Target || __webpack_require__(46).any;
+	var babelPluginFlowReactPropTypes_proptype_Target = __webpack_require__(48).babelPluginFlowReactPropTypes_proptype_Target || __webpack_require__(49).any;
 
-	var babelPluginFlowReactPropTypes_proptype_Interpolation = __webpack_require__(45).babelPluginFlowReactPropTypes_proptype_Interpolation || __webpack_require__(46).any;
+	var babelPluginFlowReactPropTypes_proptype_Interpolation = __webpack_require__(48).babelPluginFlowReactPropTypes_proptype_Interpolation || __webpack_require__(49).any;
 
 	exports.default = function (css) {
 	  var constructWithOptions = function constructWithOptions(componentConstructor, tag) {
@@ -9358,7 +9253,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ }),
-/* 78 */
+/* 81 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -9371,21 +9266,21 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _propTypes = __webpack_require__(46);
+	var _propTypes = __webpack_require__(49);
 
 	var _propTypes2 = _interopRequireDefault(_propTypes);
 
-	var _hoistNonReactStatics = __webpack_require__(79);
+	var _hoistNonReactStatics = __webpack_require__(82);
 
 	var _hoistNonReactStatics2 = _interopRequireDefault(_hoistNonReactStatics);
 
-	var _ThemeProvider = __webpack_require__(68);
+	var _ThemeProvider = __webpack_require__(71);
 
-	var _isStyledComponent2 = __webpack_require__(64);
+	var _isStyledComponent2 = __webpack_require__(67);
 
 	var _isStyledComponent3 = _interopRequireDefault(_isStyledComponent2);
 
-	var _determineTheme = __webpack_require__(66);
+	var _determineTheme = __webpack_require__(69);
 
 	var _determineTheme2 = _interopRequireDefault(_determineTheme);
 
@@ -9493,7 +9388,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ }),
-/* 79 */
+/* 82 */
 /***/ (function(module, exports) {
 
 	/**
@@ -9549,517 +9444,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ }),
-/* 80 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	exports.InputWrapper = undefined;
-
-	var _templateObject = _taggedTemplateLiteral(['\n\tpadding:15px 0 0;\n\tposition:relative;\n\t//flex-basis:var(--flexBasis);\n\t//margin: 10px;\n\t//flex-grow : 1;\n\n\t&:after{\n        content:"', '";\n        position: absolute;\n        left:0px;\n        font-size: var(--infoFontSize);\n        color: ', ';\n\t    background: var(--infoBgColor);\n\t    padding: 5px;\n\t    box-shadow: var(--infoBoxShadow);\n\t    display: ', ';\n\t    z-index: 1;\n    }\n\n\tinput{\n\t\tposition:relative;\n\t\tz-index:1;\n\t\toutline:none;\n\t\tborder:none;\n\t\tborder-bottom:', ';\n\t\tborder-bottom-color: var(--inputBorderColor);\n\t\tcolor: var(--inputColor);\n\t\twidth:100%;\n\t\tbackground:transparent;\n\t\tfont-size : var(--inputFontSize);\n\t\tbox-sizing : border-box;\n\t}\n\n\tlabel{\n\t\tposition:absolute;\n\t\tleft:0px;\n\t\ttop:14px;\n\t\tcolor: var(--labelColor);\n\t\ttransform:', ';\n\t\ttransform-origin:top left;\n\t\ttransition:all 0.4s;\t\n\t\tfont-size : var(--labelFontSize);\t\t\t\t\t\t\t\n\t}\n'], ['\n\tpadding:15px 0 0;\n\tposition:relative;\n\t//flex-basis:var(--flexBasis);\n\t//margin: 10px;\n\t//flex-grow : 1;\n\n\t&:after{\n        content:"', '";\n        position: absolute;\n        left:0px;\n        font-size: var(--infoFontSize);\n        color: ', ';\n\t    background: var(--infoBgColor);\n\t    padding: 5px;\n\t    box-shadow: var(--infoBoxShadow);\n\t    display: ', ';\n\t    z-index: 1;\n    }\n\n\tinput{\n\t\tposition:relative;\n\t\tz-index:1;\n\t\toutline:none;\n\t\tborder:none;\n\t\tborder-bottom:', ';\n\t\tborder-bottom-color: var(--inputBorderColor);\n\t\tcolor: var(--inputColor);\n\t\twidth:100%;\n\t\tbackground:transparent;\n\t\tfont-size : var(--inputFontSize);\n\t\tbox-sizing : border-box;\n\t}\n\n\tlabel{\n\t\tposition:absolute;\n\t\tleft:0px;\n\t\ttop:14px;\n\t\tcolor: var(--labelColor);\n\t\ttransform:', ';\n\t\ttransform-origin:top left;\n\t\ttransition:all 0.4s;\t\n\t\tfont-size : var(--labelFontSize);\t\t\t\t\t\t\t\n\t}\n']);
-
-	var _styledComponents = __webpack_require__(39);
-
-	var _styledComponents2 = _interopRequireDefault(_styledComponents);
-
-	function _interopRequireDefault(obj) {
-		return obj && obj.__esModule ? obj : { default: obj };
-	}
-
-	function _taggedTemplateLiteral(strings, raw) {
-		return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
-	}
-
-	var InputWrapper = _styledComponents2.default.div(_templateObject, function (props) {
-		return props.isValid ? props.helpText : props.errorText;
-	}, function (props) {
-		return props.isValid ? 'var(--defaultGreen)' : 'var(--defaultRed)';
-	}, function (props) {
-		return props.isValid && props.helpText || !props.isValid && props.errorText ? 'block' : 'none';
-	}, function (props) {
-		return props.isValid ? '1px solid' : 'none';
-	}, function (props) {
-		return props.isDown ? "translateY(0) scale(1)" : "translateY(-10px) scale(0.6)";
-	});
-
-	exports.InputWrapper = InputWrapper;
-
-/***/ }),
-/* 81 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	var _createClass = function () {
-		function defineProperties(target, props) {
-			for (var i = 0; i < props.length; i++) {
-				var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
-			}
-		}return function (Constructor, protoProps, staticProps) {
-			if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
-		};
-	}();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _closePopupListener = __webpack_require__(82);
-
-	var _closePopupListener2 = _interopRequireDefault(_closePopupListener);
-
-	var _sharedStyledComponents = __webpack_require__(38);
-
-	var _debounce = __webpack_require__(84);
-
-	var _debounce2 = _interopRequireDefault(_debounce);
-
-	var _keyPressHandlerOnList = __webpack_require__(85);
-
-	var _keyPressHandlerOnList2 = _interopRequireDefault(_keyPressHandlerOnList);
-
-	var _styledComponents = __webpack_require__(86);
-
-	var _propTypes = __webpack_require__(46);
-
-	var _propTypes2 = _interopRequireDefault(_propTypes);
-
-	function _interopRequireDefault(obj) {
-		return obj && obj.__esModule ? obj : { default: obj };
-	}
-
-	function _classCallCheck(instance, Constructor) {
-		if (!(instance instanceof Constructor)) {
-			throw new TypeError("Cannot call a class as a function");
-		}
-	}
-
-	function _possibleConstructorReturn(self, call) {
-		if (!self) {
-			throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-		}return call && ((typeof call === "undefined" ? "undefined" : _typeof(call)) === "object" || typeof call === "function") ? call : self;
-	}
-
-	function _inherits(subClass, superClass) {
-		if (typeof superClass !== "function" && superClass !== null) {
-			throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === "undefined" ? "undefined" : _typeof(superClass)));
-		}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
-	}
-
-	var AutoComplete = function (_React$PureComponent) {
-		_inherits(AutoComplete, _React$PureComponent);
-
-		function AutoComplete(props) {
-			_classCallCheck(this, AutoComplete);
-
-			var _this = _possibleConstructorReturn(this, (AutoComplete.__proto__ || Object.getPrototypeOf(AutoComplete)).call(this, props));
-
-			_this.blurHandler = _this.blurHandler.bind(_this);
-			_this.focusHandler = _this.focusHandler.bind(_this);
-			_this.onChangeHandler = _this.onChangeHandler.bind(_this);
-			_this.keyPressHandlerInstance = new _keyPressHandlerOnList2.default(0);
-			_this.handleKeyPress = _this.handleKeyPress.bind(_this);
-			_this.preventDropdownClose = _this.preventDropdownClose.bind(_this);
-			_this.setItem = _this.setItem.bind(_this);
-			_this.onListItemClick = _this.onListItemClick.bind(_this);
-
-			_this.state = {
-				isDown: props.value && props.value.name ? false : true,
-				autoCompList: [],
-				value: props.value || null,
-				isFocused: false,
-				selectedListIndex: -1
-			};
-			return _this;
-		}
-
-		_createClass(AutoComplete, [{
-			key: 'componentWillMount',
-			value: function componentWillMount() {
-				this.closePopupKey = _closePopupListener2.default.addListenerFunc(this.closePopup.bind(this));
-				//ClosePopupListener.addListenerFunc(this.closePopup.bind(this))
-			}
-		}, {
-			key: 'closePopup',
-			value: function closePopup(e) {
-				if (!e.target.closest('#' + this.props.name)) {
-					this.keyPressHandlerInstance.updateListLength.call(this.keyPressHandlerInstance, 0);
-					this.setState({
-						autoCompList: []
-					});
-				}
-			}
-		}, {
-			key: 'componentWillUnmount',
-			value: function componentWillUnmount() {
-				_closePopupListener2.default.removeListenerFunc(this.closePopupKey);
-				//ClosePopupListener.removeListenerFunc(this.closePopup)
-			}
-		}, {
-			key: 'debounceOnChangeHandler',
-			value: function debounceOnChangeHandler(value) {
-				var _this2 = this;
-
-				var fetchPromise = this.props.fetchFunc;
-				fetchPromise(value).then(function (res) {
-					_this2.keyPressHandlerInstance.updateListLength.call(_this2.keyPressHandlerInstance, res.length);
-					_this2.setState({
-						autoCompList: res
-					});
-				}, function (err) {
-					_this2.keyPressHandlerInstance.updateListLength.call(_this2.keyPressHandlerInstance, 0);
-					_this2.setState({
-						autoCompList: []
-					});
-				});
-			}
-		}, {
-			key: 'onChangeHandler',
-			value: function onChangeHandler(e) {
-				var value = e.target.value;
-				(0, _debounce2.default)(this.debounceOnChangeHandler(value), 200);
-
-				this.setState({
-					value: {
-						name: value,
-						isAutoCompleteListItem: false
-					}
-				});
-			}
-		}, {
-			key: 'componentWillReceiveProps',
-			value: function componentWillReceiveProps(nextProps) {
-				this.setState({
-					value: nextProps.value || null,
-					isDown: nextProps.value && nextProps.value.name ? false : true
-				});
-			}
-		}, {
-			key: 'focusHandler',
-			value: function focusHandler(e) {
-				this.setState({
-					isDown: false,
-					isFocused: true
-				});
-			}
-		}, {
-			key: 'blurHandler',
-			value: function blurHandler(e) {
-				if (!this.forceDropdownOpen) {
-
-					this.setState({
-						isFocused: false
-					});
-
-					if (!this.state.value) {
-						this.setState({
-							isDown: true
-						});
-					} else if (this.state.value && !this.state.value.isAutoCompleteListItem) {
-						this.props.setItem(this.props.name, this.state.value);
-					}
-				}
-
-				this.forceDropdownOpen = false;
-			}
-		}, {
-			key: 'setSelectedItem',
-			value: function setSelectedItem() {
-				var selectedListItemId = null;
-				if (this.state.selectedListIndex >= 0) {
-
-					selectedListItemId = this.state.autoCompList[this.state.selectedListIndex].id;
-				}
-
-				if (selectedListItemId) {
-					this.setItem(selectedListItemId);
-				}
-			}
-		}, {
-			key: 'setItem',
-			value: function setItem(id) {
-
-				var ret = null,
-				    list = this.state.autoCompList;
-
-				for (var i = 0; i < list.length; i++) {
-					var item = list[i];
-					if (item.id == id) {
-						ret = item;
-						break;
-					}
-				}
-
-				if (ret) {
-					ret.isAutoCompleteListItem = true;
-					this.props.setItem(this.props.name, ret);
-					this.keyPressHandlerInstance.updateListLength.call(this.keyPressHandlerInstance, 0);
-					this.setState({
-						autoCompList: [],
-						value: ret
-					});
-				}
-			}
-		}, {
-			key: 'onListItemClick',
-			value: function onListItemClick(e) {
-				this.setItem(e.target.id);
-			}
-		}, {
-			key: 'handleKeyPress',
-			value: function handleKeyPress(e) {
-				if (e.keyCode == '13') {
-					this.setSelectedItem();
-				} else {
-					var index = this.keyPressHandlerInstance.handleKeyPress.call(this.keyPressHandlerInstance, e.keyCode);
-					console.log(index);
-					this.setState({
-						selectedListIndex: index
-					});
-				}
-			}
-		}, {
-			key: 'preventDropdownClose',
-			value: function preventDropdownClose() {
-				this.forceDropdownOpen = true;
-			}
-		}, {
-			key: 'render',
-			value: function render() {
-				var _this3 = this;
-
-				var props = this.props,
-				    list = this.state.autoCompList;
-
-				var innerHtml = this.state.isFocused && list.map(function (item, index) {
-					if (index == _this3.state.selectedListIndex) {
-						return _react2.default.createElement(_styledComponents.SelectedListItem, { id: item.id,
-							onClick: _this3.onListItemClick,
-							onMouseDown: _this3.preventDropdownClose }, item.label);
-					}
-					return _react2.default.createElement(_styledComponents.ListItem, { id: item.id,
-						onClick: _this3.onListItemClick,
-						onMouseDown: _this3.preventDropdownClose }, item.label);
-				});
-
-				return _react2.default.createElement(_styledComponents.Wrapper, { tabIndex: -1, id: props.name,
-					onKeyDown: this.handleKeyPress }, _react2.default.createElement(_styledComponents.SearchBox, { isDown: this.state.isDown,
-					isValid: props.isValid || props.isPristine,
-					errorText: props.errorText || '',
-					helpText: props.helpText || '' }, _react2.default.createElement('input', { type: 'text', value: this.state.value && this.state.value.name || '',
-					onChange: this.onChangeHandler,
-					onBlur: this.blurHandler,
-					onFocus: this.focusHandler,
-					readOnly: props.readOnly }), _react2.default.createElement('label', null, props.label), _react2.default.createElement(_sharedStyledComponents.AnimatedBorder, { valid: props.isValid || props.isPristine,
-					focused: this.state.isFocused })), _react2.default.createElement(_styledComponents.SearchList, null, innerHtml));
-			}
-		}]);
-
-		return AutoComplete;
-	}(_react2.default.PureComponent);
-
-	AutoComplete.propTypes = {
-		label: _propTypes2.default.string.isRequired,
-		name: _propTypes2.default.string.isRequired,
-		setItem: _propTypes2.default.func.isRequired,
-		fetchFunc: _propTypes2.default.func.isRequired
-	};
-
-	exports.default = AutoComplete;
-
-/***/ }),
-/* 82 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	var _createClass = function () {
-		function defineProperties(target, props) {
-			for (var i = 0; i < props.length; i++) {
-				var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
-			}
-		}return function (Constructor, protoProps, staticProps) {
-			if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
-		};
-	}();
-
-	var _commonFunc = __webpack_require__(83);
-
-	var _commonFunc2 = _interopRequireDefault(_commonFunc);
-
-	function _interopRequireDefault(obj) {
-		return obj && obj.__esModule ? obj : { default: obj };
-	}
-
-	function _classCallCheck(instance, Constructor) {
-		if (!(instance instanceof Constructor)) {
-			throw new TypeError("Cannot call a class as a function");
-		}
-	}
-
-	var ClosePopupListener = function () {
-		function ClosePopupListener() {
-			_classCallCheck(this, ClosePopupListener);
-		}
-
-		_createClass(ClosePopupListener, [{
-			key: 'init',
-			value: function init() {
-				this.eventListeners = {};
-				document.addEventListener('click', this.eventListenersFunc.bind(this));
-			}
-		}, {
-			key: 'eventListenersFunc',
-			value: function eventListenersFunc(e) {
-				var _this = this;
-
-				(Object.keys(this.eventListeners) || []).map(function (key) {
-					_this.eventListeners[key](e);
-				});
-			}
-		}, {
-			key: 'addListenerFunc',
-			value: function addListenerFunc(func) {
-				if (typeof func != "function") {
-					return null;
-				}
-				var key = _commonFunc2.default.randString(10);
-				while (this.eventListeners[key]) {
-					key = _commonFunc2.default.randString(10);
-				}
-
-				this.eventListeners[key] = func;
-				return key;
-			}
-		}, {
-			key: 'removeListenerFunc',
-			value: function removeListenerFunc(key) {
-				if (key) {
-					delete this.eventListeners[key];
-				}
-			}
-		}, {
-			key: 'destroy',
-			value: function destroy() {
-				document.removeEventListener('click', this.eventListenersFunc.bind(this));
-			}
-		}]);
-
-		return ClosePopupListener;
-	}();
-
-	/*class ClosePopupListener{
-		// init(){
-		// 	this.eventListeners = {}
-		// 	document.addEventListener('click',this.eventListenersFunc.bind(this))
-		// }
-
-		// eventListenersFunc(e){
-		// 	(Object.keys(this.eventListeners)||[]).map((key)=>{
-		// 		(this.eventListeners[key])(e)
-		// 	})
-		// }
-
-		addListenerFunc(func){
-			// if(typeof func != "function"){
-			// 	return null
-			// }
-			// let key = CommonFunc.randString(10)
-			// while(this.eventListeners[key]){
-			// 	key = CommonFunc.randString(10)
-			// }
-
-			// this.eventListeners[key] = func
-			// return key
-			document.addEventListener('click',func)
-		}
-
-		removeListenerFunc(func){
-			// if(key){
-			// 	delete this.eventListeners[key]
-			// }
-			document.removeEventListener('click',func)
-		}
-
-		// destroy(){
-		// 	document.removeEventListener('click',this.eventListenersFunc.bind(this))
-		// }
-	}*/
-
-	exports.default = new ClosePopupListener();
-
-/***/ }),
 /* 83 */
-/***/ (function(module, exports) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	var _createClass = function () {
-		function defineProperties(target, props) {
-			for (var i = 0; i < props.length; i++) {
-				var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
-			}
-		}return function (Constructor, protoProps, staticProps) {
-			if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
-		};
-	}();
-
-	function _classCallCheck(instance, Constructor) {
-		if (!(instance instanceof Constructor)) {
-			throw new TypeError("Cannot call a class as a function");
-		}
-	}
-
-	var CommonFunc = function () {
-		function CommonFunc() {
-			_classCallCheck(this, CommonFunc);
-		}
-
-		_createClass(CommonFunc, [{
-			key: "randString",
-			value: function randString(x) {
-				var s = "";
-				while (s.length < x && x > 0) {
-					var r = Math.random();
-					s += r < 0.1 ? Math.floor(r * 100) : String.fromCharCode(Math.floor(r * 26) + (r > 0.5 ? 97 : 65));
-				}
-				return s;
-			}
-		}, {
-			key: "isUndefined",
-			value: function isUndefined(value) {
-				if (value || value === 0 || value == "" || value == false) {
-					return false;
-				}
-
-				return true;
-			}
-		}]);
-
-		return CommonFunc;
-	}();
-
-	exports.default = new CommonFunc();
-
-/***/ }),
-/* 84 */
 /***/ (function(module, exports) {
 
 	/**
@@ -10131,7 +9516,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ }),
-/* 85 */
+/* 84 */
 /***/ (function(module, exports) {
 
 	"use strict";
@@ -10210,54 +9595,94 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = KeyPressHandlerOnList;
 
 /***/ }),
-/* 86 */
+/* 85 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-		value: true
+	  value: true
 	});
-	exports.SelectedListItem = exports.ListItem = exports.SearchList = exports.SearchBox = exports.Wrapper = undefined;
+	exports.SelectedListItem = exports.ListItem = exports.SearchList = exports.SearchBox = exports.Wrapper = exports.CSSVariables = undefined;
 
-	var _templateObject = _taggedTemplateLiteral(['\n\t//flex-basis: var(--flexBasis);\n\twidth : 100%;\n    position: relative;\n    //margin: 10px;\n    //flex-grow : 1;\n    outline : none;\n'], ['\n\t//flex-basis: var(--flexBasis);\n\twidth : 100%;\n    position: relative;\n    //margin: 10px;\n    //flex-grow : 1;\n    outline : none;\n']),
-	    _templateObject2 = _taggedTemplateLiteral(['\n\tposition : relative;\n\tpadding: 15px 0 0;\n\tinput{\n\t\tposition:relative;\n\t\tz-index:1;\n\t\twidth: 100%;\n\t    border: none;\n\t    border-bottom: ', ';\n\t    border-bottom-color: var(--inputBorderColor);\n\t    box-sizing: border-box;\n\t    font-size: var(--inputFontSize);\n\t    background-color:transparent;\n\t    color : var(--inputColor);\t\n\t}\n\n\tlabel{\n\t\tposition:absolute;\n\t\tleft : 0px;\n\t\ttop : 14px;\n\t\tcolor: var(--labelColor);\n\t\ttransform:', ';\n\t\ttransform-origin:top left;\n\t\ttransition:all 0.4s;\n\t\tfont-size : var(--labelFontSize);\n\t}\n\n\t&:after{\n\t\tcontent:"', '";\n        position: absolute;\n        font-size: var(--infoFontSize);\n        color: ', ';\n    \tleft: 0px;\n    \tbackground: var(--infoBgColor);\n    \tpadding: 5px;\n    \tbox-shadow: var(--infoBoxShadow);\n    \tdisplay: ', ';\n    \tz-index: 1;\n\t}\n\t\n'], ['\n\tposition : relative;\n\tpadding: 15px 0 0;\n\tinput{\n\t\tposition:relative;\n\t\tz-index:1;\n\t\twidth: 100%;\n\t    border: none;\n\t    border-bottom: ', ';\n\t    border-bottom-color: var(--inputBorderColor);\n\t    box-sizing: border-box;\n\t    font-size: var(--inputFontSize);\n\t    background-color:transparent;\n\t    color : var(--inputColor);\t\n\t}\n\n\tlabel{\n\t\tposition:absolute;\n\t\tleft : 0px;\n\t\ttop : 14px;\n\t\tcolor: var(--labelColor);\n\t\ttransform:', ';\n\t\ttransform-origin:top left;\n\t\ttransition:all 0.4s;\n\t\tfont-size : var(--labelFontSize);\n\t}\n\n\t&:after{\n\t\tcontent:"', '";\n        position: absolute;\n        font-size: var(--infoFontSize);\n        color: ', ';\n    \tleft: 0px;\n    \tbackground: var(--infoBgColor);\n    \tpadding: 5px;\n    \tbox-shadow: var(--infoBoxShadow);\n    \tdisplay: ', ';\n    \tz-index: 1;\n\t}\n\t\n']),
-	    _templateObject3 = _taggedTemplateLiteral(['\n\twidth: 100%;\n    position: absolute;\n    background: var(--dropdownBgColor);\n    box-shadow: 1px 1px 4px 0px #8e8181;\n    font-size: var(--inputFontSize);\n    color: var(--dropdownColor);\n    z-index:3;\n'], ['\n\twidth: 100%;\n    position: absolute;\n    background: var(--dropdownBgColor);\n    box-shadow: 1px 1px 4px 0px #8e8181;\n    font-size: var(--inputFontSize);\n    color: var(--dropdownColor);\n    z-index:3;\n']),
-	    _templateObject4 = _taggedTemplateLiteral(['\n\tbox-sizing: border-box;\n    padding: 3px 0px 3px 10px;\n    &:hover{\n    \tbackground-color: var(--dropdownHoverBgColor);\n\t    opacity: 0.8;\n\t    color: var(--dropdownHoverColor);\n    }\n'], ['\n\tbox-sizing: border-box;\n    padding: 3px 0px 3px 10px;\n    &:hover{\n    \tbackground-color: var(--dropdownHoverBgColor);\n\t    opacity: 0.8;\n\t    color: var(--dropdownHoverColor);\n    }\n']),
-	    _templateObject5 = _taggedTemplateLiteral(['\n\tbackground-color : var(--dropdownHoverBgColor);\n\topacity: 0.8;\n\tcolor: var(--dropdownHoverColor);\n'], ['\n\tbackground-color : var(--dropdownHoverBgColor);\n\topacity: 0.8;\n\tcolor: var(--dropdownHoverColor);\n']);
+	var _templateObject = _taggedTemplateLiteral(['\n  --labelColor : ', ';\n  --inputColor : ', ';\n  --inputBorderColor : ', ';\n  --helpTextColor : ', ';\n  --errorTextColor : ', ';\n  --dropdownColor : ', ';\n  --dropdownBgColor : ', ';\n  --dropdownInputBgColor : ', ';\n  --dropdownHoverColor : ', ';\n  --dropdownHoverBgColor : ', ';\n  --defaultGreen : ', ';\n  --defaultRed : ', ';\n  --defaultBlue :', ';\n  --labelFontSize : ', ';\n  --inputFontSize : ', ';\n  --infoFontSize : ', ';\n  --infoBgColor : ', ';\n  --infoBoxShadow : ', ';\n'], ['\n  --labelColor : ', ';\n  --inputColor : ', ';\n  --inputBorderColor : ', ';\n  --helpTextColor : ', ';\n  --errorTextColor : ', ';\n  --dropdownColor : ', ';\n  --dropdownBgColor : ', ';\n  --dropdownInputBgColor : ', ';\n  --dropdownHoverColor : ', ';\n  --dropdownHoverBgColor : ', ';\n  --defaultGreen : ', ';\n  --defaultRed : ', ';\n  --defaultBlue :', ';\n  --labelFontSize : ', ';\n  --inputFontSize : ', ';\n  --infoFontSize : ', ';\n  --infoBgColor : ', ';\n  --infoBoxShadow : ', ';\n']),
+	    _templateObject2 = _taggedTemplateLiteral(['\n\t//flex-basis: var(--flexBasis);\n\twidth : 100%;\n    position: relative;\n    //margin: 10px;\n    //flex-grow : 1;\n    outline : none;\n'], ['\n\t//flex-basis: var(--flexBasis);\n\twidth : 100%;\n    position: relative;\n    //margin: 10px;\n    //flex-grow : 1;\n    outline : none;\n']),
+	    _templateObject3 = _taggedTemplateLiteral(['\n\tposition : relative;\n\tpadding: 15px 0 0;\n\tinput{\n\t\tposition:relative;\n\t\tz-index:1;\n\t\twidth: 100%;\n\t    border: none;\n\t    border-bottom: ', ';\n\t    border-bottom-color: var(--inputBorderColor);\n\t    box-sizing: border-box;\n\t    font-size: var(--inputFontSize);\n\t    background-color:transparent;\n\t    color : var(--inputColor);\t\n\t    outline : none;\n\t}\n\n\tlabel{\n\t\tposition:absolute;\n\t\tleft : 0px;\n\t\ttop : 14px;\n\t\tcolor: var(--labelColor);\n\t\ttransform:', ';\n\t\ttransform-origin:top left;\n\t\ttransition:all 0.4s;\n\t\tfont-size : var(--labelFontSize);\n\t}\n\n\t&:after{\n\t\tcontent:"', '";\n        position: absolute;\n        font-size: var(--infoFontSize);\n        color: ', ';\n    \tleft: 0px;\n    \tbackground: var(--infoBgColor);\n    \tpadding: 5px;\n    \tbox-shadow: var(--infoBoxShadow);\n    \tdisplay: ', ';\n    \tz-index: 1;\n\t}\n\t\n'], ['\n\tposition : relative;\n\tpadding: 15px 0 0;\n\tinput{\n\t\tposition:relative;\n\t\tz-index:1;\n\t\twidth: 100%;\n\t    border: none;\n\t    border-bottom: ', ';\n\t    border-bottom-color: var(--inputBorderColor);\n\t    box-sizing: border-box;\n\t    font-size: var(--inputFontSize);\n\t    background-color:transparent;\n\t    color : var(--inputColor);\t\n\t    outline : none;\n\t}\n\n\tlabel{\n\t\tposition:absolute;\n\t\tleft : 0px;\n\t\ttop : 14px;\n\t\tcolor: var(--labelColor);\n\t\ttransform:', ';\n\t\ttransform-origin:top left;\n\t\ttransition:all 0.4s;\n\t\tfont-size : var(--labelFontSize);\n\t}\n\n\t&:after{\n\t\tcontent:"', '";\n        position: absolute;\n        font-size: var(--infoFontSize);\n        color: ', ';\n    \tleft: 0px;\n    \tbackground: var(--infoBgColor);\n    \tpadding: 5px;\n    \tbox-shadow: var(--infoBoxShadow);\n    \tdisplay: ', ';\n    \tz-index: 1;\n\t}\n\t\n']),
+	    _templateObject4 = _taggedTemplateLiteral(['\n\twidth: 100%;\n    position: absolute;\n    background: var(--dropdownBgColor);\n    box-shadow: 1px 1px 4px 0px #8e8181;\n    font-size: var(--inputFontSize);\n    color: var(--dropdownColor);\n    z-index:3;\n'], ['\n\twidth: 100%;\n    position: absolute;\n    background: var(--dropdownBgColor);\n    box-shadow: 1px 1px 4px 0px #8e8181;\n    font-size: var(--inputFontSize);\n    color: var(--dropdownColor);\n    z-index:3;\n']),
+	    _templateObject5 = _taggedTemplateLiteral(['\n\tbox-sizing: border-box;\n    padding: 3px 0px 3px 10px;\n    &:hover{\n    \tbackground-color: var(--dropdownHoverBgColor);\n\t    opacity: 0.8;\n\t    color: var(--dropdownHoverColor);\n    }\n'], ['\n\tbox-sizing: border-box;\n    padding: 3px 0px 3px 10px;\n    &:hover{\n    \tbackground-color: var(--dropdownHoverBgColor);\n\t    opacity: 0.8;\n\t    color: var(--dropdownHoverColor);\n    }\n']),
+	    _templateObject6 = _taggedTemplateLiteral(['\n\tbackground-color : var(--dropdownHoverBgColor);\n\topacity: 0.8;\n\tcolor: var(--dropdownHoverColor);\n'], ['\n\tbackground-color : var(--dropdownHoverBgColor);\n\topacity: 0.8;\n\tcolor: var(--dropdownHoverColor);\n']);
 
-	var _styledComponents = __webpack_require__(39);
+	var _styledComponents = __webpack_require__(42);
 
 	var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
 	function _interopRequireDefault(obj) {
-		return obj && obj.__esModule ? obj : { default: obj };
+	  return obj && obj.__esModule ? obj : { default: obj };
 	}
 
 	function _taggedTemplateLiteral(strings, raw) {
-		return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
+	  return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
 	}
 
-	var Wrapper = _styledComponents2.default.div(_templateObject);
-
-	var SearchBox = _styledComponents2.default.div(_templateObject2, function (props) {
-		return props.isValid ? '1px solid' : 'none';
+	var CSSVariables = _styledComponents2.default.div(_templateObject, function (props) {
+	  return props.LABEL_COLOR;
 	}, function (props) {
-		return props.isDown ? "translateY(0) scale(1)" : "translateY(-10px) scale(0.6)";
+	  return props.INPUT_COLOR;
 	}, function (props) {
-		return props.isValid ? props.helpText : props.errorText;
+	  return props.INPUT_BORDER_COLOR;
 	}, function (props) {
-		return props.isValid ? 'var(--defaultGreen)' : 'var(--defaultRed)';
+	  return props.HELPTEXT_COLOR;
 	}, function (props) {
-		return props.isValid && props.helpText || !props.isValid && props.errorText ? 'block' : 'none';
+	  return props.ERRORTEXT_COLOR;
+	}, function (props) {
+	  return props.DROPDOWN_COLOR;
+	}, function (props) {
+	  return props.DROPDOWN_BACKGROUND;
+	}, function (props) {
+	  return props.DROPDOWN_INPUT_BACKGROUND;
+	}, function (props) {
+	  return props.DROPDOWN_HOVER_COLOR;
+	}, function (props) {
+	  return props.DROPDOWN_HOVER_BG_COLOR;
+	}, function (props) {
+	  return props.DEFAULT_GREEN_COLOR;
+	}, function (props) {
+	  return props.DEFAULT_RED_COLOR;
+	}, function (props) {
+	  return props.DEFAULT_BLUE_COLOR;
+	}, function (props) {
+	  return props.LABEL_FONT_SIZE;
+	}, function (props) {
+	  return props.INPUT_FONT_SIZE;
+	}, function (props) {
+	  return props.INFO_FONT_SIZE;
+	}, function (props) {
+	  return props.INFO_BG_COLOR;
+	}, function (props) {
+	  return props.INFO_BOX_SHADOW;
 	});
 
-	var SearchList = _styledComponents2.default.div(_templateObject3);
+	var Wrapper = _styledComponents2.default.div(_templateObject2);
 
-	var ListItem = _styledComponents2.default.div(_templateObject4);
+	var SearchBox = _styledComponents2.default.div(_templateObject3, function (props) {
+	  return props.isValid ? '1px solid' : 'none';
+	}, function (props) {
+	  return props.isDown ? "translateY(0) scale(1)" : "translateY(-10px) scale(0.6)";
+	}, function (props) {
+	  return props.isValid ? props.helpText : props.errorText;
+	}, function (props) {
+	  return props.isValid ? 'var(--defaultGreen)' : 'var(--defaultRed)';
+	}, function (props) {
+	  return props.isValid && props.helpText || !props.isValid && props.errorText ? 'block' : 'none';
+	});
 
-	var SelectedListItem = ListItem.extend(_templateObject5);
+	var SearchList = _styledComponents2.default.div(_templateObject4);
 
+	var ListItem = _styledComponents2.default.div(_templateObject5);
+
+	var SelectedListItem = ListItem.extend(_templateObject6);
+
+	exports.CSSVariables = CSSVariables;
 	exports.Wrapper = Wrapper;
 	exports.SearchBox = SearchBox;
 	exports.SearchList = SearchList;
@@ -10265,500 +9690,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.SelectedListItem = SelectedListItem;
 
 /***/ }),
-/* 87 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	var _createClass = function () {
-		function defineProperties(target, props) {
-			for (var i = 0; i < props.length; i++) {
-				var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
-			}
-		}return function (Constructor, protoProps, staticProps) {
-			if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
-		};
-	}();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _styledComponents = __webpack_require__(88);
-
-	function _interopRequireDefault(obj) {
-		return obj && obj.__esModule ? obj : { default: obj };
-	}
-
-	function _classCallCheck(instance, Constructor) {
-		if (!(instance instanceof Constructor)) {
-			throw new TypeError("Cannot call a class as a function");
-		}
-	}
-
-	function _possibleConstructorReturn(self, call) {
-		if (!self) {
-			throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-		}return call && ((typeof call === "undefined" ? "undefined" : _typeof(call)) === "object" || typeof call === "function") ? call : self;
-	}
-
-	function _inherits(subClass, superClass) {
-		if (typeof superClass !== "function" && superClass !== null) {
-			throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === "undefined" ? "undefined" : _typeof(superClass)));
-		}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
-	}
-
-	var SelectInput = function (_React$PureComponent) {
-		_inherits(SelectInput, _React$PureComponent);
-
-		function SelectInput(props) {
-			_classCallCheck(this, SelectInput);
-
-			var _this = _possibleConstructorReturn(this, (SelectInput.__proto__ || Object.getPrototypeOf(SelectInput)).call(this, props));
-
-			_this.isDown = false;
-			_this.selectedOption = props.value || null;
-			_this.state = {
-				optionsList: props.optionsList || []
-			};
-			return _this;
-		}
-
-		_createClass(SelectInput, [{
-			key: 'componentWillReceiveProps',
-			value: function componentWillReceiveProps(nextProps) {
-				this.selectedOption = nextProps.selectedOption || null;
-				this.setState({
-					optionsList: nextProps.optionsList || []
-				});
-			}
-		}, {
-			key: 'selectHandler',
-			value: function selectHandler(e) {
-				var _this2 = this;
-
-				var selectedVal = e.target.value;
-				this.state.optionsList.forEach(function (option) {
-					if (option.id == selectedVal) {
-						_this2.selectedOption = option;
-					}
-				});
-
-				if (this.selectedOption) {
-					this.props.setItem(this.props.name, this.selectedOption);
-				}
-			}
-		}, {
-			key: 'render',
-			value: function render() {
-				var _this3 = this;
-
-				var props = this.props;
-				var optionsHtml = this.state.optionsList.map(function (option) {
-					if (_this3.selectedOption && option.id == _this3.selectedOption.id) {
-						return _react2.default.createElement('option', { value: option.id, selected: true }, option.label);
-					}
-					return _react2.default.createElement('option', { value: option.id }, option.label);
-				});
-
-				if (!this.selectedOption) {
-					optionsHtml.push(_react2.default.createElement('option', { value: '', disabled: true, selected: true }, 'Select an option'));
-				}
-
-				return _react2.default.createElement(_styledComponents.Wrapper, { isDown: this.isDown, isValid: props.isValid || props.isPristine,
-					helpText: props.helpText, errorText: props.errorText }, _react2.default.createElement(_styledComponents.SelectWrapper, null, _react2.default.createElement('select', { onChange: this.selectHandler.bind(this) }, optionsHtml), _react2.default.createElement(_styledComponents.Arrow, null)), _react2.default.createElement('label', null, props.label));
-			}
-		}]);
-
-		return SelectInput;
-	}(_react2.default.PureComponent);
-
-	exports.default = SelectInput;
-
-/***/ }),
-/* 88 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	   value: true
-	});
-	exports.Arrow = exports.SelectWrapper = exports.Wrapper = undefined;
-
-	var _templateObject = _taggedTemplateLiteral(['\n\tposition: relative;\n    //flex-basis: var(--flexBasis);\n    padding: 10px 0;\n    //margin: 10px;\n    //flex-grow : 1;\n    select{\n    \t-webkit-appearance: none;\n\t    border: none;\n\t    background: var(--dropdownInputBgColor);\n\t    padding: 15px 10px 5px;\n\t    width: 100%;\n\t    border-radius: 5px;\n\t    font-size: 1rem;\n\t    outline: none;\n\t    font-weight:300;\n\t    box-shadow: var(--dropdownInputShadow);\n\t    color : var(--inputColor);\n    }\n\n    label{\n    \tposition: absolute;\n\t    top: 12px;\n\t    left:10px;\n\t    font-size: 0.75rem;\n\t    color: var(--labelColor);\n    }\n\n    &:after{\n    \tcontent:"', '";\n        position: absolute;\n        top : 90%;\n        left:0px;\n        font-size: var(--infoFontSize);\n        color: ', ';\n\t    background: var(--infoBgColor);\n\t    padding: 5px;\n\t    box-shadow: var(--infoBoxShadow);\n    \tdisplay: ', ';\n        z-index : 1;\n    }\n'], ['\n\tposition: relative;\n    //flex-basis: var(--flexBasis);\n    padding: 10px 0;\n    //margin: 10px;\n    //flex-grow : 1;\n    select{\n    \t-webkit-appearance: none;\n\t    border: none;\n\t    background: var(--dropdownInputBgColor);\n\t    padding: 15px 10px 5px;\n\t    width: 100%;\n\t    border-radius: 5px;\n\t    font-size: 1rem;\n\t    outline: none;\n\t    font-weight:300;\n\t    box-shadow: var(--dropdownInputShadow);\n\t    color : var(--inputColor);\n    }\n\n    label{\n    \tposition: absolute;\n\t    top: 12px;\n\t    left:10px;\n\t    font-size: 0.75rem;\n\t    color: var(--labelColor);\n    }\n\n    &:after{\n    \tcontent:"', '";\n        position: absolute;\n        top : 90%;\n        left:0px;\n        font-size: var(--infoFontSize);\n        color: ', ';\n\t    background: var(--infoBgColor);\n\t    padding: 5px;\n\t    box-shadow: var(--infoBoxShadow);\n    \tdisplay: ', ';\n        z-index : 1;\n    }\n']),
-	    _templateObject2 = _taggedTemplateLiteral(['\n\tposition:relative;\n'], ['\n\tposition:relative;\n']),
-	    _templateObject3 = _taggedTemplateLiteral(['\n\tposition: absolute;\n    right: 10px;\n    top: 45%;\n    border-top: 8px solid;\n    border-right: 6px solid transparent;\n    border-bottom: 6px solid transparent;\n    border-left: 6px solid transparent;\n'], ['\n\tposition: absolute;\n    right: 10px;\n    top: 45%;\n    border-top: 8px solid;\n    border-right: 6px solid transparent;\n    border-bottom: 6px solid transparent;\n    border-left: 6px solid transparent;\n']);
-
-	var _styledComponents = __webpack_require__(39);
-
-	var _styledComponents2 = _interopRequireDefault(_styledComponents);
-
-	function _interopRequireDefault(obj) {
-	   return obj && obj.__esModule ? obj : { default: obj };
-	}
-
-	function _taggedTemplateLiteral(strings, raw) {
-	   return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
-	}
-
-	var Wrapper = _styledComponents2.default.div(_templateObject, function (props) {
-	   return props.isValid ? props.helpText : props.errorText;
-	}, function (props) {
-	   return props.isValid ? 'var(--defaultGreen)' : 'var(--defaultRed)';
-	}, function (props) {
-	   return props.isValid && props.helpText || !props.isValid && props.errorText ? 'block' : 'none';
-	});
-
-	var SelectWrapper = _styledComponents2.default.div(_templateObject2);
-
-	var Arrow = _styledComponents2.default.div(_templateObject3);
-
-	exports.Wrapper = Wrapper;
-	exports.SelectWrapper = SelectWrapper;
-	exports.Arrow = Arrow;
-
-/***/ }),
-/* 89 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	var _createClass = function () {
-		function defineProperties(target, props) {
-			for (var i = 0; i < props.length; i++) {
-				var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
-			}
-		}return function (Constructor, protoProps, staticProps) {
-			if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
-		};
-	}();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _closePopupListener = __webpack_require__(82);
-
-	var _closePopupListener2 = _interopRequireDefault(_closePopupListener);
-
-	var _keyPressHandlerOnList = __webpack_require__(85);
-
-	var _keyPressHandlerOnList2 = _interopRequireDefault(_keyPressHandlerOnList);
-
-	var _styledComponents = __webpack_require__(90);
-
-	function _interopRequireDefault(obj) {
-		return obj && obj.__esModule ? obj : { default: obj };
-	}
-
-	function _classCallCheck(instance, Constructor) {
-		if (!(instance instanceof Constructor)) {
-			throw new TypeError("Cannot call a class as a function");
-		}
-	}
-
-	function _possibleConstructorReturn(self, call) {
-		if (!self) {
-			throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-		}return call && ((typeof call === "undefined" ? "undefined" : _typeof(call)) === "object" || typeof call === "function") ? call : self;
-	}
-
-	function _inherits(subClass, superClass) {
-		if (typeof superClass !== "function" && superClass !== null) {
-			throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === "undefined" ? "undefined" : _typeof(superClass)));
-		}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
-	}
-
-	var Dropdown = function (_React$PureComponent) {
-		_inherits(Dropdown, _React$PureComponent);
-
-		function Dropdown(props) {
-			_classCallCheck(this, Dropdown);
-
-			var _this = _possibleConstructorReturn(this, (Dropdown.__proto__ || Object.getPrototypeOf(Dropdown)).call(this, props));
-
-			_this.toggleList = _this.toggleList.bind(_this);
-			_this.setOption = _this.setOption.bind(_this);
-			_this.filterOptions = _this.filterOptions.bind(_this);
-			_this.openList = _this.openList.bind(_this);
-			_this.keyPressHandlerInstance = new _keyPressHandlerOnList2.default((props.optionsList || []).length);
-			_this.handleKeyPress = _this.handleKeyPress.bind(_this);
-			_this.preventDropdownClose = _this.preventDropdownClose.bind(_this);
-			_this.onblur_parent = _this.onblur_parent.bind(_this);
-			_this.onfocus_parent = _this.onfocus_parent.bind(_this);
-			_this.onfocus_child = _this.onfocus_child.bind(_this);
-			_this.onblur_child = _this.onblur_child.bind(_this);
-			_this.tabPressed = true;
-
-			_this.state = {
-				selectedItem: props.value,
-				optionsList: props.optionsList || [],
-				listOpen: false,
-				selectedListIndex: -1
-			};
-			return _this;
-		}
-
-		_createClass(Dropdown, [{
-			key: 'componentWillMount',
-			value: function componentWillMount() {
-				this.closePopupKey = _closePopupListener2.default.addListenerFunc(this.closePopup.bind(this));
-			}
-		}, {
-			key: 'closePopup',
-			value: function closePopup(e) {
-				if (!e.target.closest('#' + this.props.name) && this.state.listOpen) {
-					this.setState({
-						listOpen: false,
-						filteredList: null
-					});
-				}
-			}
-		}, {
-			key: 'componentWillUnmount',
-			value: function componentWillUnmount() {
-				_closePopupListener2.default.removeListenerFunc(this.closePopupKey);
-			}
-		}, {
-			key: 'componentWillReceiveProps',
-			value: function componentWillReceiveProps(nextProps) {
-				//console.log('dd',nextProps)
-				this.keyPressHandlerInstance.updateListLength.call(this.keyPressHandlerInstance, (nextProps.optionsList || []).length);
-				this.setState({
-					selectedItem: nextProps.value,
-					optionsList: nextProps.optionsList || []
-				});
-			}
-		}, {
-			key: 'toggleList',
-			value: function toggleList() {
-				if (!this.props.readOnly) {
-					this.setState(function (prevState, props) {
-						return {
-							listOpen: !prevState.listOpen,
-							filteredList: null
-						};
-					});
-				}
-			}
-		}, {
-			key: 'openList',
-			value: function openList() {
-				if (!this.props.readOnly) {
-					this.setState({
-						listOpen: true,
-						filteredList: null
-					});
-				}
-			}
-		}, {
-			key: 'closeList',
-			value: function closeList() {
-				if (!this.props.readOnly) {
-					this.setState({
-						listOpen: false,
-						filteredList: null
-					});
-				}
-			}
-		}, {
-			key: 'setOption',
-			value: function setOption(e) {
-				var _this2 = this;
-
-				var value = e.target.id;
-				this.state.optionsList.forEach(function (option) {
-					if (option.id == value) {
-						_this2.props.setItem(_this2.props.name, option);
-					}
-				});
-
-				this.toggleList();
-			}
-		}, {
-			key: 'filterOptions',
-			value: function filterOptions(e) {
-				var searchVal = e.target.value;
-				var filteredList = this.state.optionsList.filter(function (option) {
-					var patt = new RegExp(searchVal);
-					return patt.test(option.label);
-				});
-
-				this.keyPressHandlerInstance.updateListLength.call(this.keyPressHandlerInstance, (filteredList || []).length);
-
-				this.setState({
-					filteredList: filteredList
-				});
-			}
-		}, {
-			key: 'setSelectedItem',
-			value: function setSelectedItem() {
-				var selectedListItem = null,
-				    list = this.state.filteredList || this.state.optionsList;
-				if (this.state.selectedListIndex >= 0) {
-					selectedListItem = list[this.state.selectedListIndex];
-				}
-
-				if (selectedListItem) {
-					this.props.setItem(this.props.name, selectedListItem);
-					this.toggleList();
-				}
-			}
-		}, {
-			key: 'handleKeyPress',
-			value: function handleKeyPress(e) {
-				this.tabPressed = false;
-				if (e.keyCode == '13') {
-					this.setSelectedItem();
-				} else if (e.keyCode == '9') {
-					this.tabPressed = true;
-				} else {
-					var index = this.keyPressHandlerInstance.handleKeyPress.call(this.keyPressHandlerInstance, e.keyCode);
-					this.setState({
-						selectedListIndex: index
-					});
-				}
-			}
-		}, {
-			key: 'preventDropdownClose',
-			value: function preventDropdownClose() {
-				this.forceDropdownOpen = true;
-			}
-		}, {
-			key: 'blurHandler',
-			value: function blurHandler(e) {
-				if (!this.forceDropdownOpen) {
-					this.closeList();
-				}
-
-				this.forceDropdownOpen = false;
-			}
-		}, {
-			key: 'onblur_parent',
-			value: function onblur_parent(e) {
-				console.log('onblur_parent');
-				this.tabPressed = true;
-			}
-		}, {
-			key: 'onblur_child',
-			value: function onblur_child(e) {
-				console.log('onblur_child');
-				if (this.tabPressed && this.state.listOpen) {
-					this.blurHandler(e);
-				}
-			}
-		}, {
-			key: 'onfocus_parent',
-			value: function onfocus_parent(e) {
-				console.log('onfocus_parent');
-				if (this.tabPressed && !this.state.listOpen) {
-					this.openList(e);
-				}
-			}
-		}, {
-			key: 'onfocus_child',
-			value: function onfocus_child(e) {
-				console.log('onfocus_child');
-			}
-		}, {
-			key: 'render',
-			value: function render() {
-				var _this3 = this;
-
-				var props = this.props;
-				var selectedValue = this.state.selectedItem && this.state.selectedItem.label || 'Select an option',
-				    listHtml = (this.state.filteredList || this.state.optionsList).map(function (option, index) {
-
-					if (index == _this3.state.selectedListIndex) {
-						return _react2.default.createElement(_styledComponents.SelectedListItem, { id: option.id, onClick: _this3.setOption }, option.label);
-					}
-
-					return _react2.default.createElement(_styledComponents.ListItem, { id: option.id, onClick: _this3.setOption }, option.label);
-				});
-
-				return _react2.default.createElement(_styledComponents.Wrapper, { id: props.name, tabIndex: 0,
-					onBlur: this.onblur_parent,
-					onFocus: this.onfocus_parent.bind(this),
-					onKeyDown: this.handleKeyPress,
-					onMouseDown: function onMouseDown() {
-						_this3.tabPressed = false;
-					},
-					isValid: props.isValid || props.isPristine,
-					helpText: props.helpText, errorText: props.errorText }, _react2.default.createElement('label', null, props.label), _react2.default.createElement('span', { onClick: this.toggleList /*onMouseDown={this.preventDropdownClose}*/ }, selectedValue), this.state.listOpen ? _react2.default.createElement(_styledComponents.DropdownListWrapper, null, _react2.default.createElement('input', { ref: function ref(elem) {
-						_this3.inputRef = elem;
-					},
-					type: 'text', onChange: this.filterOptions,
-					onFocus: this.onfocus_child.bind(this),
-					onBlur: this.onblur_child.bind(this) }), listHtml) : null);
-			}
-		}]);
-
-		return Dropdown;
-	}(_react2.default.PureComponent);
-
-	exports.default = Dropdown;
-
-/***/ }),
-/* 90 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	   value: true
-	});
-	exports.SelectedListItem = exports.ListItem = exports.DropdownListWrapper = exports.Wrapper = undefined;
-
-	var _templateObject = _taggedTemplateLiteral(['\n\t//flex-basis: var(--flexBasis);\n    padding: 10px 0;\n    position:relative;\n    //margin: 10px;\n    //flex-grow : 1;\n    outline : none;\n\n    span{\n    \twidth: 100%;\n\t    display: block;\n\t    font-size : var(--inputFontSize);\n\t    padding: 15px 10px 5px;\n\t    background: var(--dropdownInputBgColor);\n\t    box-sizing: border-box;\n\t    border-radius: 5px;\n\t    box-shadow: var(--dropdownInputShadow);\n\t    color : var(--inputColor);\n    }\n\n    span:after{\n\t\tposition: absolute;\n\t    content: \'\';\n\t    right: 10px;\n\t    top: 45%;\n\t    border-top: 8px solid;\n\t    border-right: 6px solid transparent;\n\t    border-bottom: 6px solid transparent;\n\t    border-left: 6px solid transparent;\n\t}\n\n    label{\n    \tposition: absolute;\n\t    top: 12px;\n\t    left: 10px;\n\t    font-size: var(--dropdownLabelFontSize);\n\t    color: var(--labelColor);\n    }\n\n    &:after{\n    \tcontent:"', '";\n        position: absolute;\n        left:0px;\n        top : 90%;\n        font-size: var(--infoFontSize);\n        color: ', ';\n    \tbackground: var(--infoBgColor);\n    \tpadding: 5px;\n    \tbox-shadow: var(--infoBoxShadow);\n    \tdisplay: ', ';\n        z-index: 1;\n    }\n'], ['\n\t//flex-basis: var(--flexBasis);\n    padding: 10px 0;\n    position:relative;\n    //margin: 10px;\n    //flex-grow : 1;\n    outline : none;\n\n    span{\n    \twidth: 100%;\n\t    display: block;\n\t    font-size : var(--inputFontSize);\n\t    padding: 15px 10px 5px;\n\t    background: var(--dropdownInputBgColor);\n\t    box-sizing: border-box;\n\t    border-radius: 5px;\n\t    box-shadow: var(--dropdownInputShadow);\n\t    color : var(--inputColor);\n    }\n\n    span:after{\n\t\tposition: absolute;\n\t    content: \'\';\n\t    right: 10px;\n\t    top: 45%;\n\t    border-top: 8px solid;\n\t    border-right: 6px solid transparent;\n\t    border-bottom: 6px solid transparent;\n\t    border-left: 6px solid transparent;\n\t}\n\n    label{\n    \tposition: absolute;\n\t    top: 12px;\n\t    left: 10px;\n\t    font-size: var(--dropdownLabelFontSize);\n\t    color: var(--labelColor);\n    }\n\n    &:after{\n    \tcontent:"', '";\n        position: absolute;\n        left:0px;\n        top : 90%;\n        font-size: var(--infoFontSize);\n        color: ', ';\n    \tbackground: var(--infoBgColor);\n    \tpadding: 5px;\n    \tbox-shadow: var(--infoBoxShadow);\n    \tdisplay: ', ';\n        z-index: 1;\n    }\n']),
-	    _templateObject2 = _taggedTemplateLiteral(['\n\tposition : absolute;\n    background : var(--dropdownBgColor);\n    width : 100%;\n    box-shadow : var(--dropdownShadow);\n    font-size : var(--inputFontSize);\n    z-index : 3;\n    input{\n    \twidth : 100%;\n    \tbox-sizing : border-box;\n    \tfont-size : 1rem;\n    \tpadding : 0 5px;\n    }\n'], ['\n\tposition : absolute;\n    background : var(--dropdownBgColor);\n    width : 100%;\n    box-shadow : var(--dropdownShadow);\n    font-size : var(--inputFontSize);\n    z-index : 3;\n    input{\n    \twidth : 100%;\n    \tbox-sizing : border-box;\n    \tfont-size : 1rem;\n    \tpadding : 0 5px;\n    }\n']),
-	    _templateObject3 = _taggedTemplateLiteral(['\n\tbox-sizing : border-box;\n   \tpadding : 3px 0px 3px 10px;\n\n\t&:hover{\n\t\tbackground-color: var(--dropdownHoverBgColor);\n\t    opacity: 0.8;\n\t    color: var(--dropdownHoverColor);\n\t}\n'], ['\n\tbox-sizing : border-box;\n   \tpadding : 3px 0px 3px 10px;\n\n\t&:hover{\n\t\tbackground-color: var(--dropdownHoverBgColor);\n\t    opacity: 0.8;\n\t    color: var(--dropdownHoverColor);\n\t}\n']),
-	    _templateObject4 = _taggedTemplateLiteral(['\n\tbackground-color: var(--dropdownHoverBgColor);\n    opacity: 0.8;\n    color: var(--dropdownHoverColor);\n'], ['\n\tbackground-color: var(--dropdownHoverBgColor);\n    opacity: 0.8;\n    color: var(--dropdownHoverColor);\n']);
-
-	var _styledComponents = __webpack_require__(39);
-
-	var _styledComponents2 = _interopRequireDefault(_styledComponents);
-
-	function _interopRequireDefault(obj) {
-	   return obj && obj.__esModule ? obj : { default: obj };
-	}
-
-	function _taggedTemplateLiteral(strings, raw) {
-	   return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
-	}
-
-	var Wrapper = _styledComponents2.default.div(_templateObject, function (props) {
-	   return props.isValid ? props.helpText : props.errorText;
-	}, function (props) {
-	   return props.isValid ? 'var(--defaultGreen)' : 'var(--defaultRed)';
-	}, function (props) {
-	   return props.isValid && props.helpText || !props.isValid && props.errorText ? 'block' : 'none';
-	});
-	var DropdownListWrapper = _styledComponents2.default.div(_templateObject2);
-
-	var ListItem = _styledComponents2.default.div(_templateObject3);
-
-	var SelectedListItem = ListItem.extend(_templateObject4);
-
-	exports.Wrapper = Wrapper;
-	exports.DropdownListWrapper = DropdownListWrapper;
-	exports.ListItem = ListItem;
-	exports.SelectedListItem = SelectedListItem;
-
-/***/ }),
-/* 91 */
+/* 86 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -10816,1246 +9748,6 @@ return /******/ (function(modules) { // webpackBootstrap
 		TIME_PICKER_SHADOW: 'none',
 		POPUP_BG_COLOR: 'rgba(0,0,0,0.6)'
 	};
-
-/***/ }),
-/* 92 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	var _createClass = function () {
-		function defineProperties(target, props) {
-			for (var i = 0; i < props.length; i++) {
-				var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
-			}
-		}return function (Constructor, protoProps, staticProps) {
-			if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
-		};
-	}();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _styledComponents = __webpack_require__(93);
-
-	function _interopRequireDefault(obj) {
-		return obj && obj.__esModule ? obj : { default: obj };
-	}
-
-	function _classCallCheck(instance, Constructor) {
-		if (!(instance instanceof Constructor)) {
-			throw new TypeError("Cannot call a class as a function");
-		}
-	}
-
-	function _possibleConstructorReturn(self, call) {
-		if (!self) {
-			throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-		}return call && ((typeof call === "undefined" ? "undefined" : _typeof(call)) === "object" || typeof call === "function") ? call : self;
-	}
-
-	function _inherits(subClass, superClass) {
-		if (typeof superClass !== "function" && superClass !== null) {
-			throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === "undefined" ? "undefined" : _typeof(superClass)));
-		}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
-	}
-
-	var CheckBox = function (_React$PureComponent) {
-		_inherits(CheckBox, _React$PureComponent);
-
-		function CheckBox(props) {
-			_classCallCheck(this, CheckBox);
-
-			var _this = _possibleConstructorReturn(this, (CheckBox.__proto__ || Object.getPrototypeOf(CheckBox)).call(this, props));
-
-			_this.onChangeHandler = _this.onChangeHandler.bind(_this);
-			return _this;
-		}
-
-		_createClass(CheckBox, [{
-			key: 'onChangeHandler',
-			value: function onChangeHandler(e) {
-				console.log('CheckBox', e, e.target.checked);
-				this.props.setItem(this.props.name, e.target.checked);
-			}
-		}, {
-			key: 'render',
-			value: function render() {
-
-				var props = this.props;
-
-				return _react2.default.createElement(_styledComponents.Wrapper, { isVisible: true, checked: props.checked }, _react2.default.createElement(_styledComponents.CheckboxWrapper, null, _react2.default.createElement(_styledComponents.InputWrapper, null, _react2.default.createElement('input', { id: props.name, type: 'checkbox',
-					name: props.name,
-					onChange: this.onChangeHandler }), _react2.default.createElement(_styledComponents.Tick, { checked: props.checked,
-					readOnly: props.readOnly })), _react2.default.createElement('label', { htmlFor: props.name }, props.label)));
-			}
-		}]);
-
-		return CheckBox;
-	}(_react2.default.PureComponent);
-
-	exports.default = CheckBox;
-
-/***/ }),
-/* 93 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.InputWrapper = exports.Tick = exports.Wrapper = exports.CheckboxWrapper = undefined;
-
-	var _templateObject = _taggedTemplateLiteral(['\n\tposition:relative;\n\t//flex-basis : var(--flexBasis);\n\tpadding : 15px 0 0;\n\t//margin: 10px;\n\tinput[type=\'checkbox\']{\n\t\t-webkit-appearance: none;\n\t    width: 16px;\n\t    height: 16px;\n\t    border: 2px solid;\n\t    border-color : ', ';\n\t    vertical-align: bottom;\n\t    border-radius: 4px;\n\t    z-index:1;\n\t    position : relative;\n\t}\n\n\t&:hover{\n\t\tbackground : \'#c3c3c3\';\n\t}\n'], ['\n\tposition:relative;\n\t//flex-basis : var(--flexBasis);\n\tpadding : 15px 0 0;\n\t//margin: 10px;\n\tinput[type=\'checkbox\']{\n\t\t-webkit-appearance: none;\n\t    width: 16px;\n\t    height: 16px;\n\t    border: 2px solid;\n\t    border-color : ', ';\n\t    vertical-align: bottom;\n\t    border-radius: 4px;\n\t    z-index:1;\n\t    position : relative;\n\t}\n\n\t&:hover{\n\t\tbackground : \'#c3c3c3\';\n\t}\n']),
-	    _templateObject2 = _taggedTemplateLiteral(['\n\tdisplay: inline-block;\n    position: relative;\n    z-index: 1;\n    background: transparent;\n\n    label{\n    \tfont-size : var(--labelFontSize);\n    \tcolor : var(--labelColor);\n    }\n\n\t&:after{\n\t\tposition: absolute;\n\t    content: \'\';\n\t    width: 46px;\n\t    height: 46px;\n\t    background: #333;\n\t    border-radius: 50%;\n\t    top: -9px;\n\t    left: -13px;\n\t    opacity: 0;\n\t    transform : scale(1);\n\t    transition : all 0.4s;\n\t    z-index : -1;\n\t}\n\n\t&:active:after{\n\t\topacity:1;\n\t\ttransform : scale(0);\n\t\ttransition : all 0s;\n\t}\n'], ['\n\tdisplay: inline-block;\n    position: relative;\n    z-index: 1;\n    background: transparent;\n\n    label{\n    \tfont-size : var(--labelFontSize);\n    \tcolor : var(--labelColor);\n    }\n\n\t&:after{\n\t\tposition: absolute;\n\t    content: \'\';\n\t    width: 46px;\n\t    height: 46px;\n\t    background: #333;\n\t    border-radius: 50%;\n\t    top: -9px;\n\t    left: -13px;\n\t    opacity: 0;\n\t    transform : scale(1);\n\t    transition : all 0.4s;\n\t    z-index : -1;\n\t}\n\n\t&:active:after{\n\t\topacity:1;\n\t\ttransform : scale(0);\n\t\ttransition : all 0s;\n\t}\n']),
-	    _templateObject3 = _taggedTemplateLiteral(['\n\tdisplay : ', ';\n\tposition : absolute;\n\ttop : 9px;\n\tleft : 7px;\n\twidth : 6px;\n\theight : 2px;\n\tborder : 2px solid;\n\tborder-color : var(--checkboxTrikColor);\n\tborder-top-color : transparent;\n\tborder-right-color : transparent;\n\ttransform : rotate(-45deg);\n\tz-index : 0;\t\n'], ['\n\tdisplay : ', ';\n\tposition : absolute;\n\ttop : 9px;\n\tleft : 7px;\n\twidth : 6px;\n\theight : 2px;\n\tborder : 2px solid;\n\tborder-color : var(--checkboxTrikColor);\n\tborder-top-color : transparent;\n\tborder-right-color : transparent;\n\ttransform : rotate(-45deg);\n\tz-index : 0;\t\n']),
-	    _templateObject4 = _taggedTemplateLiteral(['\n\tposition: relative;\n\tdisplay : inline-block;\n\n'], ['\n\tposition: relative;\n\tdisplay : inline-block;\n\n']);
-
-	var _styledComponents = __webpack_require__(39);
-
-	var _styledComponents2 = _interopRequireDefault(_styledComponents);
-
-	function _interopRequireDefault(obj) {
-	  return obj && obj.__esModule ? obj : { default: obj };
-	}
-
-	function _taggedTemplateLiteral(strings, raw) {
-	  return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
-	}
-
-	var Wrapper = _styledComponents2.default.div(_templateObject, function (props) {
-	  return props.checked ? 'var(--checkboxBorderTrue)' : 'var(--checkboxBorderFalse)';
-	});
-
-	var CheckboxWrapper = _styledComponents2.default.div(_templateObject2);
-
-	var Tick = _styledComponents2.default.div(_templateObject3, function (props) {
-	  return props.checked ? 'block' : 'none';
-	});
-
-	var InputWrapper = _styledComponents2.default.div(_templateObject4);
-
-	exports.CheckboxWrapper = CheckboxWrapper;
-	exports.Wrapper = Wrapper;
-	exports.Tick = Tick;
-	exports.InputWrapper = InputWrapper;
-
-/***/ }),
-/* 94 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	var _createClass = function () {
-		function defineProperties(target, props) {
-			for (var i = 0; i < props.length; i++) {
-				var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
-			}
-		}return function (Constructor, protoProps, staticProps) {
-			if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
-		};
-	}();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _sharedStyledComponents = __webpack_require__(38);
-
-	var _styledComponents = __webpack_require__(95);
-
-	function _interopRequireDefault(obj) {
-		return obj && obj.__esModule ? obj : { default: obj };
-	}
-
-	function _classCallCheck(instance, Constructor) {
-		if (!(instance instanceof Constructor)) {
-			throw new TypeError("Cannot call a class as a function");
-		}
-	}
-
-	function _possibleConstructorReturn(self, call) {
-		if (!self) {
-			throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-		}return call && ((typeof call === "undefined" ? "undefined" : _typeof(call)) === "object" || typeof call === "function") ? call : self;
-	}
-
-	function _inherits(subClass, superClass) {
-		if (typeof superClass !== "function" && superClass !== null) {
-			throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === "undefined" ? "undefined" : _typeof(superClass)));
-		}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
-	}
-
-	var RadioButtonGroup = function (_React$PureComponent) {
-		_inherits(RadioButtonGroup, _React$PureComponent);
-
-		function RadioButtonGroup(props) {
-			_classCallCheck(this, RadioButtonGroup);
-
-			var _this = _possibleConstructorReturn(this, (RadioButtonGroup.__proto__ || Object.getPrototypeOf(RadioButtonGroup)).call(this, props));
-
-			_this.onChangeHandler = _this.onChangeHandler.bind(_this);
-			return _this;
-		}
-
-		_createClass(RadioButtonGroup, [{
-			key: 'onChangeHandler',
-			value: function onChangeHandler(e) {
-				var value = this.props.optionsList.filter(function (option) {
-					if (option.id == e.target.value) {
-						return true;
-					}
-
-					return false;
-				});
-				this.props.setItem(e.target.name, value[0]);
-			}
-		}, {
-			key: 'render',
-			value: function render() {
-				var _this2 = this;
-
-				var props = this.props,
-				    optionsHtml = props.optionsList.map(function (option) {
-					if (option.display == 'block') {
-						return _react2.default.createElement(_sharedStyledComponents.BlockWrapper, null, _react2.default.createElement(_styledComponents.RadioOption, null, _react2.default.createElement('input', { type: 'radio',
-							name: props.name,
-							value: option.id,
-							onChange: _this2.onChangeHandler,
-							checked: option.id == (props.value && props.value.id) }), _react2.default.createElement('label', null, option.label)));
-					}
-					return _react2.default.createElement(_styledComponents.RadioOption, null, _react2.default.createElement('input', { type: 'radio',
-						name: props.name,
-						value: option.id,
-						onChange: _this2.onChangeHandler,
-						checked: option.id == (props.value && props.value.id) }), _react2.default.createElement('label', null, option.label));
-				});
-
-				return _react2.default.createElement(_styledComponents.Wrapper, null, _react2.default.createElement('p', null, props.label), optionsHtml);
-			}
-		}]);
-
-		return RadioButtonGroup;
-	}(_react2.default.PureComponent);
-
-	exports.default = RadioButtonGroup;
-
-/***/ }),
-/* 95 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.RadioOption = exports.Wrapper = undefined;
-
-	var _templateObject = _taggedTemplateLiteral(['\n\tpadding:10px 0 0;\n\t//margin:10px;\n\tp{\n\t\tmargin:0px;\n\t\tfont-size : var(--labelFontSize);\n\t\tcolor : var(--labelColor);\n\t}\n'], ['\n\tpadding:10px 0 0;\n\t//margin:10px;\n\tp{\n\t\tmargin:0px;\n\t\tfont-size : var(--labelFontSize);\n\t\tcolor : var(--labelColor);\n\t}\n']),
-	    _templateObject2 = _taggedTemplateLiteral(['\n\tdisplay : inline-block;\n\tmargin: 5px 10px 0 0;\n\tfont-size : var(--inputFontSize);\n\tcolor : var(--inputColor);\n'], ['\n\tdisplay : inline-block;\n\tmargin: 5px 10px 0 0;\n\tfont-size : var(--inputFontSize);\n\tcolor : var(--inputColor);\n']);
-
-	var _styledComponents = __webpack_require__(39);
-
-	var _styledComponents2 = _interopRequireDefault(_styledComponents);
-
-	function _interopRequireDefault(obj) {
-	  return obj && obj.__esModule ? obj : { default: obj };
-	}
-
-	function _taggedTemplateLiteral(strings, raw) {
-	  return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
-	}
-
-	var Wrapper = _styledComponents2.default.div(_templateObject);
-	var RadioOption = _styledComponents2.default.div(_templateObject2);
-
-	exports.Wrapper = Wrapper;
-	exports.RadioOption = RadioOption;
-
-/***/ }),
-/* 96 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	var _createClass = function () {
-		function defineProperties(target, props) {
-			for (var i = 0; i < props.length; i++) {
-				var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
-			}
-		}return function (Constructor, protoProps, staticProps) {
-			if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
-		};
-	}();
-
-	var _templateObject = _taggedTemplateLiteral(['\n\t//flex-basis : var(--flexBasis);\n\tdisplay : flex;\n\tflex-direction : row;\n\tpadding : 5px 5px 0px;\n\t//margin : 10px;\n\talign-items: flex-end;\n    border-bottom: 1px solid var(--labelColor);\n    //flex-grow : 1;\n'], ['\n\t//flex-basis : var(--flexBasis);\n\tdisplay : flex;\n\tflex-direction : row;\n\tpadding : 5px 5px 0px;\n\t//margin : 10px;\n\talign-items: flex-end;\n    border-bottom: 1px solid var(--labelColor);\n    //flex-grow : 1;\n']),
-	    _templateObject2 = _taggedTemplateLiteral(['\n\twidth:25px;\n\theight:25px;\n\tbackground : url(/shared/img/clock-icon.png) no-repeat center;\n\tbackground-size : 80%;\n\tvisibility : ', ';\n'], ['\n\twidth:25px;\n\theight:25px;\n\tbackground : url(/shared/img/clock-icon.png) no-repeat center;\n\tbackground-size : 80%;\n\tvisibility : ', ';\n']),
-	    _templateObject3 = _taggedTemplateLiteral(['\n\twidth:25px;\n\theight:25px;\n\tbackground : url(/shared/img/calendar.png) no-repeat;\n\tbackground-size : 100%;\n\tvisibility : ', ';\n'], ['\n\twidth:25px;\n\theight:25px;\n\tbackground : url(/shared/img/calendar.png) no-repeat;\n\tbackground-size : 100%;\n\tvisibility : ', ';\n']);
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _timepicker = __webpack_require__(97);
-
-	var _timepicker2 = _interopRequireDefault(_timepicker);
-
-	var _calendar = __webpack_require__(98);
-
-	var _calendar2 = _interopRequireDefault(_calendar);
-
-	var _styledComponents = __webpack_require__(39);
-
-	var _styledComponents2 = _interopRequireDefault(_styledComponents);
-
-	var _sharedStyledComponents = __webpack_require__(38);
-
-	var _input = __webpack_require__(99);
-
-	var _input2 = _interopRequireDefault(_input);
-
-	function _interopRequireDefault(obj) {
-		return obj && obj.__esModule ? obj : { default: obj };
-	}
-
-	function _classCallCheck(instance, Constructor) {
-		if (!(instance instanceof Constructor)) {
-			throw new TypeError("Cannot call a class as a function");
-		}
-	}
-
-	function _possibleConstructorReturn(self, call) {
-		if (!self) {
-			throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-		}return call && ((typeof call === "undefined" ? "undefined" : _typeof(call)) === "object" || typeof call === "function") ? call : self;
-	}
-
-	function _inherits(subClass, superClass) {
-		if (typeof superClass !== "function" && superClass !== null) {
-			throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === "undefined" ? "undefined" : _typeof(superClass)));
-		}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
-	}
-
-	function _taggedTemplateLiteral(strings, raw) {
-		return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
-	}
-	//import ClosePopupListener from '../../helpers/closePopupListener.js'
-
-
-	var Wrapper = _styledComponents2.default.div(_templateObject);
-
-	var TimeInputWrapper = _styledComponents2.default.div(_templateObject2, function (props) {
-		return props.showtime ? 'visible' : 'hidden';
-	});
-
-	var DateInputWrapper = _styledComponents2.default.div(_templateObject3, function (props) {
-		return props.showdate ? 'visible' : 'hidden';
-	});
-
-	var DateTimePicker = function (_React$PureComponent) {
-		_inherits(DateTimePicker, _React$PureComponent);
-
-		function DateTimePicker(props) {
-			_classCallCheck(this, DateTimePicker);
-
-			var _this = _possibleConstructorReturn(this, (DateTimePicker.__proto__ || Object.getPrototypeOf(DateTimePicker)).call(this, props));
-
-			var datetime = _this.getDateTime(props.value);
-			_this.toggleCalendar = _this.toggleCalendar.bind(_this);
-			_this.handleDateSelect = _this.handleDateSelect.bind(_this);
-			_this.toggleDropdown = _this.toggleDropdown.bind(_this);
-			_this.closeTimePicker = _this.closeTimePicker.bind(_this);
-			_this.setItem = _this.setItem.bind(_this);
-			_this.setTime = _this.setTime.bind(_this);
-			_this.setDateTime = _this.setDateTime.bind(_this);
-			_this.closePopup = _this.closePopup.bind(_this);
-			_this.stopBubbling = _this.stopBubbling.bind(_this);
-
-			_this.state = {
-				openTime: false,
-				openCalendar: false,
-				date: datetime.date,
-				time: datetime.time
-			};
-			return _this;
-		}
-
-		_createClass(DateTimePicker, [{
-			key: 'componentWillMount',
-			value: function componentWillMount() {}
-		}, {
-			key: 'closePopup',
-			value: function closePopup(e) {
-				this.setState({
-					openTime: false,
-					openCalendar: false
-				});
-			}
-		}, {
-			key: 'componentWillUnmount',
-			value: function componentWillUnmount() {}
-		}, {
-			key: 'componentWillReceiveProps',
-			value: function componentWillReceiveProps(nextProps) {
-				//console.log('componentWillReceiveProps')
-				var timestamp = nextProps.value || nextProps.value == 0 ? nextProps.value : null,
-				    datetime = this.getDateTime(timestamp);
-				this.setState({
-					date: datetime.date,
-					time: datetime.time
-				});
-			}
-		}, {
-			key: 'getDateTime',
-			value: function getDateTime(timestamp) {
-
-				if (!this.props.showdate) {
-					var timezoneOffset = new Date().getTimezoneOffset();
-					timestamp = timestamp + timezoneOffset * 60000;
-				}
-				var newDate = new Date(timestamp),
-				    ampm = 'AM',
-				    hours = newDate.getHours(),
-				    minute = newDate.getMinutes();
-				//console.log(hours,minute,ampm)
-				if (hours > 12) {
-					hours = hours - 12;
-					ampm = 'PM';
-				}
-
-				if (hours == 12) {
-					ampm = 'PM';
-				}
-
-				if (hours == 0) {
-					hours = '12';
-					ampm = 'AM';
-				}
-
-				if (minute < 10) {
-					minute = '0' + minute;
-				}
-
-				var currDate = new Date(newDate.getFullYear(), newDate.getMonth(), newDate.getDate(), 0, 0, 0, 0).getTime();
-
-				return {
-					date: currDate,
-					time: {
-						hour: hours,
-						minute: minute,
-						ampm: ampm
-					}
-				};
-			}
-		}, {
-			key: 'toggleDropdown',
-			value: function toggleDropdown() {
-				this.setState(function (state, props) {
-					return {
-						openCalendar: false,
-						openTime: !state.openTime
-					};
-				});
-			}
-		}, {
-			key: 'closeTimePicker',
-			value: function closeTimePicker() {
-				this.setState({
-					openTime: false
-				});
-			}
-		}, {
-			key: 'setTime',
-			value: function setTime(time) {
-				this.setItem(this.state.date, time);
-			}
-		}, {
-			key: 'setItem',
-			value: function setItem(date, time) {
-				var dateObj = new Date(date),
-				    dateTimestamp = new Date(dateObj.getFullYear(), dateObj.getMonth(), dateObj.getDate(), 0, 0, 0, 0).getTime();
-				var timestamp = 0;
-
-				if (this.props.showdate) {
-					timestamp = timestamp + dateTimestamp;
-				}
-
-				if (this.props.showtime) {
-					timestamp = timestamp + this.calculateMillisecs(time);
-				}
-
-				this.props.setItem(this.props.name, timestamp);
-			}
-		}, {
-			key: 'calculateMillisecs',
-			value: function calculateMillisecs(time) {
-				var millisecs = 0;
-				if (time['hour'] == '12') {} else {
-					millisecs += parseInt(time['hour']) * 60 * 60 * 1000;
-				}
-
-				return millisecs + parseInt(time['minute']) * 60 * 1000 + (time['ampm'] == 'PM' ? 12 * 60 * 60 * 1000 : 0);
-			}
-		}, {
-			key: 'toggleCalendar',
-			value: function toggleCalendar() {
-				this.setState(function (state) {
-					return {
-						openTime: false,
-						openCalendar: !state.openCalendar
-					};
-				});
-			}
-		}, {
-			key: 'handleDateSelect',
-			value: function handleDateSelect(timestamp) {
-				this.setItem(timestamp, this.state.time);
-			}
-		}, {
-			key: 'setDateTime',
-			value: function setDateTime(date, time) {
-				this.setItem(date, time);
-			}
-		}, {
-			key: 'stopBubbling',
-			value: function stopBubbling(e) {
-				e.stopPropagation();
-			}
-		}, {
-			key: 'render',
-			value: function render() {
-				var props = this.props;
-				return _react2.default.createElement(Wrapper, null, _react2.default.createElement(_input2.default, { showdate: props.showdate,
-					showtime: props.showtime,
-					time: this.state.time,
-					date: this.state.date,
-					handleDatetimeChange: this.setDateTime }), _react2.default.createElement(DateInputWrapper, { showdate: props.showdate,
-					onClick: this.toggleCalendar }), _react2.default.createElement(TimeInputWrapper, { showtime: props.showtime,
-					onClick: this.toggleDropdown }), _react2.default.createElement(_sharedStyledComponents.FixedDivWrapper, { open: this.state.openCalendar || this.state.openTime,
-					onClick: this.closePopup }, _react2.default.createElement(_sharedStyledComponents.VhAlignedWrapper, { open: this.state.openCalendar || this.state.openTime,
-					onClick: this.stopBubbling }, this.state.openCalendar ? _react2.default.createElement(_calendar2.default, { selectedDate: this.state.date,
-					onDateSelection: this.handleDateSelect }) : null, _react2.default.createElement(_timepicker2.default, { open: this.state.openTime,
-					closeTimePicker: this.closeTimePicker,
-					setItem: this.setTime,
-					time: this.state.time }))));
-			}
-		}]);
-
-		return DateTimePicker;
-	}(_react2.default.PureComponent);
-
-	exports.default = DateTimePicker;
-
-/***/ }),
-/* 97 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	var _createClass = function () {
-		function defineProperties(target, props) {
-			for (var i = 0; i < props.length; i++) {
-				var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
-			}
-		}return function (Constructor, protoProps, staticProps) {
-			if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
-		};
-	}();
-
-	var _templateObject = _taggedTemplateLiteral(['\n\twidth: 100%;\n    height: 230px;\n    overflow: hidden;\n    position: relative;\n    z-index: 3;\n    text-align: center;\n    box-shadow : var(--timepickerShadow);\n'], ['\n\twidth: 100%;\n    height: 230px;\n    overflow: hidden;\n    position: relative;\n    z-index: 3;\n    text-align: center;\n    box-shadow : var(--timepickerShadow);\n']),
-	    _templateObject2 = _taggedTemplateLiteral(['\n\twidth: 100%;\n\tposition: absolute;\n\ttop:-1px;\n\tbackground-color: var(--timepickerHeaderBgColor);\n\tcolor : var(--timepickerHeaderColor);\n\t.label-cell{\n\t\ttext-align: center;\n\t\twidth: 33.3%;\n\t\theight: 100%;\n\t\tdisplay: inline-block;\n\t    padding: 7px 0;\n\t    box-sizing: border-box;\n\t    border-right: 1px solid;\n\t    border-color : var(--timepickerHeaderBorderColor);\n\t    font-weight: 300;\n\t}\n\t.label-cell:last-child{\n\t\tborder-right: none;\n\t}\n'], ['\n\twidth: 100%;\n\tposition: absolute;\n\ttop:-1px;\n\tbackground-color: var(--timepickerHeaderBgColor);\n\tcolor : var(--timepickerHeaderColor);\n\t.label-cell{\n\t\ttext-align: center;\n\t\twidth: 33.3%;\n\t\theight: 100%;\n\t\tdisplay: inline-block;\n\t    padding: 7px 0;\n\t    box-sizing: border-box;\n\t    border-right: 1px solid;\n\t    border-color : var(--timepickerHeaderBorderColor);\n\t    font-weight: 300;\n\t}\n\t.label-cell:last-child{\n\t\tborder-right: none;\n\t}\n']),
-	    _templateObject3 = _taggedTemplateLiteral(['\n\t\n\twidth: 33.3%;\n    height: 98%;\n    padding: 33px 0 39px;\n    overflow: scroll;\n    box-sizing: border-box;\n    border-right: 1px solid var(--timepickerColumnBorderColor);\n    display: inline-block;\n    background-color: var(--timepickerColumnBgColor);\n    color: var(--timepickerColumnColor);\n\n\t.cell{\n\t\tcursor: pointer;\n\t\tpadding: 14px 0;\n\n\t\t.time-num-span{\n\t\t\tborder-bottom:1px solid var(--timepickerColumnColor);\n\t\t\tpadding: 6px 14px;\n\t\t}\n\t}\n\t.cell.selected{\n\t\n\t\t.time-num-span{\n\t\t\tbackground-color: var(--timepickerSelectedCellColor);\n\t\t\tcolor: #fff;\n\t\t}\n\t}\n'], ['\n\t\n\twidth: 33.3%;\n    height: 98%;\n    padding: 33px 0 39px;\n    overflow: scroll;\n    box-sizing: border-box;\n    border-right: 1px solid var(--timepickerColumnBorderColor);\n    display: inline-block;\n    background-color: var(--timepickerColumnBgColor);\n    color: var(--timepickerColumnColor);\n\n\t.cell{\n\t\tcursor: pointer;\n\t\tpadding: 14px 0;\n\n\t\t.time-num-span{\n\t\t\tborder-bottom:1px solid var(--timepickerColumnColor);\n\t\t\tpadding: 6px 14px;\n\t\t}\n\t}\n\t.cell.selected{\n\t\n\t\t.time-num-span{\n\t\t\tbackground-color: var(--timepickerSelectedCellColor);\n\t\t\tcolor: #fff;\n\t\t}\n\t}\n']),
-	    _templateObject4 = _taggedTemplateLiteral(['\n\tborder : none;\n'], ['\n\tborder : none;\n']),
-	    _templateObject5 = _taggedTemplateLiteral(['\n\tposition: absolute;\n\tbottom: 0;\n\twidth: 100%;\n\ttext-align: center;\n\tbackground-color: var(--timepickerFooterBgColor);\n\tcolor: var(--timepickerFooterColor);\n\tcursor: pointer;\n\tpadding: 10px 0;\n'], ['\n\tposition: absolute;\n\tbottom: 0;\n\twidth: 100%;\n\ttext-align: center;\n\tbackground-color: var(--timepickerFooterBgColor);\n\tcolor: var(--timepickerFooterColor);\n\tcursor: pointer;\n\tpadding: 10px 0;\n']);
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _styledComponents = __webpack_require__(39);
-
-	var _styledComponents2 = _interopRequireDefault(_styledComponents);
-
-	function _interopRequireDefault(obj) {
-		return obj && obj.__esModule ? obj : { default: obj };
-	}
-
-	function _classCallCheck(instance, Constructor) {
-		if (!(instance instanceof Constructor)) {
-			throw new TypeError("Cannot call a class as a function");
-		}
-	}
-
-	function _possibleConstructorReturn(self, call) {
-		if (!self) {
-			throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-		}return call && ((typeof call === "undefined" ? "undefined" : _typeof(call)) === "object" || typeof call === "function") ? call : self;
-	}
-
-	function _inherits(subClass, superClass) {
-		if (typeof superClass !== "function" && superClass !== null) {
-			throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === "undefined" ? "undefined" : _typeof(superClass)));
-		}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
-	}
-
-	function _taggedTemplateLiteral(strings, raw) {
-		return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
-	}
-
-	var Wrapper = _styledComponents2.default.div(_templateObject);
-
-	var Header = _styledComponents2.default.div(_templateObject2);
-
-	var Column = _styledComponents2.default.div(_templateObject3);
-
-	var LastColumn = Column.extend(_templateObject4);
-
-	var CloseTimePicker = _styledComponents2.default.div(_templateObject5);
-
-	var TimePickerCore = function (_React$PureComponent) {
-		_inherits(TimePickerCore, _React$PureComponent);
-
-		function TimePickerCore(props) {
-			_classCallCheck(this, TimePickerCore);
-
-			var _this = _possibleConstructorReturn(this, (TimePickerCore.__proto__ || Object.getPrototypeOf(TimePickerCore)).call(this, props));
-
-			_this.hours = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'];
-			_this.minutes = ['00', '05', '10', '15', '20', '25', '30', '35', '40', '45', '50', '55'];
-			_this.ampm = ['AM', 'PM'];
-
-			_this.state = {
-				time: props.time
-			};
-			return _this;
-		}
-
-		_createClass(TimePickerCore, [{
-			key: 'componentWillReceiveProps',
-			value: function componentWillReceiveProps(nextProps) {
-				this.setState({
-					time: nextProps.time
-				});
-			}
-		}, {
-			key: 'selecthour',
-			value: function selecthour(val) {
-				var time = this.state.time;
-				time['hour'] = val;
-				this.props.setItem(time);
-			}
-		}, {
-			key: 'selectmin',
-			value: function selectmin(val) {
-				var time = this.state.time;
-				time['minute'] = val;
-				this.props.setItem(time);
-			}
-		}, {
-			key: 'selectAMPM',
-			value: function selectAMPM(val) {
-				var time = this.state.time;
-				time['ampm'] = val;
-				this.props.setItem(time);
-			}
-		}, {
-			key: 'render',
-			value: function render() {
-				var timePickerState = this.props.open ? 'timepicker-dropdown' : 'hide',
-				    self = this,
-				    hourHtml = this.hours.map(function (item, index) {
-					if (item != self.state.time.hour) {
-						return _react2.default.createElement('div', { className: 'cell', onClick: self.selecthour.bind(self, item) }, _react2.default.createElement('span', { className: 'time-num-span' }, item));
-					} else {
-						return _react2.default.createElement('div', { className: 'cell selected', onClick: self.selecthour.bind(self, item) }, _react2.default.createElement('span', { className: 'time-num-span' }, item));
-					}
-				}),
-				    minuteHtml = this.minutes.map(function (item, index) {
-					if (item != self.state.time.minute) {
-						return _react2.default.createElement('div', { className: 'cell', onClick: self.selectmin.bind(self, item) }, _react2.default.createElement('span', { className: 'time-num-span' }, item));
-					} else {
-						return _react2.default.createElement('div', { className: 'cell selected', onClick: self.selectmin.bind(self, item) }, _react2.default.createElement('span', { className: 'time-num-span' }, item));
-					}
-				}),
-				    ampmHtml = this.ampm.map(function (item, index) {
-					if (item != self.state.time.ampm) {
-						return _react2.default.createElement('div', { className: 'cell', onClick: self.selectAMPM.bind(self, item) }, _react2.default.createElement('span', { className: 'time-num-span' }, item));
-					} else {
-						return _react2.default.createElement('div', { className: 'cell selected', onClick: self.selectAMPM.bind(self, item) }, _react2.default.createElement('span', { className: 'time-num-span' }, item));
-					}
-				});
-
-				return _react2.default.createElement(Wrapper, { open: this.props.open }, _react2.default.createElement(Header, null, _react2.default.createElement('div', { className: 'label-cell' }, 'Hour'), _react2.default.createElement('div', { className: 'label-cell' }, 'Minute'), _react2.default.createElement('div', { className: 'label-cell' }, 'AM/PM')), _react2.default.createElement(Column, null, hourHtml), _react2.default.createElement(Column, null, minuteHtml), _react2.default.createElement(LastColumn, null, ampmHtml), _react2.default.createElement(CloseTimePicker, { onClick: this.props.closeTimePicker }, 'DONE'));
-			}
-		}]);
-
-		return TimePickerCore;
-	}(_react2.default.PureComponent);
-
-	exports.default = TimePickerCore;
-
-/***/ }),
-/* 98 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	var _createClass = function () {
-		function defineProperties(target, props) {
-			for (var i = 0; i < props.length; i++) {
-				var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
-			}
-		}return function (Constructor, protoProps, staticProps) {
-			if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
-		};
-	}();
-
-	var _templateObject = _taggedTemplateLiteral(['\n\tposition: relative;\n\twidth: 100%;\n\tfont-weight: 300;\n\tbox-sizing: border-box;\n\tpadding: 0 8px;\n\tbackground-color: var(--datePickerBgColor);\n\tbox-shadow : var(--calendarShadow);\n'], ['\n\tposition: relative;\n\twidth: 100%;\n\tfont-weight: 300;\n\tbox-sizing: border-box;\n\tpadding: 0 8px;\n\tbackground-color: var(--datePickerBgColor);\n\tbox-shadow : var(--calendarShadow);\n']),
-	    _templateObject2 = _taggedTemplateLiteral(['\n\tposition: relative;\n\tpadding: 12px 0;\n\ttext-align: center;\n\tcolor: var(--datePickerHeaderColor);\n\ttext-transform: uppercase;\n\tborder-bottom: var(--datePickerHeaderBorder);\n\n\t.month-span{\n\t//cursor: pointer;\n\t//font-size: 1.2em;\n\t}\n\n\t.arrow{\n\t\tposition: absolute;\n\t\twidth: 25px;\n\t\theight: 25px;\n\t\ttop: 12px;\n\t\tcursor: pointer;\n\t}\n\n\t.left-arrow{\n\t\tleft: 5px;\n\t}\n\n\t.left-arrow:before,\n\t.left-arrow:after{\n\t\tcontent: "";\n\t\tposition: absolute;\n\t\tleft: 5px;\n\t\twidth: 10px;\n\t\theight: 2px;\n\t\tbackground-color: var(--datePickerArrowColor);\n\t}\n\n\t.left-arrow:before{\n\t\ttop: 8px;\n\t\ttransform : rotate(-40deg);\n\t}\n\n\t.left-arrow:after{\n\t\ttop: 14px;\n\t\ttransform : rotate(40deg);\n\t}\n\n\t.right-arrow{\n\t\tright: 5px;\n\t}\n\n\t.right-arrow:before,\n\t.right-arrow:after{\n\t\tcontent: "";\n\t\tposition: absolute;\n\t\tright: 5px;\n\t\twidth: 10px;\n\t\theight: 2px;\n\t\tbackground-color: var(--datePickerArrowColor);\n\t}\n\n\t.right-arrow:before{\n\t\ttop: 14px;\n\t\ttransform : rotate(-40deg);\n\t}\n\n\t.right-arrow:after{\n\t\ttop: 8px;\n\t\ttransform : rotate(40deg);\n\t}\n'], ['\n\tposition: relative;\n\tpadding: 12px 0;\n\ttext-align: center;\n\tcolor: var(--datePickerHeaderColor);\n\ttext-transform: uppercase;\n\tborder-bottom: var(--datePickerHeaderBorder);\n\n\t.month-span{\n\t//cursor: pointer;\n\t//font-size: 1.2em;\n\t}\n\n\t.arrow{\n\t\tposition: absolute;\n\t\twidth: 25px;\n\t\theight: 25px;\n\t\ttop: 12px;\n\t\tcursor: pointer;\n\t}\n\n\t.left-arrow{\n\t\tleft: 5px;\n\t}\n\n\t.left-arrow:before,\n\t.left-arrow:after{\n\t\tcontent: "";\n\t\tposition: absolute;\n\t\tleft: 5px;\n\t\twidth: 10px;\n\t\theight: 2px;\n\t\tbackground-color: var(--datePickerArrowColor);\n\t}\n\n\t.left-arrow:before{\n\t\ttop: 8px;\n\t\ttransform : rotate(-40deg);\n\t}\n\n\t.left-arrow:after{\n\t\ttop: 14px;\n\t\ttransform : rotate(40deg);\n\t}\n\n\t.right-arrow{\n\t\tright: 5px;\n\t}\n\n\t.right-arrow:before,\n\t.right-arrow:after{\n\t\tcontent: "";\n\t\tposition: absolute;\n\t\tright: 5px;\n\t\twidth: 10px;\n\t\theight: 2px;\n\t\tbackground-color: var(--datePickerArrowColor);\n\t}\n\n\t.right-arrow:before{\n\t\ttop: 14px;\n\t\ttransform : rotate(-40deg);\n\t}\n\n\t.right-arrow:after{\n\t\ttop: 8px;\n\t\ttransform : rotate(40deg);\n\t}\n']),
-	    _templateObject3 = _taggedTemplateLiteral(['\n\tfont-size: 0.8em;\n\tmargin-bottom: 10px;\n\n\t.day-name-div{\n\t\tcolor: $orange-color;\n\t\tmargin-top: 8px;\n\t\tmargin-bottom: 8px;\n\t}\n\n\t.block{\n\t\tdisplay: inline-block;\n\t\twidth: 14.2%;\n\t\ttext-align: center;\n\t\tbox-sizing: border-box;\n\t}\n\t.numbers{\n\t\tpadding: 6px 0;\n\t\tcursor: pointer;\n\t\tcolor: var(--datePickerDateColor);\n\t\tbox-sizing: border-box;\n\t}\n\t.number-span{\n\t\tpadding: 5px;\n\t\tborder-radius: 50%;\n\t\tdisplay: inline-block;\n\t\tmin-width: 32px;\n\t\tbox-sizing: border-box;\n\t}\n\n\t.number-span.selected-block{\n\t\tbackground-color: var(--datePickerSelectedDateBgColor);\n\t\tcolor : var(--datePickerSelectedDateColor);\n\t\t//color: $header-color;\n\t}\n\n\t.number-span.today{\n\t\tbox-sizing: border-box;\n\t\tborder: 1px solid var(--datePickerSelectedDateBgColor);\n\t}\n\n\t.numbers.disabled{\n\t\tcolor: #78688F;\n\t\tcursor: default;\n\t}\n'], ['\n\tfont-size: 0.8em;\n\tmargin-bottom: 10px;\n\n\t.day-name-div{\n\t\tcolor: $orange-color;\n\t\tmargin-top: 8px;\n\t\tmargin-bottom: 8px;\n\t}\n\n\t.block{\n\t\tdisplay: inline-block;\n\t\twidth: 14.2%;\n\t\ttext-align: center;\n\t\tbox-sizing: border-box;\n\t}\n\t.numbers{\n\t\tpadding: 6px 0;\n\t\tcursor: pointer;\n\t\tcolor: var(--datePickerDateColor);\n\t\tbox-sizing: border-box;\n\t}\n\t.number-span{\n\t\tpadding: 5px;\n\t\tborder-radius: 50%;\n\t\tdisplay: inline-block;\n\t\tmin-width: 32px;\n\t\tbox-sizing: border-box;\n\t}\n\n\t.number-span.selected-block{\n\t\tbackground-color: var(--datePickerSelectedDateBgColor);\n\t\tcolor : var(--datePickerSelectedDateColor);\n\t\t//color: $header-color;\n\t}\n\n\t.number-span.today{\n\t\tbox-sizing: border-box;\n\t\tborder: 1px solid var(--datePickerSelectedDateBgColor);\n\t}\n\n\t.numbers.disabled{\n\t\tcolor: #78688F;\n\t\tcursor: default;\n\t}\n']);
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _styledComponents = __webpack_require__(39);
-
-	var _styledComponents2 = _interopRequireDefault(_styledComponents);
-
-	function _interopRequireDefault(obj) {
-		return obj && obj.__esModule ? obj : { default: obj };
-	}
-
-	function _classCallCheck(instance, Constructor) {
-		if (!(instance instanceof Constructor)) {
-			throw new TypeError("Cannot call a class as a function");
-		}
-	}
-
-	function _possibleConstructorReturn(self, call) {
-		if (!self) {
-			throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-		}return call && ((typeof call === "undefined" ? "undefined" : _typeof(call)) === "object" || typeof call === "function") ? call : self;
-	}
-
-	function _inherits(subClass, superClass) {
-		if (typeof superClass !== "function" && superClass !== null) {
-			throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === "undefined" ? "undefined" : _typeof(superClass)));
-		}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
-	}
-
-	function _taggedTemplateLiteral(strings, raw) {
-		return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
-	}
-
-	var Wrapper = _styledComponents2.default.div(_templateObject);
-
-	var Header = _styledComponents2.default.div(_templateObject2);
-
-	var CalenderContent = _styledComponents2.default.div(_templateObject3);
-
-	var Calendar = function (_React$PureComponent) {
-		_inherits(Calendar, _React$PureComponent);
-
-		function Calendar(props) {
-			_classCallCheck(this, Calendar);
-
-			var _this = _possibleConstructorReturn(this, (Calendar.__proto__ || Object.getPrototypeOf(Calendar)).call(this, props));
-
-			_this._numOfDays = [0, 0, 0, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31, 31, 28];
-			_this._totalBlocks = 42;
-			_this._today = new Date().setHours(0, 0, 0, 0);
-			_this._monthTexts = ["", "", "", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December", "January", "February"];
-			_this._handleMonthSelection = _this._handleMonthSelection.bind(_this);
-			_this.state = {
-				_selection: undefined,
-				_calendarView: undefined,
-				_view: undefined,
-				_selectedIndex: undefined,
-				_today: undefined,
-				_isMonthView: false
-			};
-			return _this;
-		}
-
-		_createClass(Calendar, [{
-			key: 'componentDidMount',
-			value: function componentDidMount() {
-				this._handleCurrentSelection(this.props.selectedDate, Date.now());
-			}
-		}, {
-			key: '_handleSelection',
-			value: function _handleSelection(index, date) {
-				var view = this.state._view;
-				var month = view.month < 13 ? view.month - 1 : view.month - 13;
-				var year = view.year;
-
-				var selectedDate = new Date(year, month, date).setHours(0, 0, 0, 0);
-
-				if (selectedDate == this._today || !this.props.restrictOldDates && selectedDate < this._today || !this.props.restrictFutureDates && selectedDate > this._today) {
-					this.setState({
-						_selectedIndex: index,
-						_selection: {
-							index: index,
-							date: date,
-							month: view.month,
-							year: view.year
-						}
-					});
-					if (this.props.onDateSelection) {
-						this.props.onDateSelection(selectedDate);
-					}
-				}
-			}
-		}, {
-			key: '_handleCurrentSelection',
-			value: function _handleCurrentSelection(timeStamp, todayTimestamp) {
-				var viewDate = new Date(timeStamp || todayTimestamp);
-				var month = viewDate.getMonth();
-				month = month >= 2 ? month + 1 : month + 13;
-				var year = viewDate.getFullYear();
-				var date = viewDate.getDate();
-
-				var selectedDay = this._getDayNum(month, year);
-
-				var today = new Date(todayTimestamp);
-				var currMonth = today.getMonth();
-				currMonth = currMonth >= 2 ? currMonth + 1 : currMonth + 13;
-				var currYear = today.getFullYear();
-				var currDate = today.getDate();
-
-				this.setState({
-					_calendarView: selectedDay,
-					_today: {
-						date: currDate,
-						month: currMonth,
-						year: currYear
-					},
-					_view: {
-						month: month,
-						year: year,
-						monthText: this._monthTexts[month]
-					},
-					_selection: {
-						index: selectedDay.startDay + date - 1,
-						date: date,
-						month: month,
-						year: year
-					},
-					_selectedIndex: selectedDay.startDay + date - 1
-				});
-			}
-		}, {
-			key: '_handleMonthSelection',
-			value: function _handleMonthSelection(month) {
-				//debugger
-				var year = this.state._view.year;
-				this.setState({
-					_calendarView: this._getDayNum(month, year),
-					_view: {
-						month: month,
-						year: year,
-						monthText: this._monthTexts[month]
-					},
-					_isMonthView: false
-					// _selectedIndex: undefined,
-					// _selection: undefined, // change here
-				});
-			}
-		}, {
-			key: '_handleMonthOptions',
-			value: function _handleMonthOptions() {
-				this.setState({
-					_isMonthView: true
-				});
-			}
-		}, {
-			key: '_changeMonth',
-			value: function _changeMonth(isForward) {
-				var view = this.state._view;
-				var year = view.year;
-				var month = view.month;
-
-				if (isForward) {
-					month = month + 1;
-					if (month > 14) {
-						month = month - 12;
-					}
-					if (month == 13) {
-						year += 1;
-					}
-				} else {
-					month = month - 1;
-					if (month < 3) {
-						month = month + 12;
-					}
-					if (month == 12) {
-						year -= 1;
-					}
-				}
-
-				this.setState({
-					_isMonthView: false,
-					_calendarView: this._getDayNum(month, year),
-					_view: {
-						month: month,
-						year: year,
-						monthText: this._monthTexts[month]
-						// _selectedIndex: undefined,
-						// _selection: undefined,
-					} });
-			}
-		}, {
-			key: '_getDayNum',
-			value: function _getDayNum(month, yrs) {
-				var year = month == 13 || month == 14 ? (yrs - 1).toString() : yrs.toString();
-				var m = month,
-				    d = 1,
-				    c = parseInt(year.substring(0, 2)),
-				    y = parseInt(year.substring(2));
-
-				var w = d + Math.floor(13 * (m + 1) / 5) + y + Math.floor(y / 4) + Math.floor(c / 4) - 2 * c;
-				var prevMonth = m - 1 == 2 ? 14 : m - 1;
-				var prevYear = prevMonth == 12 ? yrs - 1 : yrs;
-				return {
-					startDay: w >= 0 ? w % 7 != 0 ? w % 7 : 7 : 7 - Math.abs(w) % 7,
-					numOfDay: m != 14 ? this._numOfDays[m] : yrs % 4 == 0 ? 29 : 28,
-					previousMonthDays: prevMonth != 14 ? this._numOfDays[prevMonth] : prevYear % 4 == 0 ? 29 : 28
-				};
-			}
-		}, {
-			key: 'render',
-			value: function render() {
-				var blocksHtml = [];
-				var calendarView = this.state._calendarView;
-				var showYear = false;
-
-				if (this.state._view && this.state._today) {
-					var checkToday = this.state._view.month == this.state._today.month && this.state._view.year == this.state._today.year ? true : false;
-					var isToday = void 0;
-					var isSelectedViewVisible = void 0;
-					if (this.state._selection) {
-						if (this.state._view.month == this.state._selection.month && this.state._view.year == this.state._selection.year) {
-							isSelectedViewVisible = true;
-						}
-					}
-
-					if (calendarView) {
-						for (var index = 1; index <= this._totalBlocks; index++) {
-							var date = index - calendarView.startDay + 1;
-							isToday = checkToday && date == this.state._today.date ? true : false;
-
-							if (index < calendarView.startDay) {
-								blocksHtml.push(_react2.default.createElement(CalendarBlock, { key: "block_index_" + index,
-									text: calendarView.previousMonthDays - calendarView.startDay + index + 1,
-									isDisabled: true }));
-							} else if (index > calendarView.startDay + calendarView.numOfDay - 1) {
-								blocksHtml.push(_react2.default.createElement(CalendarBlock, { key: "block_index_" + index,
-									text: index - calendarView.startDay - calendarView.numOfDay + 1,
-									isDisabled: true }));
-							} else {
-								blocksHtml.push(_react2.default.createElement(CalendarBlock, { text: date,
-									onSelection: this._handleSelection.bind(this, index, date),
-									selected: index == this.state._selectedIndex && isSelectedViewVisible,
-									key: "block_index_" + index,
-									isToday: isToday }));
-							}
-						}
-					}
-
-					if (this.state._view.year != this.state._today.year) {
-						showYear = true;
-					}
-				}
-
-				return _react2.default.createElement(Wrapper, null, _react2.default.createElement(Header, null, _react2.default.createElement('span', { className: 'left-arrow arrow',
-					id: 'left_arrow',
-					onClick: this._changeMonth.bind(this, false) }), _react2.default.createElement('span', { className: 'right-arrow arrow',
-					id: 'right_arrow',
-					onClick: this._changeMonth.bind(this, true) }), _react2.default.createElement('span', { className: 'month-span', id: 'month_span',
-					onClick: this._handleMonthOptions.bind(this) }, this.state._view ? !showYear ? this.state._view.monthText : this.state._view.monthText + ", " + this.state._view.year : "")), this.state._isMonthView ? _react2.default.createElement(MonthSelector, { onMonthSelection: this._handleMonthSelection }) : _react2.default.createElement(CalenderContent, { id: 'content_calender' }, _react2.default.createElement('div', { className: 'day-name-div' }, _react2.default.createElement('div', { className: 'block' }, 'Su'), _react2.default.createElement('div', { className: 'block' }, 'Mo'), _react2.default.createElement('div', { className: 'block' }, 'Tu'), _react2.default.createElement('div', { className: 'block' }, 'We'), _react2.default.createElement('div', { className: 'block' }, 'Th'), _react2.default.createElement('div', { className: 'block' }, 'Fr'), _react2.default.createElement('div', { className: 'block' }, 'Sa')), blocksHtml));
-			}
-		}]);
-
-		return Calendar;
-	}(_react2.default.PureComponent);
-
-	/************************************************ Blocks ***************************************************/
-
-	exports.default = Calendar;
-	var CalendarBlock = _react2.default.createClass({
-		displayName: 'CalendarBlock',
-
-		getInitialState: function getInitialState() {
-			return {
-				_isSelected: false,
-				_isToday: false
-			};
-		},
-
-		componentDidMount: function componentDidMount() {
-			this.setState({
-				_isSelected: this.props.selected,
-				_isToday: this.props.isToday
-			});
-		},
-
-		componentWillReceiveProps: function componentWillReceiveProps(nextProps) {
-			this.setState({
-				_isSelected: nextProps.selected,
-				_isToday: nextProps.isToday
-			});
-		},
-
-		_handleSelection: function _handleSelection() {
-			if (this.props.onSelection) {
-				this.props.onSelection();
-			}
-		},
-
-		render: function render() {
-			var selectedClass = this.state._isSelected ? " selected-block " : " ";
-			var todayClass = this.state._isToday && !this.state._isSelected ? " today " : " ";
-			var disabledClass = this.props.isDisabled ? " disabled " : " ";
-			return _react2.default.createElement('div', { className: "block numbers " + disabledClass,
-				onClick: this._handleSelection }, _react2.default.createElement('span', { className: "number-span " + selectedClass + todayClass }, this.props.text));
-		}
-	});
-
-	/****************************************** Month Selector ********************************************/
-
-	var MonthSelector = _react2.default.createClass({
-		displayName: 'MonthSelector',
-
-		getInitialState: function getInitialState() {
-			this._months = [{ text: "Jan", value: 13 }, { text: "Feb", value: 14 }, { text: "Mar", value: 3 }, { text: "Apr", value: 4 }, { text: "May", value: 5 }, { text: "Jun", value: 6 }, { text: "Jul", value: 7 }, { text: "Aug", value: 8 }, { text: "Sep", value: 9 }, { text: "Oct", value: 10 }, { text: "Nov", value: 11 }, { text: "Dec", value: 12 }];
-			return {};
-		},
-
-		_handleSelection: function _handleSelection(month) {
-			this.props.onMonthSelection(month);
-		},
-
-		render: function render() {
-			var _this2 = this;
-
-			var monthsHtml = this._months.map(function (month) {
-				return _react2.default.createElement('div', { className: 'month-block', onClick: _this2._handleSelection.bind(_this2, month.value) }, month.text);
-			});
-			return _react2.default.createElement('div', { className: 'month-selector', id: 'month_selector' }, monthsHtml);
-		}
-	});
-
-/***/ }),
-/* 99 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	var _createClass = function () {
-		function defineProperties(target, props) {
-			for (var i = 0; i < props.length; i++) {
-				var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
-			}
-		}return function (Constructor, protoProps, staticProps) {
-			if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
-		};
-	}();
-
-	var _templateObject = _taggedTemplateLiteral(['\n\tflex-grow : 1;\n\tposition : relative;\n\tpadding : 10px 0 0;\n\tspan{\n\t\tfont-size : var(--inputFontSize);\n\t\tcolor : var(--inputColor);\n\t}\n\n\tlabel{\n\t\tposition: absolute;\n\t    top: 0px;\n\t    left: 0px;\n\t    font-size: var(--dropdownLabelFontSize);\n\t    color: var(--labelColor);\n\t}\n\n\tinput{\n\t\tborder : none;\n\t\toutline : none;\n\t\tbackground : inherit;\n\t\tfont-size : var(--inputFontSize);\n\t}\n\n\tselect{\n\t\tborder : none;\n\t\toutline : none;\n\t\tbackground : inherit;\n\t\tfont-size : var(--inputFontSize);\n\t\t-webkit-appearance: none;\n\t}\n'], ['\n\tflex-grow : 1;\n\tposition : relative;\n\tpadding : 10px 0 0;\n\tspan{\n\t\tfont-size : var(--inputFontSize);\n\t\tcolor : var(--inputColor);\n\t}\n\n\tlabel{\n\t\tposition: absolute;\n\t    top: 0px;\n\t    left: 0px;\n\t    font-size: var(--dropdownLabelFontSize);\n\t    color: var(--labelColor);\n\t}\n\n\tinput{\n\t\tborder : none;\n\t\toutline : none;\n\t\tbackground : inherit;\n\t\tfont-size : var(--inputFontSize);\n\t}\n\n\tselect{\n\t\tborder : none;\n\t\toutline : none;\n\t\tbackground : inherit;\n\t\tfont-size : var(--inputFontSize);\n\t\t-webkit-appearance: none;\n\t}\n']),
-	    _templateObject2 = _taggedTemplateLiteral(['\n\tpadding-right : 10px;\n'], ['\n\tpadding-right : 10px;\n']);
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _styledComponents = __webpack_require__(39);
-
-	var _styledComponents2 = _interopRequireDefault(_styledComponents);
-
-	var _sharedStyledComponents = __webpack_require__(38);
-
-	function _interopRequireDefault(obj) {
-		return obj && obj.__esModule ? obj : { default: obj };
-	}
-
-	function _classCallCheck(instance, Constructor) {
-		if (!(instance instanceof Constructor)) {
-			throw new TypeError("Cannot call a class as a function");
-		}
-	}
-
-	function _possibleConstructorReturn(self, call) {
-		if (!self) {
-			throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-		}return call && ((typeof call === "undefined" ? "undefined" : _typeof(call)) === "object" || typeof call === "function") ? call : self;
-	}
-
-	function _inherits(subClass, superClass) {
-		if (typeof superClass !== "function" && superClass !== null) {
-			throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === "undefined" ? "undefined" : _typeof(superClass)));
-		}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
-	}
-
-	function _taggedTemplateLiteral(strings, raw) {
-		return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
-	}
-
-	var InputWrapper = _styledComponents2.default.div(_templateObject);
-
-	var InlineDateWrapper = _sharedStyledComponents.InlineWrapper.extend(_templateObject2);
-
-	var DatetimeInput = function (_React$PureComponent) {
-		_inherits(DatetimeInput, _React$PureComponent);
-
-		function DatetimeInput(props) {
-			_classCallCheck(this, DatetimeInput);
-
-			var _this = _possibleConstructorReturn(this, (DatetimeInput.__proto__ || Object.getPrototypeOf(DatetimeInput)).call(this, props));
-
-			_this.onTimeChangeHandler = _this.onTimeChangeHandler.bind(_this);
-			_this.onDateChangeHandler = _this.onDateChangeHandler.bind(_this);
-
-			_this.time = props.time;
-			_this.date = props.date;
-			return _this;
-		}
-
-		_createClass(DatetimeInput, [{
-			key: 'componentWillReceiveProps',
-			value: function componentWillReceiveProps(nextProps) {
-				this.time = nextProps.time;
-				this.date = nextProps.date;
-			}
-		}, {
-			key: 'onTimeChangeHandler',
-			value: function onTimeChangeHandler(e) {
-				var val = e.target.value,
-				    name = e.target.name,
-				    maxLength = e.target.maxLength;
-
-				if (!maxLength || maxLength >= val.length) {
-					this.time[name] = val;
-					this.props.handleDatetimeChange(this.date, this.time);
-				}
-			}
-		}, {
-			key: 'onDateChangeHandler',
-			value: function onDateChangeHandler(e) {
-				var val = e.target.value,
-				    name = e.target.name,
-				    maxLength = e.target.maxLength;
-
-				if (maxLength >= val.length) {
-					this.dateDisplayObj[name] = val;
-					this.date = new Date(this.dateDisplayObj['year'], this.dateDisplayObj['month'] - 1, this.dateDisplayObj['date']).setHours(0, 0, 0, 0);
-					this.props.handleDatetimeChange(this.date, this.time);
-				}
-			}
-		}, {
-			key: 'spreadTimestamp',
-			value: function spreadTimestamp() {
-				var date = new Date(this.date);
-				return {
-					date: date.getDate() < 10 ? '0' + date.getDate() : date.getDate(),
-					month: date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1,
-					year: date.getFullYear()
-				};
-			}
-		}, {
-			key: 'render',
-			value: function render() {
-				var props = this.props,
-				    optionsHtml = [_react2.default.createElement('option', { value: 'AM', selected: this.time['ampm'] == 'AM' }, 'AM'), _react2.default.createElement('option', { value: 'PM', selected: this.time['ampm'] == 'PM' }, 'PM')];
-				this.dateDisplayObj = null;
-
-				if (props.showdate) {
-					this.dateDisplayObj = this.spreadTimestamp();
-				}
-
-				return _react2.default.createElement(InputWrapper, null, props.showdate ? _react2.default.createElement(InlineDateWrapper, null, _react2.default.createElement('input', { type: 'number',
-					name: 'date',
-					size: '2',
-					min: '01',
-					max: '31',
-					maxLength: 2,
-					value: this.dateDisplayObj['date'],
-					onChange: this.onDateChangeHandler }), _react2.default.createElement('span', null, '/'), _react2.default.createElement('input', { type: 'number',
-					name: 'month',
-					size: '2',
-					min: '01',
-					max: '12',
-					maxLength: 2,
-					value: this.dateDisplayObj['month'],
-					onChange: this.onDateChangeHandler }), _react2.default.createElement('span', null, '/'), _react2.default.createElement('input', { type: 'number',
-					name: 'year',
-					size: '4',
-					min: '1900',
-					max: '2200',
-					maxLength: 4,
-					value: this.dateDisplayObj['year'],
-					onChange: this.onDateChangeHandler })) : null, props.showtime ? _react2.default.createElement(_sharedStyledComponents.InlineWrapper, null, _react2.default.createElement('input', { type: 'number',
-					size: '2',
-					value: this.time['hour'] < 10 ? '0' + this.time['hour'] : this.time['hour'],
-					name: 'hour',
-					min: '01',
-					max: '12',
-					maxLength: 2,
-					onChange: this.onTimeChangeHandler }), _react2.default.createElement('span', null, ':'), _react2.default.createElement('input', { type: 'number',
-					size: '2',
-					value: this.time['minute'],
-					name: 'minute',
-					min: '00',
-					max: '55',
-					step: '5',
-					maxLength: 2,
-					onChange: this.onTimeChangeHandler }), _react2.default.createElement('select', { name: 'ampm', tabIndex: 0,
-					onChange: this.onTimeChangeHandler }, optionsHtml)) : null, _react2.default.createElement('label', null, props.label));
-			}
-		}]);
-
-		return DatetimeInput;
-	}(_react2.default.PureComponent);
-
-	exports.default = DatetimeInput;
 
 /***/ })
 /******/ ])

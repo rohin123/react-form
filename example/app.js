@@ -2,15 +2,15 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import styled from 'styled-components'
 import AutocompleteExample from './autocomplete'
-// import CheckBox from './checkbox'
-// import DateTime from './datetime'
-// import DropDown from './dropdown'
-// import NumberInput from './numberInput'
-// import RadioGroup from './radiogroup'
-// import SelectInput from './select'
-// import TextInput from './textInput'
+import CheckBoxExample from './checkbox'
+import DateTime from './datetime'
+import DropDown from './dropdown'
+import NumberInput from './numberInput'
+import RadioGroup from './radiogroup'
+import SelectInput from './select'
+import TextInput from './textInput'
+import TestForm from './form'
 import SideMenu from './sidemenu'
-//import ColorConfig from '../..'
 
 const MenuList = {
 	Autocomplete : 'autocomplete',
@@ -20,7 +20,8 @@ const MenuList = {
 	NumberInput : 'numberInput',
 	RadioGroup : 'radiogroup',
 	SelectInput : 'select',
-	TextInput : 'textInput' 
+	TextInput : 'textInput',
+	Reactform : 'form' 
 }
 
 const Wrapper = styled.div`
@@ -32,6 +33,8 @@ const Content = styled.div`
 	height : 100%;
 	float : right;
 	width : 75%;
+	box-sizing : border-box;
+	padding : 20px;
 `
 
 class App extends React.Component{
@@ -70,6 +73,10 @@ class App extends React.Component{
 						{
 							label : MenuList.TextInput,
 							selected : false
+						},
+						{
+							label : MenuList.Reactform,
+							selected : false
 						}]
 
 			this.state = {
@@ -86,37 +93,42 @@ class App extends React.Component{
 			}
 
 			case MenuList.DropDown : {
-				ret = 'dropdown'
+				ret = <DropDown/>
 				break
 			}
 
 			case MenuList.CheckBox : {
-				ret = 'checkbox'
+				ret = <CheckBoxExample/>
 				break
 			}
 
 			case MenuList.DateTime : {
-				ret = 'datetime'
+				ret = <DateTime/>
 				break
 			}
 
 			case MenuList.NumberInput : {
-				ret = 'numberInput'
+				ret = <NumberInput/>
 				break
 			}
 
 			case MenuList.RadioGroup : {
-				ret = 'radiogroup'
+				ret = <RadioGroup/>
 				break	
 			}
 
 			case MenuList.SelectInput : {
-				ret = 'SelectInput'
+				ret = <SelectInput/>
 				break
 			}
 
 			case MenuList.TextInput : {
-				ret = 'textInput'
+				ret = <TextInput/>
+				break
+			}
+
+			case MenuList.Reactform : {
+				ret = <TestForm/>
 				break
 			}
 		}

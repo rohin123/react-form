@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import Promise from 'promise'
 
 const Wrapper = styled.div`
-	width : 100px;
+	width : 300px;
 `
 
 export default class AutocompleteExample extends React.Component{
@@ -19,6 +19,7 @@ export default class AutocompleteExample extends React.Component{
 	}
 
 	setItem(name,value){
+		console.log('setItem',name,value)
 		this.setState({
 			value : value
 		})
@@ -53,13 +54,17 @@ export default class AutocompleteExample extends React.Component{
 	}
 
 	render(){
+		let config = {
+			label : 'Dummy Label',
+			name : 'test_input',
+			setItem : this.setItem,
+			fetchFunc : this.fetchFunc,
+			value : this.state.value
+		}
+
 		return(
 			<Wrapper>
-				<AutoComplete label={'Dummy Label'}
-								name={'test_input'}
-								setItem={this.setItem}
-								fetchFunc={this.fetchFunc}
-								value={this.state.value}/>
+				<AutoComplete inputConfig={config}/>
 			</Wrapper>					
 			)
 	}

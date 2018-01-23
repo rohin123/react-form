@@ -1,5 +1,26 @@
 import styled from 'styled-components'
 
+const CSSVariables = styled.div`
+  --labelColor : ${props => props.LABEL_COLOR};
+  --inputColor : ${props => props.INPUT_COLOR};
+  --inputBorderColor : ${props => props.INPUT_BORDER_COLOR};
+  --helpTextColor : ${props => props.HELPTEXT_COLOR};
+  --errorTextColor : ${props => props.ERRORTEXT_COLOR};
+  --dropdownColor : ${props => props.DROPDOWN_COLOR};
+  --dropdownBgColor : ${props => props.DROPDOWN_BACKGROUND};
+  --dropdownInputBgColor : ${props => props.DROPDOWN_INPUT_BACKGROUND};
+  --dropdownHoverColor : ${props => props.DROPDOWN_HOVER_COLOR};
+  --dropdownHoverBgColor : ${props => props.DROPDOWN_HOVER_BG_COLOR};
+  --defaultGreen : ${props => props.DEFAULT_GREEN_COLOR};
+  --defaultRed : ${props => props.DEFAULT_RED_COLOR};
+  --defaultBlue :${props => props.DEFAULT_BLUE_COLOR};
+  --labelFontSize : ${props => props.LABEL_FONT_SIZE};
+  --inputFontSize : ${props => props.INPUT_FONT_SIZE};
+  --infoFontSize : ${props => props.INFO_FONT_SIZE};
+  --infoBgColor : ${props => props.INFO_BG_COLOR};
+  --infoBoxShadow : ${props => props.INFO_BOX_SHADOW};
+`
+
 const Wrapper = styled.div`
 	//flex-basis: var(--flexBasis);
 	width : 100%;
@@ -23,6 +44,7 @@ const SearchBox = styled.div`
 	    font-size: var(--inputFontSize);
 	    background-color:transparent;
 	    color : var(--inputColor);	
+	    outline : none;
 	}
 
 	label{
@@ -79,4 +101,4 @@ const SelectedListItem = ListItem.extend`
 	color: var(--dropdownHoverColor);
 `
 
-export {Wrapper,SearchBox,SearchList,ListItem,SelectedListItem}
+export {CSSVariables,Wrapper,SearchBox,SearchList,ListItem,SelectedListItem}

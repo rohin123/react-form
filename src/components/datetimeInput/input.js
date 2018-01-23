@@ -26,6 +26,16 @@ const InputWrapper = styled.div`
 		font-size : var(--inputFontSize);
 	}
 
+	input[type='number'] {
+	    -moz-appearance:textfield;
+	}
+	/* Webkit browsers like Safari and Chrome */
+	input[type=number]::-webkit-inner-spin-button,
+	input[type=number]::-webkit-outer-spin-button {
+	    -webkit-appearance: none;
+	    margin: 0;
+	}
+
 	select{
 		border : none;
 		outline : none;
