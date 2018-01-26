@@ -1,37 +1,9 @@
 import React from 'react'
-import TimePicker from './timepicker.js'
-import Calendar from './calendar.js'
-import styled from 'styled-components'
+import TimePicker from './timepicker'
+import Calendar from './calendar'
 import {VhAlignedWrapper,FixedDivWrapper} from '../sharedStyledComponents.js'
-//import ClosePopupListener from '../../helpers/closePopupListener.js'
-import DatetimeInput from './input.js'
-
-const Wrapper = styled.div`
-	//flex-basis : var(--flexBasis);
-	display : flex;
-	flex-direction : row;
-	padding : 5px 5px 0px;
-	//margin : 10px;
-	align-items: flex-end;
-    border-bottom: 1px solid var(--labelColor);
-    //flex-grow : 1;
-`
-
-const TimeInputWrapper = styled.div`
-	width:25px;
-	height:25px;
-	background : url(/shared/img/clock-icon.png) no-repeat center;
-	background-size : 80%;
-	visibility : ${props => props.showtime?'visible' : 'hidden'};
-`
-
-const DateInputWrapper  = styled.div`
-	width:25px;
-	height:25px;
-	background : url(/shared/img/calendar.png) no-repeat;
-	background-size : 100%;
-	visibility : ${props => props.showdate?'visible' : 'hidden'};
-`
+import DatetimeInput from './input'
+import {Wrapper,TimeInputWrapper,DateInputWrapper} from './styledComponents.js'
 
 export default class DateTimePicker extends React.PureComponent{
 	constructor(props){
@@ -194,7 +166,8 @@ export default class DateTimePicker extends React.PureComponent{
 									showtime={props.showtime}
 									time={this.state.time}
 									date={this.state.date}
-									handleDatetimeChange={this.setDateTime}/>
+									handleDatetimeChange={this.setDateTime}
+									label={props.label}/>
 					<DateInputWrapper showdate={props.showdate} 
 										onClick={this.toggleCalendar}>
 					</DateInputWrapper>

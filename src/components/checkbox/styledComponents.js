@@ -2,8 +2,6 @@ import styled from 'styled-components'
 
 const CSSVariables = styled.div`
 	--labelColor : ${props => props.LABEL_COLOR};
-	--inputColor : ${props => props.INPUT_COLOR};
-	--inputBorderColor : ${props => props.INPUT_BORDER_COLOR};
 	--helpTextColor : ${props => props.HELPTEXT_COLOR};
 	--errorTextColor : ${props => props.ERRORTEXT_COLOR};
 	--defaultGreen : ${props => props.DEFAULT_GREEN_COLOR};
@@ -21,9 +19,7 @@ const CSSVariables = styled.div`
 
 const Wrapper = styled.div`
 	position:relative;
-	//flex-basis : var(--flexBasis);
 	padding : 15px 0 0;
-	//margin: 10px;
 	input[type='checkbox']{
 		-webkit-appearance: none;
 	    width: 16px;
@@ -34,6 +30,7 @@ const Wrapper = styled.div`
 	    border-radius: 4px;
 	    z-index:1;
 	    position : relative;
+	    outline : none;
 	}
 
 	&:hover{

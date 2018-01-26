@@ -28,25 +28,6 @@ class AutoComplete extends React.PureComponent{
 		}
 	}
 
-	componentWillMount(){
-		//this.closePopupKey = ClosePopupListener.addListenerFunc(this.closePopup.bind(this))
-		//ClosePopupListener.addListenerFunc(this.closePopup.bind(this))
-	}
-
-	closePopup(e){
-		if(!e.target.closest('#'+this.props.name)){
-			this.keyPressHandlerInstance.updateListLength.call(this.keyPressHandlerInstance,0)
-			this.setState({
-				autoCompList:[]
-			})
-		}
-	}
-
-	componentWillUnmount(){
-		//ClosePopupListener.removeListenerFunc(this.closePopupKey)
-		//ClosePopupListener.removeListenerFunc(this.closePopup)
-	}
-
 	debounceOnChangeHandler(value){
 		let fetchPromise = this.props.fetchFunc
 			fetchPromise(value).then((res)=>{

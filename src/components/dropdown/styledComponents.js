@@ -14,7 +14,7 @@ const CSSVariables = styled.div`
   --defaultGreen : ${props => props.DEFAULT_GREEN_COLOR};
   --defaultRed : ${props => props.DEFAULT_RED_COLOR};
   --defaultBlue :${props => props.DEFAULT_BLUE_COLOR};
-  --dropdownLabelFontSize : ${props => props.DROPDOWN_LABEL_FONT_SIZE};
+  --labelFontSizeSmall : ${props => props.LABEL_FONT_SIZE_SMALL};
   --inputFontSize : ${props => props.INPUT_FONT_SIZE};
   --infoFontSize : ${props => props.INFO_FONT_SIZE};
   --dropdownInputShadow : ${props => props.DROPDOWN_INPUT_SHADOW};
@@ -55,7 +55,7 @@ const Wrapper = styled.div`
     	position: absolute;
 	    top: 12px;
 	    left: 10px;
-	    font-size: var(--dropdownLabelFontSize);
+	    font-size: var(--labelFontSizeSmall);
 	    color: var(--labelColor);
     }
 

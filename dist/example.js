@@ -59,7 +59,9 @@
 	}();
 
 	var _templateObject = _taggedTemplateLiteral(['\n\twidth : 100%;\n\theight : 100%;\n'], ['\n\twidth : 100%;\n\theight : 100%;\n']),
-	    _templateObject2 = _taggedTemplateLiteral(['\n\theight : 100%;\n\tfloat : right;\n\twidth : 75%;\n\tbox-sizing : border-box;\n\tpadding : 20px;\n'], ['\n\theight : 100%;\n\tfloat : right;\n\twidth : 75%;\n\tbox-sizing : border-box;\n\tpadding : 20px;\n']);
+	    _templateObject2 = _taggedTemplateLiteral(['\n\theight : 100%;\n\tfloat : right;\n\twidth : 75%;\n\tbox-sizing : border-box;\n\tpadding : 20px;\n\toverflow : auto;\n'], ['\n\theight : 100%;\n\tfloat : right;\n\twidth : 75%;\n\tbox-sizing : border-box;\n\tpadding : 20px;\n\toverflow : auto;\n']),
+	    _templateObject3 = _taggedTemplateLiteral(['\n\th1,h2,h3{\n\t\tbackground-color : whitesmoke;\n\t}\n'], ['\n\th1,h2,h3{\n\t\tbackground-color : whitesmoke;\n\t}\n']),
+	    _templateObject4 = _taggedTemplateLiteral(['\n\twidth : 300px;\n'], ['\n\twidth : 300px;\n']);
 
 	var _react = __webpack_require__(1);
 
@@ -85,31 +87,31 @@
 
 	var _datetime2 = _interopRequireDefault(_datetime);
 
-	var _dropdown = __webpack_require__(256);
+	var _dropdown = __webpack_require__(259);
 
 	var _dropdown2 = _interopRequireDefault(_dropdown);
 
-	var _numberInput = __webpack_require__(261);
+	var _numberInput = __webpack_require__(264);
 
 	var _numberInput2 = _interopRequireDefault(_numberInput);
 
-	var _radiogroup = __webpack_require__(266);
+	var _radiogroup = __webpack_require__(269);
 
 	var _radiogroup2 = _interopRequireDefault(_radiogroup);
 
-	var _select = __webpack_require__(271);
+	var _select = __webpack_require__(274);
 
 	var _select2 = _interopRequireDefault(_select);
 
-	var _textInput = __webpack_require__(276);
+	var _textInput = __webpack_require__(279);
 
 	var _textInput2 = _interopRequireDefault(_textInput);
 
-	var _form = __webpack_require__(277);
+	var _form = __webpack_require__(280);
 
 	var _form2 = _interopRequireDefault(_form);
 
-	var _sidemenu = __webpack_require__(281);
+	var _sidemenu = __webpack_require__(284);
 
 	var _sidemenu2 = _interopRequireDefault(_sidemenu);
 
@@ -154,6 +156,9 @@
 	var Wrapper = _styledComponents2.default.div(_templateObject);
 
 	var Content = _styledComponents2.default.div(_templateObject2);
+
+	var InfoWrapper = _styledComponents2.default.div(_templateObject3);
+	var InputWrapper = _styledComponents2.default.div(_templateObject4);
 
 	var App = function (_React$Component) {
 		_inherits(App, _React$Component);
@@ -203,59 +208,68 @@
 		_createClass(App, [{
 			key: 'getSelectedElem',
 			value: function getSelectedElem() {
-				var ret = null;
+				var ret = {};
 				switch (this.state.selectedItem) {
 					case MenuList.Autocomplete:
 						{
-							ret = _react2.default.createElement(_autocomplete2.default, null);
+							ret.elem = _react2.default.createElement(_autocomplete2.default, null);
+							ret.inputConfigInfo = "label ==> label for your autocomplete \n" + "name  ==> name for your autocomplete \n" + "setItem ==> function with name and value as parameters \n" + "fetchFunc ==> promise to fetch autocomplete list \n" + "value ==> initial value or selected value of autocomplete";
 							break;
 						}
 
 					case MenuList.DropDown:
 						{
-							ret = _react2.default.createElement(_dropdown2.default, null);
+							ret.elem = _react2.default.createElement(_dropdown2.default, null);
+							ret.inputConfigInfo = "label ==> label for your dropdown \n" + "name  ==> name for your dropdown \n" + "setItem ==> function with name and value as parameters \n" + "value ==> initial value or selected value of autocomplete";
 							break;
 						}
 
 					case MenuList.CheckBox:
 						{
-							ret = _react2.default.createElement(_checkbox2.default, null);
+							ret.elem = _react2.default.createElement(_checkbox2.default, null);
+							ret.inputConfigInfo = "label ==> label for your checkbox \n" + "name  ==> name for your checkbox \n" + "setItem ==> function with name and value as parameters \n" + "value ==> initial value or selected value of autocomplete";
 							break;
 						}
 
 					case MenuList.DateTime:
 						{
-							ret = _react2.default.createElement(_datetime2.default, null);
+							ret.elem = _react2.default.createElement(_datetime2.default, null);
+							ret.inputConfigInfo = "label ==> label for your datetime \n" + "name  ==> name for your datetime \n" + "setItem ==> function with name and value as parameters \n" + "value ==> initial value or selected value of datetime";
 							break;
 						}
 
 					case MenuList.NumberInput:
 						{
-							ret = _react2.default.createElement(_numberInput2.default, null);
+							ret.elem = _react2.default.createElement(_numberInput2.default, null);
+							ret.inputConfigInfo = "label ==> label for your numberInput \n" + "name  ==> name for your numberInput \n" + "setItem ==> function with name and value as parameters \n" + "value ==> initial value or selected value of numberInput";
 							break;
 						}
 
 					case MenuList.RadioGroup:
 						{
-							ret = _react2.default.createElement(_radiogroup2.default, null);
+							ret.elem = _react2.default.createElement(_radiogroup2.default, null);
+							ret.inputConfigInfo = "label ==> label for your radiogroup \n" + "name  ==> name for your radiogroup \n" + "setItem ==> function with name and value as parameters \n" + "value ==> initial value or selected value of radiogroup";
 							break;
 						}
 
 					case MenuList.SelectInput:
 						{
-							ret = _react2.default.createElement(_select2.default, null);
+							ret.elem = _react2.default.createElement(_select2.default, null);
+							ret.inputConfigInfo = "label ==> label for your selectInput \n" + "name  ==> name for your selectInput \n" + "setItem ==> function with name and value as parameters \n" + "value ==> initial value or selected value of selectInput";
 							break;
 						}
 
 					case MenuList.TextInput:
 						{
-							ret = _react2.default.createElement(_textInput2.default, null);
+							ret.elem = _react2.default.createElement(_textInput2.default, null);
+							ret.inputConfigInfo = "label ==> label for your textInput \n" + "name  ==> name for your textInput \n" + "setItem ==> function with name and value as parameters \n" + "value ==> initial value or selected value of textInput";
 							break;
 						}
 
 					case MenuList.Reactform:
 						{
-							ret = _react2.default.createElement(_form2.default, null);
+							ret.elem = _react2.default.createElement(_form2.default, null);
+							ret.inputConfigInfo = "label ==> label for your form \n" + "name  ==> name for your form \n" + "setItem ==> function with name and value as parameters \n" + "value ==> initial value or selected value of form";
 							break;
 						}
 				}
@@ -282,9 +296,10 @@
 		}, {
 			key: 'render',
 			value: function render() {
-				var contentHtml = this.getSelectedElem();
 
-				return _react2.default.createElement(Wrapper, null, _react2.default.createElement(_sidemenu2.default, { list: this.menuList, setSelected: this.setSelected }), _react2.default.createElement(Content, null, contentHtml));
+				var inputHtml = this.getSelectedElem();
+
+				return _react2.default.createElement(Wrapper, null, _react2.default.createElement(_sidemenu2.default, { list: this.menuList, setSelected: this.setSelected }), _react2.default.createElement(Content, null, _react2.default.createElement(InfoWrapper, null, _react2.default.createElement('h1', null, 'Code'), _react2.default.createElement('p', null, "import {" + this.state.selectedItem + "} from 'react-ui-components'"), _react2.default.createElement('h2', null, 'Props'), _react2.default.createElement('span', null, "inputConfig(required), styleConfig(optional)"), _react2.default.createElement('h3', null, "inputConfig object properties"), _react2.default.createElement('pre', null, inputHtml.inputConfigInfo)), inputHtml.elem));
 			}
 		}]);
 
@@ -26252,9 +26267,7 @@
 		};
 	}();
 
-	var _templateObject = _taggedTemplateLiteral(['\t\n'], ['\t\n']),
-	    _templateObject2 = _taggedTemplateLiteral(['\n\th1,h2,h3{\n\t\tbackground-color : whitesmoke;\n\t}\n'], ['\n\th1,h2,h3{\n\t\tbackground-color : whitesmoke;\n\t}\n']),
-	    _templateObject3 = _taggedTemplateLiteral(['\n\twidth : 300px;\n'], ['\n\twidth : 300px;\n']);
+	var _templateObject = _taggedTemplateLiteral(['\n\twidth : 300px;\n'], ['\n\twidth : 300px;\n']);
 
 	var _react = __webpack_require__(1);
 
@@ -26299,8 +26312,6 @@
 	}
 
 	var Wrapper = _styledComponents2.default.div(_templateObject);
-	var InfoWrapper = _styledComponents2.default.div(_templateObject2);
-	var InputWrapper = _styledComponents2.default.div(_templateObject3);
 
 	var AutocompleteExample = function (_React$Component) {
 		_inherits(AutocompleteExample, _React$Component);
@@ -26360,7 +26371,7 @@
 					value: this.state.value
 				};
 
-				return _react2.default.createElement(Wrapper, null, _react2.default.createElement(InfoWrapper, null, _react2.default.createElement('h1', null, 'Code'), _react2.default.createElement('p', null, "import {" + "AutoComplete} " + "from 'react-ui-components'"), _react2.default.createElement('h2', null, 'Props'), _react2.default.createElement('span', null, "inputConfig(required), styleConfig(optional)"), _react2.default.createElement('h3', null, "inputConfig object properties"), _react2.default.createElement('pre', null, "label ==> label for your autocomplete \n" + "name  ==> name for your autocomplete \n" + "setItem ==> function with name and value as parameters \n" + "fetchFunc ==> promise to fetch autocomplete list \n" + "value ==> initial value or selected value of autocomplete")), _react2.default.createElement(InputWrapper, null, _react2.default.createElement(_autocomplete2.default, { inputConfig: config })));
+				return _react2.default.createElement(Wrapper, null, _react2.default.createElement(_autocomplete2.default, { inputConfig: config }));
 			}
 		}]);
 
@@ -26548,28 +26559,6 @@
 		}
 
 		_createClass(AutoComplete, [{
-			key: 'componentWillMount',
-			value: function componentWillMount() {
-				//this.closePopupKey = ClosePopupListener.addListenerFunc(this.closePopup.bind(this))
-				//ClosePopupListener.addListenerFunc(this.closePopup.bind(this))
-			}
-		}, {
-			key: 'closePopup',
-			value: function closePopup(e) {
-				if (!e.target.closest('#' + this.props.name)) {
-					this.keyPressHandlerInstance.updateListLength.call(this.keyPressHandlerInstance, 0);
-					this.setState({
-						autoCompList: []
-					});
-				}
-			}
-		}, {
-			key: 'componentWillUnmount',
-			value: function componentWillUnmount() {
-				//ClosePopupListener.removeListenerFunc(this.closePopupKey)
-				//ClosePopupListener.removeListenerFunc(this.closePopup)
-			}
-		}, {
 			key: 'debounceOnChangeHandler',
 			value: function debounceOnChangeHandler(value) {
 				var _this2 = this;
@@ -27206,12 +27195,9 @@
 		value: true
 	});
 	exports.default = {
-		FLEX_BASIS: '300px',
 		LABEL_FONT_SIZE: '1.1rem',
-		DROPDOWN_LABEL_FONT_SIZE: '0.75rem',
 		INPUT_FONT_SIZE: '1rem',
 		INFO_FONT_SIZE: '0.8rem',
-		FORM_BACKGROUND: '#efedfb',
 		LABEL_COLOR: '#9896b1',
 		INPUT_COLOR: '#3b3a4b',
 		INPUT_BORDER_COLOR: '#9896b1',
@@ -27227,33 +27213,8 @@
 		DEFAULT_GREEN_COLOR: '#008000',
 		DEFAULT_BLUE_COLOR: '#007FFF',
 		DEFAULT_RED_COLOR: '#DF1D1D',
-		CHECKBOX_BORDER_FALSE: '#6C6D6D',
-		CHECKBOX_BORDER_TRUE: '#007FFF',
-		CHECKBOX_TICK_COLOR: '#007FFF',
 		INFO_BG_COLOR: 'white',
-		INFO_BOX_SHADOW: '1px 1px 8px 0px #c3c3c3',
-		HEADING_BORDER: '1px solid #333',
-		DATE_PICKER_BG_COLOR: 'whitesmoke',
-		DATE_PICKER_HEADER_COLOR: '#333',
-		DATE_PICKER_HEADER_BORDER: "1px solid #333",
-		DATE_PICKER_ARROW_COLOR: '#333',
-		DATE_PICKER_DATE_COLOR: '007FFF',
-		DATE_PICKER_SELECTED_DATE_BG_COLOR: '#007FFF',
-		DATE_PICKER_SELECTED_DATE_COLOR: 'white',
-		TIME_PICKER_HEADER_BG_COLOR: 'whitesmoke',
-		TIME_PICKER_HEADER_COLOR: '#333',
-		TIME_PICKER_HEADER_BORDER_COLOR: '#c3c3c3',
-		TIME_PICKER_COLUMN_BORDER_COLOR: '#c3c3c3',
-		TIME_PICKER_COLUMN_BG_COLOR: 'white',
-		TIME_PICKER_COLUMN_COLOR: '#333',
-		TIME_PICKER_SELECTED_CELL_COLOR: '#007FFF',
-		TIME_PICKER_FOOTER_COLOR: '#333',
-		TIME_PICKER_FOOTER_BG_COLOR: 'whitesmoke',
-		HEADING_FONT_SIZE: '1.1rem',
-		SUB_HEADING_FONT_SIZE: '1rem',
-		DATE_PICKER_SHADOW: 'none',
-		TIME_PICKER_SHADOW: 'none',
-		POPUP_BG_COLOR: 'rgba(0,0,0,0.6)'
+		INFO_BOX_SHADOW: '1px 1px 8px 0px #c3c3c3'
 	};
 
 /***/ }),
@@ -28194,10 +28155,6 @@
 
 	var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
-	var _promise = __webpack_require__(233);
-
-	var _promise2 = _interopRequireDefault(_promise);
-
 	function _interopRequireDefault(obj) {
 		return obj && obj.__esModule ? obj : { default: obj };
 	}
@@ -28448,8 +28405,8 @@
 	});
 	exports.InputWrapper = exports.Tick = exports.Wrapper = exports.CheckboxWrapper = exports.CSSVariables = undefined;
 
-	var _templateObject = _taggedTemplateLiteral(['\n\t--labelColor : ', ';\n\t--inputColor : ', ';\n\t--inputBorderColor : ', ';\n\t--helpTextColor : ', ';\n\t--errorTextColor : ', ';\n\t--defaultGreen : ', ';\n\t--defaultRed : ', ';\n\t--defaultBlue :', ';\n\t--labelFontSize : ', ';\n\t--inputFontSize : ', ';\n\t--infoFontSize : ', ';\n\t--infoBgColor : ', ';\n\t--infoBoxShadow : ', ';\n \t--checkboxBorderTrue : ', ';\n \t--checkboxBorderFalse : ', ';\n \t--checkboxTrikColor : ', ';\n'], ['\n\t--labelColor : ', ';\n\t--inputColor : ', ';\n\t--inputBorderColor : ', ';\n\t--helpTextColor : ', ';\n\t--errorTextColor : ', ';\n\t--defaultGreen : ', ';\n\t--defaultRed : ', ';\n\t--defaultBlue :', ';\n\t--labelFontSize : ', ';\n\t--inputFontSize : ', ';\n\t--infoFontSize : ', ';\n\t--infoBgColor : ', ';\n\t--infoBoxShadow : ', ';\n \t--checkboxBorderTrue : ', ';\n \t--checkboxBorderFalse : ', ';\n \t--checkboxTrikColor : ', ';\n']),
-	    _templateObject2 = _taggedTemplateLiteral(['\n\tposition:relative;\n\t//flex-basis : var(--flexBasis);\n\tpadding : 15px 0 0;\n\t//margin: 10px;\n\tinput[type=\'checkbox\']{\n\t\t-webkit-appearance: none;\n\t    width: 16px;\n\t    height: 16px;\n\t    border: 2px solid;\n\t    border-color : ', ';\n\t    vertical-align: bottom;\n\t    border-radius: 4px;\n\t    z-index:1;\n\t    position : relative;\n\t}\n\n\t&:hover{\n\t\tbackground : \'#c3c3c3\';\n\t}\n'], ['\n\tposition:relative;\n\t//flex-basis : var(--flexBasis);\n\tpadding : 15px 0 0;\n\t//margin: 10px;\n\tinput[type=\'checkbox\']{\n\t\t-webkit-appearance: none;\n\t    width: 16px;\n\t    height: 16px;\n\t    border: 2px solid;\n\t    border-color : ', ';\n\t    vertical-align: bottom;\n\t    border-radius: 4px;\n\t    z-index:1;\n\t    position : relative;\n\t}\n\n\t&:hover{\n\t\tbackground : \'#c3c3c3\';\n\t}\n']),
+	var _templateObject = _taggedTemplateLiteral(['\n\t--labelColor : ', ';\n\t--helpTextColor : ', ';\n\t--errorTextColor : ', ';\n\t--defaultGreen : ', ';\n\t--defaultRed : ', ';\n\t--defaultBlue :', ';\n\t--labelFontSize : ', ';\n\t--inputFontSize : ', ';\n\t--infoFontSize : ', ';\n\t--infoBgColor : ', ';\n\t--infoBoxShadow : ', ';\n \t--checkboxBorderTrue : ', ';\n \t--checkboxBorderFalse : ', ';\n \t--checkboxTrikColor : ', ';\n'], ['\n\t--labelColor : ', ';\n\t--helpTextColor : ', ';\n\t--errorTextColor : ', ';\n\t--defaultGreen : ', ';\n\t--defaultRed : ', ';\n\t--defaultBlue :', ';\n\t--labelFontSize : ', ';\n\t--inputFontSize : ', ';\n\t--infoFontSize : ', ';\n\t--infoBgColor : ', ';\n\t--infoBoxShadow : ', ';\n \t--checkboxBorderTrue : ', ';\n \t--checkboxBorderFalse : ', ';\n \t--checkboxTrikColor : ', ';\n']),
+	    _templateObject2 = _taggedTemplateLiteral(['\n\tposition:relative;\n\tpadding : 15px 0 0;\n\tinput[type=\'checkbox\']{\n\t\t-webkit-appearance: none;\n\t    width: 16px;\n\t    height: 16px;\n\t    border: 2px solid;\n\t    border-color : ', ';\n\t    vertical-align: bottom;\n\t    border-radius: 4px;\n\t    z-index:1;\n\t    position : relative;\n\t    outline : none;\n\t}\n\n\t&:hover{\n\t\tbackground : \'#c3c3c3\';\n\t}\n'], ['\n\tposition:relative;\n\tpadding : 15px 0 0;\n\tinput[type=\'checkbox\']{\n\t\t-webkit-appearance: none;\n\t    width: 16px;\n\t    height: 16px;\n\t    border: 2px solid;\n\t    border-color : ', ';\n\t    vertical-align: bottom;\n\t    border-radius: 4px;\n\t    z-index:1;\n\t    position : relative;\n\t    outline : none;\n\t}\n\n\t&:hover{\n\t\tbackground : \'#c3c3c3\';\n\t}\n']),
 	    _templateObject3 = _taggedTemplateLiteral(['\n\tdisplay: inline-block;\n    position: relative;\n    z-index: 1;\n    background: transparent;\n\n    label{\n    \tfont-size : var(--labelFontSize);\n    \tcolor : var(--labelColor);\n    }\n\n\t&:after{\n\t\tposition: absolute;\n\t    content: \'\';\n\t    width: 46px;\n\t    height: 46px;\n\t    background: #333;\n\t    border-radius: 50%;\n\t    top: -9px;\n\t    left: -13px;\n\t    opacity: 0;\n\t    transform : scale(1);\n\t    transition : all 0.4s;\n\t    z-index : -1;\n\t}\n\n\t&:active:after{\n\t\topacity:1;\n\t\ttransform : scale(0);\n\t\ttransition : all 0s;\n\t}\n'], ['\n\tdisplay: inline-block;\n    position: relative;\n    z-index: 1;\n    background: transparent;\n\n    label{\n    \tfont-size : var(--labelFontSize);\n    \tcolor : var(--labelColor);\n    }\n\n\t&:after{\n\t\tposition: absolute;\n\t    content: \'\';\n\t    width: 46px;\n\t    height: 46px;\n\t    background: #333;\n\t    border-radius: 50%;\n\t    top: -9px;\n\t    left: -13px;\n\t    opacity: 0;\n\t    transform : scale(1);\n\t    transition : all 0.4s;\n\t    z-index : -1;\n\t}\n\n\t&:active:after{\n\t\topacity:1;\n\t\ttransform : scale(0);\n\t\ttransition : all 0s;\n\t}\n']),
 	    _templateObject4 = _taggedTemplateLiteral(['\n\tdisplay : ', ';\n\tposition : absolute;\n\ttop : 7px;\n\tleft : 6px;\n\twidth : 6px;\n\theight : 2px;\n\tborder : 2px solid;\n\tborder-color : var(--checkboxTrikColor);\n\tborder-top-color : transparent;\n\tborder-right-color : transparent;\n\ttransform : rotate(-45deg);\n\tz-index : 0;\t\n'], ['\n\tdisplay : ', ';\n\tposition : absolute;\n\ttop : 7px;\n\tleft : 6px;\n\twidth : 6px;\n\theight : 2px;\n\tborder : 2px solid;\n\tborder-color : var(--checkboxTrikColor);\n\tborder-top-color : transparent;\n\tborder-right-color : transparent;\n\ttransform : rotate(-45deg);\n\tz-index : 0;\t\n']),
 	    _templateObject5 = _taggedTemplateLiteral(['\n\tposition: relative;\n\tdisplay : inline-block;\n\n'], ['\n\tposition: relative;\n\tdisplay : inline-block;\n\n']);
@@ -28468,10 +28425,6 @@
 
 	var CSSVariables = _styledComponents2.default.div(_templateObject, function (props) {
 		return props.LABEL_COLOR;
-	}, function (props) {
-		return props.INPUT_COLOR;
-	}, function (props) {
-		return props.INPUT_BORDER_COLOR;
 	}, function (props) {
 		return props.HELPTEXT_COLOR;
 	}, function (props) {
@@ -28528,24 +28481,11 @@
 		value: true
 	});
 	exports.default = {
-		FLEX_BASIS: '300px',
 		LABEL_FONT_SIZE: '1.1rem',
-		DROPDOWN_LABEL_FONT_SIZE: '0.75rem',
-		INPUT_FONT_SIZE: '1rem',
 		INFO_FONT_SIZE: '0.8rem',
-		FORM_BACKGROUND: '#efedfb',
 		LABEL_COLOR: '#9896b1',
-		INPUT_COLOR: '#3b3a4b',
-		INPUT_BORDER_COLOR: '#9896b1',
 		HELPTEXT_COLOR: '#007FFF',
 		ERRORTEXT_COLOR: '#DF1D1D',
-		DROPDOWN_COLOR: '#333',
-		DROPDOWN_BACKGROUND: 'whitesmoke',
-		DROPDOWN_INPUT_BACKGROUND: '#efedfb',
-		DROPDOWN_HOVER_COLOR: '#FFF',
-		DROPDOWN_HOVER_BG_COLOR: '#007FFF',
-		DROPDOWN_INPUT_SHADOW: '1px 1px 1px 1px #c3c3c3',
-		DROPDOWN_SHADOW: '2px 2px 10px 0px #8e8181',
 		DEFAULT_GREEN_COLOR: '#008000',
 		DEFAULT_BLUE_COLOR: '#007FFF',
 		DEFAULT_RED_COLOR: '#DF1D1D',
@@ -28553,29 +28493,7 @@
 		CHECKBOX_BORDER_TRUE: '#007FFF',
 		CHECKBOX_TICK_COLOR: '#007FFF',
 		INFO_BG_COLOR: 'white',
-		INFO_BOX_SHADOW: '1px 1px 8px 0px #c3c3c3',
-		HEADING_BORDER: '1px solid #333',
-		DATE_PICKER_BG_COLOR: 'whitesmoke',
-		DATE_PICKER_HEADER_COLOR: '#333',
-		DATE_PICKER_HEADER_BORDER: "1px solid #333",
-		DATE_PICKER_ARROW_COLOR: '#333',
-		DATE_PICKER_DATE_COLOR: '007FFF',
-		DATE_PICKER_SELECTED_DATE_BG_COLOR: '#007FFF',
-		DATE_PICKER_SELECTED_DATE_COLOR: 'white',
-		TIME_PICKER_HEADER_BG_COLOR: 'whitesmoke',
-		TIME_PICKER_HEADER_COLOR: '#333',
-		TIME_PICKER_HEADER_BORDER_COLOR: '#c3c3c3',
-		TIME_PICKER_COLUMN_BORDER_COLOR: '#c3c3c3',
-		TIME_PICKER_COLUMN_BG_COLOR: 'white',
-		TIME_PICKER_COLUMN_COLOR: '#333',
-		TIME_PICKER_SELECTED_CELL_COLOR: '#007FFF',
-		TIME_PICKER_FOOTER_COLOR: '#333',
-		TIME_PICKER_FOOTER_BG_COLOR: 'whitesmoke',
-		HEADING_FONT_SIZE: '1.1rem',
-		SUB_HEADING_FONT_SIZE: '1rem',
-		DATE_PICKER_SHADOW: 'none',
-		TIME_PICKER_SHADOW: 'none',
-		POPUP_BG_COLOR: 'rgba(0,0,0,0.6)'
+		INFO_BOX_SHADOW: '1px 1px 8px 0px #c3c3c3'
 	};
 
 /***/ }),
@@ -28613,10 +28531,6 @@
 	var _styledComponents = __webpack_require__(184);
 
 	var _styledComponents2 = _interopRequireDefault(_styledComponents);
-
-	var _promise = __webpack_require__(233);
-
-	var _promise2 = _interopRequireDefault(_promise);
 
 	function _interopRequireDefault(obj) {
 		return obj && obj.__esModule ? obj : { default: obj };
@@ -28720,11 +28634,11 @@
 
 	var _core2 = _interopRequireDefault(_core);
 
-	var _colorConfig = __webpack_require__(254);
+	var _colorConfig = __webpack_require__(258);
 
 	var _colorConfig2 = _interopRequireDefault(_colorConfig);
 
-	var _styledComponents = __webpack_require__(255);
+	var _styledComponents = __webpack_require__(257);
 
 	function _interopRequireDefault(obj) {
 		return obj && obj.__esModule ? obj : { default: obj };
@@ -28795,10 +28709,6 @@
 		};
 	}();
 
-	var _templateObject = _taggedTemplateLiteral(['\n\t//flex-basis : var(--flexBasis);\n\tdisplay : flex;\n\tflex-direction : row;\n\tpadding : 5px 5px 0px;\n\t//margin : 10px;\n\talign-items: flex-end;\n    border-bottom: 1px solid var(--labelColor);\n    //flex-grow : 1;\n'], ['\n\t//flex-basis : var(--flexBasis);\n\tdisplay : flex;\n\tflex-direction : row;\n\tpadding : 5px 5px 0px;\n\t//margin : 10px;\n\talign-items: flex-end;\n    border-bottom: 1px solid var(--labelColor);\n    //flex-grow : 1;\n']),
-	    _templateObject2 = _taggedTemplateLiteral(['\n\twidth:25px;\n\theight:25px;\n\tbackground : url(/shared/img/clock-icon.png) no-repeat center;\n\tbackground-size : 80%;\n\tvisibility : ', ';\n'], ['\n\twidth:25px;\n\theight:25px;\n\tbackground : url(/shared/img/clock-icon.png) no-repeat center;\n\tbackground-size : 80%;\n\tvisibility : ', ';\n']),
-	    _templateObject3 = _taggedTemplateLiteral(['\n\twidth:25px;\n\theight:25px;\n\tbackground : url(/shared/img/calendar.png) no-repeat;\n\tbackground-size : 100%;\n\tvisibility : ', ';\n'], ['\n\twidth:25px;\n\theight:25px;\n\tbackground : url(/shared/img/calendar.png) no-repeat;\n\tbackground-size : 100%;\n\tvisibility : ', ';\n']);
-
 	var _react = __webpack_require__(1);
 
 	var _react2 = _interopRequireDefault(_react);
@@ -28807,19 +28717,17 @@
 
 	var _timepicker2 = _interopRequireDefault(_timepicker);
 
-	var _calendar = __webpack_require__(252);
+	var _calendar = __webpack_require__(253);
 
 	var _calendar2 = _interopRequireDefault(_calendar);
 
-	var _styledComponents = __webpack_require__(184);
-
-	var _styledComponents2 = _interopRequireDefault(_styledComponents);
-
 	var _sharedStyledComponents = __webpack_require__(228);
 
-	var _input = __webpack_require__(253);
+	var _input = __webpack_require__(255);
 
 	var _input2 = _interopRequireDefault(_input);
+
+	var _styledComponents = __webpack_require__(257);
 
 	function _interopRequireDefault(obj) {
 		return obj && obj.__esModule ? obj : { default: obj };
@@ -28842,22 +28750,6 @@
 			throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === "undefined" ? "undefined" : _typeof(superClass)));
 		}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
 	}
-
-	function _taggedTemplateLiteral(strings, raw) {
-		return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
-	}
-	//import ClosePopupListener from '../../helpers/closePopupListener.js'
-
-
-	var Wrapper = _styledComponents2.default.div(_templateObject);
-
-	var TimeInputWrapper = _styledComponents2.default.div(_templateObject2, function (props) {
-		return props.showtime ? 'visible' : 'hidden';
-	});
-
-	var DateInputWrapper = _styledComponents2.default.div(_templateObject3, function (props) {
-		return props.showdate ? 'visible' : 'hidden';
-	});
 
 	var DateTimePicker = function (_React$PureComponent) {
 		_inherits(DateTimePicker, _React$PureComponent);
@@ -29032,12 +28924,13 @@
 			key: 'render',
 			value: function render() {
 				var props = this.props;
-				return _react2.default.createElement(Wrapper, null, _react2.default.createElement(_input2.default, { showdate: props.showdate,
+				return _react2.default.createElement(_styledComponents.Wrapper, null, _react2.default.createElement(_input2.default, { showdate: props.showdate,
 					showtime: props.showtime,
 					time: this.state.time,
 					date: this.state.date,
-					handleDatetimeChange: this.setDateTime }), _react2.default.createElement(DateInputWrapper, { showdate: props.showdate,
-					onClick: this.toggleCalendar }), _react2.default.createElement(TimeInputWrapper, { showtime: props.showtime,
+					handleDatetimeChange: this.setDateTime,
+					label: props.label }), _react2.default.createElement(_styledComponents.DateInputWrapper, { showdate: props.showdate,
+					onClick: this.toggleCalendar }), _react2.default.createElement(_styledComponents.TimeInputWrapper, { showtime: props.showtime,
 					onClick: this.toggleDropdown }), _react2.default.createElement(_sharedStyledComponents.FixedDivWrapper, { open: this.state.openCalendar || this.state.openTime,
 					onClick: this.closePopup }, _react2.default.createElement(_sharedStyledComponents.VhAlignedWrapper, { open: this.state.openCalendar || this.state.openTime,
 					onClick: this.stopBubbling }, this.state.openCalendar ? _react2.default.createElement(_calendar2.default, { selectedDate: this.state.date,
@@ -29075,19 +28968,11 @@
 		};
 	}();
 
-	var _templateObject = _taggedTemplateLiteral(['\n\twidth: 100%;\n    height: 230px;\n    overflow: hidden;\n    position: relative;\n    z-index: 3;\n    text-align: center;\n    box-shadow : var(--timepickerShadow);\n'], ['\n\twidth: 100%;\n    height: 230px;\n    overflow: hidden;\n    position: relative;\n    z-index: 3;\n    text-align: center;\n    box-shadow : var(--timepickerShadow);\n']),
-	    _templateObject2 = _taggedTemplateLiteral(['\n\twidth: 100%;\n\tposition: absolute;\n\ttop:-1px;\n\tbackground-color: var(--timepickerHeaderBgColor);\n\tcolor : var(--timepickerHeaderColor);\n\t.label-cell{\n\t\ttext-align: center;\n\t\twidth: 33.3%;\n\t\theight: 100%;\n\t\tdisplay: inline-block;\n\t    padding: 7px 0;\n\t    box-sizing: border-box;\n\t    border-right: 1px solid;\n\t    border-color : var(--timepickerHeaderBorderColor);\n\t    font-weight: 300;\n\t}\n\t.label-cell:last-child{\n\t\tborder-right: none;\n\t}\n'], ['\n\twidth: 100%;\n\tposition: absolute;\n\ttop:-1px;\n\tbackground-color: var(--timepickerHeaderBgColor);\n\tcolor : var(--timepickerHeaderColor);\n\t.label-cell{\n\t\ttext-align: center;\n\t\twidth: 33.3%;\n\t\theight: 100%;\n\t\tdisplay: inline-block;\n\t    padding: 7px 0;\n\t    box-sizing: border-box;\n\t    border-right: 1px solid;\n\t    border-color : var(--timepickerHeaderBorderColor);\n\t    font-weight: 300;\n\t}\n\t.label-cell:last-child{\n\t\tborder-right: none;\n\t}\n']),
-	    _templateObject3 = _taggedTemplateLiteral(['\n\t\n\twidth: 33.3%;\n    height: 98%;\n    padding: 33px 0 39px;\n    overflow: scroll;\n    box-sizing: border-box;\n    border-right: 1px solid var(--timepickerColumnBorderColor);\n    display: inline-block;\n    background-color: var(--timepickerColumnBgColor);\n    color: var(--timepickerColumnColor);\n\n\t.cell{\n\t\tcursor: pointer;\n\t\tpadding: 14px 0;\n\n\t\t.time-num-span{\n\t\t\tborder-bottom:1px solid var(--timepickerColumnColor);\n\t\t\tpadding: 6px 14px;\n\t\t}\n\t}\n\t.cell.selected{\n\t\n\t\t.time-num-span{\n\t\t\tbackground-color: var(--timepickerSelectedCellColor);\n\t\t\tcolor: #fff;\n\t\t}\n\t}\n'], ['\n\t\n\twidth: 33.3%;\n    height: 98%;\n    padding: 33px 0 39px;\n    overflow: scroll;\n    box-sizing: border-box;\n    border-right: 1px solid var(--timepickerColumnBorderColor);\n    display: inline-block;\n    background-color: var(--timepickerColumnBgColor);\n    color: var(--timepickerColumnColor);\n\n\t.cell{\n\t\tcursor: pointer;\n\t\tpadding: 14px 0;\n\n\t\t.time-num-span{\n\t\t\tborder-bottom:1px solid var(--timepickerColumnColor);\n\t\t\tpadding: 6px 14px;\n\t\t}\n\t}\n\t.cell.selected{\n\t\n\t\t.time-num-span{\n\t\t\tbackground-color: var(--timepickerSelectedCellColor);\n\t\t\tcolor: #fff;\n\t\t}\n\t}\n']),
-	    _templateObject4 = _taggedTemplateLiteral(['\n\tborder : none;\n'], ['\n\tborder : none;\n']),
-	    _templateObject5 = _taggedTemplateLiteral(['\n\tposition: absolute;\n\tbottom: 0;\n\twidth: 100%;\n\ttext-align: center;\n\tbackground-color: var(--timepickerFooterBgColor);\n\tcolor: var(--timepickerFooterColor);\n\tcursor: pointer;\n\tpadding: 10px 0;\n'], ['\n\tposition: absolute;\n\tbottom: 0;\n\twidth: 100%;\n\ttext-align: center;\n\tbackground-color: var(--timepickerFooterBgColor);\n\tcolor: var(--timepickerFooterColor);\n\tcursor: pointer;\n\tpadding: 10px 0;\n']);
-
 	var _react = __webpack_require__(1);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _styledComponents = __webpack_require__(184);
-
-	var _styledComponents2 = _interopRequireDefault(_styledComponents);
+	var _styledComponents = __webpack_require__(252);
 
 	function _interopRequireDefault(obj) {
 		return obj && obj.__esModule ? obj : { default: obj };
@@ -29110,20 +28995,6 @@
 			throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === "undefined" ? "undefined" : _typeof(superClass)));
 		}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
 	}
-
-	function _taggedTemplateLiteral(strings, raw) {
-		return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
-	}
-
-	var Wrapper = _styledComponents2.default.div(_templateObject);
-
-	var Header = _styledComponents2.default.div(_templateObject2);
-
-	var Column = _styledComponents2.default.div(_templateObject3);
-
-	var LastColumn = Column.extend(_templateObject4);
-
-	var CloseTimePicker = _styledComponents2.default.div(_templateObject5);
 
 	var TimePickerCore = function (_React$PureComponent) {
 		_inherits(TimePickerCore, _React$PureComponent);
@@ -29198,7 +29069,7 @@
 					}
 				});
 
-				return _react2.default.createElement(Wrapper, { open: this.props.open }, _react2.default.createElement(Header, null, _react2.default.createElement('div', { className: 'label-cell' }, 'Hour'), _react2.default.createElement('div', { className: 'label-cell' }, 'Minute'), _react2.default.createElement('div', { className: 'label-cell' }, 'AM/PM')), _react2.default.createElement(Column, null, hourHtml), _react2.default.createElement(Column, null, minuteHtml), _react2.default.createElement(LastColumn, null, ampmHtml), _react2.default.createElement(CloseTimePicker, { onClick: this.props.closeTimePicker }, 'DONE'));
+				return _react2.default.createElement(_styledComponents.Wrapper, { open: this.props.open }, _react2.default.createElement(_styledComponents.Header, null, _react2.default.createElement('div', { className: 'label-cell' }, 'Hour'), _react2.default.createElement('div', { className: 'label-cell' }, 'Minute'), _react2.default.createElement('div', { className: 'label-cell' }, 'AM/PM')), _react2.default.createElement(_styledComponents.Column, null, hourHtml), _react2.default.createElement(_styledComponents.Column, null, minuteHtml), _react2.default.createElement(_styledComponents.LastColumn, null, ampmHtml), _react2.default.createElement(_styledComponents.CloseTimePicker, { onClick: this.props.closeTimePicker }, 'DONE'));
 			}
 		}]);
 
@@ -29209,6 +29080,53 @@
 
 /***/ }),
 /* 252 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.CloseTimePicker = exports.LastColumn = exports.Column = exports.Header = exports.Wrapper = undefined;
+
+	var _templateObject = _taggedTemplateLiteral(['\n\twidth: 100%;\n    height: 230px;\n    overflow: hidden;\n    position: relative;\n    z-index: 3;\n    text-align: center;\n    box-shadow : var(--timepickerShadow);\n    display : ', ';\n'], ['\n\twidth: 100%;\n    height: 230px;\n    overflow: hidden;\n    position: relative;\n    z-index: 3;\n    text-align: center;\n    box-shadow : var(--timepickerShadow);\n    display : ', ';\n']),
+	    _templateObject2 = _taggedTemplateLiteral(['\n\twidth: 100%;\n\tposition: absolute;\n\ttop:-1px;\n\tbackground-color: var(--timepickerHeaderBgColor);\n\tcolor : var(--timepickerHeaderColor);\n\t.label-cell{\n\t\ttext-align: center;\n\t\twidth: 33.3%;\n\t\theight: 100%;\n\t\tdisplay: inline-block;\n\t    padding: 7px 0;\n\t    box-sizing: border-box;\n\t    border-right: 1px solid;\n\t    border-color : var(--timepickerHeaderBorderColor);\n\t    font-weight: 300;\n\t}\n\t.label-cell:last-child{\n\t\tborder-right: none;\n\t}\n'], ['\n\twidth: 100%;\n\tposition: absolute;\n\ttop:-1px;\n\tbackground-color: var(--timepickerHeaderBgColor);\n\tcolor : var(--timepickerHeaderColor);\n\t.label-cell{\n\t\ttext-align: center;\n\t\twidth: 33.3%;\n\t\theight: 100%;\n\t\tdisplay: inline-block;\n\t    padding: 7px 0;\n\t    box-sizing: border-box;\n\t    border-right: 1px solid;\n\t    border-color : var(--timepickerHeaderBorderColor);\n\t    font-weight: 300;\n\t}\n\t.label-cell:last-child{\n\t\tborder-right: none;\n\t}\n']),
+	    _templateObject3 = _taggedTemplateLiteral(['\n\t\n\twidth: 33.3%;\n    height: 98%;\n    padding: 33px 0 39px;\n    overflow: scroll;\n    box-sizing: border-box;\n    border-right: 1px solid var(--timepickerColumnBorderColor);\n    display: inline-block;\n    background-color: var(--timepickerColumnBgColor);\n    color: var(--timepickerColumnColor);\n\n\t.cell{\n\t\tcursor: pointer;\n\t\tpadding: 14px 0;\n\n\t\t.time-num-span{\n\t\t\tborder-bottom:1px solid var(--timepickerColumnColor);\n\t\t\tpadding: 6px 14px;\n\t\t}\n\t}\n\t.cell.selected{\n\t\n\t\t.time-num-span{\n\t\t\tbackground-color: var(--timepickerSelectedCellColor);\n\t\t\tcolor: #fff;\n\t\t}\n\t}\n'], ['\n\t\n\twidth: 33.3%;\n    height: 98%;\n    padding: 33px 0 39px;\n    overflow: scroll;\n    box-sizing: border-box;\n    border-right: 1px solid var(--timepickerColumnBorderColor);\n    display: inline-block;\n    background-color: var(--timepickerColumnBgColor);\n    color: var(--timepickerColumnColor);\n\n\t.cell{\n\t\tcursor: pointer;\n\t\tpadding: 14px 0;\n\n\t\t.time-num-span{\n\t\t\tborder-bottom:1px solid var(--timepickerColumnColor);\n\t\t\tpadding: 6px 14px;\n\t\t}\n\t}\n\t.cell.selected{\n\t\n\t\t.time-num-span{\n\t\t\tbackground-color: var(--timepickerSelectedCellColor);\n\t\t\tcolor: #fff;\n\t\t}\n\t}\n']),
+	    _templateObject4 = _taggedTemplateLiteral(['\n\tborder : none;\n'], ['\n\tborder : none;\n']),
+	    _templateObject5 = _taggedTemplateLiteral(['\n\tposition: absolute;\n\tbottom: 0;\n\twidth: 100%;\n\ttext-align: center;\n\tbackground-color: var(--timepickerFooterBgColor);\n\tcolor: var(--timepickerFooterColor);\n\tcursor: pointer;\n\tpadding: 10px 0;\n'], ['\n\tposition: absolute;\n\tbottom: 0;\n\twidth: 100%;\n\ttext-align: center;\n\tbackground-color: var(--timepickerFooterBgColor);\n\tcolor: var(--timepickerFooterColor);\n\tcursor: pointer;\n\tpadding: 10px 0;\n']);
+
+	var _styledComponents = __webpack_require__(184);
+
+	var _styledComponents2 = _interopRequireDefault(_styledComponents);
+
+	function _interopRequireDefault(obj) {
+	  return obj && obj.__esModule ? obj : { default: obj };
+	}
+
+	function _taggedTemplateLiteral(strings, raw) {
+	  return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
+	}
+
+	var Wrapper = _styledComponents2.default.div(_templateObject, function (props) {
+	  return props.open ? 'block' : 'none';
+	});
+
+	var Header = _styledComponents2.default.div(_templateObject2);
+
+	var Column = _styledComponents2.default.div(_templateObject3);
+
+	var LastColumn = Column.extend(_templateObject4);
+
+	var CloseTimePicker = _styledComponents2.default.div(_templateObject5);
+
+	exports.Wrapper = Wrapper;
+	exports.Header = Header;
+	exports.Column = Column;
+	exports.LastColumn = LastColumn;
+	exports.CloseTimePicker = CloseTimePicker;
+
+/***/ }),
+/* 253 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29229,17 +29147,11 @@
 		};
 	}();
 
-	var _templateObject = _taggedTemplateLiteral(['\n\tposition: relative;\n\twidth: 100%;\n\tfont-weight: 300;\n\tbox-sizing: border-box;\n\tpadding: 0 8px;\n\tbackground-color: var(--datePickerBgColor);\n\tbox-shadow : var(--calendarShadow);\n'], ['\n\tposition: relative;\n\twidth: 100%;\n\tfont-weight: 300;\n\tbox-sizing: border-box;\n\tpadding: 0 8px;\n\tbackground-color: var(--datePickerBgColor);\n\tbox-shadow : var(--calendarShadow);\n']),
-	    _templateObject2 = _taggedTemplateLiteral(['\n\tposition: relative;\n\tpadding: 12px 0;\n\ttext-align: center;\n\tcolor: var(--datePickerHeaderColor);\n\ttext-transform: uppercase;\n\tborder-bottom: var(--datePickerHeaderBorder);\n\n\t.month-span{\n\t//cursor: pointer;\n\t//font-size: 1.2em;\n\t}\n\n\t.arrow{\n\t\tposition: absolute;\n\t\twidth: 25px;\n\t\theight: 25px;\n\t\ttop: 12px;\n\t\tcursor: pointer;\n\t}\n\n\t.left-arrow{\n\t\tleft: 5px;\n\t}\n\n\t.left-arrow:before,\n\t.left-arrow:after{\n\t\tcontent: "";\n\t\tposition: absolute;\n\t\tleft: 5px;\n\t\twidth: 10px;\n\t\theight: 2px;\n\t\tbackground-color: var(--datePickerArrowColor);\n\t}\n\n\t.left-arrow:before{\n\t\ttop: 8px;\n\t\ttransform : rotate(-40deg);\n\t}\n\n\t.left-arrow:after{\n\t\ttop: 14px;\n\t\ttransform : rotate(40deg);\n\t}\n\n\t.right-arrow{\n\t\tright: 5px;\n\t}\n\n\t.right-arrow:before,\n\t.right-arrow:after{\n\t\tcontent: "";\n\t\tposition: absolute;\n\t\tright: 5px;\n\t\twidth: 10px;\n\t\theight: 2px;\n\t\tbackground-color: var(--datePickerArrowColor);\n\t}\n\n\t.right-arrow:before{\n\t\ttop: 14px;\n\t\ttransform : rotate(-40deg);\n\t}\n\n\t.right-arrow:after{\n\t\ttop: 8px;\n\t\ttransform : rotate(40deg);\n\t}\n'], ['\n\tposition: relative;\n\tpadding: 12px 0;\n\ttext-align: center;\n\tcolor: var(--datePickerHeaderColor);\n\ttext-transform: uppercase;\n\tborder-bottom: var(--datePickerHeaderBorder);\n\n\t.month-span{\n\t//cursor: pointer;\n\t//font-size: 1.2em;\n\t}\n\n\t.arrow{\n\t\tposition: absolute;\n\t\twidth: 25px;\n\t\theight: 25px;\n\t\ttop: 12px;\n\t\tcursor: pointer;\n\t}\n\n\t.left-arrow{\n\t\tleft: 5px;\n\t}\n\n\t.left-arrow:before,\n\t.left-arrow:after{\n\t\tcontent: "";\n\t\tposition: absolute;\n\t\tleft: 5px;\n\t\twidth: 10px;\n\t\theight: 2px;\n\t\tbackground-color: var(--datePickerArrowColor);\n\t}\n\n\t.left-arrow:before{\n\t\ttop: 8px;\n\t\ttransform : rotate(-40deg);\n\t}\n\n\t.left-arrow:after{\n\t\ttop: 14px;\n\t\ttransform : rotate(40deg);\n\t}\n\n\t.right-arrow{\n\t\tright: 5px;\n\t}\n\n\t.right-arrow:before,\n\t.right-arrow:after{\n\t\tcontent: "";\n\t\tposition: absolute;\n\t\tright: 5px;\n\t\twidth: 10px;\n\t\theight: 2px;\n\t\tbackground-color: var(--datePickerArrowColor);\n\t}\n\n\t.right-arrow:before{\n\t\ttop: 14px;\n\t\ttransform : rotate(-40deg);\n\t}\n\n\t.right-arrow:after{\n\t\ttop: 8px;\n\t\ttransform : rotate(40deg);\n\t}\n']),
-	    _templateObject3 = _taggedTemplateLiteral(['\n\tfont-size: 0.8em;\n\tmargin-bottom: 10px;\n\n\t.day-name-div{\n\t\tcolor: $orange-color;\n\t\tmargin-top: 8px;\n\t\tmargin-bottom: 8px;\n\t}\n\n\t.block{\n\t\tdisplay: inline-block;\n\t\twidth: 14.2%;\n\t\ttext-align: center;\n\t\tbox-sizing: border-box;\n\t}\n\t.numbers{\n\t\tpadding: 6px 0;\n\t\tcursor: pointer;\n\t\tcolor: var(--datePickerDateColor);\n\t\tbox-sizing: border-box;\n\t}\n\t.number-span{\n\t\tpadding: 5px;\n\t\tborder-radius: 50%;\n\t\tdisplay: inline-block;\n\t\tmin-width: 32px;\n\t\tbox-sizing: border-box;\n\t}\n\n\t.number-span.selected-block{\n\t\tbackground-color: var(--datePickerSelectedDateBgColor);\n\t\tcolor : var(--datePickerSelectedDateColor);\n\t\t//color: $header-color;\n\t}\n\n\t.number-span.today{\n\t\tbox-sizing: border-box;\n\t\tborder: 1px solid var(--datePickerSelectedDateBgColor);\n\t}\n\n\t.numbers.disabled{\n\t\tcolor: #78688F;\n\t\tcursor: default;\n\t}\n'], ['\n\tfont-size: 0.8em;\n\tmargin-bottom: 10px;\n\n\t.day-name-div{\n\t\tcolor: $orange-color;\n\t\tmargin-top: 8px;\n\t\tmargin-bottom: 8px;\n\t}\n\n\t.block{\n\t\tdisplay: inline-block;\n\t\twidth: 14.2%;\n\t\ttext-align: center;\n\t\tbox-sizing: border-box;\n\t}\n\t.numbers{\n\t\tpadding: 6px 0;\n\t\tcursor: pointer;\n\t\tcolor: var(--datePickerDateColor);\n\t\tbox-sizing: border-box;\n\t}\n\t.number-span{\n\t\tpadding: 5px;\n\t\tborder-radius: 50%;\n\t\tdisplay: inline-block;\n\t\tmin-width: 32px;\n\t\tbox-sizing: border-box;\n\t}\n\n\t.number-span.selected-block{\n\t\tbackground-color: var(--datePickerSelectedDateBgColor);\n\t\tcolor : var(--datePickerSelectedDateColor);\n\t\t//color: $header-color;\n\t}\n\n\t.number-span.today{\n\t\tbox-sizing: border-box;\n\t\tborder: 1px solid var(--datePickerSelectedDateBgColor);\n\t}\n\n\t.numbers.disabled{\n\t\tcolor: #78688F;\n\t\tcursor: default;\n\t}\n']);
-
 	var _react = __webpack_require__(1);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _styledComponents = __webpack_require__(184);
-
-	var _styledComponents2 = _interopRequireDefault(_styledComponents);
+	var _styledComponents = __webpack_require__(254);
 
 	function _interopRequireDefault(obj) {
 		return obj && obj.__esModule ? obj : { default: obj };
@@ -29262,16 +29174,6 @@
 			throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === "undefined" ? "undefined" : _typeof(superClass)));
 		}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
 	}
-
-	function _taggedTemplateLiteral(strings, raw) {
-		return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
-	}
-
-	var Wrapper = _styledComponents2.default.div(_templateObject);
-
-	var Header = _styledComponents2.default.div(_templateObject2);
-
-	var CalenderContent = _styledComponents2.default.div(_templateObject3);
 
 	var Calendar = function (_React$PureComponent) {
 		_inherits(Calendar, _React$PureComponent);
@@ -29487,12 +29389,12 @@
 					}
 				}
 
-				return _react2.default.createElement(Wrapper, null, _react2.default.createElement(Header, null, _react2.default.createElement('span', { className: 'left-arrow arrow',
+				return _react2.default.createElement(_styledComponents.Wrapper, null, _react2.default.createElement(_styledComponents.Header, null, _react2.default.createElement('span', { className: 'left-arrow arrow',
 					id: 'left_arrow',
 					onClick: this._changeMonth.bind(this, false) }), _react2.default.createElement('span', { className: 'right-arrow arrow',
 					id: 'right_arrow',
 					onClick: this._changeMonth.bind(this, true) }), _react2.default.createElement('span', { className: 'month-span', id: 'month_span',
-					onClick: this._handleMonthOptions.bind(this) }, this.state._view ? !showYear ? this.state._view.monthText : this.state._view.monthText + ", " + this.state._view.year : "")), this.state._isMonthView ? _react2.default.createElement(MonthSelector, { onMonthSelection: this._handleMonthSelection }) : _react2.default.createElement(CalenderContent, { id: 'content_calender' }, _react2.default.createElement('div', { className: 'day-name-div' }, _react2.default.createElement('div', { className: 'block' }, 'Su'), _react2.default.createElement('div', { className: 'block' }, 'Mo'), _react2.default.createElement('div', { className: 'block' }, 'Tu'), _react2.default.createElement('div', { className: 'block' }, 'We'), _react2.default.createElement('div', { className: 'block' }, 'Th'), _react2.default.createElement('div', { className: 'block' }, 'Fr'), _react2.default.createElement('div', { className: 'block' }, 'Sa')), blocksHtml));
+					onClick: this._handleMonthOptions.bind(this) }, this.state._view ? !showYear ? this.state._view.monthText : this.state._view.monthText + ", " + this.state._view.year : "")), this.state._isMonthView ? _react2.default.createElement(MonthSelector, { onMonthSelection: this._handleMonthSelection }) : _react2.default.createElement(_styledComponents.CalenderContent, { id: 'content_calender' }, _react2.default.createElement('div', { className: 'day-name-div' }, _react2.default.createElement('div', { className: 'block' }, 'Su'), _react2.default.createElement('div', { className: 'block' }, 'Mo'), _react2.default.createElement('div', { className: 'block' }, 'Tu'), _react2.default.createElement('div', { className: 'block' }, 'We'), _react2.default.createElement('div', { className: 'block' }, 'Th'), _react2.default.createElement('div', { className: 'block' }, 'Fr'), _react2.default.createElement('div', { className: 'block' }, 'Sa')), blocksHtml));
 			}
 		}]);
 
@@ -29566,7 +29468,44 @@
 	});
 
 /***/ }),
-/* 253 */
+/* 254 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.CalenderContent = exports.Header = exports.Wrapper = undefined;
+
+	var _templateObject = _taggedTemplateLiteral(['\n\tposition: relative;\n\twidth: 100%;\n\tfont-weight: 300;\n\tbox-sizing: border-box;\n\tpadding: 0 8px;\n\tbackground-color: var(--datePickerBgColor);\n\tbox-shadow : var(--calendarShadow);\n'], ['\n\tposition: relative;\n\twidth: 100%;\n\tfont-weight: 300;\n\tbox-sizing: border-box;\n\tpadding: 0 8px;\n\tbackground-color: var(--datePickerBgColor);\n\tbox-shadow : var(--calendarShadow);\n']),
+	    _templateObject2 = _taggedTemplateLiteral(['\n\tposition: relative;\n\tpadding: 12px 0;\n\ttext-align: center;\n\tcolor: var(--datePickerHeaderColor);\n\ttext-transform: uppercase;\n\tborder-bottom: var(--datePickerHeaderBorder);\n\n\t.month-span{\n\t//cursor: pointer;\n\t//font-size: 1.2em;\n\t}\n\n\t.arrow{\n\t\tposition: absolute;\n\t\twidth: 25px;\n\t\theight: 25px;\n\t\ttop: 12px;\n\t\tcursor: pointer;\n\t}\n\n\t.left-arrow{\n\t\tleft: 5px;\n\t}\n\n\t.left-arrow:before,\n\t.left-arrow:after{\n\t\tcontent: "";\n\t\tposition: absolute;\n\t\tleft: 5px;\n\t\twidth: 10px;\n\t\theight: 2px;\n\t\tbackground-color: var(--datePickerArrowColor);\n\t}\n\n\t.left-arrow:before{\n\t\ttop: 8px;\n\t\ttransform : rotate(-40deg);\n\t}\n\n\t.left-arrow:after{\n\t\ttop: 14px;\n\t\ttransform : rotate(40deg);\n\t}\n\n\t.right-arrow{\n\t\tright: 5px;\n\t}\n\n\t.right-arrow:before,\n\t.right-arrow:after{\n\t\tcontent: "";\n\t\tposition: absolute;\n\t\tright: 5px;\n\t\twidth: 10px;\n\t\theight: 2px;\n\t\tbackground-color: var(--datePickerArrowColor);\n\t}\n\n\t.right-arrow:before{\n\t\ttop: 14px;\n\t\ttransform : rotate(-40deg);\n\t}\n\n\t.right-arrow:after{\n\t\ttop: 8px;\n\t\ttransform : rotate(40deg);\n\t}\n'], ['\n\tposition: relative;\n\tpadding: 12px 0;\n\ttext-align: center;\n\tcolor: var(--datePickerHeaderColor);\n\ttext-transform: uppercase;\n\tborder-bottom: var(--datePickerHeaderBorder);\n\n\t.month-span{\n\t//cursor: pointer;\n\t//font-size: 1.2em;\n\t}\n\n\t.arrow{\n\t\tposition: absolute;\n\t\twidth: 25px;\n\t\theight: 25px;\n\t\ttop: 12px;\n\t\tcursor: pointer;\n\t}\n\n\t.left-arrow{\n\t\tleft: 5px;\n\t}\n\n\t.left-arrow:before,\n\t.left-arrow:after{\n\t\tcontent: "";\n\t\tposition: absolute;\n\t\tleft: 5px;\n\t\twidth: 10px;\n\t\theight: 2px;\n\t\tbackground-color: var(--datePickerArrowColor);\n\t}\n\n\t.left-arrow:before{\n\t\ttop: 8px;\n\t\ttransform : rotate(-40deg);\n\t}\n\n\t.left-arrow:after{\n\t\ttop: 14px;\n\t\ttransform : rotate(40deg);\n\t}\n\n\t.right-arrow{\n\t\tright: 5px;\n\t}\n\n\t.right-arrow:before,\n\t.right-arrow:after{\n\t\tcontent: "";\n\t\tposition: absolute;\n\t\tright: 5px;\n\t\twidth: 10px;\n\t\theight: 2px;\n\t\tbackground-color: var(--datePickerArrowColor);\n\t}\n\n\t.right-arrow:before{\n\t\ttop: 14px;\n\t\ttransform : rotate(-40deg);\n\t}\n\n\t.right-arrow:after{\n\t\ttop: 8px;\n\t\ttransform : rotate(40deg);\n\t}\n']),
+	    _templateObject3 = _taggedTemplateLiteral(['\n\tfont-size: 0.8em;\n\tmargin-bottom: 10px;\n\n\t.day-name-div{\n\t\tcolor: $orange-color;\n\t\tmargin-top: 8px;\n\t\tmargin-bottom: 8px;\n\t}\n\n\t.block{\n\t\tdisplay: inline-block;\n\t\twidth: 14.2%;\n\t\ttext-align: center;\n\t\tbox-sizing: border-box;\n\t}\n\t.numbers{\n\t\tpadding: 6px 0;\n\t\tcursor: pointer;\n\t\tcolor: var(--datePickerDateColor);\n\t\tbox-sizing: border-box;\n\t}\n\t.number-span{\n\t\tpadding: 5px;\n\t\tborder-radius: 50%;\n\t\tdisplay: inline-block;\n\t\tmin-width: 32px;\n\t\tbox-sizing: border-box;\n\t}\n\n\t.number-span.selected-block{\n\t\tbackground-color: var(--datePickerSelectedDateBgColor);\n\t\tcolor : var(--datePickerSelectedDateColor);\n\t\t//color: $header-color;\n\t}\n\n\t.number-span.today{\n\t\tbox-sizing: border-box;\n\t\tborder: 1px solid var(--datePickerSelectedDateBgColor);\n\t}\n\n\t.numbers.disabled{\n\t\tcolor: #78688F;\n\t\tcursor: default;\n\t}\n'], ['\n\tfont-size: 0.8em;\n\tmargin-bottom: 10px;\n\n\t.day-name-div{\n\t\tcolor: $orange-color;\n\t\tmargin-top: 8px;\n\t\tmargin-bottom: 8px;\n\t}\n\n\t.block{\n\t\tdisplay: inline-block;\n\t\twidth: 14.2%;\n\t\ttext-align: center;\n\t\tbox-sizing: border-box;\n\t}\n\t.numbers{\n\t\tpadding: 6px 0;\n\t\tcursor: pointer;\n\t\tcolor: var(--datePickerDateColor);\n\t\tbox-sizing: border-box;\n\t}\n\t.number-span{\n\t\tpadding: 5px;\n\t\tborder-radius: 50%;\n\t\tdisplay: inline-block;\n\t\tmin-width: 32px;\n\t\tbox-sizing: border-box;\n\t}\n\n\t.number-span.selected-block{\n\t\tbackground-color: var(--datePickerSelectedDateBgColor);\n\t\tcolor : var(--datePickerSelectedDateColor);\n\t\t//color: $header-color;\n\t}\n\n\t.number-span.today{\n\t\tbox-sizing: border-box;\n\t\tborder: 1px solid var(--datePickerSelectedDateBgColor);\n\t}\n\n\t.numbers.disabled{\n\t\tcolor: #78688F;\n\t\tcursor: default;\n\t}\n']);
+
+	var _styledComponents = __webpack_require__(184);
+
+	var _styledComponents2 = _interopRequireDefault(_styledComponents);
+
+	function _interopRequireDefault(obj) {
+	    return obj && obj.__esModule ? obj : { default: obj };
+	}
+
+	function _taggedTemplateLiteral(strings, raw) {
+	    return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
+	}
+
+	var Wrapper = _styledComponents2.default.div(_templateObject);
+
+	var Header = _styledComponents2.default.div(_templateObject2);
+
+	var CalenderContent = _styledComponents2.default.div(_templateObject3);
+
+	exports.Wrapper = Wrapper;
+	exports.Header = Header;
+	exports.CalenderContent = CalenderContent;
+
+/***/ }),
+/* 255 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29587,16 +29526,11 @@
 		};
 	}();
 
-	var _templateObject = _taggedTemplateLiteral(['\n\tflex-grow : 1;\n\tposition : relative;\n\tpadding : 10px 0 0;\n\tspan{\n\t\tfont-size : var(--inputFontSize);\n\t\tcolor : var(--inputColor);\n\t}\n\n\tlabel{\n\t\tposition: absolute;\n\t    top: 0px;\n\t    left: 0px;\n\t    font-size: var(--dropdownLabelFontSize);\n\t    color: var(--labelColor);\n\t}\n\n\tinput{\n\t\tborder : none;\n\t\toutline : none;\n\t\tbackground : inherit;\n\t\tfont-size : var(--inputFontSize);\n\t}\n\n\tinput[type=\'number\'] {\n\t    -moz-appearance:textfield;\n\t}\n\t/* Webkit browsers like Safari and Chrome */\n\tinput[type=number]::-webkit-inner-spin-button,\n\tinput[type=number]::-webkit-outer-spin-button {\n\t    -webkit-appearance: none;\n\t    margin: 0;\n\t}\n\n\tselect{\n\t\tborder : none;\n\t\toutline : none;\n\t\tbackground : inherit;\n\t\tfont-size : var(--inputFontSize);\n\t\t-webkit-appearance: none;\n\t}\n'], ['\n\tflex-grow : 1;\n\tposition : relative;\n\tpadding : 10px 0 0;\n\tspan{\n\t\tfont-size : var(--inputFontSize);\n\t\tcolor : var(--inputColor);\n\t}\n\n\tlabel{\n\t\tposition: absolute;\n\t    top: 0px;\n\t    left: 0px;\n\t    font-size: var(--dropdownLabelFontSize);\n\t    color: var(--labelColor);\n\t}\n\n\tinput{\n\t\tborder : none;\n\t\toutline : none;\n\t\tbackground : inherit;\n\t\tfont-size : var(--inputFontSize);\n\t}\n\n\tinput[type=\'number\'] {\n\t    -moz-appearance:textfield;\n\t}\n\t/* Webkit browsers like Safari and Chrome */\n\tinput[type=number]::-webkit-inner-spin-button,\n\tinput[type=number]::-webkit-outer-spin-button {\n\t    -webkit-appearance: none;\n\t    margin: 0;\n\t}\n\n\tselect{\n\t\tborder : none;\n\t\toutline : none;\n\t\tbackground : inherit;\n\t\tfont-size : var(--inputFontSize);\n\t\t-webkit-appearance: none;\n\t}\n']),
-	    _templateObject2 = _taggedTemplateLiteral(['\n\tpadding-right : 10px;\n'], ['\n\tpadding-right : 10px;\n']);
-
 	var _react = __webpack_require__(1);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _styledComponents = __webpack_require__(184);
-
-	var _styledComponents2 = _interopRequireDefault(_styledComponents);
+	var _styledComponents = __webpack_require__(256);
 
 	var _sharedStyledComponents = __webpack_require__(228);
 
@@ -29621,14 +29555,6 @@
 			throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === "undefined" ? "undefined" : _typeof(superClass)));
 		}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
 	}
-
-	function _taggedTemplateLiteral(strings, raw) {
-		return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
-	}
-
-	var InputWrapper = _styledComponents2.default.div(_templateObject);
-
-	var InlineDateWrapper = _sharedStyledComponents.InlineWrapper.extend(_templateObject2);
 
 	var DatetimeInput = function (_React$PureComponent) {
 		_inherits(DatetimeInput, _React$PureComponent);
@@ -29698,7 +29624,7 @@
 					this.dateDisplayObj = this.spreadTimestamp();
 				}
 
-				return _react2.default.createElement(InputWrapper, null, props.showdate ? _react2.default.createElement(InlineDateWrapper, null, _react2.default.createElement('input', { type: 'number',
+				return _react2.default.createElement(_styledComponents.InputWrapper, null, props.showdate ? _react2.default.createElement(_styledComponents.InlineDateWrapper, null, _react2.default.createElement('input', { type: 'number',
 					name: 'date',
 					size: '2',
 					min: '01',
@@ -29745,67 +29671,7 @@
 	exports.default = DatetimeInput;
 
 /***/ }),
-/* 254 */
-/***/ (function(module, exports) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	exports.default = {
-		FLEX_BASIS: '300px',
-		LABEL_FONT_SIZE: '1.1rem',
-		DROPDOWN_LABEL_FONT_SIZE: '0.75rem',
-		INPUT_FONT_SIZE: '1rem',
-		INFO_FONT_SIZE: '0.8rem',
-		FORM_BACKGROUND: '#efedfb',
-		LABEL_COLOR: '#9896b1',
-		INPUT_COLOR: '#3b3a4b',
-		INPUT_BORDER_COLOR: '#9896b1',
-		HELPTEXT_COLOR: '#007FFF',
-		ERRORTEXT_COLOR: '#DF1D1D',
-		DROPDOWN_COLOR: '#333',
-		DROPDOWN_BACKGROUND: 'whitesmoke',
-		DROPDOWN_INPUT_BACKGROUND: '#efedfb',
-		DROPDOWN_HOVER_COLOR: '#FFF',
-		DROPDOWN_HOVER_BG_COLOR: '#007FFF',
-		DROPDOWN_INPUT_SHADOW: '1px 1px 1px 1px #c3c3c3',
-		DROPDOWN_SHADOW: '2px 2px 10px 0px #8e8181',
-		DEFAULT_GREEN_COLOR: '#008000',
-		DEFAULT_BLUE_COLOR: '#007FFF',
-		DEFAULT_RED_COLOR: '#DF1D1D',
-		CHECKBOX_BORDER_FALSE: '#6C6D6D',
-		CHECKBOX_BORDER_TRUE: '#007FFF',
-		CHECKBOX_TICK_COLOR: '#007FFF',
-		INFO_BG_COLOR: 'white',
-		INFO_BOX_SHADOW: '1px 1px 8px 0px #c3c3c3',
-		HEADING_BORDER: '1px solid #333',
-		DATE_PICKER_BG_COLOR: 'whitesmoke',
-		DATE_PICKER_HEADER_COLOR: '#333',
-		DATE_PICKER_HEADER_BORDER: "1px solid #333",
-		DATE_PICKER_ARROW_COLOR: '#333',
-		DATE_PICKER_DATE_COLOR: '007FFF',
-		DATE_PICKER_SELECTED_DATE_BG_COLOR: '#007FFF',
-		DATE_PICKER_SELECTED_DATE_COLOR: 'white',
-		TIME_PICKER_HEADER_BG_COLOR: 'whitesmoke',
-		TIME_PICKER_HEADER_COLOR: '#333',
-		TIME_PICKER_HEADER_BORDER_COLOR: '#c3c3c3',
-		TIME_PICKER_COLUMN_BORDER_COLOR: '#c3c3c3',
-		TIME_PICKER_COLUMN_BG_COLOR: 'white',
-		TIME_PICKER_COLUMN_COLOR: '#333',
-		TIME_PICKER_SELECTED_CELL_COLOR: '#007FFF',
-		TIME_PICKER_FOOTER_COLOR: '#333',
-		TIME_PICKER_FOOTER_BG_COLOR: 'whitesmoke',
-		HEADING_FONT_SIZE: '1.1rem',
-		SUB_HEADING_FONT_SIZE: '1rem',
-		DATE_PICKER_SHADOW: 'none',
-		TIME_PICKER_SHADOW: 'none',
-		POPUP_BG_COLOR: 'rgba(0,0,0,0.6)'
-	};
-
-/***/ }),
-/* 255 */
+/* 256 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29813,9 +29679,47 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.CSSVariables = undefined;
+	exports.InlineDateWrapper = exports.InputWrapper = undefined;
 
-	var _templateObject = _taggedTemplateLiteral(['\n  --labelColor : ', ';\n  --inputColor : ', ';\n  --inputBorderColor : ', ';\n  --helpTextColor : ', ';\n  --errorTextColor : ', ';\n  --defaultGreen : ', ';\n  --defaultRed : ', ';\n  --defaultBlue :', ';\n  --labelFontSize : ', ';\n  --inputFontSize : ', ';\n  --infoFontSize : ', ';\n  --infoBgColor : ', ';\n  --infoBoxShadow : ', ';\n  --datePickerBgColor : ', ';\n  --datePickerHeaderColor : ', ';\n  --datePickerHeaderBorder : ', ';\n  --datePickerArrowColor : ', ';\n  --datePickerDateColor : ', ';\n  --datePickerSelectedDateColor : ', ';\n  --datePickerSelectedDateBgColor : ', ';\n  --timepickerHeaderBgColor : ', ';\n  --timepickerHeaderColor : ', ';\n  --timepickerHeaderBorderColor : ', ';\n  --timepickerColumnBorderColor : ', ';\n  --timepickerColumnBgColor : ', ';\n  --timepickerColumnColor : ', ';\n  --timepickerSelectedCellColor : ', ';\n  --timepickerFooterColor : ', ';\n  --timepickerFooterBgColor : ', ';\n  --calendarShadow : ', ';\n  --timepickerShadow : ', ';\n  --popupBgColor : ', ';\n'], ['\n  --labelColor : ', ';\n  --inputColor : ', ';\n  --inputBorderColor : ', ';\n  --helpTextColor : ', ';\n  --errorTextColor : ', ';\n  --defaultGreen : ', ';\n  --defaultRed : ', ';\n  --defaultBlue :', ';\n  --labelFontSize : ', ';\n  --inputFontSize : ', ';\n  --infoFontSize : ', ';\n  --infoBgColor : ', ';\n  --infoBoxShadow : ', ';\n  --datePickerBgColor : ', ';\n  --datePickerHeaderColor : ', ';\n  --datePickerHeaderBorder : ', ';\n  --datePickerArrowColor : ', ';\n  --datePickerDateColor : ', ';\n  --datePickerSelectedDateColor : ', ';\n  --datePickerSelectedDateBgColor : ', ';\n  --timepickerHeaderBgColor : ', ';\n  --timepickerHeaderColor : ', ';\n  --timepickerHeaderBorderColor : ', ';\n  --timepickerColumnBorderColor : ', ';\n  --timepickerColumnBgColor : ', ';\n  --timepickerColumnColor : ', ';\n  --timepickerSelectedCellColor : ', ';\n  --timepickerFooterColor : ', ';\n  --timepickerFooterBgColor : ', ';\n  --calendarShadow : ', ';\n  --timepickerShadow : ', ';\n  --popupBgColor : ', ';\n']);
+	var _templateObject = _taggedTemplateLiteral(['\n\tflex-grow : 1;\n\tposition : relative;\n\tpadding : 10px 0 0;\n\tspan{\n\t\tfont-size : var(--inputFontSize);\n\t\tcolor : var(--inputColor);\n\t}\n\n\tlabel{\n\t\tposition: absolute;\n\t    top: 0px;\n\t    left: 0px;\n\t    font-size: var(--labelFontSizeSmall);\n\t    color: var(--labelColor);\n\t}\n\n\tinput{\n\t\tborder : none;\n\t\toutline : none;\n\t\tbackground : inherit;\n\t\tfont-size : var(--inputFontSize);\n\t}\n\n\tinput[type=\'number\'] {\n\t    -moz-appearance:textfield;\n\t}\n\t/* Webkit browsers like Safari and Chrome */\n\tinput[type=number]::-webkit-inner-spin-button,\n\tinput[type=number]::-webkit-outer-spin-button {\n\t    -webkit-appearance: none;\n\t    margin: 0;\n\t}\n\n\tselect{\n\t\tborder : none;\n\t\toutline : none;\n\t\tbackground : inherit;\n\t\tfont-size : var(--inputFontSize);\n\t\t-webkit-appearance: none;\n\t}\n'], ['\n\tflex-grow : 1;\n\tposition : relative;\n\tpadding : 10px 0 0;\n\tspan{\n\t\tfont-size : var(--inputFontSize);\n\t\tcolor : var(--inputColor);\n\t}\n\n\tlabel{\n\t\tposition: absolute;\n\t    top: 0px;\n\t    left: 0px;\n\t    font-size: var(--labelFontSizeSmall);\n\t    color: var(--labelColor);\n\t}\n\n\tinput{\n\t\tborder : none;\n\t\toutline : none;\n\t\tbackground : inherit;\n\t\tfont-size : var(--inputFontSize);\n\t}\n\n\tinput[type=\'number\'] {\n\t    -moz-appearance:textfield;\n\t}\n\t/* Webkit browsers like Safari and Chrome */\n\tinput[type=number]::-webkit-inner-spin-button,\n\tinput[type=number]::-webkit-outer-spin-button {\n\t    -webkit-appearance: none;\n\t    margin: 0;\n\t}\n\n\tselect{\n\t\tborder : none;\n\t\toutline : none;\n\t\tbackground : inherit;\n\t\tfont-size : var(--inputFontSize);\n\t\t-webkit-appearance: none;\n\t}\n']),
+	    _templateObject2 = _taggedTemplateLiteral(['\n\tpadding-right : 10px;\n'], ['\n\tpadding-right : 10px;\n']);
+
+	var _styledComponents = __webpack_require__(184);
+
+	var _styledComponents2 = _interopRequireDefault(_styledComponents);
+
+	var _sharedStyledComponents = __webpack_require__(228);
+
+	function _interopRequireDefault(obj) {
+	  return obj && obj.__esModule ? obj : { default: obj };
+	}
+
+	function _taggedTemplateLiteral(strings, raw) {
+	  return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
+	}
+
+	var InputWrapper = _styledComponents2.default.div(_templateObject);
+
+	var InlineDateWrapper = _sharedStyledComponents.InlineWrapper.extend(_templateObject2);
+
+	exports.InputWrapper = InputWrapper;
+	exports.InlineDateWrapper = InlineDateWrapper;
+
+/***/ }),
+/* 257 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.DateInputWrapper = exports.TimeInputWrapper = exports.Wrapper = exports.CSSVariables = undefined;
+
+	var _templateObject = _taggedTemplateLiteral(['\n  --labelColor : ', ';\n  --inputColor : ', ';\n  --inputBorderColor : ', ';\n  --helpTextColor : ', ';\n  --errorTextColor : ', ';\n  --defaultGreen : ', ';\n  --defaultRed : ', ';\n  --defaultBlue :', ';\n  --labelFontSize : ', ';\n  --labelFontSizeSmall : ', ';\n  --inputFontSize : ', ';\n  --infoFontSize : ', ';\n  --infoBgColor : ', ';\n  --infoBoxShadow : ', ';\n  --datePickerBgColor : ', ';\n  --datePickerHeaderColor : ', ';\n  --datePickerHeaderBorder : ', ';\n  --datePickerArrowColor : ', ';\n  --datePickerDateColor : ', ';\n  --datePickerSelectedDateColor : ', ';\n  --datePickerSelectedDateBgColor : ', ';\n  --timepickerHeaderBgColor : ', ';\n  --timepickerHeaderColor : ', ';\n  --timepickerHeaderBorderColor : ', ';\n  --timepickerColumnBorderColor : ', ';\n  --timepickerColumnBgColor : ', ';\n  --timepickerColumnColor : ', ';\n  --timepickerSelectedCellColor : ', ';\n  --timepickerFooterColor : ', ';\n  --timepickerFooterBgColor : ', ';\n  --calendarShadow : ', ';\n  --timepickerShadow : ', ';\n  --popupBgColor : ', ';\n'], ['\n  --labelColor : ', ';\n  --inputColor : ', ';\n  --inputBorderColor : ', ';\n  --helpTextColor : ', ';\n  --errorTextColor : ', ';\n  --defaultGreen : ', ';\n  --defaultRed : ', ';\n  --defaultBlue :', ';\n  --labelFontSize : ', ';\n  --labelFontSizeSmall : ', ';\n  --inputFontSize : ', ';\n  --infoFontSize : ', ';\n  --infoBgColor : ', ';\n  --infoBoxShadow : ', ';\n  --datePickerBgColor : ', ';\n  --datePickerHeaderColor : ', ';\n  --datePickerHeaderBorder : ', ';\n  --datePickerArrowColor : ', ';\n  --datePickerDateColor : ', ';\n  --datePickerSelectedDateColor : ', ';\n  --datePickerSelectedDateBgColor : ', ';\n  --timepickerHeaderBgColor : ', ';\n  --timepickerHeaderColor : ', ';\n  --timepickerHeaderBorderColor : ', ';\n  --timepickerColumnBorderColor : ', ';\n  --timepickerColumnBgColor : ', ';\n  --timepickerColumnColor : ', ';\n  --timepickerSelectedCellColor : ', ';\n  --timepickerFooterColor : ', ';\n  --timepickerFooterBgColor : ', ';\n  --calendarShadow : ', ';\n  --timepickerShadow : ', ';\n  --popupBgColor : ', ';\n']),
+	    _templateObject2 = _taggedTemplateLiteral(['\n  display : flex;\n  flex-direction : row;\n  padding : 5px 5px 0px;\n  align-items: flex-end;\n  border-bottom: 1px solid var(--labelColor);\n'], ['\n  display : flex;\n  flex-direction : row;\n  padding : 5px 5px 0px;\n  align-items: flex-end;\n  border-bottom: 1px solid var(--labelColor);\n']),
+	    _templateObject3 = _taggedTemplateLiteral(['\n  width:20px;\n  height:20px;\n  background : url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE2LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgd2lkdGg9Ijk3LjE2cHgiIGhlaWdodD0iOTcuMTZweCIgdmlld0JveD0iMCAwIDk3LjE2IDk3LjE2IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA5Ny4xNiA5Ny4xNjsiIHhtbDpzcGFjZT0icHJlc2VydmUiDQoJPg0KPGc+DQoJPGc+DQoJCTxwYXRoIGQ9Ik00OC41OCwwQzIxLjc5MywwLDAsMjEuNzkzLDAsNDguNThzMjEuNzkzLDQ4LjU4LDQ4LjU4LDQ4LjU4czQ4LjU4LTIxLjc5Myw0OC41OC00OC41OFM3NS4zNjcsMCw0OC41OCwweiBNNDguNTgsODYuODIzDQoJCQljLTIxLjA4NywwLTM4LjI0NC0xNy4xNTUtMzguMjQ0LTM4LjI0M1MyNy40OTMsMTAuMzM3LDQ4LjU4LDEwLjMzN1M4Ni44MjQsMjcuNDkyLDg2LjgyNCw0OC41OFM2OS42NjcsODYuODIzLDQ4LjU4LDg2LjgyM3oiLz4NCgkJPHBhdGggZD0iTTczLjg5OCw0Ny4wOEg1Mi4wNjZWMjAuODNjMC0yLjIwOS0xLjc5MS00LTQtNGMtMi4yMDksMC00LDEuNzkxLTQsNHYzMC4yNWMwLDIuMjA5LDEuNzkxLDQsNCw0aDI1LjgzMg0KCQkJYzIuMjA5LDAsNC0xLjc5MSw0LTRTNzYuMTA3LDQ3LjA4LDczLjg5OCw0Ny4wOHoiLz4NCgk8L2c+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8L3N2Zz4NCg==) \n                no-repeat center;\n  background-size : 100%;\n  visibility : ', ';\n  cursor : pointer;\n'], ['\n  width:20px;\n  height:20px;\n  background : url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE2LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgd2lkdGg9Ijk3LjE2cHgiIGhlaWdodD0iOTcuMTZweCIgdmlld0JveD0iMCAwIDk3LjE2IDk3LjE2IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA5Ny4xNiA5Ny4xNjsiIHhtbDpzcGFjZT0icHJlc2VydmUiDQoJPg0KPGc+DQoJPGc+DQoJCTxwYXRoIGQ9Ik00OC41OCwwQzIxLjc5MywwLDAsMjEuNzkzLDAsNDguNThzMjEuNzkzLDQ4LjU4LDQ4LjU4LDQ4LjU4czQ4LjU4LTIxLjc5Myw0OC41OC00OC41OFM3NS4zNjcsMCw0OC41OCwweiBNNDguNTgsODYuODIzDQoJCQljLTIxLjA4NywwLTM4LjI0NC0xNy4xNTUtMzguMjQ0LTM4LjI0M1MyNy40OTMsMTAuMzM3LDQ4LjU4LDEwLjMzN1M4Ni44MjQsMjcuNDkyLDg2LjgyNCw0OC41OFM2OS42NjcsODYuODIzLDQ4LjU4LDg2LjgyM3oiLz4NCgkJPHBhdGggZD0iTTczLjg5OCw0Ny4wOEg1Mi4wNjZWMjAuODNjMC0yLjIwOS0xLjc5MS00LTQtNGMtMi4yMDksMC00LDEuNzkxLTQsNHYzMC4yNWMwLDIuMjA5LDEuNzkxLDQsNCw0aDI1LjgzMg0KCQkJYzIuMjA5LDAsNC0xLjc5MSw0LTRTNzYuMTA3LDQ3LjA4LDczLjg5OCw0Ny4wOHoiLz4NCgk8L2c+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8L3N2Zz4NCg==) \n                no-repeat center;\n  background-size : 100%;\n  visibility : ', ';\n  cursor : pointer;\n']),
+	    _templateObject4 = _taggedTemplateLiteral(['\n  width:20px;\n  height:20px;\n  background : url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJDYXBhXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB2aWV3Qm94PSIwIDAgNjAgNjAiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDYwIDYwOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8Zz4NCgk8cGF0aCBkPSJNNTcsNGgtN1YxYzAtMC41NTMtMC40NDctMS0xLTFoLTdjLTAuNTUzLDAtMSwwLjQ0Ny0xLDF2M0gxOVYxYzAtMC41NTMtMC40NDctMS0xLTFoLTdjLTAuNTUzLDAtMSwwLjQ0Ny0xLDF2M0gzDQoJCUMyLjQ0Nyw0LDIsNC40NDcsMiw1djExdjQzYzAsMC41NTMsMC40NDcsMSwxLDFoNTRjMC41NTMsMCwxLTAuNDQ3LDEtMVYxNlY1QzU4LDQuNDQ3LDU3LjU1Myw0LDU3LDR6IE00MywyaDV2M3YzaC01VjVWMnogTTEyLDJoNQ0KCQl2M3YzaC01VjVWMnogTTQsNmg2djNjMCwwLjU1MywwLjQ0NywxLDEsMWg3YzAuNTUzLDAsMS0wLjQ0NywxLTFWNmgyMnYzYzAsMC41NTMsMC40NDcsMSwxLDFoN2MwLjU1MywwLDEtMC40NDcsMS0xVjZoNnY5SDRWNnoNCgkJIE00LDU4VjE3aDUydjQxSDR6Ii8+DQoJPHBhdGggZD0iTTM4LDIzaC03aC0yaC03aC0yaC05djl2MnY3djJ2OWg5aDJoN2gyaDdoMmg5di05di0ydi03di0ydi05aC05SDM4eiBNMzEsMjVoN3Y3aC03VjI1eiBNMzgsNDFoLTd2LTdoN1Y0MXogTTIyLDM0aDd2N2gtNw0KCQlWMzR6IE0yMiwyNWg3djdoLTdWMjV6IE0xMywyNWg3djdoLTdWMjV6IE0xMywzNGg3djdoLTdWMzR6IE0yMCw1MGgtN3YtN2g3VjUweiBNMjksNTBoLTd2LTdoN1Y1MHogTTM4LDUwaC03di03aDdWNTB6IE00Nyw1MGgtNw0KCQl2LTdoN1Y1MHogTTQ3LDQxaC03di03aDdWNDF6IE00NywyNXY3aC03di03SDQ3eiIvPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPC9zdmc+DQo=)\n               no-repeat center;\n  background-size : 100%;\n  visibility : ', ';\n  margin-right : 5px;\n  cursor : pointer;\n'], ['\n  width:20px;\n  height:20px;\n  background : url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJDYXBhXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB2aWV3Qm94PSIwIDAgNjAgNjAiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDYwIDYwOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8Zz4NCgk8cGF0aCBkPSJNNTcsNGgtN1YxYzAtMC41NTMtMC40NDctMS0xLTFoLTdjLTAuNTUzLDAtMSwwLjQ0Ny0xLDF2M0gxOVYxYzAtMC41NTMtMC40NDctMS0xLTFoLTdjLTAuNTUzLDAtMSwwLjQ0Ny0xLDF2M0gzDQoJCUMyLjQ0Nyw0LDIsNC40NDcsMiw1djExdjQzYzAsMC41NTMsMC40NDcsMSwxLDFoNTRjMC41NTMsMCwxLTAuNDQ3LDEtMVYxNlY1QzU4LDQuNDQ3LDU3LjU1Myw0LDU3LDR6IE00MywyaDV2M3YzaC01VjVWMnogTTEyLDJoNQ0KCQl2M3YzaC01VjVWMnogTTQsNmg2djNjMCwwLjU1MywwLjQ0NywxLDEsMWg3YzAuNTUzLDAsMS0wLjQ0NywxLTFWNmgyMnYzYzAsMC41NTMsMC40NDcsMSwxLDFoN2MwLjU1MywwLDEtMC40NDcsMS0xVjZoNnY5SDRWNnoNCgkJIE00LDU4VjE3aDUydjQxSDR6Ii8+DQoJPHBhdGggZD0iTTM4LDIzaC03aC0yaC03aC0yaC05djl2MnY3djJ2OWg5aDJoN2gyaDdoMmg5di05di0ydi03di0ydi05aC05SDM4eiBNMzEsMjVoN3Y3aC03VjI1eiBNMzgsNDFoLTd2LTdoN1Y0MXogTTIyLDM0aDd2N2gtNw0KCQlWMzR6IE0yMiwyNWg3djdoLTdWMjV6IE0xMywyNWg3djdoLTdWMjV6IE0xMywzNGg3djdoLTdWMzR6IE0yMCw1MGgtN3YtN2g3VjUweiBNMjksNTBoLTd2LTdoN1Y1MHogTTM4LDUwaC03di03aDdWNTB6IE00Nyw1MGgtNw0KCQl2LTdoN1Y1MHogTTQ3LDQxaC03di03aDdWNDF6IE00NywyNXY3aC03di03SDQ3eiIvPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPC9zdmc+DQo=)\n               no-repeat center;\n  background-size : 100%;\n  visibility : ', ';\n  margin-right : 5px;\n  cursor : pointer;\n']);
 
 	var _styledComponents = __webpack_require__(184);
 
@@ -29847,6 +29751,8 @@
 	  return props.DEFAULT_BLUE_COLOR;
 	}, function (props) {
 	  return props.LABEL_FONT_SIZE;
+	}, function (props) {
+	  return props.LABEL_FONT_SIZE_SMALL;
 	}, function (props) {
 	  return props.INPUT_FONT_SIZE;
 	}, function (props) {
@@ -29895,10 +29801,81 @@
 	  return props.POPUP_BG_COLOR;
 	});
 
+	var Wrapper = _styledComponents2.default.div(_templateObject2);
+
+	var TimeInputWrapper = _styledComponents2.default.div(_templateObject3, function (props) {
+	  return props.showtime ? 'visible' : 'hidden';
+	});
+
+	var DateInputWrapper = _styledComponents2.default.div(_templateObject4, function (props) {
+	  return props.showdate ? 'visible' : 'hidden';
+	});
+
 	exports.CSSVariables = CSSVariables;
+	exports.Wrapper = Wrapper;
+	exports.TimeInputWrapper = TimeInputWrapper;
+	exports.DateInputWrapper = DateInputWrapper;
 
 /***/ }),
-/* 256 */
+/* 258 */
+/***/ (function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	exports.default = {
+		LABEL_FONT_SIZE: '1.1rem',
+		LABEL_FONT_SIZE_SMALL: '0.75rem',
+		INPUT_FONT_SIZE: '1rem',
+		INFO_FONT_SIZE: '0.8rem',
+		LABEL_COLOR: '#9896b1',
+		INPUT_COLOR: '#3b3a4b',
+		INPUT_BORDER_COLOR: '#9896b1',
+		HELPTEXT_COLOR: '#007FFF',
+		ERRORTEXT_COLOR: '#DF1D1D',
+		DROPDOWN_COLOR: '#333',
+		DROPDOWN_BACKGROUND: 'whitesmoke',
+		DROPDOWN_INPUT_BACKGROUND: '#efedfb',
+		DROPDOWN_HOVER_COLOR: '#FFF',
+		DROPDOWN_HOVER_BG_COLOR: '#007FFF',
+		DROPDOWN_INPUT_SHADOW: '1px 1px 1px 1px #c3c3c3',
+		DROPDOWN_SHADOW: '2px 2px 10px 0px #8e8181',
+		DEFAULT_GREEN_COLOR: '#008000',
+		DEFAULT_BLUE_COLOR: '#007FFF',
+		DEFAULT_RED_COLOR: '#DF1D1D',
+		CHECKBOX_BORDER_FALSE: '#6C6D6D',
+		CHECKBOX_BORDER_TRUE: '#007FFF',
+		CHECKBOX_TICK_COLOR: '#007FFF',
+		INFO_BG_COLOR: 'white',
+		INFO_BOX_SHADOW: '1px 1px 8px 0px #c3c3c3',
+		HEADING_BORDER: '1px solid #333',
+		DATE_PICKER_BG_COLOR: 'whitesmoke',
+		DATE_PICKER_HEADER_COLOR: '#333',
+		DATE_PICKER_HEADER_BORDER: "1px solid #333",
+		DATE_PICKER_ARROW_COLOR: '#333',
+		DATE_PICKER_DATE_COLOR: '007FFF',
+		DATE_PICKER_SELECTED_DATE_BG_COLOR: '#007FFF',
+		DATE_PICKER_SELECTED_DATE_COLOR: 'white',
+		TIME_PICKER_HEADER_BG_COLOR: 'whitesmoke',
+		TIME_PICKER_HEADER_COLOR: '#333',
+		TIME_PICKER_HEADER_BORDER_COLOR: '#c3c3c3',
+		TIME_PICKER_COLUMN_BORDER_COLOR: '#c3c3c3',
+		TIME_PICKER_COLUMN_BG_COLOR: 'white',
+		TIME_PICKER_COLUMN_COLOR: '#333',
+		TIME_PICKER_SELECTED_CELL_COLOR: '#007FFF',
+		TIME_PICKER_FOOTER_COLOR: '#333',
+		TIME_PICKER_FOOTER_BG_COLOR: 'whitesmoke',
+		HEADING_FONT_SIZE: '1.1rem',
+		SUB_HEADING_FONT_SIZE: '1rem',
+		DATE_PICKER_SHADOW: 'none',
+		TIME_PICKER_SHADOW: 'none',
+		POPUP_BG_COLOR: 'rgba(0,0,0,0.6)'
+	};
+
+/***/ }),
+/* 259 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29925,17 +29902,13 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _dropdown = __webpack_require__(257);
+	var _dropdown = __webpack_require__(260);
 
 	var _dropdown2 = _interopRequireDefault(_dropdown);
 
 	var _styledComponents = __webpack_require__(184);
 
 	var _styledComponents2 = _interopRequireDefault(_styledComponents);
-
-	var _promise = __webpack_require__(233);
-
-	var _promise2 = _interopRequireDefault(_promise);
 
 	function _interopRequireDefault(obj) {
 		return obj && obj.__esModule ? obj : { default: obj };
@@ -30010,7 +29983,7 @@
 	exports.default = DropDownExample;
 
 /***/ }),
-/* 257 */
+/* 260 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30035,15 +30008,15 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _core = __webpack_require__(258);
+	var _core = __webpack_require__(261);
 
 	var _core2 = _interopRequireDefault(_core);
 
-	var _colorConfig = __webpack_require__(260);
+	var _colorConfig = __webpack_require__(263);
 
 	var _colorConfig2 = _interopRequireDefault(_colorConfig);
 
-	var _styledComponents = __webpack_require__(259);
+	var _styledComponents = __webpack_require__(262);
 
 	function _interopRequireDefault(obj) {
 		return obj && obj.__esModule ? obj : { default: obj };
@@ -30093,7 +30066,7 @@
 	exports.default = DateTime;
 
 /***/ }),
-/* 258 */
+/* 261 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30126,7 +30099,7 @@
 
 	var _keyPressHandlerOnList2 = _interopRequireDefault(_keyPressHandlerOnList);
 
-	var _styledComponents = __webpack_require__(259);
+	var _styledComponents = __webpack_require__(262);
 
 	function _interopRequireDefault(obj) {
 		return obj && obj.__esModule ? obj : { default: obj };
@@ -30380,7 +30353,7 @@
 	exports.default = Dropdown;
 
 /***/ }),
-/* 259 */
+/* 262 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30390,8 +30363,8 @@
 	});
 	exports.SelectedListItem = exports.ListItem = exports.DropdownListWrapper = exports.Wrapper = exports.CSSVariables = undefined;
 
-	var _templateObject = _taggedTemplateLiteral(['\n  --labelColor : ', ';\n  --inputColor : ', ';\n  --inputBorderColor : ', ';\n  --helpTextColor : ', ';\n  --errorTextColor : ', ';\n  --dropdownColor : ', ';\n  --dropdownBgColor : ', ';\n  --dropdownInputBgColor : ', ';\n  --dropdownHoverColor : ', ';\n  --dropdownHoverBgColor : ', ';\n  --defaultGreen : ', ';\n  --defaultRed : ', ';\n  --defaultBlue :', ';\n  --dropdownLabelFontSize : ', ';\n  --inputFontSize : ', ';\n  --infoFontSize : ', ';\n  --dropdownInputShadow : ', ';\n  --dropdownShadow : ', ';\n  --infoBgColor : ', ';\n  --infoBoxShadow : ', ';\n'], ['\n  --labelColor : ', ';\n  --inputColor : ', ';\n  --inputBorderColor : ', ';\n  --helpTextColor : ', ';\n  --errorTextColor : ', ';\n  --dropdownColor : ', ';\n  --dropdownBgColor : ', ';\n  --dropdownInputBgColor : ', ';\n  --dropdownHoverColor : ', ';\n  --dropdownHoverBgColor : ', ';\n  --defaultGreen : ', ';\n  --defaultRed : ', ';\n  --defaultBlue :', ';\n  --dropdownLabelFontSize : ', ';\n  --inputFontSize : ', ';\n  --infoFontSize : ', ';\n  --dropdownInputShadow : ', ';\n  --dropdownShadow : ', ';\n  --infoBgColor : ', ';\n  --infoBoxShadow : ', ';\n']),
-	    _templateObject2 = _taggedTemplateLiteral(['\n    padding: 10px 0;\n    position:relative;\n    outline : none;\n\n    span{\n    \twidth: 100%;\n\t    display: block;\n\t    font-size : var(--inputFontSize);\n\t    padding: 15px 10px 5px;\n\t    background: var(--dropdownInputBgColor);\n\t    box-sizing: border-box;\n\t    border-radius: 5px;\n\t    box-shadow: var(--dropdownInputShadow);\n\t    color : var(--inputColor);\n    }\n\n    span:after{\n\t\tposition: absolute;\n\t    content: \'\';\n\t    right: 10px;\n\t    top: 45%;\n\t    border-top: 8px solid;\n\t    border-right: 6px solid transparent;\n\t    border-bottom: 6px solid transparent;\n\t    border-left: 6px solid transparent;\n\t}\n\n    label{\n    \tposition: absolute;\n\t    top: 12px;\n\t    left: 10px;\n\t    font-size: var(--dropdownLabelFontSize);\n\t    color: var(--labelColor);\n    }\n\n    &:after{\n    \tcontent:"', '";\n        position: absolute;\n        left:0px;\n        top : 90%;\n        font-size: var(--infoFontSize);\n        color: ', ';\n    \tbackground: var(--infoBgColor);\n    \tpadding: 5px;\n    \tbox-shadow: var(--infoBoxShadow);\n    \tdisplay: ', ';\n        z-index: 1;\n    }\n'], ['\n    padding: 10px 0;\n    position:relative;\n    outline : none;\n\n    span{\n    \twidth: 100%;\n\t    display: block;\n\t    font-size : var(--inputFontSize);\n\t    padding: 15px 10px 5px;\n\t    background: var(--dropdownInputBgColor);\n\t    box-sizing: border-box;\n\t    border-radius: 5px;\n\t    box-shadow: var(--dropdownInputShadow);\n\t    color : var(--inputColor);\n    }\n\n    span:after{\n\t\tposition: absolute;\n\t    content: \'\';\n\t    right: 10px;\n\t    top: 45%;\n\t    border-top: 8px solid;\n\t    border-right: 6px solid transparent;\n\t    border-bottom: 6px solid transparent;\n\t    border-left: 6px solid transparent;\n\t}\n\n    label{\n    \tposition: absolute;\n\t    top: 12px;\n\t    left: 10px;\n\t    font-size: var(--dropdownLabelFontSize);\n\t    color: var(--labelColor);\n    }\n\n    &:after{\n    \tcontent:"', '";\n        position: absolute;\n        left:0px;\n        top : 90%;\n        font-size: var(--infoFontSize);\n        color: ', ';\n    \tbackground: var(--infoBgColor);\n    \tpadding: 5px;\n    \tbox-shadow: var(--infoBoxShadow);\n    \tdisplay: ', ';\n        z-index: 1;\n    }\n']),
+	var _templateObject = _taggedTemplateLiteral(['\n  --labelColor : ', ';\n  --inputColor : ', ';\n  --inputBorderColor : ', ';\n  --helpTextColor : ', ';\n  --errorTextColor : ', ';\n  --dropdownColor : ', ';\n  --dropdownBgColor : ', ';\n  --dropdownInputBgColor : ', ';\n  --dropdownHoverColor : ', ';\n  --dropdownHoverBgColor : ', ';\n  --defaultGreen : ', ';\n  --defaultRed : ', ';\n  --defaultBlue :', ';\n  --labelFontSizeSmall : ', ';\n  --inputFontSize : ', ';\n  --infoFontSize : ', ';\n  --dropdownInputShadow : ', ';\n  --dropdownShadow : ', ';\n  --infoBgColor : ', ';\n  --infoBoxShadow : ', ';\n'], ['\n  --labelColor : ', ';\n  --inputColor : ', ';\n  --inputBorderColor : ', ';\n  --helpTextColor : ', ';\n  --errorTextColor : ', ';\n  --dropdownColor : ', ';\n  --dropdownBgColor : ', ';\n  --dropdownInputBgColor : ', ';\n  --dropdownHoverColor : ', ';\n  --dropdownHoverBgColor : ', ';\n  --defaultGreen : ', ';\n  --defaultRed : ', ';\n  --defaultBlue :', ';\n  --labelFontSizeSmall : ', ';\n  --inputFontSize : ', ';\n  --infoFontSize : ', ';\n  --dropdownInputShadow : ', ';\n  --dropdownShadow : ', ';\n  --infoBgColor : ', ';\n  --infoBoxShadow : ', ';\n']),
+	    _templateObject2 = _taggedTemplateLiteral(['\n    padding: 10px 0;\n    position:relative;\n    outline : none;\n\n    span{\n    \twidth: 100%;\n\t    display: block;\n\t    font-size : var(--inputFontSize);\n\t    padding: 15px 10px 5px;\n\t    background: var(--dropdownInputBgColor);\n\t    box-sizing: border-box;\n\t    border-radius: 5px;\n\t    box-shadow: var(--dropdownInputShadow);\n\t    color : var(--inputColor);\n    }\n\n    span:after{\n\t\tposition: absolute;\n\t    content: \'\';\n\t    right: 10px;\n\t    top: 45%;\n\t    border-top: 8px solid;\n\t    border-right: 6px solid transparent;\n\t    border-bottom: 6px solid transparent;\n\t    border-left: 6px solid transparent;\n\t}\n\n    label{\n    \tposition: absolute;\n\t    top: 12px;\n\t    left: 10px;\n\t    font-size: var(--labelFontSizeSmall);\n\t    color: var(--labelColor);\n    }\n\n    &:after{\n    \tcontent:"', '";\n        position: absolute;\n        left:0px;\n        top : 90%;\n        font-size: var(--infoFontSize);\n        color: ', ';\n    \tbackground: var(--infoBgColor);\n    \tpadding: 5px;\n    \tbox-shadow: var(--infoBoxShadow);\n    \tdisplay: ', ';\n        z-index: 1;\n    }\n'], ['\n    padding: 10px 0;\n    position:relative;\n    outline : none;\n\n    span{\n    \twidth: 100%;\n\t    display: block;\n\t    font-size : var(--inputFontSize);\n\t    padding: 15px 10px 5px;\n\t    background: var(--dropdownInputBgColor);\n\t    box-sizing: border-box;\n\t    border-radius: 5px;\n\t    box-shadow: var(--dropdownInputShadow);\n\t    color : var(--inputColor);\n    }\n\n    span:after{\n\t\tposition: absolute;\n\t    content: \'\';\n\t    right: 10px;\n\t    top: 45%;\n\t    border-top: 8px solid;\n\t    border-right: 6px solid transparent;\n\t    border-bottom: 6px solid transparent;\n\t    border-left: 6px solid transparent;\n\t}\n\n    label{\n    \tposition: absolute;\n\t    top: 12px;\n\t    left: 10px;\n\t    font-size: var(--labelFontSizeSmall);\n\t    color: var(--labelColor);\n    }\n\n    &:after{\n    \tcontent:"', '";\n        position: absolute;\n        left:0px;\n        top : 90%;\n        font-size: var(--infoFontSize);\n        color: ', ';\n    \tbackground: var(--infoBgColor);\n    \tpadding: 5px;\n    \tbox-shadow: var(--infoBoxShadow);\n    \tdisplay: ', ';\n        z-index: 1;\n    }\n']),
 	    _templateObject3 = _taggedTemplateLiteral(['\n\tposition : absolute;\n    background : var(--dropdownBgColor);\n    width : 100%;\n    box-shadow : var(--dropdownShadow);\n    font-size : var(--inputFontSize);\n    z-index : 3;\n    input{\n    \twidth : 100%;\n    \tbox-sizing : border-box;\n    \tfont-size : 1rem;\n    \tpadding : 0 5px;\n    }\n'], ['\n\tposition : absolute;\n    background : var(--dropdownBgColor);\n    width : 100%;\n    box-shadow : var(--dropdownShadow);\n    font-size : var(--inputFontSize);\n    z-index : 3;\n    input{\n    \twidth : 100%;\n    \tbox-sizing : border-box;\n    \tfont-size : 1rem;\n    \tpadding : 0 5px;\n    }\n']),
 	    _templateObject4 = _taggedTemplateLiteral(['\n\tbox-sizing : border-box;\n   \tpadding : 3px 0px 3px 10px;\n\n\t&:hover{\n\t\tbackground-color: var(--dropdownHoverBgColor);\n\t    opacity: 0.8;\n\t    color: var(--dropdownHoverColor);\n\t}\n'], ['\n\tbox-sizing : border-box;\n   \tpadding : 3px 0px 3px 10px;\n\n\t&:hover{\n\t\tbackground-color: var(--dropdownHoverBgColor);\n\t    opacity: 0.8;\n\t    color: var(--dropdownHoverColor);\n\t}\n']),
 	    _templateObject5 = _taggedTemplateLiteral(['\n\tbackground-color: var(--dropdownHoverBgColor);\n    opacity: 0.8;\n    color: var(--dropdownHoverColor);\n'], ['\n\tbackground-color: var(--dropdownHoverBgColor);\n    opacity: 0.8;\n    color: var(--dropdownHoverColor);\n']);
@@ -30435,7 +30408,7 @@
 	}, function (props) {
 	    return props.DEFAULT_BLUE_COLOR;
 	}, function (props) {
-	    return props.DROPDOWN_LABEL_FONT_SIZE;
+	    return props.LABEL_FONT_SIZE_SMALL;
 	}, function (props) {
 	    return props.INPUT_FONT_SIZE;
 	}, function (props) {
@@ -30470,7 +30443,7 @@
 	exports.SelectedListItem = SelectedListItem;
 
 /***/ }),
-/* 260 */
+/* 263 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -30481,7 +30454,7 @@
 	exports.default = {
 		FLEX_BASIS: '300px',
 		LABEL_FONT_SIZE: '1.1rem',
-		DROPDOWN_LABEL_FONT_SIZE: '0.75rem',
+		LABEL_FONT_SIZE_SMALL: '0.75rem',
 		INPUT_FONT_SIZE: '1rem',
 		INFO_FONT_SIZE: '0.8rem',
 		FORM_BACKGROUND: '#efedfb',
@@ -30530,7 +30503,7 @@
 	};
 
 /***/ }),
-/* 261 */
+/* 264 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30557,15 +30530,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _labeledInput = __webpack_require__(262);
+	var _labeledInput = __webpack_require__(265);
 
 	var _styledComponents = __webpack_require__(184);
 
 	var _styledComponents2 = _interopRequireDefault(_styledComponents);
-
-	var _promise = __webpack_require__(233);
-
-	var _promise2 = _interopRequireDefault(_promise);
 
 	function _interopRequireDefault(obj) {
 		return obj && obj.__esModule ? obj : { default: obj };
@@ -30638,7 +30607,7 @@
 	exports.default = NumberInputExample;
 
 /***/ }),
-/* 262 */
+/* 265 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30674,15 +30643,15 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _core = __webpack_require__(263);
+	var _core = __webpack_require__(266);
 
 	var _core2 = _interopRequireDefault(_core);
 
-	var _colorConfig = __webpack_require__(265);
+	var _colorConfig = __webpack_require__(268);
 
 	var _colorConfig2 = _interopRequireDefault(_colorConfig);
 
-	var _styledComponents = __webpack_require__(264);
+	var _styledComponents = __webpack_require__(267);
 
 	function _interopRequireDefault(obj) {
 		return obj && obj.__esModule ? obj : { default: obj };
@@ -30756,7 +30725,7 @@
 	exports.TextInput = TextInput;
 
 /***/ }),
-/* 263 */
+/* 266 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30783,7 +30752,7 @@
 
 	var _sharedStyledComponents = __webpack_require__(228);
 
-	var _styledComponents = __webpack_require__(264);
+	var _styledComponents = __webpack_require__(267);
 
 	function _interopRequireDefault(obj) {
 		return obj && obj.__esModule ? obj : { default: obj };
@@ -30882,7 +30851,7 @@
 	exports.default = LabeledInput;
 
 /***/ }),
-/* 264 */
+/* 267 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30951,7 +30920,7 @@
 	exports.InputWrapper = InputWrapper;
 
 /***/ }),
-/* 265 */
+/* 268 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -30962,7 +30931,7 @@
 	exports.default = {
 		FLEX_BASIS: '300px',
 		LABEL_FONT_SIZE: '1.1rem',
-		DROPDOWN_LABEL_FONT_SIZE: '0.75rem',
+		LABEL_FONT_SIZE_SMALL: '0.75rem',
 		INPUT_FONT_SIZE: '1rem',
 		INFO_FONT_SIZE: '0.8rem',
 		FORM_BACKGROUND: '#efedfb',
@@ -31011,7 +30980,7 @@
 	};
 
 /***/ }),
-/* 266 */
+/* 269 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31038,17 +31007,13 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _radioButtonGroup = __webpack_require__(267);
+	var _radioButtonGroup = __webpack_require__(270);
 
 	var _radioButtonGroup2 = _interopRequireDefault(_radioButtonGroup);
 
 	var _styledComponents = __webpack_require__(184);
 
 	var _styledComponents2 = _interopRequireDefault(_styledComponents);
-
-	var _promise = __webpack_require__(233);
-
-	var _promise2 = _interopRequireDefault(_promise);
 
 	function _interopRequireDefault(obj) {
 		return obj && obj.__esModule ? obj : { default: obj };
@@ -31123,7 +31088,7 @@
 	exports.default = RadioGroupExample;
 
 /***/ }),
-/* 267 */
+/* 270 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31148,15 +31113,15 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _core = __webpack_require__(268);
+	var _core = __webpack_require__(271);
 
 	var _core2 = _interopRequireDefault(_core);
 
-	var _colorConfig = __webpack_require__(270);
+	var _colorConfig = __webpack_require__(273);
 
 	var _colorConfig2 = _interopRequireDefault(_colorConfig);
 
-	var _styledComponents = __webpack_require__(269);
+	var _styledComponents = __webpack_require__(272);
 
 	function _interopRequireDefault(obj) {
 		return obj && obj.__esModule ? obj : { default: obj };
@@ -31206,7 +31171,7 @@
 	exports.default = RadioGroupExample;
 
 /***/ }),
-/* 268 */
+/* 271 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31233,7 +31198,7 @@
 
 	var _sharedStyledComponents = __webpack_require__(228);
 
-	var _styledComponents = __webpack_require__(269);
+	var _styledComponents = __webpack_require__(272);
 
 	function _interopRequireDefault(obj) {
 		return obj && obj.__esModule ? obj : { default: obj };
@@ -31312,7 +31277,7 @@
 	exports.default = RadioButtonGroup;
 
 /***/ }),
-/* 269 */
+/* 272 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31374,7 +31339,7 @@
 	exports.RadioOption = RadioOption;
 
 /***/ }),
-/* 270 */
+/* 273 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -31385,7 +31350,7 @@
 	exports.default = {
 		FLEX_BASIS: '300px',
 		LABEL_FONT_SIZE: '1.1rem',
-		DROPDOWN_LABEL_FONT_SIZE: '0.75rem',
+		LABEL_FONT_SIZE_SMALL: '0.75rem',
 		INPUT_FONT_SIZE: '1rem',
 		INFO_FONT_SIZE: '0.8rem',
 		FORM_BACKGROUND: '#efedfb',
@@ -31434,7 +31399,7 @@
 	};
 
 /***/ }),
-/* 271 */
+/* 274 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31461,7 +31426,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _select = __webpack_require__(272);
+	var _select = __webpack_require__(275);
 
 	var _select2 = _interopRequireDefault(_select);
 
@@ -31542,7 +31507,7 @@
 	exports.default = RadioGroupExample;
 
 /***/ }),
-/* 272 */
+/* 275 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31567,15 +31532,15 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _core = __webpack_require__(273);
+	var _core = __webpack_require__(276);
 
 	var _core2 = _interopRequireDefault(_core);
 
-	var _colorConfig = __webpack_require__(275);
+	var _colorConfig = __webpack_require__(278);
 
 	var _colorConfig2 = _interopRequireDefault(_colorConfig);
 
-	var _styledComponents = __webpack_require__(274);
+	var _styledComponents = __webpack_require__(277);
 
 	function _interopRequireDefault(obj) {
 		return obj && obj.__esModule ? obj : { default: obj };
@@ -31625,7 +31590,7 @@
 	exports.default = RadioGroupExample;
 
 /***/ }),
-/* 273 */
+/* 276 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31650,7 +31615,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _styledComponents = __webpack_require__(274);
+	var _styledComponents = __webpack_require__(277);
 
 	function _interopRequireDefault(obj) {
 		return obj && obj.__esModule ? obj : { default: obj };
@@ -31742,7 +31707,7 @@
 	exports.default = SelectInput;
 
 /***/ }),
-/* 274 */
+/* 277 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31752,8 +31717,8 @@
 	});
 	exports.Arrow = exports.SelectWrapper = exports.Wrapper = exports.CSSVariables = undefined;
 
-	var _templateObject = _taggedTemplateLiteral(['\n  --labelColor : ', ';\n  --inputColor : ', ';\n  --inputBorderColor : ', ';\n  --helpTextColor : ', ';\n  --errorTextColor : ', ';\n  --dropdownColor : ', ';\n  --dropdownBgColor : ', ';\n  --dropdownInputBgColor : ', ';\n  --dropdownHoverColor : ', ';\n  --dropdownHoverBgColor : ', ';\n  --defaultGreen : ', ';\n  --defaultRed : ', ';\n  --defaultBlue :', ';\n  --dropdownLabelFontSize : ', ';\n  --inputFontSize : ', ';\n  --infoFontSize : ', ';\n  --dropdownInputShadow : ', ';\n  --dropdownShadow : ', ';\n  --infoBgColor : ', ';\n  --infoBoxShadow : ', ';\n'], ['\n  --labelColor : ', ';\n  --inputColor : ', ';\n  --inputBorderColor : ', ';\n  --helpTextColor : ', ';\n  --errorTextColor : ', ';\n  --dropdownColor : ', ';\n  --dropdownBgColor : ', ';\n  --dropdownInputBgColor : ', ';\n  --dropdownHoverColor : ', ';\n  --dropdownHoverBgColor : ', ';\n  --defaultGreen : ', ';\n  --defaultRed : ', ';\n  --defaultBlue :', ';\n  --dropdownLabelFontSize : ', ';\n  --inputFontSize : ', ';\n  --infoFontSize : ', ';\n  --dropdownInputShadow : ', ';\n  --dropdownShadow : ', ';\n  --infoBgColor : ', ';\n  --infoBoxShadow : ', ';\n']),
-	    _templateObject2 = _taggedTemplateLiteral(['\n\tposition: relative;\n    //flex-basis: var(--flexBasis);\n    padding: 10px 0;\n    //margin: 10px;\n    //flex-grow : 1;\n    select{\n    \t-webkit-appearance: none;\n\t    border: none;\n\t    background: var(--dropdownInputBgColor);\n\t    padding: 15px 10px 5px;\n\t    width: 100%;\n\t    border-radius: 5px;\n\t    font-size: 1rem;\n\t    outline: none;\n\t    font-weight:300;\n\t    box-shadow: var(--dropdownInputShadow);\n\t    color : var(--inputColor);\n    }\n\n    label{\n    \tposition: absolute;\n\t    top: 12px;\n\t    left:10px;\n\t    font-size: 0.75rem;\n\t    color: var(--labelColor);\n    }\n\n    &:after{\n    \tcontent:"', '";\n        position: absolute;\n        top : 90%;\n        left:0px;\n        font-size: var(--infoFontSize);\n        color: ', ';\n\t    background: var(--infoBgColor);\n\t    padding: 5px;\n\t    box-shadow: var(--infoBoxShadow);\n    \tdisplay: ', ';\n        z-index : 1;\n    }\n'], ['\n\tposition: relative;\n    //flex-basis: var(--flexBasis);\n    padding: 10px 0;\n    //margin: 10px;\n    //flex-grow : 1;\n    select{\n    \t-webkit-appearance: none;\n\t    border: none;\n\t    background: var(--dropdownInputBgColor);\n\t    padding: 15px 10px 5px;\n\t    width: 100%;\n\t    border-radius: 5px;\n\t    font-size: 1rem;\n\t    outline: none;\n\t    font-weight:300;\n\t    box-shadow: var(--dropdownInputShadow);\n\t    color : var(--inputColor);\n    }\n\n    label{\n    \tposition: absolute;\n\t    top: 12px;\n\t    left:10px;\n\t    font-size: 0.75rem;\n\t    color: var(--labelColor);\n    }\n\n    &:after{\n    \tcontent:"', '";\n        position: absolute;\n        top : 90%;\n        left:0px;\n        font-size: var(--infoFontSize);\n        color: ', ';\n\t    background: var(--infoBgColor);\n\t    padding: 5px;\n\t    box-shadow: var(--infoBoxShadow);\n    \tdisplay: ', ';\n        z-index : 1;\n    }\n']),
+	var _templateObject = _taggedTemplateLiteral(['\n  --labelColor : ', ';\n  --inputColor : ', ';\n  --inputBorderColor : ', ';\n  --helpTextColor : ', ';\n  --errorTextColor : ', ';\n  --dropdownColor : ', ';\n  --dropdownBgColor : ', ';\n  --dropdownInputBgColor : ', ';\n  --dropdownHoverColor : ', ';\n  --dropdownHoverBgColor : ', ';\n  --defaultGreen : ', ';\n  --defaultRed : ', ';\n  --defaultBlue :', ';\n  --labelFontSizeSmall : ', ';\n  --inputFontSize : ', ';\n  --infoFontSize : ', ';\n  --dropdownInputShadow : ', ';\n  --dropdownShadow : ', ';\n  --infoBgColor : ', ';\n  --infoBoxShadow : ', ';\n'], ['\n  --labelColor : ', ';\n  --inputColor : ', ';\n  --inputBorderColor : ', ';\n  --helpTextColor : ', ';\n  --errorTextColor : ', ';\n  --dropdownColor : ', ';\n  --dropdownBgColor : ', ';\n  --dropdownInputBgColor : ', ';\n  --dropdownHoverColor : ', ';\n  --dropdownHoverBgColor : ', ';\n  --defaultGreen : ', ';\n  --defaultRed : ', ';\n  --defaultBlue :', ';\n  --labelFontSizeSmall : ', ';\n  --inputFontSize : ', ';\n  --infoFontSize : ', ';\n  --dropdownInputShadow : ', ';\n  --dropdownShadow : ', ';\n  --infoBgColor : ', ';\n  --infoBoxShadow : ', ';\n']),
+	    _templateObject2 = _taggedTemplateLiteral(['\n\t  position: relative;\n    padding: 10px 0;\n  \n    select{\n    \t-webkit-appearance: none;\n\t    border: none;\n\t    background: var(--dropdownInputBgColor);\n\t    padding: 15px 10px 5px;\n\t    width: 100%;\n\t    border-radius: 5px;\n\t    font-size: 1rem;\n\t    outline: none;\n\t    font-weight:300;\n\t    box-shadow: var(--dropdownInputShadow);\n\t    color : var(--inputColor);\n    }\n\n    label{\n    \tposition: absolute;\n\t    top: 12px;\n\t    left:10px;\n\t    font-size: 0.75rem;\n\t    color: var(--labelColor);\n    }\n\n    &:after{\n    \tcontent:"', '";\n        position: absolute;\n        top : 90%;\n        left:0px;\n        font-size: var(--infoFontSize);\n        color: ', ';\n\t    background: var(--infoBgColor);\n\t    padding: 5px;\n\t    box-shadow: var(--infoBoxShadow);\n    \tdisplay: ', ';\n        z-index : 1;\n    }\n'], ['\n\t  position: relative;\n    padding: 10px 0;\n  \n    select{\n    \t-webkit-appearance: none;\n\t    border: none;\n\t    background: var(--dropdownInputBgColor);\n\t    padding: 15px 10px 5px;\n\t    width: 100%;\n\t    border-radius: 5px;\n\t    font-size: 1rem;\n\t    outline: none;\n\t    font-weight:300;\n\t    box-shadow: var(--dropdownInputShadow);\n\t    color : var(--inputColor);\n    }\n\n    label{\n    \tposition: absolute;\n\t    top: 12px;\n\t    left:10px;\n\t    font-size: 0.75rem;\n\t    color: var(--labelColor);\n    }\n\n    &:after{\n    \tcontent:"', '";\n        position: absolute;\n        top : 90%;\n        left:0px;\n        font-size: var(--infoFontSize);\n        color: ', ';\n\t    background: var(--infoBgColor);\n\t    padding: 5px;\n\t    box-shadow: var(--infoBoxShadow);\n    \tdisplay: ', ';\n        z-index : 1;\n    }\n']),
 	    _templateObject3 = _taggedTemplateLiteral(['\n\tposition:relative;\n'], ['\n\tposition:relative;\n']),
 	    _templateObject4 = _taggedTemplateLiteral(['\n\tposition: absolute;\n    right: 10px;\n    top: 45%;\n    border-top: 8px solid;\n    border-right: 6px solid transparent;\n    border-bottom: 6px solid transparent;\n    border-left: 6px solid transparent;\n'], ['\n\tposition: absolute;\n    right: 10px;\n    top: 45%;\n    border-top: 8px solid;\n    border-right: 6px solid transparent;\n    border-bottom: 6px solid transparent;\n    border-left: 6px solid transparent;\n']);
 
@@ -31796,7 +31761,7 @@
 	}, function (props) {
 	   return props.DEFAULT_BLUE_COLOR;
 	}, function (props) {
-	   return props.DROPDOWN_LABEL_FONT_SIZE;
+	   return props.LABEL_FONT_SIZE_SMALL;
 	}, function (props) {
 	   return props.INPUT_FONT_SIZE;
 	}, function (props) {
@@ -31829,7 +31794,7 @@
 	exports.Arrow = Arrow;
 
 /***/ }),
-/* 275 */
+/* 278 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -31840,7 +31805,7 @@
 	exports.default = {
 		FLEX_BASIS: '300px',
 		LABEL_FONT_SIZE: '1.1rem',
-		DROPDOWN_LABEL_FONT_SIZE: '0.75rem',
+		LABEL_FONT_SIZE_SMALL: '0.75rem',
 		INPUT_FONT_SIZE: '1rem',
 		INFO_FONT_SIZE: '0.8rem',
 		FORM_BACKGROUND: '#efedfb',
@@ -31889,7 +31854,7 @@
 	};
 
 /***/ }),
-/* 276 */
+/* 279 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31916,15 +31881,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _labeledInput = __webpack_require__(262);
+	var _labeledInput = __webpack_require__(265);
 
 	var _styledComponents = __webpack_require__(184);
 
 	var _styledComponents2 = _interopRequireDefault(_styledComponents);
-
-	var _promise = __webpack_require__(233);
-
-	var _promise2 = _interopRequireDefault(_promise);
 
 	function _interopRequireDefault(obj) {
 		return obj && obj.__esModule ? obj : { default: obj };
@@ -31997,7 +31958,7 @@
 	exports.default = TextInputExample;
 
 /***/ }),
-/* 277 */
+/* 280 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32022,7 +31983,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _form = __webpack_require__(278);
+	var _form = __webpack_require__(281);
 
 	var _form2 = _interopRequireDefault(_form);
 
@@ -32283,7 +32244,7 @@
 	exports.default = TestForm;
 
 /***/ }),
-/* 278 */
+/* 281 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32318,7 +32279,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _core = __webpack_require__(263);
+	var _core = __webpack_require__(266);
 
 	var _core2 = _interopRequireDefault(_core);
 
@@ -32330,15 +32291,15 @@
 
 	var _core4 = _interopRequireDefault(_core3);
 
-	var _core5 = __webpack_require__(273);
+	var _core5 = __webpack_require__(276);
 
 	var _core6 = _interopRequireDefault(_core5);
 
-	var _core7 = __webpack_require__(258);
+	var _core7 = __webpack_require__(261);
 
 	var _core8 = _interopRequireDefault(_core7);
 
-	var _colorConfig = __webpack_require__(279);
+	var _colorConfig = __webpack_require__(282);
 
 	var _colorConfig2 = _interopRequireDefault(_colorConfig);
 
@@ -32346,7 +32307,7 @@
 
 	var _core10 = _interopRequireDefault(_core9);
 
-	var _core11 = __webpack_require__(268);
+	var _core11 = __webpack_require__(271);
 
 	var _core12 = _interopRequireDefault(_core11);
 
@@ -32360,7 +32321,7 @@
 
 	var _closePopupListener2 = _interopRequireDefault(_closePopupListener);
 
-	var _styledComponents = __webpack_require__(280);
+	var _styledComponents = __webpack_require__(283);
 
 	function _interopRequireDefault(obj) {
 		return obj && obj.__esModule ? obj : { default: obj };
@@ -32683,7 +32644,7 @@
 	exports.default = GenericForm;
 
 /***/ }),
-/* 279 */
+/* 282 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -32694,7 +32655,7 @@
 	exports.default = {
 		FLEX_BASIS: '300px',
 		LABEL_FONT_SIZE: '1.1rem',
-		DROPDOWN_LABEL_FONT_SIZE: '0.75rem',
+		LABEL_FONT_SIZE_SMALL: '0.75rem',
 		INPUT_FONT_SIZE: '1rem',
 		INFO_FONT_SIZE: '0.8rem',
 		FORM_BACKGROUND: '#efedfb',
@@ -32743,7 +32704,7 @@
 	};
 
 /***/ }),
-/* 280 */
+/* 283 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32753,7 +32714,7 @@
 	});
 	exports.InputWrapper = exports.Button = exports.ButtonsWrapper = exports.InputsWrapper = exports.FormWrapper = exports.CSSVariables = undefined;
 
-	var _templateObject = _taggedTemplateLiteral(['\n  --formBgColor : ', ';\n  --labelColor : ', ';\n  --inputColor : ', ';\n  --inputBorderColor : ', ';\n  --helpTextColor : ', ';\n  --errorTextColor : ', ';\n  --dropdownColor : ', ';\n  --dropdownBgColor : ', ';\n  --dropdownInputBgColor : ', ';\n  --dropdownHoverColor : ', ';\n  --dropdownHoverBgColor : ', ';\n  --defaultGreen : ', ';\n  --defaultRed : ', ';\n  --defaultBlue :', ';\n  --checkboxBorderTrue : ', ';\n  --checkboxBorderFalse : ', ';\n  --checkboxTrikColor : ', ';\n  --flexBasis : ', ';\n  --labelFontSize : ', ';\n  --dropdownLabelFontSize : ', ';\n  --inputFontSize : ', ';\n  --infoFontSize : ', ';\n  --dropdownInputShadow : ', ';\n  --dropdownShadow : ', ';\n  --infoBgColor : ', ';\n  --infoBoxShadow : ', ';\n  --headingBorder : ', ';\n  --datePickerBgColor : ', ';\n  --datePickerHeaderColor : ', ';\n  --datePickerHeaderBorder : ', ';\n  --datePickerArrowColor : ', ';\n  --datePickerDateColor : ', ';\n  --datePickerSelectedDateColor : ', ';\n  --datePickerSelectedDateBgColor : ', ';\n  --timepickerHeaderBgColor : ', ';\n  --timepickerHeaderColor : ', ';\n  --timepickerHeaderBorderColor : ', ';\n  --timepickerColumnBorderColor : ', ';\n  --timepickerColumnBgColor : ', ';\n  --timepickerColumnColor : ', ';\n  --timepickerSelectedCellColor : ', ';\n  --timepickerFooterColor : ', ';\n  --timepickerFooterBgColor : ', ';\n  --headingFontSize : ', ';\n  --subheadingFontSize : ', ';\n  --calendarShadow : ', ';\n  --timepickerShadow : ', ';\n  --popupBgColor : ', ';\n'], ['\n  --formBgColor : ', ';\n  --labelColor : ', ';\n  --inputColor : ', ';\n  --inputBorderColor : ', ';\n  --helpTextColor : ', ';\n  --errorTextColor : ', ';\n  --dropdownColor : ', ';\n  --dropdownBgColor : ', ';\n  --dropdownInputBgColor : ', ';\n  --dropdownHoverColor : ', ';\n  --dropdownHoverBgColor : ', ';\n  --defaultGreen : ', ';\n  --defaultRed : ', ';\n  --defaultBlue :', ';\n  --checkboxBorderTrue : ', ';\n  --checkboxBorderFalse : ', ';\n  --checkboxTrikColor : ', ';\n  --flexBasis : ', ';\n  --labelFontSize : ', ';\n  --dropdownLabelFontSize : ', ';\n  --inputFontSize : ', ';\n  --infoFontSize : ', ';\n  --dropdownInputShadow : ', ';\n  --dropdownShadow : ', ';\n  --infoBgColor : ', ';\n  --infoBoxShadow : ', ';\n  --headingBorder : ', ';\n  --datePickerBgColor : ', ';\n  --datePickerHeaderColor : ', ';\n  --datePickerHeaderBorder : ', ';\n  --datePickerArrowColor : ', ';\n  --datePickerDateColor : ', ';\n  --datePickerSelectedDateColor : ', ';\n  --datePickerSelectedDateBgColor : ', ';\n  --timepickerHeaderBgColor : ', ';\n  --timepickerHeaderColor : ', ';\n  --timepickerHeaderBorderColor : ', ';\n  --timepickerColumnBorderColor : ', ';\n  --timepickerColumnBgColor : ', ';\n  --timepickerColumnColor : ', ';\n  --timepickerSelectedCellColor : ', ';\n  --timepickerFooterColor : ', ';\n  --timepickerFooterBgColor : ', ';\n  --headingFontSize : ', ';\n  --subheadingFontSize : ', ';\n  --calendarShadow : ', ';\n  --timepickerShadow : ', ';\n  --popupBgColor : ', ';\n']),
+	var _templateObject = _taggedTemplateLiteral(['\n  --formBgColor : ', ';\n  --labelColor : ', ';\n  --inputColor : ', ';\n  --inputBorderColor : ', ';\n  --helpTextColor : ', ';\n  --errorTextColor : ', ';\n  --dropdownColor : ', ';\n  --dropdownBgColor : ', ';\n  --dropdownInputBgColor : ', ';\n  --dropdownHoverColor : ', ';\n  --dropdownHoverBgColor : ', ';\n  --defaultGreen : ', ';\n  --defaultRed : ', ';\n  --defaultBlue :', ';\n  --checkboxBorderTrue : ', ';\n  --checkboxBorderFalse : ', ';\n  --checkboxTrikColor : ', ';\n  --flexBasis : ', ';\n  --labelFontSize : ', ';\n  --labelFontSizeSmall : ', ';\n  --inputFontSize : ', ';\n  --infoFontSize : ', ';\n  --dropdownInputShadow : ', ';\n  --dropdownShadow : ', ';\n  --infoBgColor : ', ';\n  --infoBoxShadow : ', ';\n  --headingBorder : ', ';\n  --datePickerBgColor : ', ';\n  --datePickerHeaderColor : ', ';\n  --datePickerHeaderBorder : ', ';\n  --datePickerArrowColor : ', ';\n  --datePickerDateColor : ', ';\n  --datePickerSelectedDateColor : ', ';\n  --datePickerSelectedDateBgColor : ', ';\n  --timepickerHeaderBgColor : ', ';\n  --timepickerHeaderColor : ', ';\n  --timepickerHeaderBorderColor : ', ';\n  --timepickerColumnBorderColor : ', ';\n  --timepickerColumnBgColor : ', ';\n  --timepickerColumnColor : ', ';\n  --timepickerSelectedCellColor : ', ';\n  --timepickerFooterColor : ', ';\n  --timepickerFooterBgColor : ', ';\n  --headingFontSize : ', ';\n  --subheadingFontSize : ', ';\n  --calendarShadow : ', ';\n  --timepickerShadow : ', ';\n  --popupBgColor : ', ';\n'], ['\n  --formBgColor : ', ';\n  --labelColor : ', ';\n  --inputColor : ', ';\n  --inputBorderColor : ', ';\n  --helpTextColor : ', ';\n  --errorTextColor : ', ';\n  --dropdownColor : ', ';\n  --dropdownBgColor : ', ';\n  --dropdownInputBgColor : ', ';\n  --dropdownHoverColor : ', ';\n  --dropdownHoverBgColor : ', ';\n  --defaultGreen : ', ';\n  --defaultRed : ', ';\n  --defaultBlue :', ';\n  --checkboxBorderTrue : ', ';\n  --checkboxBorderFalse : ', ';\n  --checkboxTrikColor : ', ';\n  --flexBasis : ', ';\n  --labelFontSize : ', ';\n  --labelFontSizeSmall : ', ';\n  --inputFontSize : ', ';\n  --infoFontSize : ', ';\n  --dropdownInputShadow : ', ';\n  --dropdownShadow : ', ';\n  --infoBgColor : ', ';\n  --infoBoxShadow : ', ';\n  --headingBorder : ', ';\n  --datePickerBgColor : ', ';\n  --datePickerHeaderColor : ', ';\n  --datePickerHeaderBorder : ', ';\n  --datePickerArrowColor : ', ';\n  --datePickerDateColor : ', ';\n  --datePickerSelectedDateColor : ', ';\n  --datePickerSelectedDateBgColor : ', ';\n  --timepickerHeaderBgColor : ', ';\n  --timepickerHeaderColor : ', ';\n  --timepickerHeaderBorderColor : ', ';\n  --timepickerColumnBorderColor : ', ';\n  --timepickerColumnBgColor : ', ';\n  --timepickerColumnColor : ', ';\n  --timepickerSelectedCellColor : ', ';\n  --timepickerFooterColor : ', ';\n  --timepickerFooterBgColor : ', ';\n  --headingFontSize : ', ';\n  --subheadingFontSize : ', ';\n  --calendarShadow : ', ';\n  --timepickerShadow : ', ';\n  --popupBgColor : ', ';\n']),
 	    _templateObject2 = _taggedTemplateLiteral(['\n\tdisplay:flex;\n\tflex-direction:column;\n\tbackground:var(--formBgColor);\n\tfont-weight:300;\n\tinput{\n\t\tfont-weight:300;\n\t\tpadding:4px;\n\t}\n\n\tinput[type=\'number\'] {\n\t    -moz-appearance:textfield;\n\t}\n\t/* Webkit browsers like Safari and Chrome */\n\tinput[type=number]::-webkit-inner-spin-button,\n\tinput[type=number]::-webkit-outer-spin-button {\n\t    -webkit-appearance: none;\n\t    margin: 0;\n\t}\n'], ['\n\tdisplay:flex;\n\tflex-direction:column;\n\tbackground:var(--formBgColor);\n\tfont-weight:300;\n\tinput{\n\t\tfont-weight:300;\n\t\tpadding:4px;\n\t}\n\n\tinput[type=\'number\'] {\n\t    -moz-appearance:textfield;\n\t}\n\t/* Webkit browsers like Safari and Chrome */\n\tinput[type=number]::-webkit-inner-spin-button,\n\tinput[type=number]::-webkit-outer-spin-button {\n\t    -webkit-appearance: none;\n\t    margin: 0;\n\t}\n']),
 	    _templateObject3 = _taggedTemplateLiteral(['\n\tdisplay:flex;\n\tflex-direction:row;\n\tflex-wrap:wrap;\n\tjustify-content:flex-start;\n\talign-items : center;\n\tpadding:10px;\n\tfont-size:20px;\n'], ['\n\tdisplay:flex;\n\tflex-direction:row;\n\tflex-wrap:wrap;\n\tjustify-content:flex-start;\n\talign-items : center;\n\tpadding:10px;\n\tfont-size:20px;\n']),
 	    _templateObject4 = _taggedTemplateLiteral(['\n\tdisplay:flex;\n\tflex-direction:row;\n\tflex-wrap:wrap;\n\tjustify-content:center;\n\tpadding:10px 0;\n'], ['\n\tdisplay:flex;\n\tflex-direction:row;\n\tflex-wrap:wrap;\n\tjustify-content:center;\n\tpadding:10px 0;\n']),
@@ -32811,7 +32772,7 @@
 	}, function (props) {
 	  return props.LABEL_FONT_SIZE;
 	}, function (props) {
-	  return props.DROPDOWN_LABEL_FONT_SIZE;
+	  return props.LABEL_FONT_SIZE_SMALL;
 	}, function (props) {
 	  return props.INPUT_FONT_SIZE;
 	}, function (props) {
@@ -32892,7 +32853,7 @@
 	exports.InputWrapper = InputWrapper;
 
 /***/ }),
-/* 281 */
+/* 284 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';

@@ -1,7 +1,7 @@
 export default {
 	FLEX_BASIS : '300px',
 	LABEL_FONT_SIZE : '1.1rem',
-	DROPDOWN_LABEL_FONT_SIZE : '0.75rem',
+	LABEL_FONT_SIZE_SMALL : '0.75rem',
 	INPUT_FONT_SIZE : '1rem',
 	INFO_FONT_SIZE : '0.8rem',
 	FORM_BACKGROUND:'#efedfb',

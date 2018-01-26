@@ -35,7 +35,18 @@ const Content = styled.div`
 	width : 75%;
 	box-sizing : border-box;
 	padding : 20px;
+	overflow : auto;
 `
+
+const InfoWrapper = styled.div`
+	h1,h2,h3{
+		background-color : whitesmoke;
+	}
+`
+const InputWrapper = styled.div`
+	width : 300px;
+`
+
 
 class App extends React.Component{
 	constructor(props){
@@ -85,50 +96,87 @@ class App extends React.Component{
 	}
 
 	getSelectedElem(){
-		let ret = null
+		let ret = {}
 		switch(this.state.selectedItem){
 			case MenuList.Autocomplete : {
-				ret = <AutocompleteExample/>
+				ret.elem = <AutocompleteExample/>
+				ret.inputConfigInfo = "label ==> label for your autocomplete \n" +
+									"name  ==> name for your autocomplete \n" + 
+									"setItem ==> function with name and value as parameters \n" + 
+									"fetchFunc ==> promise to fetch autocomplete list \n" + 
+									"value ==> initial value or selected value of autocomplete"
 				break
 			}
 
 			case MenuList.DropDown : {
-				ret = <DropDown/>
+				ret.elem = <DropDown/>
+				ret.inputConfigInfo = "label ==> label for your dropdown \n" +
+									"name  ==> name for your dropdown \n" + 
+									"setItem ==> function with name and value as parameters \n" + 
+									"value ==> initial value or selected value of autocomplete"
 				break
 			}
 
 			case MenuList.CheckBox : {
-				ret = <CheckBoxExample/>
+				ret.elem = <CheckBoxExample/>
+				ret.inputConfigInfo = "label ==> label for your checkbox \n" +
+									"name  ==> name for your checkbox \n" + 
+									"setItem ==> function with name and value as parameters \n" + 
+									"value ==> initial value or selected value of autocomplete"
 				break
 			}
 
 			case MenuList.DateTime : {
-				ret = <DateTime/>
+				ret.elem = <DateTime/>
+				ret.inputConfigInfo = "label ==> label for your datetime \n" +
+									"name  ==> name for your datetime \n" + 
+									"setItem ==> function with name and value as parameters \n" + 
+									"value ==> initial value or selected value of datetime"
 				break
 			}
 
 			case MenuList.NumberInput : {
-				ret = <NumberInput/>
+				ret.elem = <NumberInput/>
+				ret.inputConfigInfo = "label ==> label for your numberInput \n" +
+									"name  ==> name for your numberInput \n" + 
+									"setItem ==> function with name and value as parameters \n" + 
+									"value ==> initial value or selected value of numberInput"	
 				break
 			}
 
 			case MenuList.RadioGroup : {
-				ret = <RadioGroup/>
+				ret.elem = <RadioGroup/>
+				ret.inputConfigInfo = "label ==> label for your radiogroup \n" +
+									"name  ==> name for your radiogroup \n" + 
+									"setItem ==> function with name and value as parameters \n" + 
+									"value ==> initial value or selected value of radiogroup"	
 				break	
 			}
 
 			case MenuList.SelectInput : {
-				ret = <SelectInput/>
+				ret.elem = <SelectInput/>
+				ret.inputConfigInfo = "label ==> label for your selectInput \n" +
+									"name  ==> name for your selectInput \n" + 
+									"setItem ==> function with name and value as parameters \n" + 
+									"value ==> initial value or selected value of selectInput"
 				break
 			}
 
 			case MenuList.TextInput : {
-				ret = <TextInput/>
+				ret.elem = <TextInput/>
+				ret.inputConfigInfo = "label ==> label for your textInput \n" +
+									"name  ==> name for your textInput \n" + 
+									"setItem ==> function with name and value as parameters \n" + 
+									"value ==> initial value or selected value of textInput"
 				break
 			}
 
 			case MenuList.Reactform : {
-				ret = <TestForm/>
+				ret.elem = <TestForm/>
+				ret.inputConfigInfo = "label ==> label for your form \n" +
+									"name  ==> name for your form \n" + 
+									"setItem ==> function with name and value as parameters \n" + 
+									"value ==> initial value or selected value of form"
 				break
 			}
 		}
@@ -152,16 +200,29 @@ class App extends React.Component{
 		})
 	}
 
+
+
 	render(){
-		let contentHtml = this.getSelectedElem()
+
+		let inputHtml = this.getSelectedElem()
 
 		return (
 				<Wrapper>
 					<SideMenu list={this.menuList} setSelected={this.setSelected}/>
 					<Content>
-						{
-							contentHtml
-						}
+						<InfoWrapper>
+							<h1>Code</h1>
+							<p>{"import {" +this.state.selectedItem+"} from 'react-ui-components'"}</p> 
+							<h2>Props</h2>
+							<span>{"inputConfig(required), styleConfig(optional)"}</span>
+							<h3>{"inputConfig object properties"}</h3>
+							<pre>
+								{
+									inputHtml.inputConfigInfo
+								}
+							</pre>
+						</InfoWrapper>	
+						{inputHtml.elem}
 					</Content>
 				</Wrapper>
 			)

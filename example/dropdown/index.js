@@ -1,7 +1,6 @@
 import React from 'react'
 import DropDown from '../../src/components/dropdown'
 import styled from 'styled-components'
-import Promise from 'promise'
 
 const Wrapper = styled.div`
 	width : 300px;
