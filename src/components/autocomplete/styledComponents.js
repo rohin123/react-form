@@ -4,25 +4,25 @@ const CSSVariables = styled.div`
   --labelColor : ${props => props.LABEL_COLOR};
   --inputColor : ${props => props.INPUT_COLOR};
   --inputBorderColor : ${props => props.INPUT_BORDER_COLOR};
-  --helpTextColor : ${props => props.HELPTEXT_COLOR};
-  --errorTextColor : ${props => props.ERRORTEXT_COLOR};
+  --inputBorderWidth : ${props => props.INPUT_BORDER_WIDTH};
+  //--helpTextColor : ${props => props.HELPTEXT_COLOR};
+  //--errorTextColor : ${props => props.ERRORTEXT_COLOR};
   --dropdownColor : ${props => props.DROPDOWN_COLOR};
   --dropdownBgColor : ${props => props.DROPDOWN_BACKGROUND};
-  --dropdownInputBgColor : ${props => props.DROPDOWN_INPUT_BACKGROUND};
   --dropdownHoverColor : ${props => props.DROPDOWN_HOVER_COLOR};
   --dropdownHoverBgColor : ${props => props.DROPDOWN_HOVER_BG_COLOR};
-  --defaultGreen : ${props => props.DEFAULT_GREEN_COLOR};
-  --defaultRed : ${props => props.DEFAULT_RED_COLOR};
-  --defaultBlue :${props => props.DEFAULT_BLUE_COLOR};
+  //--defaultGreen : ${props => props.DEFAULT_GREEN_COLOR};
+  //--defaultRed : ${props => props.DEFAULT_RED_COLOR};
+  //--defaultBlue :${props => props.DEFAULT_BLUE_COLOR};
   --labelFontSize : ${props => props.LABEL_FONT_SIZE};
   --inputFontSize : ${props => props.INPUT_FONT_SIZE};
-  --infoFontSize : ${props => props.INFO_FONT_SIZE};
-  --infoBgColor : ${props => props.INFO_BG_COLOR};
-  --infoBoxShadow : ${props => props.INFO_BOX_SHADOW};
+  //--infoFontSize : ${props => props.INFO_FONT_SIZE};
+  //--infoBgColor : ${props => props.INFO_BG_COLOR};
+  //--infoBoxShadow : ${props => props.INFO_BOX_SHADOW};
 `
 
 const Wrapper = styled.div`
-	width : 100%;
+	  width : 100%;
     position: relative;
     outline : none;
 `
@@ -35,8 +35,9 @@ const SearchBox = styled.div`
       z-index:1;
       width: 100%;
 	    border: none;
-	    border-bottom: ${props=>props.isValid?'1px solid':'none'};
-	    border-bottom-color: var(--inputBorderColor);
+	    border-style: solid;//${props=>props.isValid?'1px solid':'none'};
+      border-width : var(--inputBorderWidth);
+	    border-color: var(--inputBorderColor);
 	    box-sizing: border-box;
 	    font-size: var(--inputFontSize);
 	    background-color:transparent;

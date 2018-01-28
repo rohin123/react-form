@@ -5,11 +5,11 @@ const CSSVariables = styled.div`
   --labelColor : ${props => props.LABEL_COLOR};
   --inputColor : ${props => props.INPUT_COLOR};
   --inputBorderColor : ${props => props.INPUT_BORDER_COLOR};
+  --inputBorderWidth : ${props => props.INPUT_BORDER_WIDTH};
   --helpTextColor : ${props => props.HELPTEXT_COLOR};
   --errorTextColor : ${props => props.ERRORTEXT_COLOR};
   --dropdownColor : ${props => props.DROPDOWN_COLOR};
   --dropdownBgColor : ${props => props.DROPDOWN_BACKGROUND};
-  --dropdownInputBgColor : ${props => props.DROPDOWN_INPUT_BACKGROUND};
   --dropdownHoverColor : ${props => props.DROPDOWN_HOVER_COLOR};
   --dropdownHoverBgColor : ${props => props.DROPDOWN_HOVER_BG_COLOR};
   --defaultGreen : ${props => props.DEFAULT_GREEN_COLOR};
@@ -23,7 +23,6 @@ const CSSVariables = styled.div`
   --labelFontSizeSmall : ${props => props.LABEL_FONT_SIZE_SMALL};
   --inputFontSize : ${props => props.INPUT_FONT_SIZE};
   --infoFontSize : ${props => props.INFO_FONT_SIZE};
-  --dropdownInputShadow : ${props => props.DROPDOWN_INPUT_SHADOW};
   --dropdownShadow : ${props => props.DROPDOWN_SHADOW};
   --infoBgColor : ${props => props.INFO_BG_COLOR};
   --infoBoxShadow : ${props => props.INFO_BOX_SHADOW};
@@ -103,11 +102,26 @@ const InputWrapper = styled.div`
 	flex-grow : 1;
 `
 
+const CheckBoxInputWrapper = InputWrapper.extend`
+  padding : 15px 0 0; 
+`
+
+const DropdownInputWrapper = InputWrapper.extend`
+  padding : 10px 0;
+`
+
+const RadioGroupInputWrapper = InputWrapper.extend`
+  padding : 10px 0 0;
+`
+
 export {  
           CSSVariables,
           FormWrapper,
           InputsWrapper,
           ButtonsWrapper,
           Button,
-          InputWrapper
+          InputWrapper,
+          CheckBoxInputWrapper,
+          DropdownInputWrapper,
+          RadioGroupInputWrapper
         }

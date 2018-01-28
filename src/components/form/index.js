@@ -10,7 +10,12 @@ import RadioButtonGroup from '../radioButtonGroup/core.js'
 import {BlockWrapper , HeadingWrapper, SubHeadingWrapper} from '../sharedStyledComponents.js'
 import DateTime from '../datetimeInput/core.js'
 import ClosePopupListener from '../../helpers/closePopupListener.js'
-import {CSSVariables,FormWrapper,InputsWrapper,ButtonsWrapper,Button,InputWrapper} from './styledComponents.js'
+import {
+			CSSVariables,FormWrapper,InputsWrapper,
+			ButtonsWrapper,Button,InputWrapper,RadioGroupInputWrapper,
+			CheckBoxInputWrapper,DropdownInputWrapper
+		} from './styledComponents.js'
+import colorConfigMerger from '../../helpers/colorConfigMerger.js'		
 
 
 export default class GenericForm extends React.PureComponent{
@@ -197,19 +202,19 @@ export default class GenericForm extends React.PureComponent{
 
 			case 'dropdown':{
 
-				ret = 	<InputWrapper>
+				ret = 	<DropdownInputWrapper>
 							<Dropdown {...formItem}
 									setItem={this.setItem}/>
-						</InputWrapper>			
+						</DropdownInputWrapper>			
 				break									
 			}
 
 			case 'checkbox':{
 
-				ret = 	<InputWrapper>
+				ret = 	<CheckBoxInputWrapper>
 							<CheckBox {...formItem}
 									setItem={this.setItem}/>
-						</InputWrapper>			
+						</CheckBoxInputWrapper>			
 				break					
 			}
 
@@ -230,19 +235,19 @@ export default class GenericForm extends React.PureComponent{
 
 			case 'select':{
 
-				ret =  	<InputWrapper>
+				ret =  	<DropdownInputWrapper>
 							<Selectbox {...formItem}
 									setItem={this.setItem}/>
-						</InputWrapper>			
+						</DropdownInputWrapper>			
 				break					
 			}
 
 			case 'radiogroup':{
 
-				ret =  	<InputWrapper>
+				ret =  	<RadioGroupInputWrapper>
 							<RadioButtonGroup {...formItem}
 									setItem={this.setItem}/>
-						</InputWrapper>			
+						</RadioGroupInputWrapper>			
 				break					
 			}
 
@@ -295,7 +300,7 @@ export default class GenericForm extends React.PureComponent{
 			buttonsHtml = this.props.formButtons.map((item)=>{
 					return <Button {...item} onClick={this.onClickHandler.bind(this,item)}>{item.label}</Button>
 			}),
-			styleConfig = this.props.colorConfig || ColorConfig
+			styleConfig = colorConfigMerger(this.props.colorConfig,ColorConfig)
 
 		return(
 				<CSSVariables {...styleConfig}>

@@ -34,6 +34,8 @@ const CSSVariables = styled.div`
   --calendarShadow : ${props => props.DATE_PICKER_SHADOW};
   --timepickerShadow : ${props => props.TIME_PICKER_SHADOW};
   --popupBgColor : ${props => props.POPUP_BG_COLOR};
+  --inputBorderWidth : ${props => props.INPUT_BORDER_WIDTH};
+  --inputBorderColor : ${props => props.INPUT_BORDER_COLOR};
 `
 
 const Wrapper = styled.div`
@@ -41,7 +43,9 @@ const Wrapper = styled.div`
   flex-direction : row;
   padding : 5px 5px 0px;
   align-items: flex-end;
-  border-bottom: 1px solid var(--labelColor);
+  border-width : var(--inputBorderWidth);
+  border-color: var(--inputBorderColor);
+  border-style : solid;
 `
 
 const TimeInputWrapper = styled.div`

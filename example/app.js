@@ -11,6 +11,26 @@ import SelectInput from './select'
 import TextInput from './textInput'
 import TestForm from './form'
 import SideMenu from './sidemenu'
+import TableElement from './tableElement'
+import AutoCompColorInfo from './autocomplete/colorInfo.js'
+import AutoCompInputInfo from './autocomplete/inputInfo.js'
+import CheckboxColorInfo from './checkbox/colorInfo.js'
+import CheckboxInputInfo from './checkbox/inputInfo.js'
+import DatetimeColorInfo from './datetime/colorInfo.js'
+import DatetimeInputInfo from './datetime/inputInfo.js'
+import DropdownColorInfo from './dropdown/colorInfo.js'
+import DropdownInputInfo from './dropdown/inputInfo.js'
+import SelectColorInfo from './select/colorInfo.js'
+import SelectInputInfo from './select/inputInfo.js'
+import RadioColorInfo from './radiogroup/colorInfo.js'
+import RadioInputInfo from './radiogroup/inputInfo.js'
+import TextColorInfo from './textInput/colorInfo.js'
+import TextInputInfo from './textInput/inputInfo.js'
+import NumberColorInfo from './numberInput/colorInfo.js'
+import NumberInputInfo from './numberInput/inputInfo.js'
+import FormColorInfo from './form/colorInfo.js'
+import FormInputInfo from './form/inputInfo.js'
+
 
 const MenuList = {
 	Autocomplete : 'autocomplete',
@@ -35,13 +55,18 @@ const Content = styled.div`
 	width : 75%;
 	box-sizing : border-box;
 	padding : 20px;
-	overflow : auto;
+	overflow-x : auto;
+
+	h1,h2,h3{
+		margin : 20px 0;
+		background-color : whitesmoke;
+		font-weight: 400;
+    	padding: 0 10px;
+	}
 `
 
 const InfoWrapper = styled.div`
-	h1,h2,h3{
-		background-color : whitesmoke;
-	}
+	
 `
 const InputWrapper = styled.div`
 	width : 300px;
@@ -100,83 +125,101 @@ class App extends React.Component{
 		switch(this.state.selectedItem){
 			case MenuList.Autocomplete : {
 				ret.elem = <AutocompleteExample/>
-				ret.inputConfigInfo = "label ==> label for your autocomplete \n" +
-									"name  ==> name for your autocomplete \n" + 
-									"setItem ==> function with name and value as parameters \n" + 
-									"fetchFunc ==> promise to fetch autocomplete list \n" + 
-									"value ==> initial value or selected value of autocomplete"
+				
+				ret.inputConfigInfo = <TableElement tableHeader={AutoCompInputInfo.tableHeader} 
+													tableContent={AutoCompInputInfo.tableContent}/>
+				
+				
+				ret.colorConfigInfo = <TableElement tableHeader={AutoCompColorInfo.tableHeader}
+													tableContent={AutoCompColorInfo.tableContent}/>				
 				break
 			}
 
 			case MenuList.DropDown : {
 				ret.elem = <DropDown/>
-				ret.inputConfigInfo = "label ==> label for your dropdown \n" +
-									"name  ==> name for your dropdown \n" + 
-									"setItem ==> function with name and value as parameters \n" + 
-									"value ==> initial value or selected value of autocomplete"
+				ret.inputConfigInfo = <TableElement tableHeader={DropdownInputInfo.tableHeader} 
+													tableContent={DropdownInputInfo.tableContent}/>
+				
+				
+				ret.colorConfigInfo = <TableElement tableHeader={DropdownColorInfo.tableHeader}
+													tableContent={DropdownColorInfo.tableContent}/>				
 				break
 			}
 
 			case MenuList.CheckBox : {
 				ret.elem = <CheckBoxExample/>
-				ret.inputConfigInfo = "label ==> label for your checkbox \n" +
-									"name  ==> name for your checkbox \n" + 
-									"setItem ==> function with name and value as parameters \n" + 
-									"value ==> initial value or selected value of autocomplete"
+				ret.inputConfigInfo = <TableElement tableHeader={CheckboxInputInfo.tableHeader} 
+													tableContent={CheckboxInputInfo.tableContent}/>
+				
+				
+				ret.colorConfigInfo = <TableElement tableHeader={CheckboxColorInfo.tableHeader}
+													tableContent={CheckboxColorInfo.tableContent}/>				
 				break
 			}
 
 			case MenuList.DateTime : {
 				ret.elem = <DateTime/>
-				ret.inputConfigInfo = "label ==> label for your datetime \n" +
-									"name  ==> name for your datetime \n" + 
-									"setItem ==> function with name and value as parameters \n" + 
-									"value ==> initial value or selected value of datetime"
+				ret.inputConfigInfo = <TableElement tableHeader={DatetimeInputInfo.tableHeader} 
+													tableContent={DatetimeInputInfo.tableContent}/>
+				
+				
+				ret.colorConfigInfo = <TableElement tableHeader={DatetimeColorInfo.tableHeader}
+													tableContent={DatetimeColorInfo.tableContent}/>					
 				break
 			}
 
 			case MenuList.NumberInput : {
 				ret.elem = <NumberInput/>
-				ret.inputConfigInfo = "label ==> label for your numberInput \n" +
-									"name  ==> name for your numberInput \n" + 
-									"setItem ==> function with name and value as parameters \n" + 
-									"value ==> initial value or selected value of numberInput"	
+				ret.inputConfigInfo = <TableElement tableHeader={NumberInputInfo.tableHeader} 
+													tableContent={NumberInputInfo.tableContent}/>
+				
+				
+				ret.colorConfigInfo = <TableElement tableHeader={NumberColorInfo.tableHeader}
+													tableContent={NumberColorInfo.tableContent}/>				
 				break
 			}
 
 			case MenuList.RadioGroup : {
 				ret.elem = <RadioGroup/>
-				ret.inputConfigInfo = "label ==> label for your radiogroup \n" +
-									"name  ==> name for your radiogroup \n" + 
-									"setItem ==> function with name and value as parameters \n" + 
-									"value ==> initial value or selected value of radiogroup"	
+				ret.inputConfigInfo = <TableElement tableHeader={RadioInputInfo.tableHeader} 
+													tableContent={RadioInputInfo.tableContent}/>
+				
+				
+				ret.colorConfigInfo = <TableElement tableHeader={RadioColorInfo.tableHeader}
+													tableContent={RadioColorInfo.tableContent}/>					
 				break	
 			}
 
 			case MenuList.SelectInput : {
 				ret.elem = <SelectInput/>
-				ret.inputConfigInfo = "label ==> label for your selectInput \n" +
-									"name  ==> name for your selectInput \n" + 
-									"setItem ==> function with name and value as parameters \n" + 
-									"value ==> initial value or selected value of selectInput"
+				ret.inputConfigInfo = <TableElement tableHeader={SelectInputInfo.tableHeader} 
+													tableContent={SelectInputInfo.tableContent}/>
+				
+				
+				ret.colorConfigInfo = <TableElement tableHeader={SelectColorInfo.tableHeader}
+													tableContent={SelectColorInfo.tableContent}/>			
 				break
 			}
 
 			case MenuList.TextInput : {
 				ret.elem = <TextInput/>
-				ret.inputConfigInfo = "label ==> label for your textInput \n" +
-									"name  ==> name for your textInput \n" + 
-									"setItem ==> function with name and value as parameters \n" + 
-									"value ==> initial value or selected value of textInput"
+				ret.inputConfigInfo = <TableElement tableHeader={TextInputInfo.tableHeader} 
+													tableContent={TextInputInfo.tableContent}/>
+				
+				
+				ret.colorConfigInfo = <TableElement tableHeader={TextColorInfo.tableHeader}
+													tableContent={TextColorInfo.tableContent}/>			
 				break
 			}
 
 			case MenuList.Reactform : {
 				ret.elem = <TestForm/>
-				ret.inputConfigInfo = "label ==> label for your form \n" +
-									"name  ==> name for your form \n" + 
-									"setItem ==> function with name and value as parameters \n" + 
-									"value ==> initial value or selected value of form"
+				ret.inputConfigInfo = <TableElement tableHeader={FormInputInfo.tableHeader} 
+													tableContent={FormInputInfo.tableContent}/>
+				
+				
+				ret.colorConfigInfo = <TableElement tableHeader={FormColorInfo.tableHeader}
+													tableContent={FormColorInfo.tableContent}/>			
 				break
 			}
 		}
@@ -210,19 +253,26 @@ class App extends React.Component{
 				<Wrapper>
 					<SideMenu list={this.menuList} setSelected={this.setSelected}/>
 					<Content>
+						<h1>Demo</h1>	
+							{inputHtml.elem}
 						<InfoWrapper>
 							<h1>Code</h1>
 							<p>{"import {" +this.state.selectedItem+"} from 'react-ui-components'"}</p> 
 							<h2>Props</h2>
 							<span>{"inputConfig(required), styleConfig(optional)"}</span>
-							<h3>{"inputConfig object properties"}</h3>
 							<pre>
+								<h3>inputConfig object properties</h3>
 								{
 									inputHtml.inputConfigInfo
 								}
-							</pre>
-						</InfoWrapper>	
-						{inputHtml.elem}
+								<h3>
+									colorConfig object properties
+								</h3>	
+								{
+									inputHtml.colorConfigInfo
+								}
+							</pre>	
+						</InfoWrapper>
 					</Content>
 				</Wrapper>
 			)

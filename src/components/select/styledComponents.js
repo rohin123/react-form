@@ -8,7 +8,6 @@ const CSSVariables = styled.div`
   --errorTextColor : ${props => props.ERRORTEXT_COLOR};
   --dropdownColor : ${props => props.DROPDOWN_COLOR};
   --dropdownBgColor : ${props => props.DROPDOWN_BACKGROUND};
-  --dropdownInputBgColor : ${props => props.DROPDOWN_INPUT_BACKGROUND};
   --dropdownHoverColor : ${props => props.DROPDOWN_HOVER_COLOR};
   --dropdownHoverBgColor : ${props => props.DROPDOWN_HOVER_BG_COLOR};
   --defaultGreen : ${props => props.DEFAULT_GREEN_COLOR};
@@ -17,7 +16,6 @@ const CSSVariables = styled.div`
   --labelFontSizeSmall : ${props => props.LABEL_FONT_SIZE_SMALL};
   --inputFontSize : ${props => props.INPUT_FONT_SIZE};
   --infoFontSize : ${props => props.INFO_FONT_SIZE};
-  --dropdownInputShadow : ${props => props.DROPDOWN_INPUT_SHADOW};
   --dropdownShadow : ${props => props.DROPDOWN_SHADOW};
   --infoBgColor : ${props => props.INFO_BG_COLOR};
   --infoBoxShadow : ${props => props.INFO_BOX_SHADOW};
@@ -25,25 +23,22 @@ const CSSVariables = styled.div`
 
 const Wrapper = styled.div`
 	  position: relative;
-    padding: 10px 0;
+   // padding: 10px 0;
   
     select{
     	-webkit-appearance: none;
-	    border: none;
-	    background: var(--dropdownInputBgColor);
 	    padding: 15px 10px 5px;
 	    width: 100%;
-	    border-radius: 5px;
 	    font-size: 1rem;
 	    outline: none;
 	    font-weight:300;
-	    box-shadow: var(--dropdownInputShadow);
+      background : inherit;
 	    color : var(--inputColor);
     }
 
     label{
     	position: absolute;
-	    top: 12px;
+	    top: 2px;
 	    left:10px;
 	    font-size: 0.75rem;
 	    color: var(--labelColor);
@@ -52,7 +47,7 @@ const Wrapper = styled.div`
     &:after{
     	content:"${props=>props.isValid?props.helpText:props.errorText}";
         position: absolute;
-        top : 90%;
+        top : 105%;
         left:0px;
         font-size: var(--infoFontSize);
         color: ${props=>props.isValid?'var(--defaultGreen)':'var(--defaultRed)'};

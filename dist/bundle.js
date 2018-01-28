@@ -4696,6 +4696,10 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _styledComponents = __webpack_require__(85);
 
+	var _colorConfigMerger = __webpack_require__(87);
+
+	var _colorConfigMerger2 = _interopRequireDefault(_colorConfigMerger);
+
 	function _interopRequireDefault(obj) {
 		return obj && obj.__esModule ? obj : { default: obj };
 	}
@@ -4731,7 +4735,7 @@ return /******/ (function(modules) { // webpackBootstrap
 			key: 'render',
 			value: function render() {
 				var props = this.props,
-				    styleConfig = props.colorConfig || _colorConfig2.default,
+				    styleConfig = (0, _colorConfigMerger2.default)(props.colorConfig, _colorConfig2.default),
 				    inputConfig = props.inputConfig;
 
 				return _react2.default.createElement(_styledComponents.CSSVariables, styleConfig, _react2.default.createElement(_core2.default, inputConfig));
@@ -9583,9 +9587,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	});
 	exports.SelectedListItem = exports.ListItem = exports.SearchList = exports.SearchBox = exports.Wrapper = exports.CSSVariables = undefined;
 
-	var _templateObject = _taggedTemplateLiteral(['\n  --labelColor : ', ';\n  --inputColor : ', ';\n  --inputBorderColor : ', ';\n  --helpTextColor : ', ';\n  --errorTextColor : ', ';\n  --dropdownColor : ', ';\n  --dropdownBgColor : ', ';\n  --dropdownInputBgColor : ', ';\n  --dropdownHoverColor : ', ';\n  --dropdownHoverBgColor : ', ';\n  --defaultGreen : ', ';\n  --defaultRed : ', ';\n  --defaultBlue :', ';\n  --labelFontSize : ', ';\n  --inputFontSize : ', ';\n  --infoFontSize : ', ';\n  --infoBgColor : ', ';\n  --infoBoxShadow : ', ';\n'], ['\n  --labelColor : ', ';\n  --inputColor : ', ';\n  --inputBorderColor : ', ';\n  --helpTextColor : ', ';\n  --errorTextColor : ', ';\n  --dropdownColor : ', ';\n  --dropdownBgColor : ', ';\n  --dropdownInputBgColor : ', ';\n  --dropdownHoverColor : ', ';\n  --dropdownHoverBgColor : ', ';\n  --defaultGreen : ', ';\n  --defaultRed : ', ';\n  --defaultBlue :', ';\n  --labelFontSize : ', ';\n  --inputFontSize : ', ';\n  --infoFontSize : ', ';\n  --infoBgColor : ', ';\n  --infoBoxShadow : ', ';\n']),
-	    _templateObject2 = _taggedTemplateLiteral(['\n\twidth : 100%;\n    position: relative;\n    outline : none;\n'], ['\n\twidth : 100%;\n    position: relative;\n    outline : none;\n']),
-	    _templateObject3 = _taggedTemplateLiteral(['\n\tposition : relative;\n\tpadding: 15px 0 0;\n\tinput{\n      position:relative;\n      z-index:1;\n      width: 100%;\n\t    border: none;\n\t    border-bottom: ', ';\n\t    border-bottom-color: var(--inputBorderColor);\n\t    box-sizing: border-box;\n\t    font-size: var(--inputFontSize);\n\t    background-color:transparent;\n\t    color : var(--inputColor);\t\n\t    outline : none;\n\t}\n\n\tlabel{\n\t\tposition:absolute;\n\t\tleft : 0px;\n\t\ttop : 14px;\n\t\tcolor: var(--labelColor);\n\t\ttransform:', ';\n\t\ttransform-origin:top left;\n\t\ttransition:all 0.4s;\n\t\tfont-size : var(--labelFontSize);\n\t}\n\n\t&:after{\n\t\tcontent:"', '";\n        position: absolute;\n        font-size: var(--infoFontSize);\n        color: ', ';\n    \tleft: 0px;\n    \tbackground: var(--infoBgColor);\n    \tpadding: 5px;\n    \tbox-shadow: var(--infoBoxShadow);\n    \tdisplay: ', ';\n    \tz-index: 1;\n\t}\n\t\n'], ['\n\tposition : relative;\n\tpadding: 15px 0 0;\n\tinput{\n      position:relative;\n      z-index:1;\n      width: 100%;\n\t    border: none;\n\t    border-bottom: ', ';\n\t    border-bottom-color: var(--inputBorderColor);\n\t    box-sizing: border-box;\n\t    font-size: var(--inputFontSize);\n\t    background-color:transparent;\n\t    color : var(--inputColor);\t\n\t    outline : none;\n\t}\n\n\tlabel{\n\t\tposition:absolute;\n\t\tleft : 0px;\n\t\ttop : 14px;\n\t\tcolor: var(--labelColor);\n\t\ttransform:', ';\n\t\ttransform-origin:top left;\n\t\ttransition:all 0.4s;\n\t\tfont-size : var(--labelFontSize);\n\t}\n\n\t&:after{\n\t\tcontent:"', '";\n        position: absolute;\n        font-size: var(--infoFontSize);\n        color: ', ';\n    \tleft: 0px;\n    \tbackground: var(--infoBgColor);\n    \tpadding: 5px;\n    \tbox-shadow: var(--infoBoxShadow);\n    \tdisplay: ', ';\n    \tz-index: 1;\n\t}\n\t\n']),
+	var _templateObject = _taggedTemplateLiteral(['\n  --labelColor : ', ';\n  --inputColor : ', ';\n  --inputBorderColor : ', ';\n  --inputBorderWidth : ', ';\n  //--helpTextColor : ', ';\n  //--errorTextColor : ', ';\n  --dropdownColor : ', ';\n  --dropdownBgColor : ', ';\n  --dropdownHoverColor : ', ';\n  --dropdownHoverBgColor : ', ';\n  //--defaultGreen : ', ';\n  //--defaultRed : ', ';\n  //--defaultBlue :', ';\n  --labelFontSize : ', ';\n  --inputFontSize : ', ';\n  //--infoFontSize : ', ';\n  //--infoBgColor : ', ';\n  //--infoBoxShadow : ', ';\n'], ['\n  --labelColor : ', ';\n  --inputColor : ', ';\n  --inputBorderColor : ', ';\n  --inputBorderWidth : ', ';\n  //--helpTextColor : ', ';\n  //--errorTextColor : ', ';\n  --dropdownColor : ', ';\n  --dropdownBgColor : ', ';\n  --dropdownHoverColor : ', ';\n  --dropdownHoverBgColor : ', ';\n  //--defaultGreen : ', ';\n  //--defaultRed : ', ';\n  //--defaultBlue :', ';\n  --labelFontSize : ', ';\n  --inputFontSize : ', ';\n  //--infoFontSize : ', ';\n  //--infoBgColor : ', ';\n  //--infoBoxShadow : ', ';\n']),
+	    _templateObject2 = _taggedTemplateLiteral(['\n\t  width : 100%;\n    position: relative;\n    outline : none;\n'], ['\n\t  width : 100%;\n    position: relative;\n    outline : none;\n']),
+	    _templateObject3 = _taggedTemplateLiteral(['\n\tposition : relative;\n\tpadding: 15px 0 0;\n\tinput{\n      position:relative;\n      z-index:1;\n      width: 100%;\n\t    border: none;\n\t    border-style: solid;//', ';\n      border-width : var(--inputBorderWidth);\n\t    border-color: var(--inputBorderColor);\n\t    box-sizing: border-box;\n\t    font-size: var(--inputFontSize);\n\t    background-color:transparent;\n\t    color : var(--inputColor);\t\n\t    outline : none;\n\t}\n\n\tlabel{\n\t\tposition:absolute;\n\t\tleft : 0px;\n\t\ttop : 14px;\n\t\tcolor: var(--labelColor);\n\t\ttransform:', ';\n\t\ttransform-origin:top left;\n\t\ttransition:all 0.4s;\n\t\tfont-size : var(--labelFontSize);\n\t}\n\n\t&:after{\n\t\tcontent:"', '";\n        position: absolute;\n        font-size: var(--infoFontSize);\n        color: ', ';\n    \tleft: 0px;\n    \tbackground: var(--infoBgColor);\n    \tpadding: 5px;\n    \tbox-shadow: var(--infoBoxShadow);\n    \tdisplay: ', ';\n    \tz-index: 1;\n\t}\n\t\n'], ['\n\tposition : relative;\n\tpadding: 15px 0 0;\n\tinput{\n      position:relative;\n      z-index:1;\n      width: 100%;\n\t    border: none;\n\t    border-style: solid;//', ';\n      border-width : var(--inputBorderWidth);\n\t    border-color: var(--inputBorderColor);\n\t    box-sizing: border-box;\n\t    font-size: var(--inputFontSize);\n\t    background-color:transparent;\n\t    color : var(--inputColor);\t\n\t    outline : none;\n\t}\n\n\tlabel{\n\t\tposition:absolute;\n\t\tleft : 0px;\n\t\ttop : 14px;\n\t\tcolor: var(--labelColor);\n\t\ttransform:', ';\n\t\ttransform-origin:top left;\n\t\ttransition:all 0.4s;\n\t\tfont-size : var(--labelFontSize);\n\t}\n\n\t&:after{\n\t\tcontent:"', '";\n        position: absolute;\n        font-size: var(--infoFontSize);\n        color: ', ';\n    \tleft: 0px;\n    \tbackground: var(--infoBgColor);\n    \tpadding: 5px;\n    \tbox-shadow: var(--infoBoxShadow);\n    \tdisplay: ', ';\n    \tz-index: 1;\n\t}\n\t\n']),
 	    _templateObject4 = _taggedTemplateLiteral(['\n\twidth: 100%;\n    position: absolute;\n    background: var(--dropdownBgColor);\n    box-shadow: 1px 1px 4px 0px #8e8181;\n    font-size: var(--inputFontSize);\n    color: var(--dropdownColor);\n    z-index:3;\n'], ['\n\twidth: 100%;\n    position: absolute;\n    background: var(--dropdownBgColor);\n    box-shadow: 1px 1px 4px 0px #8e8181;\n    font-size: var(--inputFontSize);\n    color: var(--dropdownColor);\n    z-index:3;\n']),
 	    _templateObject5 = _taggedTemplateLiteral(['\n\tbox-sizing: border-box;\n    padding: 3px 0px 3px 10px;\n    &:hover{\n    \tbackground-color: var(--dropdownHoverBgColor);\n\t    opacity: 0.8;\n\t    color: var(--dropdownHoverColor);\n    }\n'], ['\n\tbox-sizing: border-box;\n    padding: 3px 0px 3px 10px;\n    &:hover{\n    \tbackground-color: var(--dropdownHoverBgColor);\n\t    opacity: 0.8;\n\t    color: var(--dropdownHoverColor);\n    }\n']),
 	    _templateObject6 = _taggedTemplateLiteral(['\n\tbackground-color : var(--dropdownHoverBgColor);\n\topacity: 0.8;\n\tcolor: var(--dropdownHoverColor);\n'], ['\n\tbackground-color : var(--dropdownHoverBgColor);\n\topacity: 0.8;\n\tcolor: var(--dropdownHoverColor);\n']);
@@ -9609,6 +9613,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	}, function (props) {
 	  return props.INPUT_BORDER_COLOR;
 	}, function (props) {
+	  return props.INPUT_BORDER_WIDTH;
+	}, function (props) {
 	  return props.HELPTEXT_COLOR;
 	}, function (props) {
 	  return props.ERRORTEXT_COLOR;
@@ -9616,8 +9622,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	  return props.DROPDOWN_COLOR;
 	}, function (props) {
 	  return props.DROPDOWN_BACKGROUND;
-	}, function (props) {
-	  return props.DROPDOWN_INPUT_BACKGROUND;
 	}, function (props) {
 	  return props.DROPDOWN_HOVER_COLOR;
 	}, function (props) {
@@ -9679,25 +9683,53 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = {
 		LABEL_FONT_SIZE: '1.1rem',
 		INPUT_FONT_SIZE: '1rem',
-		INFO_FONT_SIZE: '0.8rem',
 		LABEL_COLOR: '#9896b1',
 		INPUT_COLOR: '#3b3a4b',
 		INPUT_BORDER_COLOR: '#9896b1',
-		HELPTEXT_COLOR: '#007FFF',
-		ERRORTEXT_COLOR: '#DF1D1D',
+		INPUT_BORDER_WIDTH: '0px 0px 1px 0px',
 		DROPDOWN_COLOR: '#333',
 		DROPDOWN_BACKGROUND: 'whitesmoke',
-		DROPDOWN_INPUT_BACKGROUND: '#efedfb',
 		DROPDOWN_HOVER_COLOR: '#FFF',
 		DROPDOWN_HOVER_BG_COLOR: '#007FFF',
 		DROPDOWN_INPUT_SHADOW: '1px 1px 1px 1px #c3c3c3',
-		DROPDOWN_SHADOW: '2px 2px 10px 0px #8e8181',
-		DEFAULT_GREEN_COLOR: '#008000',
-		DEFAULT_BLUE_COLOR: '#007FFF',
-		DEFAULT_RED_COLOR: '#DF1D1D',
-		INFO_BG_COLOR: 'white',
-		INFO_BOX_SHADOW: '1px 1px 8px 0px #c3c3c3'
+		DROPDOWN_SHADOW: '2px 2px 10px 0px #8e8181'
 	};
+
+/***/ }),
+/* 87 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	exports.default = colorConfigMerger;
+
+	var _commonFunc = __webpack_require__(40);
+
+	var _commonFunc2 = _interopRequireDefault(_commonFunc);
+
+	function _interopRequireDefault(obj) {
+		return obj && obj.__esModule ? obj : { default: obj };
+	}
+
+	function colorConfigMerger(config1, config2) {
+		if (!config1) {
+			return config2;
+		}
+
+		var mergeConfig = {};
+		for (var key in config2) {
+			if (!_commonFunc2.default.isUndefined(config1[key])) {
+				mergeConfig[key] = config1[key];
+			} else {
+				mergeConfig[key] = config2[key];
+			}
+		}
+
+		return mergeConfig;
+	}
 
 /***/ })
 /******/ ])

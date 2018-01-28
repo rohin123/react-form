@@ -18,7 +18,7 @@ const CSSVariables = styled.div`
 
 
 const Wrapper = styled.div`
-	padding:10px 0 0;
+	//padding:10px 0 0;
 	p{
 		margin:0px;
 		font-size : var(--labelFontSize);

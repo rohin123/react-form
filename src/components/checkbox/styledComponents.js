@@ -19,7 +19,7 @@ const CSSVariables = styled.div`
 
 const Wrapper = styled.div`
 	position:relative;
-	padding : 15px 0 0;
+	//padding : 15px 0 0;
 	input[type='checkbox']{
 		-webkit-appearance: none;
 	    width: 16px;
@@ -31,6 +31,7 @@ const Wrapper = styled.div`
 	    z-index:1;
 	    position : relative;
 	    outline : none;
+	    margin : 3px;
 	}
 
 	&:hover{

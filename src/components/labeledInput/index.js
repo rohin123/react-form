@@ -2,6 +2,8 @@ import React from 'react'
 import LabeledInputCore from './core.js'
 import ColorConfig	from './colorConfig.js'
 import {CSSVariables} from './styledComponents.js'
+import colorConfigMerger from '../../helpers/colorConfigMerger.js'
+
 
 class NumberInput extends React.Component {
 	render(){
@@ -20,7 +22,7 @@ class NumberInput extends React.Component {
 class TextInput extends React.Component { 
 	render(){
 		let props = this.props,
-			styleConfig = props.colorConfig || ColorConfig,
+			styleConfig = colorConfigMerger(props.colorConfig,ColorConfig),
 			inputConfig = props.inputConfig
  
 		return (

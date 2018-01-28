@@ -8,7 +8,6 @@ const CSSVariables = styled.div`
   --errorTextColor : ${props => props.ERRORTEXT_COLOR};
   --dropdownColor : ${props => props.DROPDOWN_COLOR};
   --dropdownBgColor : ${props => props.DROPDOWN_BACKGROUND};
-  --dropdownInputBgColor : ${props => props.DROPDOWN_INPUT_BACKGROUND};
   --dropdownHoverColor : ${props => props.DROPDOWN_HOVER_COLOR};
   --dropdownHoverBgColor : ${props => props.DROPDOWN_HOVER_BG_COLOR};
   --defaultGreen : ${props => props.DEFAULT_GREEN_COLOR};
@@ -17,14 +16,14 @@ const CSSVariables = styled.div`
   --labelFontSizeSmall : ${props => props.LABEL_FONT_SIZE_SMALL};
   --inputFontSize : ${props => props.INPUT_FONT_SIZE};
   --infoFontSize : ${props => props.INFO_FONT_SIZE};
-  --dropdownInputShadow : ${props => props.DROPDOWN_INPUT_SHADOW};
   --dropdownShadow : ${props => props.DROPDOWN_SHADOW};
   --infoBgColor : ${props => props.INFO_BG_COLOR};
   --infoBoxShadow : ${props => props.INFO_BOX_SHADOW};
+  --inputBorderWidth : ${props => props.INPUT_BORDER_WIDTH};
 `
 
 const Wrapper = styled.div`
-    padding: 10px 0;
+    //padding: 10px 0;
     position:relative;
     outline : none;
 
@@ -32,11 +31,11 @@ const Wrapper = styled.div`
     	width: 100%;
 	    display: block;
 	    font-size : var(--inputFontSize);
-	    padding: 15px 10px 5px;
-	    background: var(--dropdownInputBgColor);
+	    padding: 15px 0px 0px;
 	    box-sizing: border-box;
-	    border-radius: 5px;
-	    box-shadow: var(--dropdownInputShadow);
+      border-style : solid;
+      border-width : var(--inputBorderWidth);
+      border-color : var(--inputBorderColor);
 	    color : var(--inputColor);
     }
 
@@ -53,19 +52,19 @@ const Wrapper = styled.div`
 
     label{
     	position: absolute;
-	    top: 12px;
-	    left: 10px;
+	    top: 2px;
+	    left: 0px;
 	    font-size: var(--labelFontSizeSmall);
 	    color: var(--labelColor);
     }
 
     &:after{
     	content:"${props=>props.isValid?props.helpText:props.errorText}";
-        position: absolute;
-        left:0px;
-        top : 90%;
-        font-size: var(--infoFontSize);
-        color: ${props=>props.isValid?'var(--defaultGreen)':'var(--defaultRed)'};
+      position: absolute;
+      left:0px;
+      top : 105%;
+      font-size: var(--infoFontSize);
+      color: ${props=>props.isValid?'var(--defaultGreen)':'var(--defaultRed)'};
     	background: var(--infoBgColor);
     	padding: 5px;
     	box-shadow: var(--infoBoxShadow);
