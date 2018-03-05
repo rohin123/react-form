@@ -70,7 +70,7 @@ export default class GenericForm extends React.PureComponent{
 			let name = formItem.name
 
 			res[name] = objectAssign({},formItem,{
-				isValid:formItem.isValid?true : !formItem.required,
+				isValid:true,//formItem.isValid?true : !formItem.required,
 				isPristine:true
 			})
 
@@ -128,13 +128,25 @@ export default class GenericForm extends React.PureComponent{
 
 		let value = formItem.value
 		if(value && (toString.call(value)=="[object Object]")){
+			
+			if(formItem.validityFunction){
+				formItem.errorText = formItem.validityErrorText
+				return formItem.validityFunction(value)
+			}
+
 			return true
+
 		}else if(value || value === 0){	
 
 			if(formItem.validityRegex){
 				let pat = new RegExp(formItem.validityRegex)
 				formItem.errorText = formItem.validityErrorText
 				return pat.test(value)
+			}
+
+			if(formItem.validityFunction){
+				formItem.errorText = formItem.validityErrorText
+				return formItem.validityFunction(value)
 			}
 
 			return true
@@ -170,9 +182,6 @@ export default class GenericForm extends React.PureComponent{
 	checkFormValidity(){
 		let ret = true
 		for(let key in this.formState){
-			if(this.formState[key].isPristine){
-				this.formState[key].isPristine = false
-			}
 
 			if(!this.checkValidity(this.formState[key])){
 				ret = false

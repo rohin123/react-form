@@ -1,5 +1,6 @@
 import React from 'react'
 import GenericForm from '../../src/components/form'
+//import {ReactForm} from '../../src/index.js'
 import Promise from 'promise'
 
 export default class TestForm extends React.Component{
@@ -276,7 +277,7 @@ export default class TestForm extends React.Component{
 
 		return (
 					<div>
-						<GenericForm formData={this.formData} 
+						<ReactForm formData={this.formData} 
 									 formButtons={this.formButtons}/>
 						{/*<button onClick={this.changeForm.bind(this)}>Chnage</button>*/}
 					</div>	

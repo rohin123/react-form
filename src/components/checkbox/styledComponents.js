@@ -75,15 +75,15 @@ const CheckboxWrapper = styled.div`
 const Tick = styled.div`
 	display : ${ props=> props.checked?'block':'none'};
 	position : absolute;
-	top : 7px;
-	left : 6px;
+	top : 50%;
+	left : 50%;
 	width : 6px;
 	height : 2px;
 	border : 2px solid;
 	border-color : var(--checkboxTrikColor);
 	border-top-color : transparent;
 	border-right-color : transparent;
-	transform : rotate(-45deg);
+	transform : translate(-50%,-50%) rotate(-45deg);
 	z-index : 0;	
 `
 

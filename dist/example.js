@@ -26696,15 +26696,21 @@
 		}, {
 			key: 'onChangeHandler',
 			value: function onChangeHandler(e) {
-				var value = e.target.value;
+				var value = e.target.value.length ? e.target.value : null;
 				(0, _debounce2.default)(this.debounceOnChangeHandler(value), 200);
 
-				this.setState({
-					value: {
-						label: value,
-						isAutoCompleteListItem: false
-					}
-				});
+				if (value) {
+					this.setState({
+						value: {
+							label: value,
+							isAutoCompleteListItem: false
+						}
+					});
+				} else {
+					this.setState({
+						value: null
+					});
+				}
 			}
 		}, {
 			key: 'componentWillReceiveProps',
@@ -26735,9 +26741,11 @@
 						this.setState({
 							isDown: true
 						});
-					} else if (this.state.value && !this.state.value.isAutoCompleteListItem) {
-						this.props.setItem(this.props.name, this.state.value);
 					}
+					// }else if(this.state.value && !this.state.value.isAutoCompleteListItem){
+
+					// }
+					this.props.setItem(this.props.name, this.state.value);
 				}
 
 				this.forceDropdownOpen = false;
@@ -26776,7 +26784,8 @@
 					this.keyPressHandlerInstance.updateListLength.call(this.keyPressHandlerInstance, 0);
 					this.setState({
 						autoCompList: [],
-						value: ret
+						value: ret,
+						isFocused: false
 					});
 				}
 			}
@@ -26824,13 +26833,13 @@
 
 				return _react2.default.createElement(_styledComponents.Wrapper, { tabIndex: -1, id: props.name,
 					onKeyDown: this.handleKeyPress }, _react2.default.createElement(_styledComponents.SearchBox, { isDown: this.state.isDown,
-					isValid: props.isValid || props.isPristine,
+					isValid: props.isValid,
 					errorText: props.errorText || '',
 					helpText: props.helpText || '' }, _react2.default.createElement('input', { type: 'text', value: this.state.value && this.state.value.label || '',
 					onChange: this.onChangeHandler,
 					onBlur: this.blurHandler,
 					onFocus: this.focusHandler,
-					readOnly: props.readOnly }), _react2.default.createElement('label', null, props.label), _react2.default.createElement(_sharedStyledComponents.AnimatedBorder, { valid: props.isValid || props.isPristine,
+					readOnly: props.readOnly }), _react2.default.createElement('label', null, props.label), _react2.default.createElement(_sharedStyledComponents.AnimatedBorder, { valid: props.isValid,
 					focused: this.state.isFocused })), _react2.default.createElement(_styledComponents.SearchList, null, innerHtml));
 			}
 		}]);
@@ -28557,7 +28566,7 @@
 	var _templateObject = _taggedTemplateLiteral(['\n\t--labelColor : ', ';\n\t--helpTextColor : ', ';\n\t--errorTextColor : ', ';\n\t--defaultGreen : ', ';\n\t--defaultRed : ', ';\n\t--defaultBlue :', ';\n\t--labelFontSize : ', ';\n\t--inputFontSize : ', ';\n\t--infoFontSize : ', ';\n\t--infoBgColor : ', ';\n\t--infoBoxShadow : ', ';\n \t--checkboxBorderTrue : ', ';\n \t--checkboxBorderFalse : ', ';\n \t--checkboxTrikColor : ', ';\n'], ['\n\t--labelColor : ', ';\n\t--helpTextColor : ', ';\n\t--errorTextColor : ', ';\n\t--defaultGreen : ', ';\n\t--defaultRed : ', ';\n\t--defaultBlue :', ';\n\t--labelFontSize : ', ';\n\t--inputFontSize : ', ';\n\t--infoFontSize : ', ';\n\t--infoBgColor : ', ';\n\t--infoBoxShadow : ', ';\n \t--checkboxBorderTrue : ', ';\n \t--checkboxBorderFalse : ', ';\n \t--checkboxTrikColor : ', ';\n']),
 	    _templateObject2 = _taggedTemplateLiteral(['\n\tposition:relative;\n\t//padding : 15px 0 0;\n\tinput[type=\'checkbox\']{\n\t\t-webkit-appearance: none;\n\t    width: 16px;\n\t    height: 16px;\n\t    border: 2px solid;\n\t    border-color : ', ';\n\t    vertical-align: bottom;\n\t    border-radius: 4px;\n\t    z-index:1;\n\t    position : relative;\n\t    outline : none;\n\t    margin : 3px;\n\t}\n\n\t&:hover{\n\t\tbackground : \'#c3c3c3\';\n\t}\n'], ['\n\tposition:relative;\n\t//padding : 15px 0 0;\n\tinput[type=\'checkbox\']{\n\t\t-webkit-appearance: none;\n\t    width: 16px;\n\t    height: 16px;\n\t    border: 2px solid;\n\t    border-color : ', ';\n\t    vertical-align: bottom;\n\t    border-radius: 4px;\n\t    z-index:1;\n\t    position : relative;\n\t    outline : none;\n\t    margin : 3px;\n\t}\n\n\t&:hover{\n\t\tbackground : \'#c3c3c3\';\n\t}\n']),
 	    _templateObject3 = _taggedTemplateLiteral(['\n\tdisplay: inline-block;\n    position: relative;\n    z-index: 1;\n    background: transparent;\n\n    label{\n    \tfont-size : var(--labelFontSize);\n    \tcolor : var(--labelColor);\n    }\n\n\t&:after{\n\t\tposition: absolute;\n\t    content: \'\';\n\t    width: 46px;\n\t    height: 46px;\n\t    background: #333;\n\t    border-radius: 50%;\n\t    top: -9px;\n\t    left: -13px;\n\t    opacity: 0;\n\t    transform : scale(1);\n\t    transition : all 0.4s;\n\t    z-index : -1;\n\t}\n\n\t&:active:after{\n\t\topacity:1;\n\t\ttransform : scale(0);\n\t\ttransition : all 0s;\n\t}\n'], ['\n\tdisplay: inline-block;\n    position: relative;\n    z-index: 1;\n    background: transparent;\n\n    label{\n    \tfont-size : var(--labelFontSize);\n    \tcolor : var(--labelColor);\n    }\n\n\t&:after{\n\t\tposition: absolute;\n\t    content: \'\';\n\t    width: 46px;\n\t    height: 46px;\n\t    background: #333;\n\t    border-radius: 50%;\n\t    top: -9px;\n\t    left: -13px;\n\t    opacity: 0;\n\t    transform : scale(1);\n\t    transition : all 0.4s;\n\t    z-index : -1;\n\t}\n\n\t&:active:after{\n\t\topacity:1;\n\t\ttransform : scale(0);\n\t\ttransition : all 0s;\n\t}\n']),
-	    _templateObject4 = _taggedTemplateLiteral(['\n\tdisplay : ', ';\n\tposition : absolute;\n\ttop : 7px;\n\tleft : 6px;\n\twidth : 6px;\n\theight : 2px;\n\tborder : 2px solid;\n\tborder-color : var(--checkboxTrikColor);\n\tborder-top-color : transparent;\n\tborder-right-color : transparent;\n\ttransform : rotate(-45deg);\n\tz-index : 0;\t\n'], ['\n\tdisplay : ', ';\n\tposition : absolute;\n\ttop : 7px;\n\tleft : 6px;\n\twidth : 6px;\n\theight : 2px;\n\tborder : 2px solid;\n\tborder-color : var(--checkboxTrikColor);\n\tborder-top-color : transparent;\n\tborder-right-color : transparent;\n\ttransform : rotate(-45deg);\n\tz-index : 0;\t\n']),
+	    _templateObject4 = _taggedTemplateLiteral(['\n\tdisplay : ', ';\n\tposition : absolute;\n\ttop : 50%;\n\tleft : 50%;\n\twidth : 6px;\n\theight : 2px;\n\tborder : 2px solid;\n\tborder-color : var(--checkboxTrikColor);\n\tborder-top-color : transparent;\n\tborder-right-color : transparent;\n\ttransform : translate(-50%,-50%) rotate(-45deg);\n\tz-index : 0;\t\n'], ['\n\tdisplay : ', ';\n\tposition : absolute;\n\ttop : 50%;\n\tleft : 50%;\n\twidth : 6px;\n\theight : 2px;\n\tborder : 2px solid;\n\tborder-color : var(--checkboxTrikColor);\n\tborder-top-color : transparent;\n\tborder-right-color : transparent;\n\ttransform : translate(-50%,-50%) rotate(-45deg);\n\tz-index : 0;\t\n']),
 	    _templateObject5 = _taggedTemplateLiteral(['\n\tposition: relative;\n\tdisplay : inline-block;\n\n'], ['\n\tposition: relative;\n\tdisplay : inline-block;\n\n']);
 
 	var _styledComponents = __webpack_require__(184);
@@ -30473,7 +30482,7 @@
 					onMouseDown: function onMouseDown() {
 						_this3.tabPressed = false;
 					},
-					isValid: props.isValid || props.isPristine,
+					isValid: props.isValid,
 					helpText: props.helpText, errorText: props.errorText }, _react2.default.createElement('label', null, props.label), _react2.default.createElement('span', { onClick: this.toggleList /*onMouseDown={this.preventDropdownClose}*/ }, selectedValue), this.state.listOpen ? _react2.default.createElement(_styledComponents.DropdownListWrapper, null, _react2.default.createElement('input', { ref: function ref(elem) {
 						_this3.inputRef = elem;
 					},
@@ -30937,14 +30946,14 @@
 			key: 'render',
 			value: function render() {
 				var props = this.props;
-				return _react2.default.createElement(_styledComponents.InputWrapper, { isValid: props.isValid || props.isPristine, errorText: props.errorText || '', helpText: props.helpText || '',
+				return _react2.default.createElement(_styledComponents.InputWrapper, { isValid: props.isValid, errorText: props.errorText || '', helpText: props.helpText || '',
 					isDown: this.state.isDown }, _react2.default.createElement('input', { type: props.type, value: props.value || '',
 					onChange: this.changeHandler,
 					disabled: props.isDisabled,
 					onFocus: this.focusHandler,
 					onBlur: this.blurHandler,
 					readOnly: props.readOnly }), _react2.default.createElement(_sharedStyledComponents.AnimatedBorder, { focused: this.state.isFocused,
-					valid: props.isValid || props.isPristine }), _react2.default.createElement('label', null, props.label));
+					valid: props.isValid }), _react2.default.createElement('label', null, props.label));
 			}
 		}]);
 
@@ -31580,7 +31589,7 @@
 			_this.setItem = _this.setItem.bind(_this);
 			_this.optionsList = [{ label: "option1", id: 1 }, { label: "option2", id: 2 }, { label: "option3", id: 3 }];
 			_this.state = {
-				value: null
+				value: { label: "option1", id: 1 }
 			};
 			return _this;
 		}
@@ -31675,16 +31684,16 @@
 		}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
 	}
 
-	var RadioGroupExample = function (_React$Component) {
-		_inherits(RadioGroupExample, _React$Component);
+	var SelectInput = function (_React$Component) {
+		_inherits(SelectInput, _React$Component);
 
-		function RadioGroupExample() {
-			_classCallCheck(this, RadioGroupExample);
+		function SelectInput() {
+			_classCallCheck(this, SelectInput);
 
-			return _possibleConstructorReturn(this, (RadioGroupExample.__proto__ || Object.getPrototypeOf(RadioGroupExample)).apply(this, arguments));
+			return _possibleConstructorReturn(this, (SelectInput.__proto__ || Object.getPrototypeOf(SelectInput)).apply(this, arguments));
 		}
 
-		_createClass(RadioGroupExample, [{
+		_createClass(SelectInput, [{
 			key: 'render',
 			value: function render() {
 				var props = this.props,
@@ -31695,10 +31704,10 @@
 			}
 		}]);
 
-		return RadioGroupExample;
+		return SelectInput;
 	}(_react2.default.Component);
 
-	exports.default = RadioGroupExample;
+	exports.default = SelectInput;
 
 /***/ }),
 /* 277 */
@@ -31750,13 +31759,13 @@
 		}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
 	}
 
-	var SelectInput = function (_React$PureComponent) {
-		_inherits(SelectInput, _React$PureComponent);
+	var SelectInputCore = function (_React$PureComponent) {
+		_inherits(SelectInputCore, _React$PureComponent);
 
-		function SelectInput(props) {
-			_classCallCheck(this, SelectInput);
+		function SelectInputCore(props) {
+			_classCallCheck(this, SelectInputCore);
 
-			var _this = _possibleConstructorReturn(this, (SelectInput.__proto__ || Object.getPrototypeOf(SelectInput)).call(this, props));
+			var _this = _possibleConstructorReturn(this, (SelectInputCore.__proto__ || Object.getPrototypeOf(SelectInputCore)).call(this, props));
 
 			_this.isDown = false;
 			_this.selectedOption = props.value || null;
@@ -31766,10 +31775,10 @@
 			return _this;
 		}
 
-		_createClass(SelectInput, [{
+		_createClass(SelectInputCore, [{
 			key: 'componentWillReceiveProps',
 			value: function componentWillReceiveProps(nextProps) {
-				this.selectedOption = nextProps.selectedOption || null;
+				this.selectedOption = nextProps.value || null;
 				this.setState({
 					optionsList: nextProps.optionsList || []
 				});
@@ -31807,15 +31816,15 @@
 					optionsHtml.push(_react2.default.createElement('option', { value: '', disabled: true, selected: true }, 'Select an option'));
 				}
 
-				return _react2.default.createElement(_styledComponents.Wrapper, { isDown: this.isDown, isValid: props.isValid || props.isPristine,
+				return _react2.default.createElement(_styledComponents.Wrapper, { isDown: this.isDown, isValid: props.isValid,
 					helpText: props.helpText, errorText: props.errorText }, _react2.default.createElement(_styledComponents.SelectWrapper, null, _react2.default.createElement('select', { onChange: this.selectHandler.bind(this) }, optionsHtml), _react2.default.createElement(_styledComponents.Arrow, null)), _react2.default.createElement('label', null, props.label));
 			}
 		}]);
 
-		return SelectInput;
+		return SelectInputCore;
 	}(_react2.default.PureComponent);
 
-	exports.default = SelectInput;
+	exports.default = SelectInputCore;
 
 /***/ }),
 /* 278 */
@@ -31824,13 +31833,13 @@
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-	   value: true
+	  value: true
 	});
 	exports.Arrow = exports.SelectWrapper = exports.Wrapper = exports.CSSVariables = undefined;
 
 	var _templateObject = _taggedTemplateLiteral(['\n  --labelColor : ', ';\n  --inputColor : ', ';\n  --inputBorderColor : ', ';\n  --helpTextColor : ', ';\n  --errorTextColor : ', ';\n  --dropdownColor : ', ';\n  --dropdownBgColor : ', ';\n  --dropdownHoverColor : ', ';\n  --dropdownHoverBgColor : ', ';\n  --defaultGreen : ', ';\n  --defaultRed : ', ';\n  --defaultBlue :', ';\n  --labelFontSizeSmall : ', ';\n  --inputFontSize : ', ';\n  --infoFontSize : ', ';\n  --dropdownShadow : ', ';\n  --infoBgColor : ', ';\n  --infoBoxShadow : ', ';\n'], ['\n  --labelColor : ', ';\n  --inputColor : ', ';\n  --inputBorderColor : ', ';\n  --helpTextColor : ', ';\n  --errorTextColor : ', ';\n  --dropdownColor : ', ';\n  --dropdownBgColor : ', ';\n  --dropdownHoverColor : ', ';\n  --dropdownHoverBgColor : ', ';\n  --defaultGreen : ', ';\n  --defaultRed : ', ';\n  --defaultBlue :', ';\n  --labelFontSizeSmall : ', ';\n  --inputFontSize : ', ';\n  --infoFontSize : ', ';\n  --dropdownShadow : ', ';\n  --infoBgColor : ', ';\n  --infoBoxShadow : ', ';\n']),
 	    _templateObject2 = _taggedTemplateLiteral(['\n\t  position: relative;\n   // padding: 10px 0;\n  \n    select{\n    \t-webkit-appearance: none;\n\t    padding: 15px 10px 5px;\n\t    width: 100%;\n\t    font-size: 1rem;\n\t    outline: none;\n\t    font-weight:300;\n      background : inherit;\n\t    color : var(--inputColor);\n    }\n\n    label{\n    \tposition: absolute;\n\t    top: 2px;\n\t    left:10px;\n\t    font-size: 0.75rem;\n\t    color: var(--labelColor);\n    }\n\n    &:after{\n    \tcontent:"', '";\n        position: absolute;\n        top : 105%;\n        left:0px;\n        font-size: var(--infoFontSize);\n        color: ', ';\n\t    background: var(--infoBgColor);\n\t    padding: 5px;\n\t    box-shadow: var(--infoBoxShadow);\n    \tdisplay: ', ';\n        z-index : 1;\n    }\n'], ['\n\t  position: relative;\n   // padding: 10px 0;\n  \n    select{\n    \t-webkit-appearance: none;\n\t    padding: 15px 10px 5px;\n\t    width: 100%;\n\t    font-size: 1rem;\n\t    outline: none;\n\t    font-weight:300;\n      background : inherit;\n\t    color : var(--inputColor);\n    }\n\n    label{\n    \tposition: absolute;\n\t    top: 2px;\n\t    left:10px;\n\t    font-size: 0.75rem;\n\t    color: var(--labelColor);\n    }\n\n    &:after{\n    \tcontent:"', '";\n        position: absolute;\n        top : 105%;\n        left:0px;\n        font-size: var(--infoFontSize);\n        color: ', ';\n\t    background: var(--infoBgColor);\n\t    padding: 5px;\n\t    box-shadow: var(--infoBoxShadow);\n    \tdisplay: ', ';\n        z-index : 1;\n    }\n']),
-	    _templateObject3 = _taggedTemplateLiteral(['\n\tposition:relative;\n'], ['\n\tposition:relative;\n']),
+	    _templateObject3 = _taggedTemplateLiteral(['\n\tposition:relative;\n  select{\n    position : relative;\n    z-index : 1;\n  }\n'], ['\n\tposition:relative;\n  select{\n    position : relative;\n    z-index : 1;\n  }\n']),
 	    _templateObject4 = _taggedTemplateLiteral(['\n\tposition: absolute;\n    right: 10px;\n    top: 45%;\n    border-top: 8px solid;\n    border-right: 6px solid transparent;\n    border-bottom: 6px solid transparent;\n    border-left: 6px solid transparent;\n'], ['\n\tposition: absolute;\n    right: 10px;\n    top: 45%;\n    border-top: 8px solid;\n    border-right: 6px solid transparent;\n    border-bottom: 6px solid transparent;\n    border-left: 6px solid transparent;\n']);
 
 	var _styledComponents = __webpack_require__(184);
@@ -31838,57 +31847,57 @@
 	var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
 	function _interopRequireDefault(obj) {
-	   return obj && obj.__esModule ? obj : { default: obj };
+	  return obj && obj.__esModule ? obj : { default: obj };
 	}
 
 	function _taggedTemplateLiteral(strings, raw) {
-	   return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
+	  return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
 	}
 
 	var CSSVariables = _styledComponents2.default.div(_templateObject, function (props) {
-	   return props.LABEL_COLOR;
+	  return props.LABEL_COLOR;
 	}, function (props) {
-	   return props.INPUT_COLOR;
+	  return props.INPUT_COLOR;
 	}, function (props) {
-	   return props.INPUT_BORDER_COLOR;
+	  return props.INPUT_BORDER_COLOR;
 	}, function (props) {
-	   return props.HELPTEXT_COLOR;
+	  return props.HELPTEXT_COLOR;
 	}, function (props) {
-	   return props.ERRORTEXT_COLOR;
+	  return props.ERRORTEXT_COLOR;
 	}, function (props) {
-	   return props.DROPDOWN_COLOR;
+	  return props.DROPDOWN_COLOR;
 	}, function (props) {
-	   return props.DROPDOWN_BACKGROUND;
+	  return props.DROPDOWN_BACKGROUND;
 	}, function (props) {
-	   return props.DROPDOWN_HOVER_COLOR;
+	  return props.DROPDOWN_HOVER_COLOR;
 	}, function (props) {
-	   return props.DROPDOWN_HOVER_BG_COLOR;
+	  return props.DROPDOWN_HOVER_BG_COLOR;
 	}, function (props) {
-	   return props.DEFAULT_GREEN_COLOR;
+	  return props.DEFAULT_GREEN_COLOR;
 	}, function (props) {
-	   return props.DEFAULT_RED_COLOR;
+	  return props.DEFAULT_RED_COLOR;
 	}, function (props) {
-	   return props.DEFAULT_BLUE_COLOR;
+	  return props.DEFAULT_BLUE_COLOR;
 	}, function (props) {
-	   return props.LABEL_FONT_SIZE_SMALL;
+	  return props.LABEL_FONT_SIZE_SMALL;
 	}, function (props) {
-	   return props.INPUT_FONT_SIZE;
+	  return props.INPUT_FONT_SIZE;
 	}, function (props) {
-	   return props.INFO_FONT_SIZE;
+	  return props.INFO_FONT_SIZE;
 	}, function (props) {
-	   return props.DROPDOWN_SHADOW;
+	  return props.DROPDOWN_SHADOW;
 	}, function (props) {
-	   return props.INFO_BG_COLOR;
+	  return props.INFO_BG_COLOR;
 	}, function (props) {
-	   return props.INFO_BOX_SHADOW;
+	  return props.INFO_BOX_SHADOW;
 	});
 
 	var Wrapper = _styledComponents2.default.div(_templateObject2, function (props) {
-	   return props.isValid ? props.helpText : props.errorText;
+	  return props.isValid ? props.helpText : props.errorText;
 	}, function (props) {
-	   return props.isValid ? 'var(--defaultGreen)' : 'var(--defaultRed)';
+	  return props.isValid ? 'var(--defaultGreen)' : 'var(--defaultRed)';
 	}, function (props) {
-	   return props.isValid && props.helpText || !props.isValid && props.errorText ? 'block' : 'none';
+	  return props.isValid && props.helpText || !props.isValid && props.errorText ? 'block' : 'none';
 	});
 
 	var SelectWrapper = _styledComponents2.default.div(_templateObject3);
@@ -32119,6 +32128,8 @@
 			throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === "undefined" ? "undefined" : _typeof(superClass)));
 		}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
 	}
+	//import {ReactForm} from '../../src/index.js'
+
 
 	var TestForm = function (_React$Component) {
 		_inherits(TestForm, _React$Component);
@@ -32340,7 +32351,7 @@
 			key: 'render',
 			value: function render() {
 
-				return _react2.default.createElement('div', null, _react2.default.createElement(_form2.default, { formData: this.formData,
+				return _react2.default.createElement('div', null, _react2.default.createElement(ReactForm, { formData: this.formData,
 					formButtons: this.formButtons }));
 			}
 		}]);
@@ -32517,7 +32528,7 @@
 					var name = formItem.name;
 
 					res[name] = (0, _objectAssign2.default)({}, formItem, {
-						isValid: formItem.isValid ? true : !formItem.required,
+						isValid: true, //formItem.isValid?true : !formItem.required,
 						isPristine: true
 					});
 				});
@@ -32576,6 +32587,12 @@
 
 				var value = formItem.value;
 				if (value && toString.call(value) == "[object Object]") {
+
+					if (formItem.validityFunction) {
+						formItem.errorText = formItem.validityErrorText;
+						return formItem.validityFunction(value);
+					}
+
 					return true;
 				} else if (value || value === 0) {
 
@@ -32583,6 +32600,11 @@
 						var pat = new RegExp(formItem.validityRegex);
 						formItem.errorText = formItem.validityErrorText;
 						return pat.test(value);
+					}
+
+					if (formItem.validityFunction) {
+						formItem.errorText = formItem.validityErrorText;
+						return formItem.validityFunction(value);
 					}
 
 					return true;
@@ -32619,9 +32641,6 @@
 			value: function checkFormValidity() {
 				var ret = true;
 				for (var key in this.formState) {
-					if (this.formState[key].isPristine) {
-						this.formState[key].isPristine = false;
-					}
 
 					if (!this.checkValidity(this.formState[key])) {
 						ret = false;
@@ -34478,6 +34497,22 @@
 	}, {
 		property: "value",
 		type: "object",
+		definition: "something"
+	}, {
+		property: "readOnly",
+		type: "boolean",
+		definition: "something"
+	}, {
+		property: "optionsList",
+		type: "array",
+		definition: "something"
+	}, {
+		property: "requiredCondition",
+		type: 'function',
+		definition: 'something'
+	}, {
+		property: "validityFunction",
+		type: "function",
 		definition: "something"
 	}];
 

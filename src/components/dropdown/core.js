@@ -188,7 +188,7 @@ class Dropdown extends React.PureComponent{
 							onFocus={this.onfocus_parent.bind(this)}	
 							onKeyDown={this.handleKeyPress}
 							onMouseDown = {()=>{this.tabPressed = false}}
-							isValid={props.isValid || props.isPristine}
+							isValid={props.isValid }
 							helpText={props.helpText} errorText={props.errorText}>
 
 					<label>{props.label}</label>

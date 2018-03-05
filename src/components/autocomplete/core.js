@@ -44,15 +44,22 @@ class AutoComplete extends React.PureComponent{
 	}
 
 	onChangeHandler(e){
-		let	value = e.target.value
+		let	value = e.target.value.length?e.target.value:null
 		debounce(this.debounceOnChangeHandler(value),200)
 
-		this.setState({
-			value:{
-				label:value,
-				isAutoCompleteListItem:false
-			}
-		})
+		if(value){
+			this.setState({
+				value:{
+					label:value,
+					isAutoCompleteListItem:false
+				}
+			})
+		}else{
+			this.setState({
+				value : null
+			})
+		}
+		
 	}
 
 	componentWillReceiveProps(nextProps){
@@ -80,9 +87,11 @@ class AutoComplete extends React.PureComponent{
 				this.setState({
 					isDown : true
 				})
-			}else if(this.state.value && !this.state.value.isAutoCompleteListItem){
-				this.props.setItem(this.props.name,this.state.value)
 			}
+			// }else if(this.state.value && !this.state.value.isAutoCompleteListItem){
+				
+			// }
+			this.props.setItem(this.props.name,this.state.value)
 		}
 
 		this.forceDropdownOpen = false
@@ -119,7 +128,8 @@ class AutoComplete extends React.PureComponent{
 			this.keyPressHandlerInstance.updateListLength.call(this.keyPressHandlerInstance,0)
 			this.setState({
 				autoCompList:[],
-				value:ret
+				value:ret,
+				isFocused : false
 			})
 		}	
 	}
@@ -168,7 +178,7 @@ class AutoComplete extends React.PureComponent{
 					<Wrapper tabIndex={-1} id={props.name} 
 							onKeyDown={this.handleKeyPress}>
 						<SearchBox isDown={this.state.isDown} 
-									isValid={props.isValid || props.isPristine}
+									isValid={props.isValid}
 									errorText={props.errorText||''}
 									helpText={props.helpText||''}> 
 							<input type='text' value={(this.state.value && this.state.value.label)||''}
@@ -177,7 +187,7 @@ class AutoComplete extends React.PureComponent{
 												onFocus={this.focusHandler}
 												readOnly = {props.readOnly}/>
 							<label>{props.label}</label>
-							<AnimatedBorder valid={props.isValid || props.isPristine }
+							<AnimatedBorder valid={props.isValid }
 											focused={this.state.isFocused}/>
 						</SearchBox>
 						<SearchList>

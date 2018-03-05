@@ -1,11 +1,11 @@
 import React from 'react'
-import SelectInput from './core.js'
+import SelectInputCore from './core.js'
 import ColorConfig	from './colorConfig.js'
 import {CSSVariables} from './styledComponents.js'
 import colorConfigMerger from '../../helpers/colorConfigMerger.js'
 
 
-export default class RadioGroupExample extends React.Component {
+export default class SelectInput extends React.Component {
 	render(){
 		let props = this.props,
 			styleConfig = colorConfigMerger(props.colorConfig,ColorConfig),
@@ -13,7 +13,7 @@ export default class RadioGroupExample extends React.Component {
 
 		return (
 					<CSSVariables {...styleConfig}>
-						<SelectInput {...inputConfig}/>
+						<SelectInputCore {...inputConfig}/>
 					</CSSVariables>
 				)
 	}

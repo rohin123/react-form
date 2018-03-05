@@ -62,6 +62,10 @@ const Wrapper = styled.div`
 
 const SelectWrapper = styled.div`
 	position:relative;
+  select{
+    position : relative;
+    z-index : 1;
+  }
 `
 
 const Arrow = styled.div`

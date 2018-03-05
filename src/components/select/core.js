@@ -1,7 +1,7 @@
 import React from 'react'
 import {Wrapper,SelectWrapper,Arrow} from './styledComponents.js'
 
-class SelectInput extends React.PureComponent{
+export default class SelectInputCore extends React.PureComponent{
 	
 	constructor(props){
 		super(props)
@@ -13,7 +13,7 @@ class SelectInput extends React.PureComponent{
 	}
 
 	componentWillReceiveProps(nextProps){
-		this.selectedOption = nextProps.selectedOption||null
+		this.selectedOption = nextProps.value||null
 		this.setState({
 			optionsList: nextProps.optionsList||[]
 		})
@@ -48,7 +48,7 @@ class SelectInput extends React.PureComponent{
 		}
 
 		return (
-					<Wrapper isDown={this.isDown} isValid={props.isValid || props.isPristine}
+					<Wrapper isDown={this.isDown} isValid={props.isValid}
 								        helpText={props.helpText} errorText={props.errorText}>
 						<SelectWrapper>
 							<select onChange={this.selectHandler.bind(this)}>
@@ -62,5 +62,3 @@ class SelectInput extends React.PureComponent{
 	}
 
 }
-
-export default SelectInput

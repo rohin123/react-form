@@ -50,7 +50,7 @@ export default class LabeledInput extends React.PureComponent{
 	render(){
 		let props = this.props
 		return (
-				<InputWrapper isValid={props.isValid||props.isPristine} errorText={props.errorText||''} helpText={props.helpText||''}
+				<InputWrapper isValid={props.isValid} errorText={props.errorText||''} helpText={props.helpText||''}
 					isDown={this.state.isDown}>
 					<input type={props.type} value={props.value||''} 
 							onChange={this.changeHandler}
@@ -59,7 +59,7 @@ export default class LabeledInput extends React.PureComponent{
 							onBlur={this.blurHandler}
 							readOnly = {props.readOnly}/>
 					<AnimatedBorder focused={this.state.isFocused}
-									valid={props.isValid||props.isPristine}/>		
+									valid={props.isValid}/>		
 					<label>{props.label}</label>		
 				</InputWrapper>
 			)

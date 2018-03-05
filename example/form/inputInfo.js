@@ -29,6 +29,25 @@ const tableContent = [
 						property : "value",
 						type : "object",
 						definition : "something"
+					},
+					{
+						property : "readOnly",
+						type : "boolean",
+						definition : "something"
+					},{
+						property : "optionsList",
+						type : "array",
+						definition : "something"
+					},
+					{
+						property : "requiredCondition",
+						type : 'function',
+						definition : 'something'
+					},
+					{
+						property : "validityFunction",
+						type : "function",
+						definition : "something"
 					}]
 
 export default {

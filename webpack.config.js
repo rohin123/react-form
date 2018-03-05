@@ -31,6 +31,56 @@ const loaders = [{
 // }
 ];
 
+console.log(CLIENT_DIR)
+/*
+module.exports = [{
+  context : CLIENT_DIR,
+  entry : './index.js',
+  target : 'web',
+  output:{
+    path:DIST_DIR,
+    filename:'bundle.js',
+    library : 'reactformlib',
+    libraryTarget : 'umd'
+  },
+  module:{
+    rules:[
+      {
+          test:/\.jsx?$/,
+          use : {
+            loader : 'babel-loader',
+            options : {
+              presets : ['es2015', 'react','stage-0']
+            }
+          }
+      }
+    ]
+  }
+},
+{
+  context : EXAMPLE_DIR,
+  entry : './app.js',
+  target : 'web',
+  output:{
+    path:DIST_DIR,
+    filename:'example.js'
+  },
+  module:{
+    rules:[
+      {
+          test:/\.jsx?$/,
+          use : {
+            loader : 'babel-loader',
+            options : {
+              presets : ['es2015', 'react','stage-0']
+            }
+          }
+      }
+    ]
+  } 
+}]
+*/
+
 module.exports = [{
   name: 'client',
   target: 'web',
@@ -41,6 +91,9 @@ module.exports = [{
     libraryTarget: 'umd',
     path: DIST_DIR,
     filename: 'bundle.js'
+  },
+  externals:{
+    react:'react'
   },
   module: {
     loaders: loaders

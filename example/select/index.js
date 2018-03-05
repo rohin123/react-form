@@ -15,7 +15,7 @@ export default class RadioGroupExample extends React.Component{
 							{label : "option2" , id:2},
 							{label : "option3" , id:3}]
 		this.state = {
-			value : null
+			value : {label : "option1" , id:1}
 		}
 	}
 
