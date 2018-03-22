@@ -1,0 +1,53 @@
+svg{
+	background: #fff;
+	.y-axis{
+		.tick{
+			//stroke-dasharray : 5 5;
+			line{
+				stroke : #d3d3d3;
+			}
+
+			text{
+				transform : translate(-10px,0);
+			}
+		}
+		.domain{
+			visibility: hidden;
+		}
+	}
+
+	.x-axis{
+
+		.tick{
+		
+			line{
+				stroke : #d3d3d3;
+			}
+		
+		}
+
+		.domain{
+			visibility: hidden;
+		}
+	}
+
+	// .dot{
+	// 	fill : rgb(124, 181, 236);
+	// }
+
+	.area{
+		fill : #efedfb;
+	}
+
+	.info-rect{
+		stroke : rgb(124, 181, 236);
+		stroke-width : 1px;
+		fill : #fff;
+		padding: 5px;
+
+		.text{
+			font-weight : 300;
+			font-size: 12px; 
+		}
+	}
+}

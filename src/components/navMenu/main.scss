@@ -1,0 +1,144 @@
+.navContainer{
+	display : flex;
+	background: whitesmoke;
+	flex-wrap : wrap;
+
+	.navMenuItem{
+		padding: 10px;
+    	padding: 10px;
+	    font-weight: 300;
+	    display: flex;
+	    justify-content: space-between;
+	    position: relative;
+	    color : #4c4c4c;
+	    flex-wrap : wrap;
+
+	    label{
+	    	align-self: center;
+	    	padding-right: 10px;
+	    }
+
+	    .line{
+	    	display: block;
+		    width: 100%;
+		    margin-top: 5px;
+		    border-top: 2px solid #fff;
+		    transform : scale(1);
+		    transition : all 0.4s;
+		    transform-origin : center;
+	    }
+
+	    .lineSelected{
+	    	border-top-color: #333; 
+	    }
+
+	    .lineActive{
+	    	border-top-color: #7cb5ec; 
+	    }
+
+	    .line:active{
+	    	transform : scale(0);
+	    }
+
+    	.arrowWrapper{
+    		width: 10px;
+		    height: 10px;
+		    padding: 5px;
+		    border-radius: 50%;
+		    background: rgba(0,0,0,0.2);
+		    position: relative;
+
+    		.arrow{
+    			width: 6px;
+    			height: 6px;
+    			border-top: 1px solid #333;
+    			border-bottom: 1px solid transparent;
+    			border-left: 1px solid #333;
+    			border-right: 1px solid transparent;
+    			position: absolute;
+    		}
+
+
+
+    		.arrowRight{
+    			transform : rotate(135deg);
+    			top : 6px;
+    			right : 7px;
+    		}
+
+    		.arrowLeft{
+    			transform : rotate(-45deg);
+    			top: 6px;
+    			right : 4px;
+    		}
+
+    		.arrowUp{
+    			transform : rotate(45deg);
+    			top: 8px;
+    			right : 6px;
+    		}
+
+    		.arrowDown{
+    			transform : rotate(225deg);
+    			top: 4px;
+    			right : 6px;
+    		}
+
+    	}
+
+    	.arrowWrapperActive{
+    		background: #7cb5ec;
+    		color: #fff;
+
+    		.arrow{
+    			border-top-color : #fff;
+    			border-left-color : #fff;
+    		}
+    	}
+
+    	.extendedMenuOption{
+    		position: absolute;
+		    border: 1px solid #c3c3c3;
+		    min-width: 150px;
+		    z-index : 1;
+    	}
+
+	 	.top {
+	    	top : 0;
+	    	left: 102%;
+	    }
+
+	    .bottom { 
+	    	bottom : 0;
+	    	left: 102%;
+	    }
+
+	    .left{
+	    	left: 0;
+	    	top : 102%;
+	    }
+
+	    .right{
+	    	right: 0;
+	    	top : 102%;
+	    }
+	}
+
+	.selectedNavMenuItem{
+		color : #333;
+		font-weight : 400;
+	}
+
+	.activeNavMenuItem{
+		color : #7cb5ec;
+		font-weight: 300;
+	}
+}
+
+.navHorizontal{
+	flex-direction : row;
+}
+
+.navVertical{
+	flex-direction : column;
+}

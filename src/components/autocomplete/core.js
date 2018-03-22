@@ -44,6 +44,7 @@ class AutoComplete extends React.PureComponent{
 	}
 
 	onChangeHandler(e){
+		//debugger
 		let	value = e.target.value.length?e.target.value:null
 		debounce(this.debounceOnChangeHandler(value),200)
 

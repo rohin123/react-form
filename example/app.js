@@ -10,7 +10,8 @@ import RadioGroup from './radiogroup'
 import SelectInput from './select'
 import TextInput from './textInput'
 import TestForm from './form'
-import SideMenu from './sidemenu'
+import LineChart from './chart'
+import SideMenu from '../src/components/navMenu'
 import TableElement from './tableElement'
 import AutoCompColorInfo from './autocomplete/colorInfo.js'
 import AutoCompInputInfo from './autocomplete/inputInfo.js'
@@ -30,6 +31,7 @@ import NumberColorInfo from './numberInput/colorInfo.js'
 import NumberInputInfo from './numberInput/inputInfo.js'
 import FormColorInfo from './form/colorInfo.js'
 import FormInputInfo from './form/inputInfo.js'
+import NavMenuExample from './navMenu'
 
 
 const MenuList = {
@@ -41,12 +43,23 @@ const MenuList = {
 	RadioGroup : 'radiogroup',
 	SelectInput : 'select',
 	TextInput : 'textInput',
-	Reactform : 'form' 
+	Reactform : 'form',
+	LineChart : 'chart',
+	NavMenu : 'nav-menu' 
 }
 
 const Wrapper = styled.div`
 	width : 100%;
 	height : 100%;
+`
+
+const MenuWrapper = styled.div`
+	width: 25%;
+    padding-top: 50px;
+    height: 100%;
+    float: left;
+    background: whitesmoke;
+    text-transform: uppercase;
 `
 
 const Content = styled.div`
@@ -80,39 +93,69 @@ class App extends React.Component{
 		this.getSelectedElem = this.getSelectedElem.bind(this)
 		this.menuList = [{
 							label : MenuList.Autocomplete,
-							selected : true
+							actionMethod : ()=>{
+								this.setSelected(MenuList.Autocomplete)
+							}
 						},
 						{
 							label : MenuList.CheckBox,
-							selected : false	
+							actionMethod : ()=>{
+								this.setSelected(MenuList.CheckBox)
+							}
 						},
 						{
 							label : MenuList.DateTime,
-							selected : false	
+							actionMethod : ()=>{
+								this.setSelected(MenuList.DateTime)
+							}
 						},
 						{
 							label : MenuList.DropDown,
-							selected : false
+							actionMethod : ()=>{
+								this.setSelected(MenuList.DropDown)
+							}
 						},
 						{
 							label : MenuList.NumberInput,
-							selected : false
+							actionMethod : ()=>{
+								this.setSelected(MenuList.NumberInput)
+							}
 						},
 						{
 							label : MenuList.RadioGroup,
-							selected : false
+							actionMethod : ()=>{
+								this.setSelected(MenuList.RadioGroup)
+							}
 						},
 						{
 							label : MenuList.SelectInput,
-							selected : false
+							actionMethod : ()=>{
+								this.setSelected(MenuList.SelectInput)
+							}
 						},
 						{
 							label : MenuList.TextInput,
-							selected : false
+							actionMethod : ()=>{
+								this.setSelected(MenuList.TextInput)
+							}
 						},
 						{
 							label : MenuList.Reactform,
-							selected : false
+							actionMethod : ()=>{
+								this.setSelected(MenuList.Reactform)
+							}
+						},
+						{
+							label : MenuList.LineChart,
+							actionMethod : ()=>{
+								this.setSelected(MenuList.LineChart)
+							}
+						},
+						{
+							label : MenuList.NavMenu,
+							actionMethod : ()=>{
+								this.setSelected(MenuList.NavMenu)
+							}
 						}]
 
 			this.state = {
@@ -121,6 +164,7 @@ class App extends React.Component{
 	}
 
 	getSelectedElem(){
+		debugger
 		let ret = {}
 		switch(this.state.selectedItem){
 			case MenuList.Autocomplete : {
@@ -222,24 +266,25 @@ class App extends React.Component{
 													tableContent={FormColorInfo.tableContent}/>			
 				break
 			}
+
+			case MenuList.LineChart : {
+				ret.elem = <LineChart/>
+				break
+			}
+
+			case MenuList.NavMenu : {
+				ret.elem = <NavMenuExample/>
+				break
+			}
+
 		}
 
 		return ret
 	}
 
 	setSelected(name){
-		let selectedItem = null
-		this.menuList.forEach((item)=>{
-			if(item.label == name){
-				item.selected = true
-				selectedItem = item
-			}else{
-				item.selected = false
-			}
-		})
-
 		this.setState({
-			selectedItem : selectedItem.label
+			selectedItem : name
 		})
 	}
 
@@ -251,7 +296,9 @@ class App extends React.Component{
 
 		return (
 				<Wrapper>
-					<SideMenu list={this.menuList} setSelected={this.setSelected}/>
+					<MenuWrapper>
+						<SideMenu menuList={this.menuList}/>
+					</MenuWrapper>
 					<Content>
 						<h1>Demo</h1>	
 							{inputHtml.elem}

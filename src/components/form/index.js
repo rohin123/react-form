@@ -87,6 +87,7 @@ export default class GenericForm extends React.PureComponent{
 				let dependentItem = this.formState[key]
 				dependentItem = objectAssign({},dependentItem,value.dependent[key])
 				dependentItem.isValid = this.checkValidity(dependentItem)
+				dependentItem.isPristine = false
 				this.formState[key] = dependentItem
 			}
 

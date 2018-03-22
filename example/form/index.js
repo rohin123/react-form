@@ -1,6 +1,5 @@
 import React from 'react'
-import GenericForm from '../../src/components/form'
-//import {ReactForm} from '../../src/index.js'
+import {ReactForm} from '../../src/index.js'
 import Promise from 'promise'
 
 export default class TestForm extends React.Component{
