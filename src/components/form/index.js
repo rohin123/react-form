@@ -9,6 +9,7 @@ import CheckBox from '../checkbox/core.js'
 import RadioButtonGroup from '../radioButtonGroup/core.js'
 import {BlockWrapper , HeadingWrapper, SubHeadingWrapper} from '../sharedStyledComponents.js'
 import DateTime from '../datetimeInput/core.js'
+import SuffleBox from '../suffleBox'
 import ClosePopupListener from '../../helpers/closePopupListener.js'
 import {
 			CSSVariables,FormWrapper,InputsWrapper,
@@ -81,7 +82,6 @@ export default class GenericForm extends React.PureComponent{
 	}
 
 	setItemHelper(formItem,value){
-	
 		if(value && value.dependent){
 			for(let key in value.dependent){
 				let dependentItem = this.formState[key]
@@ -201,6 +201,9 @@ export default class GenericForm extends React.PureComponent{
 			case 'text':{				
 			}
 
+			case 'email':{
+			}
+
 			case 'number':{
 
 				ret = 	<InputWrapper>
@@ -285,6 +288,14 @@ export default class GenericForm extends React.PureComponent{
 						</InputWrapper>		
 				break
 			}	
+
+			case 'sufflebox' : {
+				ret = <InputWrapper>
+							<SuffleBox {...formItem}
+								setItem={this.setItem}/>
+						</InputWrapper>
+				break		
+			}
 
 			default:{
 				return null

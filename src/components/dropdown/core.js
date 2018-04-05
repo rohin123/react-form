@@ -96,7 +96,7 @@ class Dropdown extends React.PureComponent{
 	filterOptions(e){
 		let searchVal = e.target.value
 		let filteredList = this.state.optionsList.filter((option)=>{
-			let patt = new RegExp(searchVal)
+			let patt = new RegExp(searchVal,'i')
 			return patt.test(option.label)
 		})
 

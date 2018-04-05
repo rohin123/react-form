@@ -80,6 +80,8 @@ const DropdownListWrapper = styled.div`
     box-shadow : var(--dropdownShadow);
     font-size : var(--inputFontSize);
     z-index : 3;
+    max-height : 200px;
+    overflow : auto;
     input{
     	width : 100%;
     	box-sizing : border-box;

@@ -28,6 +28,10 @@ class AutoComplete extends React.PureComponent{
 		}
 	}
 
+	componentWillMount(){
+		this.debounceFunc = debounce(this.debounceOnChangeHandler,200)
+	}
+
 	debounceOnChangeHandler(value){
 		let fetchPromise = this.props.fetchFunc
 			fetchPromise(value).then((res)=>{
@@ -44,9 +48,9 @@ class AutoComplete extends React.PureComponent{
 	}
 
 	onChangeHandler(e){
-		//debugger
 		let	value = e.target.value.length?e.target.value:null
-		debounce(this.debounceOnChangeHandler(value),200)
+
+		this.debounceFunc(value)
 
 		if(value){
 			this.setState({
@@ -89,9 +93,7 @@ class AutoComplete extends React.PureComponent{
 					isDown : true
 				})
 			}
-			// }else if(this.state.value && !this.state.value.isAutoCompleteListItem){
-				
-			// }
+			
 			this.props.setItem(this.props.name,this.state.value)
 		}
 

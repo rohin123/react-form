@@ -1,6 +1,7 @@
 import React from 'react'
 import Arrow from '../arrow'
 import NavMenu from '../../index.js'
+import AnimatedLine from '../animatedLine'
 
 export default class NavMenuItem extends React.Component{
 	constructor(props){
@@ -8,9 +9,17 @@ export default class NavMenuItem extends React.Component{
 
 		this.handleSubMenuToggle = this.handleSubMenuToggle.bind(this)
 		this.handleClick = this.handleClick.bind(this)
+		this.alreadyActiveLink = false
 		this.state = {
 			menuOpen : false
 		}
+	}
+
+	componentWillReceiveProps(nextProps){
+		if(this.props.isActive && nextProps.isSelected){
+			this.alreadyActiveLink = true
+		}
+		this.alreadyActiveLink = false
 	}
 
 	handleClick(e){
@@ -93,13 +102,9 @@ export default class NavMenuItem extends React.Component{
 							'navMenuItem activeNavMenuItem' : 
 							this.props.isSelected ?
 								'navMenuItem selectedNavMenuItem' : 
-								'navMenuItem',
-			lineStyle = this.props.isActive ? 
-							'line lineActive' : 
-							this.props.isSelected ?
-								'line lineSelected' : 
-								'line'					
-
+								'navMenuItem'	,
+			activeColor = this.props.isActive ? '#7cb5ec' : '#333'
+			
 
 		return (
 				<div className={NavStyle}
@@ -111,8 +116,10 @@ export default class NavMenuItem extends React.Component{
 					{
 						this.getExtendedMenu()
 					}
-					<div className={lineStyle}>
-					</div>
+					<AnimatedLine defualtColor={'#fff'} 
+									activeColor={activeColor}
+									active={this.props.isActive || 
+										(this.props.isSelected && !this.alreadyActiveLink)}/>
 				</div>
 			)
 	}

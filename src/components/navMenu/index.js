@@ -12,6 +12,11 @@ export default class NavMenu extends React.Component{
 			menuList : this.props.menuList
 		}
 	}
+
+	componentWillMount(){
+		this.initState = true
+	}
+
 	componentDidMount(){
 		this.domRect = this.navElem.getBoundingClientRect()
 		this.setState({
@@ -38,6 +43,7 @@ export default class NavMenu extends React.Component{
 			
 			if(action){
 				action()
+				this.initState = false
 				this.activePath = parentArr
 				this.childActivePath = parentArr.slice(1)
 			}else{
@@ -72,10 +78,18 @@ export default class NavMenu extends React.Component{
 		return false
 	}
 
+	isDefaultActive(menuItem){
+		if(this.initState && menuItem.isDefaultActive){
+			return true
+		}
+
+		return false
+	}
+
 	render(){
 		let navInnerHtml = (this.state.menuList||[]).map((menuItem,index)=>{
 			return <NavMenuItem {...menuItem} 
-								isActive = {this.isNavItemActive(index)}
+								isActive = {this.isNavItemActive(index) || this.isDefaultActive(menuItem)}
 								parentDom = {this.domRect}
 								isHorizontal={this.props.isHorizontal}
 								handleMenuClick={this.props.child ? this.props.handleMenuClick : 

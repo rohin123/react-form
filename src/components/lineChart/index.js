@@ -257,19 +257,14 @@ export default class LineChart extends React.Component{
 						let info = d.x+" : "+d.y
 			    	
 				    	let textElem = 	d3.select(self.svgId+' .info-rect .text')
-				    	
+				    	textElem
+				    		//.transition()
+				    		.text(info)		
+							//.attr('duration',this.transitionDuration)
 
 				    	let bbox = textElem.node().getBBox()
 
 				    	self.highlightPoint(d,i)
-
-				    	d3.select(self.svgId+' .info-rect')
-				    		.transition()
-				    		.attr('transform',"translate("+(self.yAxisTranslate.x+self.xScale(d.x))+","+
-				    						((self.yScale(d.y)<self.yScale(0)?self.yScale(d.y):self.yScale(0)) - 
-				    								self.infoRectYOffset + self.yAxisTranslate.y)+") scale(1)")
-				    		.attr('opacity',this.infoRectOpacity)
-				    		.attr('duration',this.transitionDuration)
 
 				    	d3.select(self.svgId+' .info-rect .rect')
 				    		.attr('width',bbox.width+self.infoTextPadding)
@@ -277,9 +272,13 @@ export default class LineChart extends React.Component{
 				    		.attr('transform','translate('+(-self.infoTextPadding/2)+','+
 				    						(-bbox.height-self.infoTextPadding/4)+')')	
 
-				    	textElem.transition()
-				    		.text(info)		
-							.attr('duration',this.transitionDuration)
+				    	d3.select(self.svgId+' .info-rect')
+				    		.transition()
+				    		.attr('transform',"translate("+(self.yAxisTranslate.x+self.xScale(d.x))+","+
+				    						((self.yScale(d.y)<self.yScale(0)?self.yScale(d.y):self.yScale(0)) - 
+				    								self.infoRectYOffset + self.yAxisTranslate.y)+") scale(1)")
+				    		.attr('opacity',this.infoRectOpacity)
+				    		.attr('duration',this.transitionDuration)	
 
 					}	
 					

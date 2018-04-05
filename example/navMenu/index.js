@@ -25,7 +25,8 @@ export default class NavMenuExample extends React.Component{
 										},
 										{
 											label : 'Option13'
-										}]	
+										}],
+							isDefaultActive : true			
 						},
 						{
 							label : 'Option2',

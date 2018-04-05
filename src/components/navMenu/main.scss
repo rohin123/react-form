@@ -17,29 +17,7 @@
 	    	align-self: center;
 	    	padding-right: 10px;
 	    }
-
-	    .line{
-	    	display: block;
-		    width: 100%;
-		    margin-top: 5px;
-		    border-top: 2px solid #fff;
-		    transform : scale(1);
-		    transition : all 0.4s;
-		    transform-origin : center;
-	    }
-
-	    .lineSelected{
-	    	border-top-color: #333; 
-	    }
-
-	    .lineActive{
-	    	border-top-color: #7cb5ec; 
-	    }
-
-	    .line:active{
-	    	transform : scale(0);
-	    }
-
+	
     	.arrowWrapper{
     		width: 10px;
 		    height: 10px;

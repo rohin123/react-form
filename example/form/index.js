@@ -106,6 +106,18 @@ export default class TestForm extends React.Component{
 								type : 'datetime',
 								showdate : true,
 								showtime : true
+							},
+							{
+								label : 'Item132',
+								name : 'item12',
+								optionsListLabel : 'Available items',
+								selectedListLabel : 'Selected items',
+								type : 'sufflebox',
+								optionsList : [{label:'option1',id:1},
+												{label:'option2',id:2},
+												{label:'option3',id:3}],
+								selectedList : [{label : 'option4',id:4},
+													{label : 'option5',id:5}]
 							}
 						]
 

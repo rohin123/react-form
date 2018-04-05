@@ -16,6 +16,7 @@ const CSSVariables = styled.div`
   //--defaultBlue :${props => props.DEFAULT_BLUE_COLOR};
   --labelFontSize : ${props => props.LABEL_FONT_SIZE};
   --inputFontSize : ${props => props.INPUT_FONT_SIZE};
+  --dropdownShadow : ${props => props.DROPDOWN_SHADOW};
   //--infoFontSize : ${props => props.INFO_FONT_SIZE};
   //--infoBgColor : ${props => props.INFO_BG_COLOR};
   //--infoBoxShadow : ${props => props.INFO_BOX_SHADOW};
@@ -77,15 +78,17 @@ const SearchList = styled.div`
 	width: 100%;
     position: absolute;
     background: var(--dropdownBgColor);
-    box-shadow: 1px 1px 4px 0px #8e8181;
+    box-shadow: var(--dropdownShadow);
     font-size: var(--inputFontSize);
     color: var(--dropdownColor);
     z-index:3;
+    max-height : 200px;
+    overflow : auto;
 `
 
 const ListItem = styled.div`
-	box-sizing: border-box;
-    padding: 3px 0px 3px 10px;
+	  box-sizing: border-box;
+    padding: 10px 5px 10px 10px;
     &:hover{
     	background-color: var(--dropdownHoverBgColor);
 	    opacity: 0.8;

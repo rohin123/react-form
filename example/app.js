@@ -60,6 +60,7 @@ const MenuWrapper = styled.div`
     float: left;
     background: whitesmoke;
     text-transform: uppercase;
+    box-shadow : 1px 0px 7px 2px #c3c3c3;
 `
 
 const Content = styled.div`
@@ -95,7 +96,8 @@ class App extends React.Component{
 							label : MenuList.Autocomplete,
 							actionMethod : ()=>{
 								this.setSelected(MenuList.Autocomplete)
-							}
+							},
+							isDefaultActive : true
 						},
 						{
 							label : MenuList.CheckBox,
@@ -164,7 +166,6 @@ class App extends React.Component{
 	}
 
 	getSelectedElem(){
-		debugger
 		let ret = {}
 		switch(this.state.selectedItem){
 			case MenuList.Autocomplete : {

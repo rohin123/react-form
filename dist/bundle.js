@@ -2367,6 +2367,11 @@ var AutoComplete = function (_React$PureComponent) {
 	}
 
 	_createClass(AutoComplete, [{
+		key: 'componentWillMount',
+		value: function componentWillMount() {
+			this.debounceFunc = (0, _debounce2.default)(this.debounceOnChangeHandler, 200);
+		}
+	}, {
 		key: 'debounceOnChangeHandler',
 		value: function debounceOnChangeHandler(value) {
 			var _this2 = this;
@@ -2387,9 +2392,9 @@ var AutoComplete = function (_React$PureComponent) {
 	}, {
 		key: 'onChangeHandler',
 		value: function onChangeHandler(e) {
-			//debugger
 			var value = e.target.value.length ? e.target.value : null;
-			(0, _debounce2.default)(this.debounceOnChangeHandler(value), 200);
+
+			this.debounceFunc(value);
 
 			if (value) {
 				this.setState({
@@ -2434,9 +2439,7 @@ var AutoComplete = function (_React$PureComponent) {
 						isDown: true
 					});
 				}
-				// }else if(this.state.value && !this.state.value.isAutoCompleteListItem){
 
-				// }
 				this.props.setItem(this.props.name, this.state.value);
 			}
 
@@ -2903,11 +2906,11 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.SelectedListItem = exports.ListItem = exports.SearchList = exports.SearchBox = exports.Wrapper = exports.CSSVariables = undefined;
 
-var _templateObject = _taggedTemplateLiteral(['\n  --labelColor : ', ';\n  --inputColor : ', ';\n  --inputBorderColor : ', ';\n  --inputBorderWidth : ', ';\n  //--helpTextColor : ', ';\n  //--errorTextColor : ', ';\n  --dropdownColor : ', ';\n  --dropdownBgColor : ', ';\n  --dropdownHoverColor : ', ';\n  --dropdownHoverBgColor : ', ';\n  //--defaultGreen : ', ';\n  //--defaultRed : ', ';\n  //--defaultBlue :', ';\n  --labelFontSize : ', ';\n  --inputFontSize : ', ';\n  //--infoFontSize : ', ';\n  //--infoBgColor : ', ';\n  //--infoBoxShadow : ', ';\n'], ['\n  --labelColor : ', ';\n  --inputColor : ', ';\n  --inputBorderColor : ', ';\n  --inputBorderWidth : ', ';\n  //--helpTextColor : ', ';\n  //--errorTextColor : ', ';\n  --dropdownColor : ', ';\n  --dropdownBgColor : ', ';\n  --dropdownHoverColor : ', ';\n  --dropdownHoverBgColor : ', ';\n  //--defaultGreen : ', ';\n  //--defaultRed : ', ';\n  //--defaultBlue :', ';\n  --labelFontSize : ', ';\n  --inputFontSize : ', ';\n  //--infoFontSize : ', ';\n  //--infoBgColor : ', ';\n  //--infoBoxShadow : ', ';\n']),
+var _templateObject = _taggedTemplateLiteral(['\n  --labelColor : ', ';\n  --inputColor : ', ';\n  --inputBorderColor : ', ';\n  --inputBorderWidth : ', ';\n  //--helpTextColor : ', ';\n  //--errorTextColor : ', ';\n  --dropdownColor : ', ';\n  --dropdownBgColor : ', ';\n  --dropdownHoverColor : ', ';\n  --dropdownHoverBgColor : ', ';\n  //--defaultGreen : ', ';\n  //--defaultRed : ', ';\n  //--defaultBlue :', ';\n  --labelFontSize : ', ';\n  --inputFontSize : ', ';\n  --dropdownShadow : ', ';\n  //--infoFontSize : ', ';\n  //--infoBgColor : ', ';\n  //--infoBoxShadow : ', ';\n'], ['\n  --labelColor : ', ';\n  --inputColor : ', ';\n  --inputBorderColor : ', ';\n  --inputBorderWidth : ', ';\n  //--helpTextColor : ', ';\n  //--errorTextColor : ', ';\n  --dropdownColor : ', ';\n  --dropdownBgColor : ', ';\n  --dropdownHoverColor : ', ';\n  --dropdownHoverBgColor : ', ';\n  //--defaultGreen : ', ';\n  //--defaultRed : ', ';\n  //--defaultBlue :', ';\n  --labelFontSize : ', ';\n  --inputFontSize : ', ';\n  --dropdownShadow : ', ';\n  //--infoFontSize : ', ';\n  //--infoBgColor : ', ';\n  //--infoBoxShadow : ', ';\n']),
     _templateObject2 = _taggedTemplateLiteral(['\n\t  width : 100%;\n    position: relative;\n    outline : none;\n'], ['\n\t  width : 100%;\n    position: relative;\n    outline : none;\n']),
     _templateObject3 = _taggedTemplateLiteral(['\n\tposition : relative;\n\tpadding: 15px 0 0;\n\tinput{\n      position:relative;\n      z-index:1;\n      width: 100%;\n\t    border: none;\n\t    border-style: solid;//', ';\n      border-width : var(--inputBorderWidth);\n\t    border-color: var(--inputBorderColor);\n\t    box-sizing: border-box;\n\t    font-size: var(--inputFontSize);\n\t    background-color:transparent;\n\t    color : var(--inputColor);\t\n\t    outline : none;\n\t}\n\n\tlabel{\n\t\tposition:absolute;\n\t\tleft : 0px;\n\t\ttop : 14px;\n\t\tcolor: var(--labelColor);\n\t\ttransform:', ';\n\t\ttransform-origin:top left;\n\t\ttransition:all 0.4s;\n\t\tfont-size : var(--labelFontSize);\n\t}\n\n\t&:after{\n\t\tcontent:"', '";\n        position: absolute;\n        font-size: var(--infoFontSize);\n        color: ', ';\n    \tleft: 0px;\n    \tbackground: var(--infoBgColor);\n    \tpadding: 5px;\n    \tbox-shadow: var(--infoBoxShadow);\n    \tdisplay: ', ';\n    \tz-index: 1;\n\t}\n\t\n'], ['\n\tposition : relative;\n\tpadding: 15px 0 0;\n\tinput{\n      position:relative;\n      z-index:1;\n      width: 100%;\n\t    border: none;\n\t    border-style: solid;//', ';\n      border-width : var(--inputBorderWidth);\n\t    border-color: var(--inputBorderColor);\n\t    box-sizing: border-box;\n\t    font-size: var(--inputFontSize);\n\t    background-color:transparent;\n\t    color : var(--inputColor);\t\n\t    outline : none;\n\t}\n\n\tlabel{\n\t\tposition:absolute;\n\t\tleft : 0px;\n\t\ttop : 14px;\n\t\tcolor: var(--labelColor);\n\t\ttransform:', ';\n\t\ttransform-origin:top left;\n\t\ttransition:all 0.4s;\n\t\tfont-size : var(--labelFontSize);\n\t}\n\n\t&:after{\n\t\tcontent:"', '";\n        position: absolute;\n        font-size: var(--infoFontSize);\n        color: ', ';\n    \tleft: 0px;\n    \tbackground: var(--infoBgColor);\n    \tpadding: 5px;\n    \tbox-shadow: var(--infoBoxShadow);\n    \tdisplay: ', ';\n    \tz-index: 1;\n\t}\n\t\n']),
-    _templateObject4 = _taggedTemplateLiteral(['\n\twidth: 100%;\n    position: absolute;\n    background: var(--dropdownBgColor);\n    box-shadow: 1px 1px 4px 0px #8e8181;\n    font-size: var(--inputFontSize);\n    color: var(--dropdownColor);\n    z-index:3;\n'], ['\n\twidth: 100%;\n    position: absolute;\n    background: var(--dropdownBgColor);\n    box-shadow: 1px 1px 4px 0px #8e8181;\n    font-size: var(--inputFontSize);\n    color: var(--dropdownColor);\n    z-index:3;\n']),
-    _templateObject5 = _taggedTemplateLiteral(['\n\tbox-sizing: border-box;\n    padding: 3px 0px 3px 10px;\n    &:hover{\n    \tbackground-color: var(--dropdownHoverBgColor);\n\t    opacity: 0.8;\n\t    color: var(--dropdownHoverColor);\n    }\n'], ['\n\tbox-sizing: border-box;\n    padding: 3px 0px 3px 10px;\n    &:hover{\n    \tbackground-color: var(--dropdownHoverBgColor);\n\t    opacity: 0.8;\n\t    color: var(--dropdownHoverColor);\n    }\n']),
+    _templateObject4 = _taggedTemplateLiteral(['\n\twidth: 100%;\n    position: absolute;\n    background: var(--dropdownBgColor);\n    box-shadow: var(--dropdownShadow);\n    font-size: var(--inputFontSize);\n    color: var(--dropdownColor);\n    z-index:3;\n    max-height : 200px;\n    overflow : auto;\n'], ['\n\twidth: 100%;\n    position: absolute;\n    background: var(--dropdownBgColor);\n    box-shadow: var(--dropdownShadow);\n    font-size: var(--inputFontSize);\n    color: var(--dropdownColor);\n    z-index:3;\n    max-height : 200px;\n    overflow : auto;\n']),
+    _templateObject5 = _taggedTemplateLiteral(['\n\t  box-sizing: border-box;\n    padding: 10px 5px 10px 10px;\n    &:hover{\n    \tbackground-color: var(--dropdownHoverBgColor);\n\t    opacity: 0.8;\n\t    color: var(--dropdownHoverColor);\n    }\n'], ['\n\t  box-sizing: border-box;\n    padding: 10px 5px 10px 10px;\n    &:hover{\n    \tbackground-color: var(--dropdownHoverBgColor);\n\t    opacity: 0.8;\n\t    color: var(--dropdownHoverColor);\n    }\n']),
     _templateObject6 = _taggedTemplateLiteral(['\n\tbackground-color : var(--dropdownHoverBgColor);\n\topacity: 0.8;\n\tcolor: var(--dropdownHoverColor);\n'], ['\n\tbackground-color : var(--dropdownHoverBgColor);\n\topacity: 0.8;\n\tcolor: var(--dropdownHoverColor);\n']);
 
 var _styledComponents = __webpack_require__(1);
@@ -2948,6 +2951,8 @@ var CSSVariables = _styledComponents2.default.div(_templateObject, function (pro
   return props.LABEL_FONT_SIZE;
 }, function (props) {
   return props.INPUT_FONT_SIZE;
+}, function (props) {
+  return props.DROPDOWN_SHADOW;
 }, function (props) {
   return props.INFO_FONT_SIZE;
 }, function (props) {
@@ -3650,7 +3655,7 @@ var Dropdown = function (_React$PureComponent) {
 		value: function filterOptions(e) {
 			var searchVal = e.target.value;
 			var filteredList = this.state.optionsList.filter(function (option) {
-				var patt = new RegExp(searchVal);
+				var patt = new RegExp(searchVal, 'i');
 				return patt.test(option.label);
 			});
 
@@ -3810,7 +3815,7 @@ exports.SelectedListItem = exports.ListItem = exports.DropdownListWrapper = expo
 
 var _templateObject = _taggedTemplateLiteral(['\n  --labelColor : ', ';\n  --inputColor : ', ';\n  --inputBorderColor : ', ';\n  --helpTextColor : ', ';\n  --errorTextColor : ', ';\n  --dropdownColor : ', ';\n  --dropdownBgColor : ', ';\n  --dropdownHoverColor : ', ';\n  --dropdownHoverBgColor : ', ';\n  --defaultGreen : ', ';\n  --defaultRed : ', ';\n  --defaultBlue :', ';\n  --labelFontSizeSmall : ', ';\n  --inputFontSize : ', ';\n  --infoFontSize : ', ';\n  --dropdownShadow : ', ';\n  --infoBgColor : ', ';\n  --infoBoxShadow : ', ';\n  --inputBorderWidth : ', ';\n'], ['\n  --labelColor : ', ';\n  --inputColor : ', ';\n  --inputBorderColor : ', ';\n  --helpTextColor : ', ';\n  --errorTextColor : ', ';\n  --dropdownColor : ', ';\n  --dropdownBgColor : ', ';\n  --dropdownHoverColor : ', ';\n  --dropdownHoverBgColor : ', ';\n  --defaultGreen : ', ';\n  --defaultRed : ', ';\n  --defaultBlue :', ';\n  --labelFontSizeSmall : ', ';\n  --inputFontSize : ', ';\n  --infoFontSize : ', ';\n  --dropdownShadow : ', ';\n  --infoBgColor : ', ';\n  --infoBoxShadow : ', ';\n  --inputBorderWidth : ', ';\n']),
     _templateObject2 = _taggedTemplateLiteral(['\n    //padding: 10px 0;\n    position:relative;\n    outline : none;\n\n    span{\n    \twidth: 100%;\n\t    display: block;\n\t    font-size : var(--inputFontSize);\n\t    padding: 15px 0px 0px;\n\t    box-sizing: border-box;\n      border-style : solid;\n      border-width : var(--inputBorderWidth);\n      border-color : var(--inputBorderColor);\n\t    color : var(--inputColor);\n    }\n\n    span:after{\n\t\tposition: absolute;\n\t    content: \'\';\n\t    right: 10px;\n\t    top: 45%;\n\t    border-top: 8px solid;\n\t    border-right: 6px solid transparent;\n\t    border-bottom: 6px solid transparent;\n\t    border-left: 6px solid transparent;\n\t}\n\n    label{\n    \tposition: absolute;\n\t    top: 2px;\n\t    left: 0px;\n\t    font-size: var(--labelFontSizeSmall);\n\t    color: var(--labelColor);\n    }\n\n    &:after{\n    \tcontent:"', '";\n      position: absolute;\n      left:0px;\n      top : 105%;\n      font-size: var(--infoFontSize);\n      color: ', ';\n    \tbackground: var(--infoBgColor);\n    \tpadding: 5px;\n    \tbox-shadow: var(--infoBoxShadow);\n    \tdisplay: ', ';\n        z-index: 1;\n    }\n'], ['\n    //padding: 10px 0;\n    position:relative;\n    outline : none;\n\n    span{\n    \twidth: 100%;\n\t    display: block;\n\t    font-size : var(--inputFontSize);\n\t    padding: 15px 0px 0px;\n\t    box-sizing: border-box;\n      border-style : solid;\n      border-width : var(--inputBorderWidth);\n      border-color : var(--inputBorderColor);\n\t    color : var(--inputColor);\n    }\n\n    span:after{\n\t\tposition: absolute;\n\t    content: \'\';\n\t    right: 10px;\n\t    top: 45%;\n\t    border-top: 8px solid;\n\t    border-right: 6px solid transparent;\n\t    border-bottom: 6px solid transparent;\n\t    border-left: 6px solid transparent;\n\t}\n\n    label{\n    \tposition: absolute;\n\t    top: 2px;\n\t    left: 0px;\n\t    font-size: var(--labelFontSizeSmall);\n\t    color: var(--labelColor);\n    }\n\n    &:after{\n    \tcontent:"', '";\n      position: absolute;\n      left:0px;\n      top : 105%;\n      font-size: var(--infoFontSize);\n      color: ', ';\n    \tbackground: var(--infoBgColor);\n    \tpadding: 5px;\n    \tbox-shadow: var(--infoBoxShadow);\n    \tdisplay: ', ';\n        z-index: 1;\n    }\n']),
-    _templateObject3 = _taggedTemplateLiteral(['\n\tposition : absolute;\n    background : var(--dropdownBgColor);\n    width : 100%;\n    box-shadow : var(--dropdownShadow);\n    font-size : var(--inputFontSize);\n    z-index : 3;\n    input{\n    \twidth : 100%;\n    \tbox-sizing : border-box;\n    \tfont-size : 1rem;\n    \tpadding : 0 5px;\n    }\n'], ['\n\tposition : absolute;\n    background : var(--dropdownBgColor);\n    width : 100%;\n    box-shadow : var(--dropdownShadow);\n    font-size : var(--inputFontSize);\n    z-index : 3;\n    input{\n    \twidth : 100%;\n    \tbox-sizing : border-box;\n    \tfont-size : 1rem;\n    \tpadding : 0 5px;\n    }\n']),
+    _templateObject3 = _taggedTemplateLiteral(['\n\tposition : absolute;\n    background : var(--dropdownBgColor);\n    width : 100%;\n    box-shadow : var(--dropdownShadow);\n    font-size : var(--inputFontSize);\n    z-index : 3;\n    max-height : 200px;\n    overflow : auto;\n    input{\n    \twidth : 100%;\n    \tbox-sizing : border-box;\n    \tfont-size : 1rem;\n    \tpadding : 0 5px;\n    }\n'], ['\n\tposition : absolute;\n    background : var(--dropdownBgColor);\n    width : 100%;\n    box-shadow : var(--dropdownShadow);\n    font-size : var(--inputFontSize);\n    z-index : 3;\n    max-height : 200px;\n    overflow : auto;\n    input{\n    \twidth : 100%;\n    \tbox-sizing : border-box;\n    \tfont-size : 1rem;\n    \tpadding : 0 5px;\n    }\n']),
     _templateObject4 = _taggedTemplateLiteral(['\n\tbox-sizing : border-box;\n   \tpadding : 3px 0px 3px 10px;\n\n\t&:hover{\n\t\tbackground-color: var(--dropdownHoverBgColor);\n\t    opacity: 0.8;\n\t    color: var(--dropdownHoverColor);\n\t}\n'], ['\n\tbox-sizing : border-box;\n   \tpadding : 3px 0px 3px 10px;\n\n\t&:hover{\n\t\tbackground-color: var(--dropdownHoverBgColor);\n\t    opacity: 0.8;\n\t    color: var(--dropdownHoverColor);\n\t}\n']),
     _templateObject5 = _taggedTemplateLiteral(['\n\tbackground-color: var(--dropdownHoverBgColor);\n    opacity: 0.8;\n    color: var(--dropdownHoverColor);\n'], ['\n\tbackground-color: var(--dropdownHoverBgColor);\n    opacity: 0.8;\n    color: var(--dropdownHoverColor);\n']);
 
@@ -4476,13 +4481,13 @@ var _form = __webpack_require__(52);
 
 var _form2 = _interopRequireDefault(_form);
 
-var _labeledInput = __webpack_require__(55);
+var _labeledInput = __webpack_require__(60);
 
-var _radioButtonGroup = __webpack_require__(57);
+var _radioButtonGroup = __webpack_require__(62);
 
 var _radioButtonGroup2 = _interopRequireDefault(_radioButtonGroup);
 
-var _select = __webpack_require__(59);
+var _select = __webpack_require__(64);
 
 var _select2 = _interopRequireDefault(_select);
 
@@ -7210,11 +7215,10 @@ exports.default = {
 	INPUT_BORDER_COLOR: '#9896b1',
 	INPUT_BORDER_WIDTH: '0px 0px 1px 0px',
 	DROPDOWN_COLOR: '#333',
-	DROPDOWN_BACKGROUND: 'whitesmoke',
+	DROPDOWN_BACKGROUND: 'white',
 	DROPDOWN_HOVER_COLOR: '#FFF',
 	DROPDOWN_HOVER_BG_COLOR: '#007FFF',
-	DROPDOWN_INPUT_SHADOW: '1px 1px 1px 1px #c3c3c3',
-	DROPDOWN_SHADOW: '2px 2px 10px 0px #8e8181'
+	DROPDOWN_SHADOW: '2px 2px 10px 0px #d3d3d3'
 };
 module.exports = exports['default'];
 
@@ -8466,11 +8470,15 @@ var _core13 = __webpack_require__(18);
 
 var _core14 = _interopRequireDefault(_core13);
 
+var _suffleBox = __webpack_require__(54);
+
+var _suffleBox2 = _interopRequireDefault(_suffleBox);
+
 var _closePopupListener = __webpack_require__(5);
 
 var _closePopupListener2 = _interopRequireDefault(_closePopupListener);
 
-var _styledComponents = __webpack_require__(54);
+var _styledComponents = __webpack_require__(59);
 
 var _colorConfigMerger = __webpack_require__(2);
 
@@ -8556,7 +8564,6 @@ var GenericForm = function (_React$PureComponent) {
 	}, {
 		key: 'setItemHelper',
 		value: function setItemHelper(formItem, value) {
-
 			if (value && value.dependent) {
 				for (var key in value.dependent) {
 					var dependentItem = this.formState[key];
@@ -8678,6 +8685,9 @@ var GenericForm = function (_React$PureComponent) {
 				case 'text':
 					{}
 
+				case 'email':
+					{}
+
 				case 'number':
 					{
 
@@ -8790,6 +8800,17 @@ var GenericForm = function (_React$PureComponent) {
 						break;
 					}
 
+				case 'sufflebox':
+					{
+						ret = _react2.default.createElement(
+							_styledComponents.InputWrapper,
+							null,
+							_react2.default.createElement(_suffleBox2.default, _extends({}, formItem, {
+								setItem: this.setItem }))
+						);
+						break;
+					}
+
 				default:
 					{
 						return null;
@@ -8881,7 +8902,6 @@ exports.default = {
 	DROPDOWN_INPUT_BACKGROUND: '#efedfb',
 	DROPDOWN_HOVER_COLOR: '#FFF',
 	DROPDOWN_HOVER_BG_COLOR: '#007FFF',
-	DROPDOWN_INPUT_SHADOW: '1px 1px 1px 1px #c3c3c3',
 	DROPDOWN_SHADOW: '2px 2px 10px 0px #8e8181',
 	DEFAULT_GREEN_COLOR: '#008000',
 	DEFAULT_BLUE_COLOR: '#007FFF',
@@ -8918,6 +8938,478 @@ module.exports = exports['default'];
 
 /***/ }),
 /* 54 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _templateObject = _taggedTemplateLiteral(['\n\tfont-size : var(--inputFontSize);\n\tcolor : var(--labelColor);\n'], ['\n\tfont-size : var(--inputFontSize);\n\tcolor : var(--labelColor);\n']);
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _styledComponents = __webpack_require__(1);
+
+var _styledComponents2 = _interopRequireDefault(_styledComponents);
+
+var _box = __webpack_require__(55);
+
+var _box2 = _interopRequireDefault(_box);
+
+var _transferIcons = __webpack_require__(57);
+
+var _transferIcons2 = _interopRequireDefault(_transferIcons);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+var Wrapper = _styledComponents2.default.div(_templateObject);
+
+var SuffleBox = function (_React$Component) {
+	_inherits(SuffleBox, _React$Component);
+
+	function SuffleBox(props) {
+		_classCallCheck(this, SuffleBox);
+
+		var _this = _possibleConstructorReturn(this, (SuffleBox.__proto__ || Object.getPrototypeOf(SuffleBox)).call(this, props));
+
+		_this.toggleList1Items = _this.toggleList1Items.bind(_this);
+		_this.toggleList2Items = _this.toggleList2Items.bind(_this);
+		_this.handleDown = _this.handleDown.bind(_this);
+		_this.handleUp = _this.handleUp.bind(_this);
+
+		_this.state = {
+			optionsList: _this.props.optionsList,
+			selectedList: _this.props.selectedList
+		};
+		return _this;
+	}
+
+	_createClass(SuffleBox, [{
+		key: 'toggleList1Items',
+		value: function toggleList1Items(item) {
+			var list = this.state.optionsList || [],
+			    newList = this.toggleListItem(item, list);
+
+			this.setState({
+				optionsList: newList
+			});
+		}
+	}, {
+		key: 'toggleList2Items',
+		value: function toggleList2Items(item) {
+			var list = this.state.selectedList || [],
+			    newList = this.toggleListItem(item, list);
+
+			this.setState({
+				selectedList: newList
+			});
+		}
+	}, {
+		key: 'toggleListItem',
+		value: function toggleListItem(item, list) {
+			var newList = list.map(function (listItem) {
+				if (item.id == listItem.id) {
+					listItem.selected = !listItem.selected;
+				}
+
+				return listItem;
+			});
+
+			return newList;
+		}
+	}, {
+		key: 'handleDown',
+		value: function handleDown() {
+			var newOptionsList = [];
+			var filterOptions = (this.state.optionsList || []).filter(function (option) {
+				if (!option.selected) {
+					newOptionsList.push(option);
+				} else {
+					option.selected = false;
+					return option;
+				}
+			});
+
+			var newSelectedList = [].concat(_toConsumableArray(this.state.selectedList), _toConsumableArray(filterOptions));
+
+			this.props.setItem(this.props.name, {
+				selectedList: newSelectedList,
+				optionsList: newOptionsList
+			});
+
+			this.setState({
+				selectedList: newSelectedList,
+				optionsList: newOptionsList
+			});
+		}
+	}, {
+		key: 'handleUp',
+		value: function handleUp() {
+			var newSelectedList = [];
+			var filterOptions = (this.state.selectedList || []).filter(function (option) {
+				if (!option.selected) {
+					newSelectedList.push(option);
+				} else {
+					option.selected = false;
+					return option;
+				}
+			});
+
+			var newOptionsList = [].concat(_toConsumableArray(this.state.optionsList), _toConsumableArray(filterOptions));
+
+			this.props.setItem(this.props.name, {
+				selectedList: newSelectedList,
+				optionsList: newOptionsList
+			});
+
+			this.setState({
+				selectedList: newSelectedList,
+				optionsList: newOptionsList
+			});
+		}
+	}, {
+		key: 'render',
+		value: function render() {
+			var props = this.props;
+			return _react2.default.createElement(
+				Wrapper,
+				null,
+				_react2.default.createElement(
+					'label',
+					null,
+					props.label
+				),
+				_react2.default.createElement(_box2.default, { label: props.optionsListLabel,
+					list: this.state.optionsList,
+					toggleListItem: this.toggleList1Items }),
+				_react2.default.createElement(_transferIcons2.default, { handleDown: this.handleDown,
+					handleUp: this.handleUp }),
+				_react2.default.createElement(_box2.default, { label: props.selectedListLabel,
+					list: this.state.selectedList,
+					toggleListItem: this.toggleList2Items })
+			);
+		}
+	}]);
+
+	return SuffleBox;
+}(_react2.default.Component);
+
+exports.default = SuffleBox;
+module.exports = exports['default'];
+
+/***/ }),
+/* 55 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _templateObject = _taggedTemplateLiteral(['\n\tborder : 1px solid var(--inputBorderColor);\n\tborder-radius : 5px;\n\tpadding : 3px;\n\tlabel { \n\t\tmargin-left : 10px;\t\n\t\tfont-weight : 600;\n\t\tcolor : var(--labelColor);\n\t}\n'], ['\n\tborder : 1px solid var(--inputBorderColor);\n\tborder-radius : 5px;\n\tpadding : 3px;\n\tlabel { \n\t\tmargin-left : 10px;\t\n\t\tfont-weight : 600;\n\t\tcolor : var(--labelColor);\n\t}\n']),
+    _templateObject2 = _taggedTemplateLiteral(['\n\tfont-size : 0.8em;\n'], ['\n\tfont-size : 0.8em;\n']);
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _styledComponents = __webpack_require__(1);
+
+var _styledComponents2 = _interopRequireDefault(_styledComponents);
+
+var _listItem = __webpack_require__(56);
+
+var _listItem2 = _interopRequireDefault(_listItem);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+var Wrapper = _styledComponents2.default.div(_templateObject);
+
+var ListWrapper = _styledComponents2.default.div(_templateObject2);
+
+var Box = function (_React$Component) {
+	_inherits(Box, _React$Component);
+
+	function Box(props) {
+		_classCallCheck(this, Box);
+
+		return _possibleConstructorReturn(this, (Box.__proto__ || Object.getPrototypeOf(Box)).call(this, props));
+	}
+
+	_createClass(Box, [{
+		key: 'render',
+		value: function render() {
+			var _this2 = this;
+
+			var props = this.props,
+			    innerHtml = (props.list || []).map(function (item) {
+				return _react2.default.createElement(_listItem2.default, { item: item,
+					key: item.id,
+					toggleSelect: _this2.props.toggleListItem });
+			});
+			return _react2.default.createElement(
+				Wrapper,
+				null,
+				_react2.default.createElement(
+					'label',
+					null,
+					props.label
+				),
+				_react2.default.createElement(
+					ListWrapper,
+					null,
+					innerHtml
+				)
+			);
+		}
+	}]);
+
+	return Box;
+}(_react2.default.Component);
+
+exports.default = Box;
+module.exports = exports['default'];
+
+/***/ }),
+/* 56 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _templateObject = _taggedTemplateLiteral(['\n\tdisplay : inline-block;\n\tpadding : 5px;\n\tborder-radius : 5px;\n\tbackground : ', ';\n\tcolor : #fff;\n\tmargin : 5px;\n'], ['\n\tdisplay : inline-block;\n\tpadding : 5px;\n\tborder-radius : 5px;\n\tbackground : ', ';\n\tcolor : #fff;\n\tmargin : 5px;\n']);
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _styledComponents = __webpack_require__(1);
+
+var _styledComponents2 = _interopRequireDefault(_styledComponents);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+var Wrapper = _styledComponents2.default.div(_templateObject, function (props) {
+	return props.selected ? 'linear-gradient(#7CB5DD,#7CB501)' : 'linear-gradient(#d3d3d3,#b3b3b3)';
+});
+
+var ListItem = function (_React$Component) {
+	_inherits(ListItem, _React$Component);
+
+	function ListItem(props) {
+		_classCallCheck(this, ListItem);
+
+		var _this = _possibleConstructorReturn(this, (ListItem.__proto__ || Object.getPrototypeOf(ListItem)).call(this, props));
+
+		_this.toggleSelect = _this.toggleSelect.bind(_this);
+		return _this;
+	}
+
+	_createClass(ListItem, [{
+		key: 'toggleSelect',
+		value: function toggleSelect() {
+			this.props.toggleSelect(this.props.item);
+		}
+	}, {
+		key: 'render',
+		value: function render() {
+			var props = this.props;
+			return _react2.default.createElement(
+				Wrapper,
+				{ selected: props.item.selected,
+					onClick: this.toggleSelect },
+				props.item.label
+			);
+		}
+	}]);
+
+	return ListItem;
+}(_react2.default.Component);
+
+exports.default = ListItem;
+module.exports = exports['default'];
+
+/***/ }),
+/* 57 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _templateObject = _taggedTemplateLiteral(['\n\ttext-align : center;\n\tmargin : 5px 0;\n\theight : 28px;\n\tdisplay : flex;\n\tjustify-content : center;\n'], ['\n\ttext-align : center;\n\tmargin : 5px 0;\n\theight : 28px;\n\tdisplay : flex;\n\tjustify-content : center;\n']),
+    _templateObject2 = _taggedTemplateLiteral(['\n\twidth :20px;\n\theight : 15px;\n\ttransform-origin : center; \n\ttransform : ', ';\n\tpadding 5px;\n\tmargin : 0 5px;\n\tcursor : pointer;\n\tstroke-width : 2px;\n\t&:after{\n\t\tposition: absolute;\n\t    content: \'\';\n\t    width: 46px;\n\t    height: 46px;\n\t    background: #333;\n\t    border-radius: 50%;\n\t    top: -10px;\n\t    left: -10px;\n\t    opacity: 0;\n\t    transform : scale(1);\n\t    transition : all 0.4s;\n\t    z-index : -1;\n\t}\n\n\t&:active:after{\n\t\topacity:1;\n\t\ttransform : scale(0);\n\t\ttransition : all 0s;\n\t}\n'], ['\n\twidth :20px;\n\theight : 15px;\n\ttransform-origin : center; \n\ttransform : ', ';\n\tpadding 5px;\n\tmargin : 0 5px;\n\tcursor : pointer;\n\tstroke-width : 2px;\n\t&:after{\n\t\tposition: absolute;\n\t    content: \'\';\n\t    width: 46px;\n\t    height: 46px;\n\t    background: #333;\n\t    border-radius: 50%;\n\t    top: -10px;\n\t    left: -10px;\n\t    opacity: 0;\n\t    transform : scale(1);\n\t    transition : all 0.4s;\n\t    z-index : -1;\n\t}\n\n\t&:active:after{\n\t\topacity:1;\n\t\ttransform : scale(0);\n\t\ttransition : all 0s;\n\t}\n']);
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _styledComponents = __webpack_require__(1);
+
+var _styledComponents2 = _interopRequireDefault(_styledComponents);
+
+var _arrow = __webpack_require__(58);
+
+var _arrow2 = _interopRequireDefault(_arrow);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+var Wrapper = _styledComponents2.default.div(_templateObject);
+
+var TransferIcon = _styledComponents2.default.div(_templateObject2, function (props) {
+	return props.up ? 'rotate(90deg)' : 'rotate(-90deg)';
+});
+
+var TransferIcons = function (_React$Component) {
+	_inherits(TransferIcons, _React$Component);
+
+	function TransferIcons() {
+		_classCallCheck(this, TransferIcons);
+
+		return _possibleConstructorReturn(this, (TransferIcons.__proto__ || Object.getPrototypeOf(TransferIcons)).apply(this, arguments));
+	}
+
+	_createClass(TransferIcons, [{
+		key: 'render',
+		value: function render() {
+			return _react2.default.createElement(
+				Wrapper,
+				null,
+				_react2.default.createElement(
+					TransferIcon,
+					{ onClick: this.props.handleDown },
+					_react2.default.createElement(_arrow2.default, null)
+				),
+				_react2.default.createElement(
+					TransferIcon,
+					{ up: true,
+						onClick: this.props.handleUp },
+					_react2.default.createElement(_arrow2.default, null)
+				)
+			);
+		}
+	}]);
+
+	return TransferIcons;
+}(_react2.default.Component);
+
+exports.default = TransferIcons;
+module.exports = exports['default'];
+
+/***/ }),
+/* 58 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Arrow = function (_React$Component) {
+	_inherits(Arrow, _React$Component);
+
+	function Arrow() {
+		_classCallCheck(this, Arrow);
+
+		return _possibleConstructorReturn(this, (Arrow.__proto__ || Object.getPrototypeOf(Arrow)).apply(this, arguments));
+	}
+
+	_createClass(Arrow, [{
+		key: 'render',
+		value: function render() {
+			return _react2.default.createElement(
+				'svg',
+				{ width: '20', height: '15',
+					stroke: this.props.color || 'black' },
+				_react2.default.createElement(
+					'g',
+					null,
+					_react2.default.createElement('path', { d: 'm10 0 l-10 7.5 l10 7.5 m-10 -7.5 l18 0', fill: 'none' })
+				)
+			);
+		}
+	}]);
+
+	return Arrow;
+}(_react2.default.Component);
+
+exports.default = Arrow;
+module.exports = exports['default'];
+
+/***/ }),
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9073,7 +9565,7 @@ exports.DropdownInputWrapper = DropdownInputWrapper;
 exports.RadioGroupInputWrapper = RadioGroupInputWrapper;
 
 /***/ }),
-/* 55 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9096,7 +9588,7 @@ var _core = __webpack_require__(22);
 
 var _core2 = _interopRequireDefault(_core);
 
-var _colorConfig = __webpack_require__(56);
+var _colorConfig = __webpack_require__(61);
 
 var _colorConfig2 = _interopRequireDefault(_colorConfig);
 
@@ -9172,7 +9664,7 @@ exports.NumberInput = NumberInput;
 exports.TextInput = TextInput;
 
 /***/ }),
-/* 56 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9234,7 +9726,7 @@ exports.default = {
 module.exports = exports['default'];
 
 /***/ }),
-/* 57 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9254,7 +9746,7 @@ var _core = __webpack_require__(26);
 
 var _core2 = _interopRequireDefault(_core);
 
-var _colorConfig = __webpack_require__(58);
+var _colorConfig = __webpack_require__(63);
 
 var _colorConfig2 = _interopRequireDefault(_colorConfig);
 
@@ -9303,7 +9795,7 @@ exports.default = RadioGroupExample;
 module.exports = exports['default'];
 
 /***/ }),
-/* 58 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9365,7 +9857,7 @@ exports.default = {
 module.exports = exports['default'];
 
 /***/ }),
-/* 59 */
+/* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9385,7 +9877,7 @@ var _core = __webpack_require__(24);
 
 var _core2 = _interopRequireDefault(_core);
 
-var _colorConfig = __webpack_require__(60);
+var _colorConfig = __webpack_require__(65);
 
 var _colorConfig2 = _interopRequireDefault(_colorConfig);
 
@@ -9434,7 +9926,7 @@ exports.default = SelectInput;
 module.exports = exports['default'];
 
 /***/ }),
-/* 60 */
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
