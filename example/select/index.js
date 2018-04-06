@@ -27,17 +27,29 @@ export default class RadioGroupExample extends React.Component{
 	}
 
 	render(){
-		let config = {
-			label : 'Dummy Label',
-			name : 'test_input',
-			setItem : this.setItem,
-			optionsList : this.optionsList,
-			value : this.state.value
-		}
+		let config1 = {
+				label : 'Dummy Label',
+				name : 'test_input',
+				setItem : this.setItem,
+				optionsList : this.optionsList,
+				value : this.state.value
+			},
+			config2 = {
+				label : 'Dummy Label',
+				name : 'test_input',
+				setItem : this.setItem,
+				optionsList : this.optionsList
+			},
+			colorConfig = {
+				SELECT_OPTION_COLOR : 'blue',
+				INPUT_COLOR : 'red'
+			}
 
 		return(
 			<Wrapper>
-				<SelectInput inputConfig={config}/>
+				<SelectInput inputConfig={config1}/>
+				<SelectInput inputConfig={config2}
+				             colorConfig={colorConfig}/>
 			</Wrapper>					
 			)
 	}

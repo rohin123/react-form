@@ -5,8 +5,9 @@ const Wrapper = styled.div`
 	display : inline-block;
 	padding : 5px;
 	border-radius : 5px;
-	background : ${ props => props.selected ? 'linear-gradient(#7CB5DD,#7CB501)' : 'linear-gradient(#a3a3a3,#c3c3c3)'};
-	color : #fff;
+	cursor : pointer;
+	background : ${ props => props.selected ? 'var(--suffleItemBGSelected)' : 'var(--suffleItemBG)'};
+	color : var(--suffleItemColor,#fff);
 	margin : 5px;
 `
 

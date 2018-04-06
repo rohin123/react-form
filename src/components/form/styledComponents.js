@@ -48,6 +48,9 @@ const CSSVariables = styled.div`
   --calendarShadow : ${props => props.DATE_PICKER_SHADOW};
   --timepickerShadow : ${props => props.TIME_PICKER_SHADOW};
   --popupBgColor : ${props => props.POPUP_BG_COLOR};
+  --suffleItemBGSelected : ${props => props.SUFFLE_BOX_ITEM_BG_SELECTED};
+  --suffleItemBG: ${props => props.SUFFLE_BOX_ITEM_BG};
+  --suffleItemColor : ${props => props.SUFFLE_BOX_ITEM_COLOR};
 `;
 
 const FormWrapper = styled.div`

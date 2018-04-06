@@ -36,7 +36,9 @@ export default class SelectInputCore extends React.PureComponent{
 		let props = this.props
 		let optionsHtml = this.state.optionsList.map((option)=>{
 			if(this.selectedOption && (option.id==this.selectedOption.id)){
-				return <option value={option.id} selected>{option.label}</option>
+				return <option value={option.id}
+								className='selected'	 
+								selected>{option.label}</option>
 			}
 			return <option value={option.id}>{option.label}</option>
 		})

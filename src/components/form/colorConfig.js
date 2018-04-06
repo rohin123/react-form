@@ -46,5 +46,8 @@ export default {
 	SUB_HEADING_FONT_SIZE : '1rem',
 	DATE_PICKER_SHADOW : 'none',
 	TIME_PICKER_SHADOW : 'none',
-	POPUP_BG_COLOR : 'rgba(0,0,0,0.6)'
+	POPUP_BG_COLOR : 'rgba(0,0,0,0.6)',
+	SUFFLE_BOX_ITEM_BG : 'linear-gradient(#a3a3a3,#c3c3c3)',
+  	SUFFLE_BOX_ITEM_BG_SELECTED : 'linear-gradient(#7CB5DD,#7CB501)',
+  	SUFFLE_BOX_ITEM_COLOR : '#fff'
 }

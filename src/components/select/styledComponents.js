@@ -19,6 +19,7 @@ const CSSVariables = styled.div`
   --dropdownShadow : ${props => props.DROPDOWN_SHADOW};
   --infoBgColor : ${props => props.INFO_BG_COLOR};
   --infoBoxShadow : ${props => props.INFO_BOX_SHADOW};
+  --selectOptionColor : ${props => props.SELECT_OPTION_COLOR};
 `
 
 const Wrapper = styled.div`
@@ -34,6 +35,10 @@ const Wrapper = styled.div`
 	    font-weight:300;
       background : inherit;
 	    color : var(--inputColor);
+    }
+
+    option{
+      color : var(--selectOptionColor);
     }
 
     label{

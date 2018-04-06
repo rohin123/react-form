@@ -9,7 +9,7 @@ import CheckBox from '../checkbox/core.js'
 import RadioButtonGroup from '../radioButtonGroup/core.js'
 import {BlockWrapper , HeadingWrapper, SubHeadingWrapper} from '../sharedStyledComponents.js'
 import DateTime from '../datetimeInput/core.js'
-import SuffleBox from '../suffleBox'
+import SuffleBox from '../suffleBox/core.js'
 import ClosePopupListener from '../../helpers/closePopupListener.js'
 import {
 			CSSVariables,FormWrapper,InputsWrapper,
