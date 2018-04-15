@@ -47,6 +47,12 @@ export default class LineChart extends React.Component{
 		this.xAxis = d3.axisBottom()
     					.scale(this.xScale)
     					.ticks(this.xAxisTicks)
+    					.tickValues(this.props.xData.map((d,i)=>{
+    						return i
+    					}))
+    					.tickFormat((d)=>{
+    						return this.props.xData[d]
+    					})
    
 		this.yAxis = d3.axisLeft()
     					.scale(this.yScale)
@@ -83,12 +89,14 @@ export default class LineChart extends React.Component{
 	}
 
 	calcXdomain(){
+		// let xData = this.props.xData
+		// if(xData.length){
+		// 	return [xData[0],xData[xData.length - 1]]
+		// }else{
+		// 	return [0,0]
+		// }
 		let xData = this.props.xData
-		if(xData.length){
-			return [xData[0],xData[xData.length - 1]]
-		}else{
-			return [0,0]
-		}
+		return [0,xData.length-1]
 	}
 
 	calcYdomain(){
@@ -224,15 +232,27 @@ export default class LineChart extends React.Component{
   								.attr("transform", "scale(0)")
   								.attr('opacity','0')
 					
-
-			infoRect.append('rect')
+		infoRect.append('rect')
 				.attr('class','rect')
 				.attr('rx',this.infoRectBorderRadius)
 				.attr('ry',this.infoRectBorderRadius)
 
 
-			infoRect.append('text')
+		let textNode = infoRect.append('text')
 					.attr('class','text')
+					.attr('x',0)
+					.attr('y',0)
+					
+			textNode.append('tspan')
+					.attr('class','x-info-span')
+					.attr('x',0)
+					.attr('y',-14)
+
+			textNode.append('tspan')
+					.attr('class','y-info-span')	
+					.attr('x',0)
+					.attr('y',0)
+					//.attr('dy',10)
 	}
 
 	addHoverEffect(){
@@ -254,12 +274,17 @@ export default class LineChart extends React.Component{
 
 					if(this.previousIndex != i){
 						this.previousIndex = i
-						let info = d.x+" : "+d.y
+						let info = <tspan></tspan>//d.x+"\n"+d.y
 			    	
 				    	let textElem = 	d3.select(self.svgId+' .info-rect .text')
+
 				    	textElem
-				    		//.transition()
-				    		.text(info)		
+				    		.select(self.svgId+' .info-rect .text .x-info-span')
+				    		.text('X : '+d.x)
+
+				    	textElem
+				    		.select(self.svgId+' .info-rect .text .y-info-span')
+				    		.text('Y : '+d.y)
 							//.attr('duration',this.transitionDuration)
 
 				    	let bbox = textElem.node().getBBox()
@@ -274,7 +299,7 @@ export default class LineChart extends React.Component{
 
 				    	d3.select(self.svgId+' .info-rect')
 				    		.transition()
-				    		.attr('transform',"translate("+(self.yAxisTranslate.x+self.xScale(d.x))+","+
+				    		.attr('transform',"translate("+(self.yAxisTranslate.x+self.xScale(d.x)-(bbox.width/2))+","+
 				    						((self.yScale(d.y)<self.yScale(0)?self.yScale(d.y):self.yScale(0)) - 
 				    								self.infoRectYOffset + self.yAxisTranslate.y)+") scale(1)")
 				    		.attr('opacity',this.infoRectOpacity)
@@ -285,14 +310,17 @@ export default class LineChart extends React.Component{
 			})
 			.on('mouseout',function(){
 
-				this.previousIndex = null
+				// this.previousIndex = null
 		    	
-		    	d3.select(self.svgId + ' .highlighted-point')
-		    		.remove()
+		    	// d3.select(self.svgId + ' .highlighted-point')
+		    	// 	.remove()
 
-		    	d3.select(self.svgId+' .info-rect')
-		    		.attr('opacity','0')
-		    		.attr('transform','scale(0)')
+		    	// d3.select(self.svgId+' .info-rect')
+		    	// 	.attr('opacity','0')
+		    	// 	.attr('transform','scale(0)')
+
+		    	// d3.select(self.svgId+' .info-rect .text')
+		    	// 	.remove()	
 
 			})
 

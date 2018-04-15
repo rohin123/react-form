@@ -19711,7 +19711,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.SelectedListItem = exports.ListItem = exports.SearchList = exports.SearchBox = exports.Wrapper = exports.CSSVariables = undefined;
 
-var _templateObject = _taggedTemplateLiteral(['\n  --labelColor : ', ';\n  --inputColor : ', ';\n  --inputBorderColor : ', ';\n  --inputBorderWidth : ', ';\n  //--helpTextColor : ', ';\n  //--errorTextColor : ', ';\n  --dropdownColor : ', ';\n  --dropdownBgColor : ', ';\n  --dropdownHoverColor : ', ';\n  --dropdownHoverBgColor : ', ';\n  //--defaultGreen : ', ';\n  //--defaultRed : ', ';\n  //--defaultBlue :', ';\n  --labelFontSize : ', ';\n  --inputFontSize : ', ';\n  --dropdownShadow : ', ';\n  //--infoFontSize : ', ';\n  //--infoBgColor : ', ';\n  //--infoBoxShadow : ', ';\n'], ['\n  --labelColor : ', ';\n  --inputColor : ', ';\n  --inputBorderColor : ', ';\n  --inputBorderWidth : ', ';\n  //--helpTextColor : ', ';\n  //--errorTextColor : ', ';\n  --dropdownColor : ', ';\n  --dropdownBgColor : ', ';\n  --dropdownHoverColor : ', ';\n  --dropdownHoverBgColor : ', ';\n  //--defaultGreen : ', ';\n  //--defaultRed : ', ';\n  //--defaultBlue :', ';\n  --labelFontSize : ', ';\n  --inputFontSize : ', ';\n  --dropdownShadow : ', ';\n  //--infoFontSize : ', ';\n  //--infoBgColor : ', ';\n  //--infoBoxShadow : ', ';\n']),
+var _templateObject = _taggedTemplateLiteral(['\n  --labelColor : ', ';\n  --inputColor : ', ';\n  --inputBorderColor : ', ';\n  --inputBorderWidth : ', ';\n  --dropdownColor : ', ';\n  --dropdownBgColor : ', ';\n  --dropdownHoverColor : ', ';\n  --dropdownHoverBgColor : ', ';\n  --labelFontSize : ', ';\n  --inputFontSize : ', ';\n  --dropdownShadow : ', ';\n  --inputPadding : ', ';\n'], ['\n  --labelColor : ', ';\n  --inputColor : ', ';\n  --inputBorderColor : ', ';\n  --inputBorderWidth : ', ';\n  --dropdownColor : ', ';\n  --dropdownBgColor : ', ';\n  --dropdownHoverColor : ', ';\n  --dropdownHoverBgColor : ', ';\n  --labelFontSize : ', ';\n  --inputFontSize : ', ';\n  --dropdownShadow : ', ';\n  --inputPadding : ', ';\n']),
     _templateObject2 = _taggedTemplateLiteral(['\n\t  width : 100%;\n    position: relative;\n    outline : none;\n'], ['\n\t  width : 100%;\n    position: relative;\n    outline : none;\n']),
     _templateObject3 = _taggedTemplateLiteral(['\n\tposition : relative;\n\tpadding: 15px 0 0;\n\tinput{\n      position:relative;\n      z-index:1;\n      width: 100%;\n\t    border: none;\n\t    border-style: solid;//', ';\n      border-width : var(--inputBorderWidth);\n\t    border-color: var(--inputBorderColor);\n\t    box-sizing: border-box;\n\t    font-size: var(--inputFontSize);\n\t    background-color:transparent;\n\t    color : var(--inputColor);\t\n\t    outline : none;\n\t}\n\n\tlabel{\n\t\tposition:absolute;\n\t\tleft : 0px;\n\t\ttop : 14px;\n\t\tcolor: var(--labelColor);\n\t\ttransform:', ';\n\t\ttransform-origin:top left;\n\t\ttransition:all 0.4s;\n\t\tfont-size : var(--labelFontSize);\n\t}\n\n\t&:after{\n\t\tcontent:"', '";\n        position: absolute;\n        font-size: var(--infoFontSize);\n        color: ', ';\n    \tleft: 0px;\n    \tbackground: var(--infoBgColor);\n    \tpadding: 5px;\n    \tbox-shadow: var(--infoBoxShadow);\n    \tdisplay: ', ';\n    \tz-index: 1;\n\t}\n\t\n'], ['\n\tposition : relative;\n\tpadding: 15px 0 0;\n\tinput{\n      position:relative;\n      z-index:1;\n      width: 100%;\n\t    border: none;\n\t    border-style: solid;//', ';\n      border-width : var(--inputBorderWidth);\n\t    border-color: var(--inputBorderColor);\n\t    box-sizing: border-box;\n\t    font-size: var(--inputFontSize);\n\t    background-color:transparent;\n\t    color : var(--inputColor);\t\n\t    outline : none;\n\t}\n\n\tlabel{\n\t\tposition:absolute;\n\t\tleft : 0px;\n\t\ttop : 14px;\n\t\tcolor: var(--labelColor);\n\t\ttransform:', ';\n\t\ttransform-origin:top left;\n\t\ttransition:all 0.4s;\n\t\tfont-size : var(--labelFontSize);\n\t}\n\n\t&:after{\n\t\tcontent:"', '";\n        position: absolute;\n        font-size: var(--infoFontSize);\n        color: ', ';\n    \tleft: 0px;\n    \tbackground: var(--infoBgColor);\n    \tpadding: 5px;\n    \tbox-shadow: var(--infoBoxShadow);\n    \tdisplay: ', ';\n    \tz-index: 1;\n\t}\n\t\n']),
     _templateObject4 = _taggedTemplateLiteral(['\n\twidth: 100%;\n    position: absolute;\n    background: var(--dropdownBgColor);\n    box-shadow: var(--dropdownShadow);\n    font-size: var(--inputFontSize);\n    color: var(--dropdownColor);\n    z-index:3;\n    max-height : 200px;\n    overflow : auto;\n'], ['\n\twidth: 100%;\n    position: absolute;\n    background: var(--dropdownBgColor);\n    box-shadow: var(--dropdownShadow);\n    font-size: var(--inputFontSize);\n    color: var(--dropdownColor);\n    z-index:3;\n    max-height : 200px;\n    overflow : auto;\n']),
@@ -19735,10 +19735,6 @@ var CSSVariables = _styledComponents2.default.div(_templateObject, function (pro
 }, function (props) {
   return props.INPUT_BORDER_WIDTH;
 }, function (props) {
-  return props.HELPTEXT_COLOR;
-}, function (props) {
-  return props.ERRORTEXT_COLOR;
-}, function (props) {
   return props.DROPDOWN_COLOR;
 }, function (props) {
   return props.DROPDOWN_BACKGROUND;
@@ -19747,23 +19743,13 @@ var CSSVariables = _styledComponents2.default.div(_templateObject, function (pro
 }, function (props) {
   return props.DROPDOWN_HOVER_BG_COLOR;
 }, function (props) {
-  return props.DEFAULT_GREEN_COLOR;
-}, function (props) {
-  return props.DEFAULT_RED_COLOR;
-}, function (props) {
-  return props.DEFAULT_BLUE_COLOR;
-}, function (props) {
   return props.LABEL_FONT_SIZE;
 }, function (props) {
   return props.INPUT_FONT_SIZE;
 }, function (props) {
   return props.DROPDOWN_SHADOW;
 }, function (props) {
-  return props.INFO_FONT_SIZE;
-}, function (props) {
-  return props.INFO_BG_COLOR;
-}, function (props) {
-  return props.INFO_BOX_SHADOW;
+  return props.INPUT_PADDING;
 });
 
 var Wrapper = _styledComponents2.default.div(_templateObject2);
@@ -21707,7 +21693,9 @@ var SelectInputCore = function (_React$PureComponent) {
 				if (_this3.selectedOption && option.id == _this3.selectedOption.id) {
 					return _react2.default.createElement(
 						'option',
-						{ value: option.id, selected: true },
+						{ value: option.id,
+							className: 'selected',
+							selected: true },
 						option.label
 					);
 				}
@@ -21767,8 +21755,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.Arrow = exports.SelectWrapper = exports.Wrapper = exports.CSSVariables = undefined;
 
-var _templateObject = _taggedTemplateLiteral(['\n  --labelColor : ', ';\n  --inputColor : ', ';\n  --inputBorderColor : ', ';\n  --helpTextColor : ', ';\n  --errorTextColor : ', ';\n  --dropdownColor : ', ';\n  --dropdownBgColor : ', ';\n  --dropdownHoverColor : ', ';\n  --dropdownHoverBgColor : ', ';\n  --defaultGreen : ', ';\n  --defaultRed : ', ';\n  --defaultBlue :', ';\n  --labelFontSizeSmall : ', ';\n  --inputFontSize : ', ';\n  --infoFontSize : ', ';\n  --dropdownShadow : ', ';\n  --infoBgColor : ', ';\n  --infoBoxShadow : ', ';\n'], ['\n  --labelColor : ', ';\n  --inputColor : ', ';\n  --inputBorderColor : ', ';\n  --helpTextColor : ', ';\n  --errorTextColor : ', ';\n  --dropdownColor : ', ';\n  --dropdownBgColor : ', ';\n  --dropdownHoverColor : ', ';\n  --dropdownHoverBgColor : ', ';\n  --defaultGreen : ', ';\n  --defaultRed : ', ';\n  --defaultBlue :', ';\n  --labelFontSizeSmall : ', ';\n  --inputFontSize : ', ';\n  --infoFontSize : ', ';\n  --dropdownShadow : ', ';\n  --infoBgColor : ', ';\n  --infoBoxShadow : ', ';\n']),
-    _templateObject2 = _taggedTemplateLiteral(['\n\t  position: relative;\n   // padding: 10px 0;\n  \n    select{\n    \t-webkit-appearance: none;\n\t    padding: 15px 10px 5px;\n\t    width: 100%;\n\t    font-size: 1rem;\n\t    outline: none;\n\t    font-weight:300;\n      background : inherit;\n\t    color : var(--inputColor);\n    }\n\n    label{\n    \tposition: absolute;\n\t    top: 2px;\n\t    left:10px;\n\t    font-size: 0.75rem;\n\t    color: var(--labelColor);\n    }\n\n    &:after{\n    \tcontent:"', '";\n        position: absolute;\n        top : 105%;\n        left:0px;\n        font-size: var(--infoFontSize);\n        color: ', ';\n\t    background: var(--infoBgColor);\n\t    padding: 5px;\n\t    box-shadow: var(--infoBoxShadow);\n    \tdisplay: ', ';\n        z-index : 1;\n    }\n'], ['\n\t  position: relative;\n   // padding: 10px 0;\n  \n    select{\n    \t-webkit-appearance: none;\n\t    padding: 15px 10px 5px;\n\t    width: 100%;\n\t    font-size: 1rem;\n\t    outline: none;\n\t    font-weight:300;\n      background : inherit;\n\t    color : var(--inputColor);\n    }\n\n    label{\n    \tposition: absolute;\n\t    top: 2px;\n\t    left:10px;\n\t    font-size: 0.75rem;\n\t    color: var(--labelColor);\n    }\n\n    &:after{\n    \tcontent:"', '";\n        position: absolute;\n        top : 105%;\n        left:0px;\n        font-size: var(--infoFontSize);\n        color: ', ';\n\t    background: var(--infoBgColor);\n\t    padding: 5px;\n\t    box-shadow: var(--infoBoxShadow);\n    \tdisplay: ', ';\n        z-index : 1;\n    }\n']),
+var _templateObject = _taggedTemplateLiteral(['\n  --labelColor : ', ';\n  --inputColor : ', ';\n  --inputBorderColor : ', ';\n  --helpTextColor : ', ';\n  --errorTextColor : ', ';\n  --dropdownColor : ', ';\n  --dropdownBgColor : ', ';\n  --dropdownHoverColor : ', ';\n  --dropdownHoverBgColor : ', ';\n  --defaultGreen : ', ';\n  --defaultRed : ', ';\n  --defaultBlue :', ';\n  --labelFontSizeSmall : ', ';\n  --inputFontSize : ', ';\n  --infoFontSize : ', ';\n  --dropdownShadow : ', ';\n  --infoBgColor : ', ';\n  --infoBoxShadow : ', ';\n  --selectOptionColor : ', ';\n'], ['\n  --labelColor : ', ';\n  --inputColor : ', ';\n  --inputBorderColor : ', ';\n  --helpTextColor : ', ';\n  --errorTextColor : ', ';\n  --dropdownColor : ', ';\n  --dropdownBgColor : ', ';\n  --dropdownHoverColor : ', ';\n  --dropdownHoverBgColor : ', ';\n  --defaultGreen : ', ';\n  --defaultRed : ', ';\n  --defaultBlue :', ';\n  --labelFontSizeSmall : ', ';\n  --inputFontSize : ', ';\n  --infoFontSize : ', ';\n  --dropdownShadow : ', ';\n  --infoBgColor : ', ';\n  --infoBoxShadow : ', ';\n  --selectOptionColor : ', ';\n']),
+    _templateObject2 = _taggedTemplateLiteral(['\n\t  position: relative;\n   // padding: 10px 0;\n  \n    select{\n    \t-webkit-appearance: none;\n\t    padding: 15px 10px 5px;\n\t    width: 100%;\n\t    font-size: 1rem;\n\t    outline: none;\n\t    font-weight:300;\n      background : inherit;\n\t    color : var(--inputColor);\n    }\n\n    option{\n      color : var(--selectOptionColor);\n    }\n\n    label{\n    \tposition: absolute;\n\t    top: 2px;\n\t    left:10px;\n\t    font-size: 0.75rem;\n\t    color: var(--labelColor);\n    }\n\n    &:after{\n    \tcontent:"', '";\n        position: absolute;\n        top : 105%;\n        left:0px;\n        font-size: var(--infoFontSize);\n        color: ', ';\n\t    background: var(--infoBgColor);\n\t    padding: 5px;\n\t    box-shadow: var(--infoBoxShadow);\n    \tdisplay: ', ';\n        z-index : 1;\n    }\n'], ['\n\t  position: relative;\n   // padding: 10px 0;\n  \n    select{\n    \t-webkit-appearance: none;\n\t    padding: 15px 10px 5px;\n\t    width: 100%;\n\t    font-size: 1rem;\n\t    outline: none;\n\t    font-weight:300;\n      background : inherit;\n\t    color : var(--inputColor);\n    }\n\n    option{\n      color : var(--selectOptionColor);\n    }\n\n    label{\n    \tposition: absolute;\n\t    top: 2px;\n\t    left:10px;\n\t    font-size: 0.75rem;\n\t    color: var(--labelColor);\n    }\n\n    &:after{\n    \tcontent:"', '";\n        position: absolute;\n        top : 105%;\n        left:0px;\n        font-size: var(--infoFontSize);\n        color: ', ';\n\t    background: var(--infoBgColor);\n\t    padding: 5px;\n\t    box-shadow: var(--infoBoxShadow);\n    \tdisplay: ', ';\n        z-index : 1;\n    }\n']),
     _templateObject3 = _taggedTemplateLiteral(['\n\tposition:relative;\n  select{\n    position : relative;\n    z-index : 1;\n  }\n'], ['\n\tposition:relative;\n  select{\n    position : relative;\n    z-index : 1;\n  }\n']),
     _templateObject4 = _taggedTemplateLiteral(['\n\tposition: absolute;\n    right: 10px;\n    top: 45%;\n    border-top: 8px solid;\n    border-right: 6px solid transparent;\n    border-bottom: 6px solid transparent;\n    border-left: 6px solid transparent;\n'], ['\n\tposition: absolute;\n    right: 10px;\n    top: 45%;\n    border-top: 8px solid;\n    border-right: 6px solid transparent;\n    border-bottom: 6px solid transparent;\n    border-left: 6px solid transparent;\n']);
 
@@ -21816,6 +21804,8 @@ var CSSVariables = _styledComponents2.default.div(_templateObject, function (pro
   return props.INFO_BG_COLOR;
 }, function (props) {
   return props.INFO_BOX_SHADOW;
+}, function (props) {
+  return props.SELECT_OPTION_COLOR;
 });
 
 var Wrapper = _styledComponents2.default.div(_templateObject2, function (props) {
@@ -45094,18 +45084,30 @@ var RadioGroupExample = function (_React$Component) {
 	}, {
 		key: 'render',
 		value: function render() {
-			var config = {
+			var config1 = {
 				label: 'Dummy Label',
 				name: 'test_input',
 				setItem: this.setItem,
 				optionsList: this.optionsList,
 				value: this.state.value
+			},
+			    config2 = {
+				label: 'Dummy Label',
+				name: 'test_input',
+				setItem: this.setItem,
+				optionsList: this.optionsList
+			},
+			    colorConfig = {
+				SELECT_OPTION_COLOR: 'blue',
+				INPUT_COLOR: 'red'
 			};
 
 			return _react2.default.createElement(
 				Wrapper,
 				null,
-				_react2.default.createElement(_select2.default, { inputConfig: config })
+				_react2.default.createElement(_select2.default, { inputConfig: config1 }),
+				_react2.default.createElement(_select2.default, { inputConfig: config2,
+					colorConfig: colorConfig })
 			);
 		}
 	}]);
@@ -45131,13 +45133,10 @@ exports.default = {
 	LABEL_FONT_SIZE: '1.1rem',
 	LABEL_FONT_SIZE_SMALL: '0.75rem',
 	INPUT_FONT_SIZE: '1rem',
-	INFO_FONT_SIZE: '0.8rem',
 	FORM_BACKGROUND: '#efedfb',
 	LABEL_COLOR: '#9896b1',
 	INPUT_COLOR: '#3b3a4b',
 	INPUT_BORDER_COLOR: '#9896b1',
-	HELPTEXT_COLOR: '#007FFF',
-	ERRORTEXT_COLOR: '#DF1D1D',
 	DROPDOWN_COLOR: '#333',
 	DROPDOWN_BACKGROUND: 'whitesmoke',
 	DROPDOWN_INPUT_BACKGROUND: '#efedfb',
@@ -45148,33 +45147,7 @@ exports.default = {
 	DEFAULT_GREEN_COLOR: '#008000',
 	DEFAULT_BLUE_COLOR: '#007FFF',
 	DEFAULT_RED_COLOR: '#DF1D1D',
-	CHECKBOX_BORDER_FALSE: '#6C6D6D',
-	CHECKBOX_BORDER_TRUE: '#007FFF',
-	CHECKBOX_TICK_COLOR: '#007FFF',
-	INFO_BG_COLOR: 'white',
-	INFO_BOX_SHADOW: '1px 1px 8px 0px #c3c3c3',
-	HEADING_BORDER: '1px solid #333',
-	DATE_PICKER_BG_COLOR: 'whitesmoke',
-	DATE_PICKER_HEADER_COLOR: '#333',
-	DATE_PICKER_HEADER_BORDER: "1px solid #333",
-	DATE_PICKER_ARROW_COLOR: '#333',
-	DATE_PICKER_DATE_COLOR: '007FFF',
-	DATE_PICKER_SELECTED_DATE_BG_COLOR: '#007FFF',
-	DATE_PICKER_SELECTED_DATE_COLOR: 'white',
-	TIME_PICKER_HEADER_BG_COLOR: 'whitesmoke',
-	TIME_PICKER_HEADER_COLOR: '#333',
-	TIME_PICKER_HEADER_BORDER_COLOR: '#c3c3c3',
-	TIME_PICKER_COLUMN_BORDER_COLOR: '#c3c3c3',
-	TIME_PICKER_COLUMN_BG_COLOR: 'white',
-	TIME_PICKER_COLUMN_COLOR: '#333',
-	TIME_PICKER_SELECTED_CELL_COLOR: '#007FFF',
-	TIME_PICKER_FOOTER_COLOR: '#333',
-	TIME_PICKER_FOOTER_BG_COLOR: 'whitesmoke',
-	HEADING_FONT_SIZE: '1.1rem',
-	SUB_HEADING_FONT_SIZE: '1rem',
-	DATE_PICKER_SHADOW: 'none',
-	TIME_PICKER_SHADOW: 'none',
-	POPUP_BG_COLOR: 'rgba(0,0,0,0.6)'
+	SELECT_OPTION_COLOR: '#333'
 };
 module.exports = exports['default'];
 
@@ -45651,9 +45624,9 @@ var _core13 = __webpack_require__(197);
 
 var _core14 = _interopRequireDefault(_core13);
 
-var _suffleBox = __webpack_require__(437);
+var _core15 = __webpack_require__(437);
 
-var _suffleBox2 = _interopRequireDefault(_suffleBox);
+var _core16 = _interopRequireDefault(_core15);
 
 var _closePopupListener = __webpack_require__(108);
 
@@ -45986,7 +45959,7 @@ var GenericForm = function (_React$PureComponent) {
 						ret = _react2.default.createElement(
 							_styledComponents.InputWrapper,
 							null,
-							_react2.default.createElement(_suffleBox2.default, _extends({}, formItem, {
+							_react2.default.createElement(_core16.default, _extends({}, formItem, {
 								setItem: this.setItem }))
 						);
 						break;
@@ -46113,7 +46086,10 @@ exports.default = {
 	SUB_HEADING_FONT_SIZE: '1rem',
 	DATE_PICKER_SHADOW: 'none',
 	TIME_PICKER_SHADOW: 'none',
-	POPUP_BG_COLOR: 'rgba(0,0,0,0.6)'
+	POPUP_BG_COLOR: 'rgba(0,0,0,0.6)',
+	SUFFLE_BOX_ITEM_BG: 'linear-gradient(#a3a3a3,#c3c3c3)',
+	SUFFLE_BOX_ITEM_BG_SELECTED: 'linear-gradient(#7CB5DD,#7CB501)',
+	SUFFLE_BOX_ITEM_COLOR: '#fff'
 };
 module.exports = exports['default'];
 
@@ -46130,7 +46106,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _templateObject = _taggedTemplateLiteral(['\n\tfont-size : var(--inputFontSize);\n\tcolor : var(--labelColor);\n'], ['\n\tfont-size : var(--inputFontSize);\n\tcolor : var(--labelColor);\n']);
+var _templateObject = _taggedTemplateLiteral(['\n\tfont-size : var(--inputFontSize);\n\tcolor : var(--labelColor);\n\n\tlabel{\n\t\tfont-size : var(--labelFontSize);\n\t}\n'], ['\n\tfont-size : var(--inputFontSize);\n\tcolor : var(--labelColor);\n\n\tlabel{\n\t\tfont-size : var(--labelFontSize);\n\t}\n']);
 
 var _react = __webpack_require__(1);
 
@@ -46393,7 +46369,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _templateObject = _taggedTemplateLiteral(['\n\tdisplay : inline-block;\n\tpadding : 5px;\n\tborder-radius : 5px;\n\tbackground : ', ';\n\tcolor : #fff;\n\tmargin : 5px;\n'], ['\n\tdisplay : inline-block;\n\tpadding : 5px;\n\tborder-radius : 5px;\n\tbackground : ', ';\n\tcolor : #fff;\n\tmargin : 5px;\n']);
+var _templateObject = _taggedTemplateLiteral(['\n\tdisplay : inline-block;\n\tpadding : 5px;\n\tborder-radius : 5px;\n\tcursor : pointer;\n\tbackground : ', ';\n\tcolor : var(--suffleItemColor,#fff);\n\tmargin : 5px;\n'], ['\n\tdisplay : inline-block;\n\tpadding : 5px;\n\tborder-radius : 5px;\n\tcursor : pointer;\n\tbackground : ', ';\n\tcolor : var(--suffleItemColor,#fff);\n\tmargin : 5px;\n']);
 
 var _react = __webpack_require__(1);
 
@@ -46414,7 +46390,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
 var Wrapper = _styledComponents2.default.div(_templateObject, function (props) {
-	return props.selected ? 'linear-gradient(#7CB5DD,#7CB501)' : 'linear-gradient(#d3d3d3,#b3b3b3)';
+	return props.selected ? 'var(--suffleItemBGSelected)' : 'var(--suffleItemBG)';
 });
 
 var ListItem = function (_React$Component) {
@@ -46601,7 +46577,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.RadioGroupInputWrapper = exports.DropdownInputWrapper = exports.CheckBoxInputWrapper = exports.InputWrapper = exports.Button = exports.ButtonsWrapper = exports.InputsWrapper = exports.FormWrapper = exports.CSSVariables = undefined;
 
-var _templateObject = _taggedTemplateLiteral(['\n  --formBgColor : ', ';\n  --labelColor : ', ';\n  --inputColor : ', ';\n  --inputBorderColor : ', ';\n  --inputBorderWidth : ', ';\n  --helpTextColor : ', ';\n  --errorTextColor : ', ';\n  --dropdownColor : ', ';\n  --dropdownBgColor : ', ';\n  --dropdownHoverColor : ', ';\n  --dropdownHoverBgColor : ', ';\n  --defaultGreen : ', ';\n  --defaultRed : ', ';\n  --defaultBlue :', ';\n  --checkboxBorderTrue : ', ';\n  --checkboxBorderFalse : ', ';\n  --checkboxTrikColor : ', ';\n  --flexBasis : ', ';\n  --labelFontSize : ', ';\n  --labelFontSizeSmall : ', ';\n  --inputFontSize : ', ';\n  --infoFontSize : ', ';\n  --dropdownShadow : ', ';\n  --infoBgColor : ', ';\n  --infoBoxShadow : ', ';\n  --headingBorder : ', ';\n  --datePickerBgColor : ', ';\n  --datePickerHeaderColor : ', ';\n  --datePickerHeaderBorder : ', ';\n  --datePickerArrowColor : ', ';\n  --datePickerDateColor : ', ';\n  --datePickerSelectedDateColor : ', ';\n  --datePickerSelectedDateBgColor : ', ';\n  --timepickerHeaderBgColor : ', ';\n  --timepickerHeaderColor : ', ';\n  --timepickerHeaderBorderColor : ', ';\n  --timepickerColumnBorderColor : ', ';\n  --timepickerColumnBgColor : ', ';\n  --timepickerColumnColor : ', ';\n  --timepickerSelectedCellColor : ', ';\n  --timepickerFooterColor : ', ';\n  --timepickerFooterBgColor : ', ';\n  --headingFontSize : ', ';\n  --subheadingFontSize : ', ';\n  --calendarShadow : ', ';\n  --timepickerShadow : ', ';\n  --popupBgColor : ', ';\n'], ['\n  --formBgColor : ', ';\n  --labelColor : ', ';\n  --inputColor : ', ';\n  --inputBorderColor : ', ';\n  --inputBorderWidth : ', ';\n  --helpTextColor : ', ';\n  --errorTextColor : ', ';\n  --dropdownColor : ', ';\n  --dropdownBgColor : ', ';\n  --dropdownHoverColor : ', ';\n  --dropdownHoverBgColor : ', ';\n  --defaultGreen : ', ';\n  --defaultRed : ', ';\n  --defaultBlue :', ';\n  --checkboxBorderTrue : ', ';\n  --checkboxBorderFalse : ', ';\n  --checkboxTrikColor : ', ';\n  --flexBasis : ', ';\n  --labelFontSize : ', ';\n  --labelFontSizeSmall : ', ';\n  --inputFontSize : ', ';\n  --infoFontSize : ', ';\n  --dropdownShadow : ', ';\n  --infoBgColor : ', ';\n  --infoBoxShadow : ', ';\n  --headingBorder : ', ';\n  --datePickerBgColor : ', ';\n  --datePickerHeaderColor : ', ';\n  --datePickerHeaderBorder : ', ';\n  --datePickerArrowColor : ', ';\n  --datePickerDateColor : ', ';\n  --datePickerSelectedDateColor : ', ';\n  --datePickerSelectedDateBgColor : ', ';\n  --timepickerHeaderBgColor : ', ';\n  --timepickerHeaderColor : ', ';\n  --timepickerHeaderBorderColor : ', ';\n  --timepickerColumnBorderColor : ', ';\n  --timepickerColumnBgColor : ', ';\n  --timepickerColumnColor : ', ';\n  --timepickerSelectedCellColor : ', ';\n  --timepickerFooterColor : ', ';\n  --timepickerFooterBgColor : ', ';\n  --headingFontSize : ', ';\n  --subheadingFontSize : ', ';\n  --calendarShadow : ', ';\n  --timepickerShadow : ', ';\n  --popupBgColor : ', ';\n']),
+var _templateObject = _taggedTemplateLiteral(['\n  --formBgColor : ', ';\n  --labelColor : ', ';\n  --inputColor : ', ';\n  --inputBorderColor : ', ';\n  --inputBorderWidth : ', ';\n  --helpTextColor : ', ';\n  --errorTextColor : ', ';\n  --dropdownColor : ', ';\n  --dropdownBgColor : ', ';\n  --dropdownHoverColor : ', ';\n  --dropdownHoverBgColor : ', ';\n  --defaultGreen : ', ';\n  --defaultRed : ', ';\n  --defaultBlue :', ';\n  --checkboxBorderTrue : ', ';\n  --checkboxBorderFalse : ', ';\n  --checkboxTrikColor : ', ';\n  --flexBasis : ', ';\n  --labelFontSize : ', ';\n  --labelFontSizeSmall : ', ';\n  --inputFontSize : ', ';\n  --infoFontSize : ', ';\n  --dropdownShadow : ', ';\n  --infoBgColor : ', ';\n  --infoBoxShadow : ', ';\n  --headingBorder : ', ';\n  --datePickerBgColor : ', ';\n  --datePickerHeaderColor : ', ';\n  --datePickerHeaderBorder : ', ';\n  --datePickerArrowColor : ', ';\n  --datePickerDateColor : ', ';\n  --datePickerSelectedDateColor : ', ';\n  --datePickerSelectedDateBgColor : ', ';\n  --timepickerHeaderBgColor : ', ';\n  --timepickerHeaderColor : ', ';\n  --timepickerHeaderBorderColor : ', ';\n  --timepickerColumnBorderColor : ', ';\n  --timepickerColumnBgColor : ', ';\n  --timepickerColumnColor : ', ';\n  --timepickerSelectedCellColor : ', ';\n  --timepickerFooterColor : ', ';\n  --timepickerFooterBgColor : ', ';\n  --headingFontSize : ', ';\n  --subheadingFontSize : ', ';\n  --calendarShadow : ', ';\n  --timepickerShadow : ', ';\n  --popupBgColor : ', ';\n  --suffleItemBGSelected : ', ';\n  --suffleItemBG: ', ';\n  --suffleItemColor : ', ';\n'], ['\n  --formBgColor : ', ';\n  --labelColor : ', ';\n  --inputColor : ', ';\n  --inputBorderColor : ', ';\n  --inputBorderWidth : ', ';\n  --helpTextColor : ', ';\n  --errorTextColor : ', ';\n  --dropdownColor : ', ';\n  --dropdownBgColor : ', ';\n  --dropdownHoverColor : ', ';\n  --dropdownHoverBgColor : ', ';\n  --defaultGreen : ', ';\n  --defaultRed : ', ';\n  --defaultBlue :', ';\n  --checkboxBorderTrue : ', ';\n  --checkboxBorderFalse : ', ';\n  --checkboxTrikColor : ', ';\n  --flexBasis : ', ';\n  --labelFontSize : ', ';\n  --labelFontSizeSmall : ', ';\n  --inputFontSize : ', ';\n  --infoFontSize : ', ';\n  --dropdownShadow : ', ';\n  --infoBgColor : ', ';\n  --infoBoxShadow : ', ';\n  --headingBorder : ', ';\n  --datePickerBgColor : ', ';\n  --datePickerHeaderColor : ', ';\n  --datePickerHeaderBorder : ', ';\n  --datePickerArrowColor : ', ';\n  --datePickerDateColor : ', ';\n  --datePickerSelectedDateColor : ', ';\n  --datePickerSelectedDateBgColor : ', ';\n  --timepickerHeaderBgColor : ', ';\n  --timepickerHeaderColor : ', ';\n  --timepickerHeaderBorderColor : ', ';\n  --timepickerColumnBorderColor : ', ';\n  --timepickerColumnBgColor : ', ';\n  --timepickerColumnColor : ', ';\n  --timepickerSelectedCellColor : ', ';\n  --timepickerFooterColor : ', ';\n  --timepickerFooterBgColor : ', ';\n  --headingFontSize : ', ';\n  --subheadingFontSize : ', ';\n  --calendarShadow : ', ';\n  --timepickerShadow : ', ';\n  --popupBgColor : ', ';\n  --suffleItemBGSelected : ', ';\n  --suffleItemBG: ', ';\n  --suffleItemColor : ', ';\n']),
     _templateObject2 = _taggedTemplateLiteral(['\n\tdisplay:flex;\n\tflex-direction:column;\n\tbackground:var(--formBgColor);\n\tfont-weight:300;\n\tinput{\n\t\tfont-weight:300;\n\t\tpadding:4px;\n\t}\n\n\tinput[type=\'number\'] {\n\t    -moz-appearance:textfield;\n\t}\n\t/* Webkit browsers like Safari and Chrome */\n\tinput[type=number]::-webkit-inner-spin-button,\n\tinput[type=number]::-webkit-outer-spin-button {\n\t    -webkit-appearance: none;\n\t    margin: 0;\n\t}\n'], ['\n\tdisplay:flex;\n\tflex-direction:column;\n\tbackground:var(--formBgColor);\n\tfont-weight:300;\n\tinput{\n\t\tfont-weight:300;\n\t\tpadding:4px;\n\t}\n\n\tinput[type=\'number\'] {\n\t    -moz-appearance:textfield;\n\t}\n\t/* Webkit browsers like Safari and Chrome */\n\tinput[type=number]::-webkit-inner-spin-button,\n\tinput[type=number]::-webkit-outer-spin-button {\n\t    -webkit-appearance: none;\n\t    margin: 0;\n\t}\n']),
     _templateObject3 = _taggedTemplateLiteral(['\n\tdisplay:flex;\n\tflex-direction:row;\n\tflex-wrap:wrap;\n\tjustify-content:flex-start;\n\talign-items : center;\n\tpadding:10px;\n\tfont-size:20px;\n'], ['\n\tdisplay:flex;\n\tflex-direction:row;\n\tflex-wrap:wrap;\n\tjustify-content:flex-start;\n\talign-items : center;\n\tpadding:10px;\n\tfont-size:20px;\n']),
     _templateObject4 = _taggedTemplateLiteral(['\n\tdisplay:flex;\n\tflex-direction:row;\n\tflex-wrap:wrap;\n\tjustify-content:center;\n\tpadding:10px 0;\n'], ['\n\tdisplay:flex;\n\tflex-direction:row;\n\tflex-wrap:wrap;\n\tjustify-content:center;\n\tpadding:10px 0;\n']),
@@ -46713,6 +46689,12 @@ var CSSVariables = _styledComponents2.default.div(_templateObject, function (pro
   return props.TIME_PICKER_SHADOW;
 }, function (props) {
   return props.POPUP_BG_COLOR;
+}, function (props) {
+  return props.SUFFLE_BOX_ITEM_BG_SELECTED;
+}, function (props) {
+  return props.SUFFLE_BOX_ITEM_BG;
+}, function (props) {
+  return props.SUFFLE_BOX_ITEM_COLOR;
 });
 
 var FormWrapper = _styledComponents2.default.div(_templateObject2);
@@ -47100,16 +47082,18 @@ var LineChart = function (_React$Component) {
 					var info = d.x + " : " + d.y;
 
 					var textElem = d3.select(self.svgId + ' .info-rect .text');
+					textElem
+					//.transition()
+					.text(info);
+					//.attr('duration',this.transitionDuration)
 
 					var bbox = textElem.node().getBBox();
 
 					self.highlightPoint(d, i);
 
-					d3.select(self.svgId + ' .info-rect').transition().attr('transform', "translate(" + (self.yAxisTranslate.x + self.xScale(d.x)) + "," + ((self.yScale(d.y) < self.yScale(0) ? self.yScale(d.y) : self.yScale(0)) - self.infoRectYOffset + self.yAxisTranslate.y) + ") scale(1)").attr('opacity', this.infoRectOpacity).attr('duration', this.transitionDuration);
-
 					d3.select(self.svgId + ' .info-rect .rect').attr('width', bbox.width + self.infoTextPadding).attr('height', bbox.height + self.infoTextPadding).attr('transform', 'translate(' + -self.infoTextPadding / 2 + ',' + (-bbox.height - self.infoTextPadding / 4) + ')');
 
-					textElem.transition().text(info).attr('duration', this.transitionDuration);
+					d3.select(self.svgId + ' .info-rect').transition().attr('transform', "translate(" + (self.yAxisTranslate.x + self.xScale(d.x)) + "," + ((self.yScale(d.y) < self.yScale(0) ? self.yScale(d.y) : self.yScale(0)) - self.infoRectYOffset + self.yAxisTranslate.y) + ") scale(1)").attr('opacity', this.infoRectOpacity).attr('duration', this.transitionDuration);
 				}
 			}).on('mouseout', function () {
 

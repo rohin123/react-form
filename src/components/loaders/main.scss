@@ -1,0 +1,13 @@
+@keyframes rotate{
+  to{
+    transform:rotate(360deg)
+  }
+}
+
+.rotate-group{
+	animation : rotate 0.4s linear infinite;
+	transform-origin : center;
+	stroke : var(--labelColor);
+	stroke-width : 2px;
+	fill : none;
+}

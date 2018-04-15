@@ -3,8 +3,10 @@ import ClosePopupListener from '../../helpers/closePopupListener.js'
 import {AnimatedBorder} from '../sharedStyledComponents.js'
 import debounce from 'debounce'
 import KeyPressHandlerOnList from '../../helpers/keyPressHandlerOnList.js'
-import {Wrapper,SearchBox,SearchList,ListItem,SelectedListItem} from './styledComponents.js'
+import {Wrapper,SearchBox,SearchList,ListItem,
+			SelectedListItem,LoaderWrapper} from './styledComponents.js'
 import PropTypes from 'prop-types'
+import Loader from '../loaders'
 
 class AutoComplete extends React.PureComponent{
 
@@ -24,7 +26,8 @@ class AutoComplete extends React.PureComponent{
 			autoCompList : [],
 			value:props.value||null,
 			isFocused : false,
-			selectedListIndex : -1
+			selectedListIndex : -1,
+			loaderCount : 0
 		}
 	}
 
@@ -36,15 +39,28 @@ class AutoComplete extends React.PureComponent{
 		let fetchPromise = this.props.fetchFunc
 			fetchPromise(value).then((res)=>{
 					this.keyPressHandlerInstance.updateListLength.call(this.keyPressHandlerInstance,res.length)
-					this.setState({
-						autoCompList:res
+					this.setState(function(state,props){
+						return {
+							autoCompList : res,
+							loaderCount : state.loaderCount - 1
+						}
 					})
 				},(err)=>{
 					this.keyPressHandlerInstance.updateListLength.call(this.keyPressHandlerInstance,0)
-					this.setState({
-						autoCompList:[]
+					this.setState(function(state,props){
+						return {
+							autoCompList:[],
+							loaderCount : state.loaderCount - 1
+						}	
 					})
 				})
+
+			this.setState(function(state,props){
+				return {
+					loaderCount : state.loaderCount + 1
+				}
+			})
+
 	}
 
 	onChangeHandler(e){
@@ -183,13 +199,18 @@ class AutoComplete extends React.PureComponent{
 						<SearchBox isDown={this.state.isDown} 
 									isValid={props.isValid}
 									errorText={props.errorText||''}
-									helpText={props.helpText||''}> 
+									helpText={props.helpText||''}
+									fullBorderStyle = {props.fullBorderStyle}> 
 							<input type='text' value={(this.state.value && this.state.value.label)||''}
 												onChange={this.onChangeHandler}
 												onBlur={this.blurHandler}
 												onFocus={this.focusHandler}
 												readOnly = {props.readOnly}/>
 							<label>{props.label}</label>
+							<LoaderWrapper show={ true/*this.state.loaderCount > 0 ? 
+														true : false */}>
+									<Loader/>						
+							</LoaderWrapper>														
 							<AnimatedBorder valid={props.isValid }
 											focused={this.state.isFocused}/>
 						</SearchBox>

@@ -9,10 +9,10 @@ const CSSVariables = styled.div`
   --dropdownBgColor : ${props => props.DROPDOWN_BACKGROUND};
   --dropdownHoverColor : ${props => props.DROPDOWN_HOVER_COLOR};
   --dropdownHoverBgColor : ${props => props.DROPDOWN_HOVER_BG_COLOR};
-  --labelFontSize : ${props => props.LABEL_FONT_SIZE};
-  --inputFontSize : ${props => props.INPUT_FONT_SIZE};
+  --fontSize : ${props => props.FONT_SIZE};
   --dropdownShadow : ${props => props.DROPDOWN_SHADOW};
   --inputPadding : ${props => props.INPUT_PADDING};
+  --inputBorderRadius : ${props => props.INPUT_BORDER_RADIUS};
 `
 
 const Wrapper = styled.div`
@@ -23,39 +23,45 @@ const Wrapper = styled.div`
 
 const SearchBox = styled.div`
 	position : relative;
-	padding: 15px 0 0;
+	padding: 0.75em 0 0;
+  font-size : var(--fontSize);
 	input{
       position:relative;
       z-index:1;
       width: 100%;
 	    border: none;
-	    border-style: solid;//${props=>props.isValid?'1px solid':'none'};
-      border-width : var(--inputBorderWidth);
+	    border-style: solid;
+      border-width : ${props => props.fullBorderStyle ? 'var(--inputBorderWidth)' : 
+                                      '0 0 var(--inputBorderWidth) 0'};
 	    border-color: var(--inputBorderColor);
 	    box-sizing: border-box;
-	    font-size: var(--inputFontSize);
-	    background-color:transparent;
+	    font-size: var(--fontSize);
+	    background-color: transparent;
 	    color : var(--inputColor);	
 	    outline : none;
+      padding : 0.1em;
+      border-radius : ${props => props.fullBorderStyle ? 'var(--inputBorderRadius)' : '0'};
+      padding-right : 20px;
 	}
 
 	label{
 		position:absolute;
-		left : 0px;
-		top : 14px;
+    left : 0.1em;
+    top : 0.875em;
 		color: var(--labelColor);
 		transform:${props=>props.isDown?"translateY(0) scale(1)":
-										"translateY(-10px) scale(0.6)"};
+										props.fullBorderStyle ? "translateY(-0.85em) scale(0.6)":
+                      "translateY(-10px) scale(0.6)"};
 		transform-origin:top left;
 		transition:all 0.4s;
-		font-size : var(--labelFontSize);
+		font-size : var(--fontSize);
 	}
 
 	&:after{
-		content:"${props=>props.isValid?props.helpText:props.errorText}";
-        position: absolute;
-        font-size: var(--infoFontSize);
-        color: ${props=>props.isValid?'var(--defaultGreen)':'var(--defaultRed)'};
+		  content:"${props=>props.isValid?props.helpText:props.errorText}";
+      position: absolute;
+      font-size: var(--infoFontSize);
+      color: ${props=>props.isValid?'var(--defaultGreen)':'var(--defaultRed)'};
     	left: 0px;
     	background: var(--infoBgColor);
     	padding: 5px;
@@ -72,7 +78,7 @@ const SearchList = styled.div`
     position: absolute;
     background: var(--dropdownBgColor);
     box-shadow: var(--dropdownShadow);
-    font-size: var(--inputFontSize);
+    font-size: var(--fontSize);
     color: var(--dropdownColor);
     z-index:3;
     max-height : 200px;
@@ -90,9 +96,16 @@ const ListItem = styled.div`
 `
 
 const SelectedListItem = ListItem.extend`
-	background-color : var(--dropdownHoverBgColor);
-	opacity: 0.8;
-	color: var(--dropdownHoverColor);
+  	background-color : var(--dropdownHoverBgColor);
+  	opacity: 0.8;
+  	color: var(--dropdownHoverColor);
 `
 
-export {CSSVariables,Wrapper,SearchBox,SearchList,ListItem,SelectedListItem}
+const LoaderWrapper = styled.div`
+    display : ${props => props.show ? 'block' : 'none'};
+    position : absolute;
+    right : 0.1em;
+    top : 0.875em;
+`
+
+export {CSSVariables,Wrapper,SearchBox,SearchList,ListItem,SelectedListItem,LoaderWrapper}

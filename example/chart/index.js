@@ -16,17 +16,17 @@ export default class LineChartExample extends React.Component{
 					<LineChart id={'svg0'}
 						width = {450}
 						height = {250}
-						xData = {[0,1,2,3,4,5,6,7,8,9]}
-						yData = {[{x : 0, y: 20},
-									{x: 1, y:2000},
-									{x : 2, y :-2000},
-									{x : 3, y : 100},
-									{x : 4,y : 200},
-									{x : 5, y : -40},
-									{x : 6, y : 200},
-									{x : 7, y : 600},
-									{x : 8, y : 500},
-									{x : 9, y : 140}]}
+						xData = {['ads','dsa','sda','xx','vv','bb','bgt','agt','igt','augt']}
+						yData = {[{x : '0', y: 20},
+									{x: '1', y:2000},
+									{x : '2', y :-2000},
+									{x : '3', y : 100},
+									{x : '4',y : 200},
+									{x : '5', y : -40},
+									{x : '6', y : 200},
+									{x : '7', y : 600},
+									{x : '8', y : 500},
+									{x : '9', y : 140}]}
 						lineChart = {true}/>
 
 				</GraphDiv>
