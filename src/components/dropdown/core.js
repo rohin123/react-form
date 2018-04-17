@@ -189,10 +189,11 @@ class Dropdown extends React.PureComponent{
 							onKeyDown={this.handleKeyPress}
 							onMouseDown = {()=>{this.tabPressed = false}}
 							isValid={props.isValid }
-							helpText={props.helpText} errorText={props.errorText}>
+							helpText={props.helpText} errorText={props.errorText}
+							fullBorderStyle = {props.fullBorderStyle}>
 
 					<label>{props.label}</label>
-					<span onClick={this.toggleList} /*onMouseDown={this.preventDropdownClose}*/>
+					<span onClick={this.toggleList}>
 							{selectedValue}
 					</span>
 					{

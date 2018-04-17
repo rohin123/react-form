@@ -27,6 +27,18 @@ export default class LineChartExample extends React.Component{
 									{x : '7', y : 600},
 									{x : '8', y : 500},
 									{x : '9', y : 140}]}
+						data = {
+							{
+								'a' : 20,
+								'b' : 2000,
+								'c' : 1000,
+								'd' : 100,
+								'e' : 1200,
+								'f' : 290,
+								'g' : 800
+							}
+						}
+									
 						lineChart = {true}/>
 
 				</GraphDiv>

@@ -8,28 +8,24 @@ export default class CheckBox extends React.PureComponent{
 	}
 
 	onChangeHandler(e){
-		console.log('CheckBox',e,e.target.checked);
-		this.props.setItem(this.props.name,e.target.checked)
+		//console.log('CheckBox',e,e.target.checked);
+		this.props.setItem(this.props.name,!this.props.value)
 	}
 
 	render(){
 
 		let props = this.props
-
 		return (
-				<Wrapper isVisible={true} checked={props.value}>
-					<CheckboxWrapper>
-						<InputWrapper>
-							<input id={props.name} type='checkbox' 
-								name={props.name}
-								onChange={this.onChangeHandler}
-								readOnly={props.readOnly}/>
-								<Tick checked={props.value}/>
-						</InputWrapper>
-						<label htmlFor={props.name}>{props.label}</label>
-						
-					</CheckboxWrapper>	
-				</Wrapper>
+				<CheckboxWrapper>
+					<InputWrapper checked={props.value} onClick={this.onChangeHandler}>
+						{/*<input id={props.name} type='checkbox' 
+							name={props.name}
+							onChange={this.onChangeHandler}
+							readOnly={props.readOnly}/>*/}
+							<Tick checked={props.value}/>
+					</InputWrapper>
+					<label onClick={this.onChangeHandler}>{props.label}</label>	
+				</CheckboxWrapper>	
 			)
 	}
 }

@@ -4,6 +4,8 @@ const CSSVariables = styled.div`
   --labelColor : ${props => props.LABEL_COLOR};
   --inputColor : ${props => props.INPUT_COLOR};
   --inputBorderColor : ${props => props.INPUT_BORDER_COLOR};
+  --inputBorderWidth : 0.1em;
+  --inputBorderRadius : ${props => props.INPUT_BORDER_RADIUS};
   --helpTextColor : ${props => props.HELPTEXT_COLOR};
   --errorTextColor : ${props => props.ERRORTEXT_COLOR};
   --dropdownColor : ${props => props.DROPDOWN_COLOR};
@@ -13,48 +15,47 @@ const CSSVariables = styled.div`
   --defaultGreen : ${props => props.DEFAULT_GREEN_COLOR};
   --defaultRed : ${props => props.DEFAULT_RED_COLOR};
   --defaultBlue :${props => props.DEFAULT_BLUE_COLOR};
-  --labelFontSizeSmall : ${props => props.LABEL_FONT_SIZE_SMALL};
-  --inputFontSize : ${props => props.INPUT_FONT_SIZE};
-  --infoFontSize : ${props => props.INFO_FONT_SIZE};
+  --fontSize : ${props => props.FONT_SIZE};
   --dropdownShadow : ${props => props.DROPDOWN_SHADOW};
   --infoBgColor : ${props => props.INFO_BG_COLOR};
   --infoBoxShadow : ${props => props.INFO_BOX_SHADOW};
-  --inputBorderWidth : ${props => props.INPUT_BORDER_WIDTH};
 `
 
 const Wrapper = styled.div`
-    //padding: 10px 0;
     position:relative;
     outline : none;
-
+    font-size : var(--fontSize);
+    
     span{
     	width: 100%;
 	    display: block;
-	    font-size : var(--inputFontSize);
-	    padding: 15px 0px 0px;
-	    box-sizing: border-box;
-      border-style : solid;
-      border-width : var(--inputBorderWidth);
+	    font-size : 1em;
+	    padding: 0.75em 1px 1px 1px;
+	    box-sizing: border-box;                   
       border-color : var(--inputBorderColor);
 	    color : var(--inputColor);
+      border-style : solid;
+      border-width : ${props => props.fullBorderStyle ? 'var(--inputBorderWidth)' : 
+                                '0 0 var(--inputBorderWidth) 0'};
+      border-radius : ${props => props.fullBorderStyle ? 'var(--inputBorderRadius)' : '0'}; 
     }
 
     span:after{
-		position: absolute;
-	    content: '';
-	    right: 10px;
-	    top: 45%;
-	    border-top: 8px solid;
-	    border-right: 6px solid transparent;
-	    border-bottom: 6px solid transparent;
-	    border-left: 6px solid transparent;
-	}
+      position: absolute;
+      content: '';
+      right: 10px;
+      top: 45%;
+      border-top: 8px solid;
+      border-right: 6px solid transparent;
+      border-bottom: 6px solid transparent;
+      border-left: 6px solid transparent;
+	 }
 
     label{
     	position: absolute;
 	    top: 2px;
-	    left: 0px;
-	    font-size: var(--labelFontSizeSmall);
+	    left: 0.2em;
+	    font-size : 0.7em; 
 	    color: var(--labelColor);
     }
 
@@ -63,7 +64,7 @@ const Wrapper = styled.div`
       position: absolute;
       left:0px;
       top : 105%;
-      font-size: var(--infoFontSize);
+      font-size: 0.7em;
       color: ${props=>props.isValid?'var(--defaultGreen)':'var(--defaultRed)'};
     	background: var(--infoBgColor);
     	padding: 5px;
@@ -74,19 +75,19 @@ const Wrapper = styled.div`
     }
 `
 const DropdownListWrapper = styled.div`
-	position : absolute;
+  	position : absolute;
     background : var(--dropdownBgColor);
     width : 100%;
     box-shadow : var(--dropdownShadow);
-    font-size : var(--inputFontSize);
+    font-size : var(--fontSize);
     z-index : 3;
     max-height : 200px;
     overflow : auto;
     input{
-    	width : 100%;
-    	box-sizing : border-box;
-    	font-size : 1rem;
-    	padding : 0 5px;
+      	width : 100%;
+      	box-sizing : border-box;
+      	font-size : 1em;
+      	padding : 0 5px;
     }
 `
 

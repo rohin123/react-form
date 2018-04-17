@@ -207,12 +207,13 @@ class AutoComplete extends React.PureComponent{
 												onFocus={this.focusHandler}
 												readOnly = {props.readOnly}/>
 							<label>{props.label}</label>
-							<LoaderWrapper show={ true/*this.state.loaderCount > 0 ? 
-														true : false */}>
+							<LoaderWrapper show={ this.state.loaderCount > 0 ? 
+														true : false }>
 									<Loader/>						
 							</LoaderWrapper>														
 							<AnimatedBorder valid={props.isValid }
-											focused={this.state.isFocused}/>
+											focused={this.state.isFocused}
+											show = {this.props.isFormItem}/>
 						</SearchBox>
 						<SearchList>
 							{innerHtml}

@@ -25,14 +25,14 @@ const SubHeadingWrapper = HeadingWrapper.extend`
 `
 
 const AnimatedBorder = styled.div`
-	position:relative;
-	top:-2px;
+	position:absolute;
 	width:100%;
 	height:2px;
 	background:${props=>props.valid?'var(--defaultGreen)':'var(--defaultRed)'};
 	transform:${props=>(props.focused || !props.valid)?'scale(1)':'scale(0)'};
 	transition:all 0.4s;
 	z-index:1;
+	display : ${props => props.show ? 'block' : 'none'};
 `
 
 const VhAlignedWrapper = styled.div`

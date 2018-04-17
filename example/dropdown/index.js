@@ -3,18 +3,12 @@ import DropDown from '../../src/components/dropdown'
 import styled from 'styled-components'
 
 const Wrapper = styled.div`
-	> div{
-		width : 300px;
-	}	
-
 	.type1{
-
+		width : 300px;
 	}
 
 	.type2{
-		padding: 5px;
-	    background: bisque;
-	    border-radius: 5px;
+		width : 400px;
 	    margin-top : 15px;
 	}
 `
@@ -46,10 +40,19 @@ export default class DropDownExample extends React.Component{
 			optionsList : this.optionsList,
 			setItem : this.setItem,
 			value : this.state.value
+		},
+
+		config2 = {
+			label : 'Dummy Label',
+			name : 'test_input',
+			optionsList : this.optionsList,
+			setItem : this.setItem,
+			value : this.state.value,
+			fullBorderStyle : true
 		}
 
 		let colorConfig = {
-			INPUT_BORDER_WIDTH : '0'
+			FONT_SIZE : '24px'
 		}
 
 		return(
@@ -58,7 +61,7 @@ export default class DropDownExample extends React.Component{
 					<DropDown inputConfig={config}/>
 				</div>
 				<div className='type2'>
-					<DropDown inputConfig={config} colorConfig={colorConfig}/>
+					<DropDown inputConfig={config2} colorConfig={colorConfig}/>
 				</div>	
 			</Wrapper>					
 			)

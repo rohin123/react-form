@@ -2,66 +2,47 @@ import styled from 'styled-components'
 
 const CSSVariables = styled.div`
 	--labelColor : ${props => props.LABEL_COLOR};
-	--helpTextColor : ${props => props.HELPTEXT_COLOR};
-	--errorTextColor : ${props => props.ERRORTEXT_COLOR};
 	--defaultGreen : ${props => props.DEFAULT_GREEN_COLOR};
 	--defaultRed : ${props => props.DEFAULT_RED_COLOR};
 	--defaultBlue :${props => props.DEFAULT_BLUE_COLOR};
-	--labelFontSize : ${props => props.LABEL_FONT_SIZE};
-	--inputFontSize : ${props => props.INPUT_FONT_SIZE};
-	--infoFontSize : ${props => props.INFO_FONT_SIZE};
-	--infoBgColor : ${props => props.INFO_BG_COLOR};
-	--infoBoxShadow : ${props => props.INFO_BOX_SHADOW};
- 	--checkboxBorderTrue : ${props => props.CHECKBOX_BORDER_TRUE};
- 	--checkboxBorderFalse : ${props => props.CHECKBOX_BORDER_FALSE};
- 	--checkboxTrikColor : ${props => props.CHECKBOX_TICK_COLOR};
+	--fontSize : ${props => props.FONT_SIZE};
+	--checkboxColorTrue : ${props => props.CHECKBOX_COLOR_TRUE};
+	--checkboxColorFalse : ${props => props.CHECKBOX_COLOR_FALSE};
+	--checkboxTickColor : ${props => props.CHECKBOX_TICK_COLOR};
 `
 
 const Wrapper = styled.div`
-	position:relative;
-	//padding : 15px 0 0;
-	input[type='checkbox']{
-		-webkit-appearance: none;
-	    width: 16px;
-	    height: 16px;
-	    border: 2px solid;
-	    border-color : ${ props=> props.checked?'var(--checkboxBorderTrue)':'var(--checkboxBorderFalse)'};
-	    vertical-align: bottom;
-	    border-radius: 4px;
-	    z-index:1;
-	    position : relative;
-	    outline : none;
-	    margin : 3px;
-	}
-
-	&:hover{
-		background : '#c3c3c3';
-	}
 `
 
 const CheckboxWrapper = styled.div`
-	display: inline-block;
+	display: flex;
+	justify-content : flex-start;
+	align-items : center;
     position: relative;
     z-index: 1;
     background: transparent;
+    font-size : var(--fontSize);
 
     label{
-    	font-size : var(--labelFontSize);
     	color : var(--labelColor);
+    	margin-left : 5px;
+    	font-size : 1em;
     }
 
-	&:after{
+    &:after{
 		position: absolute;
 	    content: '';
-	    width: 46px;
-	    height: 46px;
+	    width: 2.5em;
+	    height: 2.5em;
 	    background: #333;
 	    border-radius: 50%;
-	    top: -9px;
-	    left: -13px;
+	    top: -0.6em;
+	    left: -0.6em;
 	    opacity: 0;
 	    transform : scale(1);
+	    //transform-origin : center;
 	    transition : all 0.4s;
+
 	    z-index : -1;
 	}
 
@@ -72,25 +53,42 @@ const CheckboxWrapper = styled.div`
 	}
 `
 
+const InputWrapper = styled.div`
+	position: relative;
+	display : inline-block;
+	width : 1em;
+	height : 1em;
+	border: 2px solid;
+	border-color : ${ props=> props.checked?'var(--checkboxColorTrue)':'var(--checkboxColorFalse)'};    
+	border-radius: 4px;
+	font-size : inherit;
+
+	// input[type='checkbox']{
+	// 	-webkit-appearance: none;
+	//     width: 0.7em;
+	//     height: 0.7em;
+	//     vertical-align: bottom;
+	//     z-index:1;
+	//     position : relative;
+	//     outline : none;
+	//     font-size : inherit;
+	// }
+
+`
+
 const Tick = styled.div`
 	display : ${ props=> props.checked?'block':'none'};
 	position : absolute;
 	top : 50%;
 	left : 50%;
-	width : 6px;
-	height : 2px;
+	width : 0.4em;
+	height : 0.1em;
 	border : 2px solid;
-	border-color : var(--checkboxTrikColor);
+	border-color : var(--checkboxTickColor);
 	border-top-color : transparent;
 	border-right-color : transparent;
 	transform : translate(-50%,-50%) rotate(-45deg);
 	z-index : 0;	
-`
-
-const InputWrapper = styled.div`
-	position: relative;
-	display : inline-block;
-
 `
 
 export {CSSVariables,CheckboxWrapper,Wrapper,Tick,InputWrapper}

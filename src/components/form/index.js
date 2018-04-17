@@ -208,7 +208,8 @@ export default class GenericForm extends React.PureComponent{
 
 				ret = 	<InputWrapper>
 							<LabeledInput {...formItem} 
-									setItem={this.setItem}/>
+									setItem={this.setItem}
+									isFormItem = {true}/>
 					 	</InputWrapper>				
 				break					
 			}
@@ -217,7 +218,8 @@ export default class GenericForm extends React.PureComponent{
 
 				ret = 	<DropdownInputWrapper>
 							<Dropdown {...formItem}
-									setItem={this.setItem}/>
+									setItem={this.setItem}
+									isFormItem = {true}/>
 						</DropdownInputWrapper>			
 				break									
 			}
@@ -226,7 +228,8 @@ export default class GenericForm extends React.PureComponent{
 
 				ret = 	<CheckBoxInputWrapper>
 							<CheckBox {...formItem}
-									setItem={this.setItem}/>
+									setItem={this.setItem}
+									isFormItem = {true}/>
 						</CheckBoxInputWrapper>			
 				break					
 			}
@@ -240,7 +243,8 @@ export default class GenericForm extends React.PureComponent{
 
 				ret = 	<InputWrapper>
 							<AutoComplete {...formItem}
-									setItem={this.setItem}/>
+									setItem={this.setItem}
+									isFormItem = {true}/>
 						</InputWrapper>			
 				break						
 
@@ -250,7 +254,8 @@ export default class GenericForm extends React.PureComponent{
 
 				ret =  	<DropdownInputWrapper>
 							<Selectbox {...formItem}
-									setItem={this.setItem}/>
+									setItem={this.setItem}
+									isFormItem = {true}/>
 						</DropdownInputWrapper>			
 				break					
 			}
@@ -259,7 +264,8 @@ export default class GenericForm extends React.PureComponent{
 
 				ret =  	<RadioGroupInputWrapper>
 							<RadioButtonGroup {...formItem}
-									setItem={this.setItem}/>
+									setItem={this.setItem}
+									isFormItem = {true}/>
 						</RadioGroupInputWrapper>			
 				break					
 			}
@@ -284,7 +290,8 @@ export default class GenericForm extends React.PureComponent{
 
 				ret = 	<InputWrapper>
 							<DateTime {...formItem}
-								setItem={this.setItem}/>
+								setItem={this.setItem}
+								isFormItem = {true}/>
 						</InputWrapper>		
 				break
 			}	
@@ -292,7 +299,8 @@ export default class GenericForm extends React.PureComponent{
 			case 'sufflebox' : {
 				ret = <InputWrapper>
 							<SuffleBox {...formItem}
-								setItem={this.setItem}/>
+								setItem={this.setItem}
+								isFormItem = {true}/>
 						</InputWrapper>
 				break		
 			}

@@ -4,14 +4,13 @@ const CSSVariables = styled.div`
   --labelColor : ${props => props.LABEL_COLOR};
   --inputColor : ${props => props.INPUT_COLOR};
   --inputBorderColor : ${props => props.INPUT_BORDER_COLOR};
-  --inputBorderWidth : ${props => props.INPUT_BORDER_WIDTH};
+  --inputBorderWidth : 0.1em;
   --dropdownColor : ${props => props.DROPDOWN_COLOR};
   --dropdownBgColor : ${props => props.DROPDOWN_BACKGROUND};
   --dropdownHoverColor : ${props => props.DROPDOWN_HOVER_COLOR};
   --dropdownHoverBgColor : ${props => props.DROPDOWN_HOVER_BG_COLOR};
   --fontSize : ${props => props.FONT_SIZE};
   --dropdownShadow : ${props => props.DROPDOWN_SHADOW};
-  --inputPadding : ${props => props.INPUT_PADDING};
   --inputBorderRadius : ${props => props.INPUT_BORDER_RADIUS};
 `
 
@@ -19,35 +18,35 @@ const Wrapper = styled.div`
 	  width : 100%;
     position: relative;
     outline : none;
+    padding: 0.75em 0 0;
+    font-size : var(--fontSize);
 `
 
 const SearchBox = styled.div`
 	position : relative;
-	padding: 0.75em 0 0;
-  font-size : var(--fontSize);
+	border-style: solid;
+  border-width : ${props => props.fullBorderStyle ? 'var(--inputBorderWidth)' : 
+                                  '0 0 var(--inputBorderWidth) 0'};
+  border-color: var(--inputBorderColor);
+  border-radius : ${props => props.fullBorderStyle ? 'var(--inputBorderRadius)' : '0'};
+  box-sizing : border-box;
+
 	input{
-      position:relative;
       z-index:1;
       width: 100%;
 	    border: none;
-	    border-style: solid;
-      border-width : ${props => props.fullBorderStyle ? 'var(--inputBorderWidth)' : 
-                                      '0 0 var(--inputBorderWidth) 0'};
-	    border-color: var(--inputBorderColor);
-	    box-sizing: border-box;
 	    font-size: var(--fontSize);
 	    background-color: transparent;
 	    color : var(--inputColor);	
 	    outline : none;
-      padding : 0.1em;
-      border-radius : ${props => props.fullBorderStyle ? 'var(--inputBorderRadius)' : '0'};
-      padding-right : 20px;
+      padding : 1px 20px 1px 1px;
 	}
 
 	label{
 		position:absolute;
-    left : 0.1em;
-    top : 0.875em;
+    left : 0px;
+    top : 0px;
+    padding : 1px;
 		color: var(--labelColor);
 		transform:${props=>props.isDown?"translateY(0) scale(1)":
 										props.fullBorderStyle ? "translateY(-0.85em) scale(0.6)":
@@ -74,7 +73,7 @@ const SearchBox = styled.div`
 `
 
 const SearchList = styled.div`
-	width: 100%;
+	  width: 100%;
     position: absolute;
     background: var(--dropdownBgColor);
     box-shadow: var(--dropdownShadow);
@@ -104,8 +103,12 @@ const SelectedListItem = ListItem.extend`
 const LoaderWrapper = styled.div`
     display : ${props => props.show ? 'block' : 'none'};
     position : absolute;
-    right : 0.1em;
-    top : 0.875em;
+    top : 50%;
+    right : 0px;
+    width : 20px;
+    height : 20px;
+    transform : translateY(-50%);
+    font-size : 0;
 `
 
 export {CSSVariables,Wrapper,SearchBox,SearchList,ListItem,SelectedListItem,LoaderWrapper}

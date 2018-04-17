@@ -1,6 +1,6 @@
 import React from 'react'
 import {AnimatedBorder} from '../sharedStyledComponents.js'
-import {InputWrapper} from './styledComponents.js'
+import {InputWrapper,Wrapper} from './styledComponents.js'
 
 export default class LabeledInput extends React.PureComponent{
 	constructor(props){
@@ -50,18 +50,24 @@ export default class LabeledInput extends React.PureComponent{
 	render(){
 		let props = this.props
 		return (
-				<InputWrapper isValid={props.isValid} errorText={props.errorText||''} helpText={props.helpText||''}
-					isDown={this.state.isDown}>
-					<input type={props.type} value={props.value||''} 
-							onChange={this.changeHandler}
-							disabled={props.isDisabled}
-							onFocus={this.focusHandler}
-							onBlur={this.blurHandler}
-							readOnly = {props.readOnly}/>
-					<AnimatedBorder focused={this.state.isFocused}
-									valid={props.isValid}/>		
-					<label>{props.label}</label>		
-				</InputWrapper>
+				<Wrapper>
+					<InputWrapper isValid={props.isValid} 
+									errorText={props.errorText||''} 
+									helpText={props.helpText||''}
+									isDown={this.state.isDown}
+									fullBorderStyle = {props.fullBorderStyle}>
+						<input type={props.type} value={props.value||''} 
+								onChange={this.changeHandler}
+								disabled={props.isDisabled}
+								onFocus={this.focusHandler}
+								onBlur={this.blurHandler}
+								readOnly = {props.readOnly}/>
+						<AnimatedBorder focused={this.state.isFocused}
+										valid={props.isValid}
+										show = {props.isFormItem}/>		
+						<label>{props.label}</label>		
+					</InputWrapper>
+				</Wrapper>	
 			)
 	}
 }
