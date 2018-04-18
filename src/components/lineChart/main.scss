@@ -1,11 +1,18 @@
 svg{
-	.y-axis{
-		.tick{
-			//stroke-dasharray : 5 5;
-			line{
-				stroke : #d3d3d3;
-			}
 
+	.tick{
+		line{
+			stroke : var(--axisColor);
+		}
+
+		text{
+			stroke : var(--labelColor);
+		}	
+	}
+
+	.y-axis{
+		
+		.tick{
 			text{
 				transform : translate(-10px,0);
 			}
@@ -17,29 +24,34 @@ svg{
 
 	.x-axis{
 
-		.tick{
-		
-			line{
-				stroke : #d3d3d3;
-			}
-		
-		}
-
 		.domain{
 			visibility: hidden;
 		}
 	}
 
-	// .dot{
-	// 	fill : rgb(124, 181, 236);
-	// }
+	.data{
+		stroke : var(--plotStroke);
+	}
+
+	.dot,.bar{
+		fill : var(--dataPointFill);
+	}
+
+	circle.highlighted-point{
+		stroke : var(--dataPointHoverColor);
+		fill : var(--dataPointFill);
+	}
+
+	rect.highlighted-point{
+		fill : var(--dataPointHoverColor);
+	}
 
 	.area{
-		fill : #efedfb;
+		fill : var(--plotAreaFill);
 	}
 
 	.info-rect{
-		stroke : rgb(124, 181, 236);
+		stroke : var(--infoRectColor);
 		stroke-width : 1px;
 		fill : #fff;
 		padding: 5px;

@@ -8,7 +8,7 @@ import colorConfigMerger from '../../helpers/colorConfigMerger.js'
 class NumberInput extends React.Component {
 	render(){
 		let props = this.props,
-			styleConfig = props.colorConfig || ColorConfig,
+			styleConfig = colorConfigMerger(props.colorConfig,ColorConfig),
 			inputConfig = props.inputConfig
 
 		return (

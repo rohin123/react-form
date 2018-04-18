@@ -4,7 +4,7 @@ const CSSVariables = styled.div`
   --labelColor : ${props => props.LABEL_COLOR};
   --inputColor : ${props => props.INPUT_COLOR};
   --inputBorderColor : ${props => props.INPUT_BORDER_COLOR};
-  --inputBorderWidth : 0.1em;
+  --inputBorderWidth : 0.05em;
   --inputBorderRadius : ${props => props.INPUT_BORDER_RADIUS};
   --helpTextColor : ${props => props.HELPTEXT_COLOR};
   --errorTextColor : ${props => props.ERRORTEXT_COLOR};
@@ -25,6 +25,7 @@ const Wrapper = styled.div`
     position:relative;
     outline : none;
     font-size : var(--fontSize);
+    font-weight : 300;
     
     span{
     	width: 100%;
@@ -76,6 +77,7 @@ const Wrapper = styled.div`
 `
 const DropdownListWrapper = styled.div`
   	position : absolute;
+    top : 105%;
     background : var(--dropdownBgColor);
     width : 100%;
     box-shadow : var(--dropdownShadow);
@@ -84,10 +86,13 @@ const DropdownListWrapper = styled.div`
     max-height : 200px;
     overflow : auto;
     input{
-      	width : 100%;
+      	width : 98%;
       	box-sizing : border-box;
       	font-size : 1em;
       	padding : 0 5px;
+        margin : 1%;
+        border : 1px solid var(--inputBorderColor);
+        border-radius: var(--inputBorderRadius);
     }
 `
 

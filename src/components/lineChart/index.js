@@ -2,6 +2,10 @@ import React from 'react'
 import * as d3 from 'd3'
 import {} from './main.scss'
 import debounce from 'debounce'
+import {CSSVariables} from './styledComponents.js'
+import ColorConfig	from './colorConfig.js'
+import colorConfigMerger from '../../helpers/colorConfigMerger.js'
+
 
 export default class LineChart extends React.Component{
 	constructor(props){
@@ -15,23 +19,53 @@ export default class LineChart extends React.Component{
 			}
 
 		this.pointRadius = 4
-		this.yAxisTicks = this.props.yData.length < 5 ? this.props.yData.length : 5
-		this.xAxisTicks = this.props.yData.length < 10 ? this.props.yData.length : 10
+		this.extractXYData()
+		this.maxYAxisTicks = 5
+		this.maxXAxisTicks = 10
 		this.pathStroke = 2
 		this.infoRectBorderRadius = 5
 		this.infoRectYOffset = 20
 		this.infoRectOpacity = 0.9
-		this.plotStroke = 'rgb(124, 181, 236)'
-		this.plotFill = 'rgb(124, 181, 236)'
 		this.infoTextPadding = 10
 		this.transitionDuration = 100
 		this.previousIndex = null
 		this.areaChartOpacity = 0.5
-		this.highlightColor = '#333'
 	}
 
 	componentDidMount(){
 		this.initGraph()
+	}
+
+	extractXYData(){
+		let xData = Object.keys(this.props.data),
+			yData = []
+
+		xData.forEach((x,i)=>{
+			yData.push({
+				x : i,
+				y : this.props.data[x]
+			})
+		})
+
+		this.xData = xData
+		this.yData = yData
+	}
+
+	getXAxisTicks(){
+		let xAxisTicks = this.xData.length,
+			scaleDownRatio = 1
+
+		if(xAxisTicks > this.maxXAxisTicks){
+			scaleDownRatio = parseInt(xAxisTicks/this.maxXAxisTicks)
+		}
+
+		let ticks = this.yData.filter((d,i)=>{
+			return (i%scaleDownRatio == 0)
+		}).map((d)=>{
+			return d.x
+		})
+			
+		return ticks
 	}
 
 	initGraph(){
@@ -46,18 +80,15 @@ export default class LineChart extends React.Component{
 
 		this.xAxis = d3.axisBottom()
     					.scale(this.xScale)
-    					.ticks(this.xAxisTicks)
-    					.tickValues(this.props.xData.map((d,i)=>{
-    						return i
-    					}))
-    					.tickFormat((d)=>{
-    						return this.props.xData[d]
+    					.tickValues(this.getXAxisTicks())
+    					.tickFormat((idx)=>{
+    						return this.xData[idx]
     					})
    
 		this.yAxis = d3.axisLeft()
     					.scale(this.yScale)
     					.tickSize(-(this.xAxisWidth))
-    					.ticks(this.yAxisTicks)
+    					.ticks(this.maxYAxisTicks)
     					
 
     	this.xAxisTranslate = {
@@ -89,22 +120,20 @@ export default class LineChart extends React.Component{
 	}
 
 	calcXdomain(){
-		// let xData = this.props.xData
-		// if(xData.length){
-		// 	return [xData[0],xData[xData.length - 1]]
-		// }else{
-		// 	return [0,0]
-		// }
-		let xData = this.props.xData
-		return [0,xData.length-1]
+		let xData = this.xData
+		if(xData.length){
+			return [0,xData.length-1]
+		}else{
+			return [0,0]
+		}
 	}
 
 	calcYdomain(){
-		let yData = this.props.yData,
+		let yData = this.yData,
 			min = 0,
 			max = 0
 		if(yData.length){
-			min = yData[0].y,
+			min = yData[0].y
 			max = yData[0].y
 
 			yData.forEach((dataPoint)=>{
@@ -166,8 +195,7 @@ export default class LineChart extends React.Component{
   			
   			plotGroup.append("svg:path")
 			.attr("class","data")
-  			.attr('d',line(this.props.yData))
-  			.attr('stroke',this.plotStroke)
+  			.attr('d',line(this.yData))
   			.attr('stroke-width',this.pathStroke)
   			.attr('fill','none')	
 
@@ -178,22 +206,21 @@ export default class LineChart extends React.Component{
 
 			plotGroup.append("svg:path")
 				.attr('class','area')
-				.attr('d',area(this.props.yData))
+				.attr('d',area(this.yData))
 				.attr('opacity',this.areaChartOpacity)
 			
 	  		plotGroup.selectAll(this.svgId+" .dot")
-			    .data(this.props.yData)
+			    .data(this.yData)
 			  	.enter().append("circle") 
 			    .attr('class','dot')
 			    .attr("cx", (d, i)=> { return this.xScale(d.x) })
 			    .attr("cy", (d)=> { return this.yScale(d.y) })
 			    .attr("r", this.pointRadius)
-			    .attr("fill",this.plotFill)
   		
   		}else if(this.props.barChart){
   			
   			plotGroup.selectAll(this.svgId+' .bar')
-		 	.data(this.props.yData)
+		 	.data(this.yData)
 		 	.enter()
 		 	.append('rect')
 		 	.attr('class','bar')
@@ -202,7 +229,7 @@ export default class LineChart extends React.Component{
 		 			return this.xScale(d.x)
 		 		}else{
 		 			let width = (this.props.width - this.margin.left - this.margin.right)/
-		 												(this.props.yData.length-1)
+		 												(this.yData.length-1)
 		 			return this.xScale(d.x) - (width/2)
 		 		}
 		 	})   
@@ -219,7 +246,6 @@ export default class LineChart extends React.Component{
 		 	.attr('height',(d,i)=>{
 		 		return Math.abs(this.yScale(0) - this.yScale(d.y))
 		 	})
-		 	.attr('fill',this.plotFill)
   		
   		}						
   		
@@ -274,7 +300,7 @@ export default class LineChart extends React.Component{
 
 					if(this.previousIndex != i){
 						this.previousIndex = i
-						let info = <tspan></tspan>//d.x+"\n"+d.y
+						let info = <tspan></tspan>
 			    	
 				    	let textElem = 	d3.select(self.svgId+' .info-rect .text')
 
@@ -285,7 +311,6 @@ export default class LineChart extends React.Component{
 				    	textElem
 				    		.select(self.svgId+' .info-rect .text .y-info-span')
 				    		.text('Y : '+d.y)
-							//.attr('duration',this.transitionDuration)
 
 				    	let bbox = textElem.node().getBBox()
 
@@ -310,14 +335,14 @@ export default class LineChart extends React.Component{
 			})
 			.on('mouseout',function(){
 
-				// this.previousIndex = null
+				this.previousIndex = null
 		    	
-		    	// d3.select(self.svgId + ' .highlighted-point')
-		    	// 	.remove()
+		    	d3.select(self.svgId + ' .highlighted-point')
+		    		.remove()
 
-		    	// d3.select(self.svgId+' .info-rect')
-		    	// 	.attr('opacity','0')
-		    	// 	.attr('transform','scale(0)')
+		    	d3.select(self.svgId+' .info-rect')
+		    		.attr('opacity','0')
+		    		.attr('transform','scale(0)')
 
 		    	// d3.select(self.svgId+' .info-rect .text')
 		    	// 	.remove()	
@@ -336,8 +361,6 @@ export default class LineChart extends React.Component{
 				.attr('cx',this.xScale(d.x))
 				.attr('cy',this.yScale(d.y))
 				.attr("r", this.pointRadius)
-			    .attr("fill",this.plotFill)
-			    .attr('stroke',this.highlightColor)
 			    .attr('stroke-width',2)
 		}else if(this.props.barChart){
 			this.plotGroup.append('rect')
@@ -347,7 +370,7 @@ export default class LineChart extends React.Component{
 			 			return this.xScale(d.x)
 			 		}else{
 			 			let width = (this.props.width - this.margin.left - this.margin.right)/
-			 												(this.props.yData.length-1)
+			 												(this.yData.length-1)
 			 			return this.xScale(d.x) - (width/2)
 			 		}
 			 	})   
@@ -364,7 +387,6 @@ export default class LineChart extends React.Component{
 			 	.attr('height',()=>{
 			 		return Math.abs(this.yScale(0) - this.yScale(d.y))
 			 	})
-			 	.attr('fill',this.highlightColor)
 		}
 		
 	}
@@ -372,7 +394,7 @@ export default class LineChart extends React.Component{
 	getNearestDataPoint(xVal){
 		let ret = null,
 			index = null
-		this.props.yData.forEach((dataPoint,i)=>{
+		this.yData.forEach((dataPoint,i)=>{
 			if(!ret){
 				ret = dataPoint
 				index = i
@@ -389,27 +411,33 @@ export default class LineChart extends React.Component{
 
 	getBarWidth(idx){
 		let width = (this.props.width - this.margin.left - this.margin.right)/
-		 												(this.props.yData.length-1)
-		if(idx == 0 || idx == this.props.yData.length-1){
+		 												(this.yData.length-1)
+		if(idx == 0 || idx == this.yData.length-1){
 			return 	width/2
 		}else{
 			return width
 		}
+
 	}
 
 	render(){
+		
+		let colorConfig = colorConfigMerger(this.props.colorConfig,ColorConfig)
+
 		return (
-			<svg width={this.props.width} height={this.props.height} id={this.props.id}>
-			</svg>
+			<CSSVariables {...colorConfig}>
+				<svg width={this.props.width} height={this.props.height} id={this.props.id}>
+				</svg>
+			</CSSVariables>	
 		)
+
 	}
 }
 
 LineChart.propTypes = {
 	width : React.PropTypes.number.isRequired,
 	height : React.PropTypes.number.isRequired,
-	xData : React.PropTypes.array.isRequired,
-	yData : React.PropTypes.array.isRequired,
+	data : React.PropTypes.object.isRequired,
 	id : React.PropTypes.string.isRequired,
 	lineChart : React.PropTypes.bool,
 	barChart : React.PropTypes.bool

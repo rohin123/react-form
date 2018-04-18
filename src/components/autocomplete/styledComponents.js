@@ -4,7 +4,7 @@ const CSSVariables = styled.div`
   --labelColor : ${props => props.LABEL_COLOR};
   --inputColor : ${props => props.INPUT_COLOR};
   --inputBorderColor : ${props => props.INPUT_BORDER_COLOR};
-  --inputBorderWidth : 0.1em;
+  --inputBorderWidth : 0.05em;
   --dropdownColor : ${props => props.DROPDOWN_COLOR};
   --dropdownBgColor : ${props => props.DROPDOWN_BACKGROUND};
   --dropdownHoverColor : ${props => props.DROPDOWN_HOVER_COLOR};
@@ -20,6 +20,7 @@ const Wrapper = styled.div`
     outline : none;
     padding: 0.75em 0 0;
     font-size : var(--fontSize);
+    font-weight : 300;
 `
 
 const SearchBox = styled.div`
@@ -32,6 +33,7 @@ const SearchBox = styled.div`
   box-sizing : border-box;
 
 	input{
+      position : relative;
       z-index:1;
       width: 100%;
 	    border: none;
@@ -40,6 +42,8 @@ const SearchBox = styled.div`
 	    color : var(--inputColor);	
 	    outline : none;
       padding : 1px 20px 1px 1px;
+      box-sizing : border-box;
+      font-weight : inherit;
 	}
 
 	label{
@@ -75,6 +79,7 @@ const SearchBox = styled.div`
 const SearchList = styled.div`
 	  width: 100%;
     position: absolute;
+    top : 105%;
     background: var(--dropdownBgColor);
     box-shadow: var(--dropdownShadow);
     font-size: var(--fontSize);

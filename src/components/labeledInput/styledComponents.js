@@ -4,7 +4,7 @@ const CSSVariables = styled.div`
   --labelColor : ${props => props.LABEL_COLOR};
   --inputColor : ${props => props.INPUT_COLOR};
   --inputBorderColor : ${props => props.INPUT_BORDER_COLOR};
-  --inputBorderWidth : 0.1em;
+  --inputBorderWidth : 0.05em;
   --inputBorderRadius : ${props => props.INPUT_BORDER_RADIUS};
   --helpTextColor : ${props => props.HELPTEXT_COLOR};
   --errorTextColor : ${props => props.ERRORTEXT_COLOR};  

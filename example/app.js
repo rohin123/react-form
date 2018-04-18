@@ -80,7 +80,7 @@ const Content = styled.div`
 `
 
 const InfoWrapper = styled.div`
-	
+	margin-top : 200px;
 `
 const InputWrapper = styled.div`
 	width : 300px;
