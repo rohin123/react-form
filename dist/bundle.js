@@ -1859,7 +1859,7 @@ exports.FixedDivWrapper = exports.SubHeadingWrapper = exports.InlineWrapper = ex
 var _templateObject = _taggedTemplateLiteral(['\n\twidth:100%;\n\tdisplay : flex;\n\tflex-direction : row;\n\tjustify-content : flex-start;\n'], ['\n\twidth:100%;\n\tdisplay : flex;\n\tflex-direction : row;\n\tjustify-content : flex-start;\n']),
     _templateObject2 = _taggedTemplateLiteral(['\n\twidth : 100%;\n\tdisplay : flex;\n\tjustify-content : center;\n\tborder-bottom : var(--headingBorder);\n\tpadding: 5px 0;\n\tfont-size : var(--headingFontSize);\n\tfont-weight : 400;\n'], ['\n\twidth : 100%;\n\tdisplay : flex;\n\tjustify-content : center;\n\tborder-bottom : var(--headingBorder);\n\tpadding: 5px 0;\n\tfont-size : var(--headingFontSize);\n\tfont-weight : 400;\n']),
     _templateObject3 = _taggedTemplateLiteral(['\n\tfont-size : var(--subheadingFontSize);\n\tfont-weight : 300;\n\tpadding-top : 10px;\n\tborder : none;\n'], ['\n\tfont-size : var(--subheadingFontSize);\n\tfont-weight : 300;\n\tpadding-top : 10px;\n\tborder : none;\n']),
-    _templateObject4 = _taggedTemplateLiteral(['\n\tposition:relative;\n\ttop:-2px;\n\twidth:100%;\n\theight:2px;\n\tbackground:', ';\n\ttransform:', ';\n\ttransition:all 0.4s;\n\tz-index:1;\n'], ['\n\tposition:relative;\n\ttop:-2px;\n\twidth:100%;\n\theight:2px;\n\tbackground:', ';\n\ttransform:', ';\n\ttransition:all 0.4s;\n\tz-index:1;\n']),
+    _templateObject4 = _taggedTemplateLiteral(['\n\tposition:absolute;\n\twidth:100%;\n\theight:2px;\n\tbackground:', ';\n\ttransform:', ';\n\ttransition:all 0.4s;\n\tz-index:1;\n\tdisplay : ', ';\n'], ['\n\tposition:absolute;\n\twidth:100%;\n\theight:2px;\n\tbackground:', ';\n\ttransform:', ';\n\ttransition:all 0.4s;\n\tz-index:1;\n\tdisplay : ', ';\n']),
     _templateObject5 = _taggedTemplateLiteral(['\n\tposition: absolute;\n    top: 50%;\n    left: 50%;\n    width: 300px;\n  \ttransform : translate(-50%,-50%);\n    font-size: 1rem;\n    display : ', ';\n'], ['\n\tposition: absolute;\n    top: 50%;\n    left: 50%;\n    width: 300px;\n  \ttransform : translate(-50%,-50%);\n    font-size: 1rem;\n    display : ', ';\n']),
     _templateObject6 = _taggedTemplateLiteral(['\n\tdisplay : inline-block;\n'], ['\n\tdisplay : inline-block;\n']),
     _templateObject7 = _taggedTemplateLiteral(['\n\tposition : fixed ; \n\ttop : 0;\n\tleft : 0;\n\tbottom : 0;\n\tright : 0;\n\tbackground-color : var(--popupBgColor);\n\tz-index : 2;\n\tdisplay : ', ';\n'], ['\n\tposition : fixed ; \n\ttop : 0;\n\tleft : 0;\n\tbottom : 0;\n\tright : 0;\n\tbackground-color : var(--popupBgColor);\n\tz-index : 2;\n\tdisplay : ', ';\n']);
@@ -1882,6 +1882,8 @@ var AnimatedBorder = _styledComponents2.default.div(_templateObject4, function (
 	return props.valid ? 'var(--defaultGreen)' : 'var(--defaultRed)';
 }, function (props) {
 	return props.focused || !props.valid ? 'scale(1)' : 'scale(0)';
+}, function (props) {
+	return props.show ? 'block' : 'none';
 });
 
 var VhAlignedWrapper = _styledComponents2.default.div(_templateObject5, function (props) {
@@ -2331,6 +2333,10 @@ var _propTypes = __webpack_require__(11);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
+var _loaders = __webpack_require__(39);
+
+var _loaders2 = _interopRequireDefault(_loaders);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -2361,7 +2367,8 @@ var AutoComplete = function (_React$PureComponent) {
 			autoCompList: [],
 			value: props.value || null,
 			isFocused: false,
-			selectedListIndex: -1
+			selectedListIndex: -1,
+			loaderCount: 0
 		};
 		return _this;
 	}
@@ -2379,14 +2386,26 @@ var AutoComplete = function (_React$PureComponent) {
 			var fetchPromise = this.props.fetchFunc;
 			fetchPromise(value).then(function (res) {
 				_this2.keyPressHandlerInstance.updateListLength.call(_this2.keyPressHandlerInstance, res.length);
-				_this2.setState({
-					autoCompList: res
+				_this2.setState(function (state, props) {
+					return {
+						autoCompList: res,
+						loaderCount: state.loaderCount - 1
+					};
 				});
 			}, function (err) {
 				_this2.keyPressHandlerInstance.updateListLength.call(_this2.keyPressHandlerInstance, 0);
-				_this2.setState({
-					autoCompList: []
+				_this2.setState(function (state, props) {
+					return {
+						autoCompList: [],
+						loaderCount: state.loaderCount - 1
+					};
 				});
+			});
+
+			this.setState(function (state, props) {
+				return {
+					loaderCount: state.loaderCount + 1
+				};
 			});
 		}
 	}, {
@@ -2543,7 +2562,8 @@ var AutoComplete = function (_React$PureComponent) {
 					{ isDown: this.state.isDown,
 						isValid: props.isValid,
 						errorText: props.errorText || '',
-						helpText: props.helpText || '' },
+						helpText: props.helpText || '',
+						fullBorderStyle: props.fullBorderStyle },
 					_react2.default.createElement('input', { type: 'text', value: this.state.value && this.state.value.label || '',
 						onChange: this.onChangeHandler,
 						onBlur: this.blurHandler,
@@ -2554,8 +2574,14 @@ var AutoComplete = function (_React$PureComponent) {
 						null,
 						props.label
 					),
+					_react2.default.createElement(
+						_styledComponents.LoaderWrapper,
+						{ show: this.state.loaderCount > 0 ? true : false },
+						_react2.default.createElement(_loaders2.default, null)
+					),
 					_react2.default.createElement(_sharedStyledComponents.AnimatedBorder, { valid: props.isValid,
-						focused: this.state.isFocused })
+						focused: this.state.isFocused,
+						show: this.props.isFormItem })
 				),
 				_react2.default.createElement(
 					_styledComponents.SearchList,
@@ -2904,14 +2930,15 @@ module.exports = exports["default"];
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.SelectedListItem = exports.ListItem = exports.SearchList = exports.SearchBox = exports.Wrapper = exports.CSSVariables = undefined;
+exports.LoaderWrapper = exports.SelectedListItem = exports.ListItem = exports.SearchList = exports.SearchBox = exports.Wrapper = exports.CSSVariables = undefined;
 
-var _templateObject = _taggedTemplateLiteral(['\n  --labelColor : ', ';\n  --inputColor : ', ';\n  --inputBorderColor : ', ';\n  --inputBorderWidth : ', ';\n  --dropdownColor : ', ';\n  --dropdownBgColor : ', ';\n  --dropdownHoverColor : ', ';\n  --dropdownHoverBgColor : ', ';\n  --labelFontSize : ', ';\n  --inputFontSize : ', ';\n  --dropdownShadow : ', ';\n  --inputPadding : ', ';\n'], ['\n  --labelColor : ', ';\n  --inputColor : ', ';\n  --inputBorderColor : ', ';\n  --inputBorderWidth : ', ';\n  --dropdownColor : ', ';\n  --dropdownBgColor : ', ';\n  --dropdownHoverColor : ', ';\n  --dropdownHoverBgColor : ', ';\n  --labelFontSize : ', ';\n  --inputFontSize : ', ';\n  --dropdownShadow : ', ';\n  --inputPadding : ', ';\n']),
-    _templateObject2 = _taggedTemplateLiteral(['\n\t  width : 100%;\n    position: relative;\n    outline : none;\n'], ['\n\t  width : 100%;\n    position: relative;\n    outline : none;\n']),
-    _templateObject3 = _taggedTemplateLiteral(['\n\tposition : relative;\n\tpadding: 15px 0 0;\n\tinput{\n      position:relative;\n      z-index:1;\n      width: 100%;\n\t    border: none;\n\t    border-style: solid;//', ';\n      border-width : var(--inputBorderWidth);\n\t    border-color: var(--inputBorderColor);\n\t    box-sizing: border-box;\n\t    font-size: var(--inputFontSize);\n\t    background-color:transparent;\n\t    color : var(--inputColor);\t\n\t    outline : none;\n\t}\n\n\tlabel{\n\t\tposition:absolute;\n\t\tleft : 0px;\n\t\ttop : 14px;\n\t\tcolor: var(--labelColor);\n\t\ttransform:', ';\n\t\ttransform-origin:top left;\n\t\ttransition:all 0.4s;\n\t\tfont-size : var(--labelFontSize);\n\t}\n\n\t&:after{\n\t\tcontent:"', '";\n        position: absolute;\n        font-size: var(--infoFontSize);\n        color: ', ';\n    \tleft: 0px;\n    \tbackground: var(--infoBgColor);\n    \tpadding: 5px;\n    \tbox-shadow: var(--infoBoxShadow);\n    \tdisplay: ', ';\n    \tz-index: 1;\n\t}\n\t\n'], ['\n\tposition : relative;\n\tpadding: 15px 0 0;\n\tinput{\n      position:relative;\n      z-index:1;\n      width: 100%;\n\t    border: none;\n\t    border-style: solid;//', ';\n      border-width : var(--inputBorderWidth);\n\t    border-color: var(--inputBorderColor);\n\t    box-sizing: border-box;\n\t    font-size: var(--inputFontSize);\n\t    background-color:transparent;\n\t    color : var(--inputColor);\t\n\t    outline : none;\n\t}\n\n\tlabel{\n\t\tposition:absolute;\n\t\tleft : 0px;\n\t\ttop : 14px;\n\t\tcolor: var(--labelColor);\n\t\ttransform:', ';\n\t\ttransform-origin:top left;\n\t\ttransition:all 0.4s;\n\t\tfont-size : var(--labelFontSize);\n\t}\n\n\t&:after{\n\t\tcontent:"', '";\n        position: absolute;\n        font-size: var(--infoFontSize);\n        color: ', ';\n    \tleft: 0px;\n    \tbackground: var(--infoBgColor);\n    \tpadding: 5px;\n    \tbox-shadow: var(--infoBoxShadow);\n    \tdisplay: ', ';\n    \tz-index: 1;\n\t}\n\t\n']),
-    _templateObject4 = _taggedTemplateLiteral(['\n\twidth: 100%;\n    position: absolute;\n    background: var(--dropdownBgColor);\n    box-shadow: var(--dropdownShadow);\n    font-size: var(--inputFontSize);\n    color: var(--dropdownColor);\n    z-index:3;\n    max-height : 200px;\n    overflow : auto;\n'], ['\n\twidth: 100%;\n    position: absolute;\n    background: var(--dropdownBgColor);\n    box-shadow: var(--dropdownShadow);\n    font-size: var(--inputFontSize);\n    color: var(--dropdownColor);\n    z-index:3;\n    max-height : 200px;\n    overflow : auto;\n']),
+var _templateObject = _taggedTemplateLiteral(['\n  --labelColor : ', ';\n  --inputColor : ', ';\n  --inputBorderColor : ', ';\n  --inputBorderWidth : 0.05em;\n  --dropdownColor : ', ';\n  --dropdownBgColor : ', ';\n  --dropdownHoverColor : ', ';\n  --dropdownHoverBgColor : ', ';\n  --fontSize : ', ';\n  --dropdownShadow : ', ';\n  --inputBorderRadius : ', ';\n'], ['\n  --labelColor : ', ';\n  --inputColor : ', ';\n  --inputBorderColor : ', ';\n  --inputBorderWidth : 0.05em;\n  --dropdownColor : ', ';\n  --dropdownBgColor : ', ';\n  --dropdownHoverColor : ', ';\n  --dropdownHoverBgColor : ', ';\n  --fontSize : ', ';\n  --dropdownShadow : ', ';\n  --inputBorderRadius : ', ';\n']),
+    _templateObject2 = _taggedTemplateLiteral(['\n\t  width : 100%;\n    position: relative;\n    outline : none;\n    padding: 0.75em 0 0;\n    font-size : var(--fontSize);\n    font-weight : 300;\n'], ['\n\t  width : 100%;\n    position: relative;\n    outline : none;\n    padding: 0.75em 0 0;\n    font-size : var(--fontSize);\n    font-weight : 300;\n']),
+    _templateObject3 = _taggedTemplateLiteral(['\n\tposition : relative;\n\tborder-style: solid;\n  border-width : ', ';\n  border-color: var(--inputBorderColor);\n  border-radius : ', ';\n  box-sizing : border-box;\n\n\tinput{\n      position : relative;\n      z-index:1;\n      width: 100%;\n\t    border: none;\n\t    font-size: var(--fontSize);\n\t    background-color: transparent;\n\t    color : var(--inputColor);\t\n\t    outline : none;\n      padding : 1px 20px 1px 1px;\n      box-sizing : border-box;\n      font-weight : inherit;\n\t}\n\n\tlabel{\n\t\tposition:absolute;\n    left : 0px;\n    top : 0px;\n    padding : 1px;\n\t\tcolor: var(--labelColor);\n\t\ttransform:', ';\n\t\ttransform-origin:top left;\n\t\ttransition:all 0.4s;\n\t\tfont-size : var(--fontSize);\n\t}\n\n\t&:after{\n\t\t  content:"', '";\n      position: absolute;\n      font-size: var(--infoFontSize);\n      color: ', ';\n    \tleft: 0px;\n    \tbackground: var(--infoBgColor);\n    \tpadding: 5px;\n    \tbox-shadow: var(--infoBoxShadow);\n    \tdisplay: ', ';\n    \tz-index: 1;\n\t}\n\t\n'], ['\n\tposition : relative;\n\tborder-style: solid;\n  border-width : ', ';\n  border-color: var(--inputBorderColor);\n  border-radius : ', ';\n  box-sizing : border-box;\n\n\tinput{\n      position : relative;\n      z-index:1;\n      width: 100%;\n\t    border: none;\n\t    font-size: var(--fontSize);\n\t    background-color: transparent;\n\t    color : var(--inputColor);\t\n\t    outline : none;\n      padding : 1px 20px 1px 1px;\n      box-sizing : border-box;\n      font-weight : inherit;\n\t}\n\n\tlabel{\n\t\tposition:absolute;\n    left : 0px;\n    top : 0px;\n    padding : 1px;\n\t\tcolor: var(--labelColor);\n\t\ttransform:', ';\n\t\ttransform-origin:top left;\n\t\ttransition:all 0.4s;\n\t\tfont-size : var(--fontSize);\n\t}\n\n\t&:after{\n\t\t  content:"', '";\n      position: absolute;\n      font-size: var(--infoFontSize);\n      color: ', ';\n    \tleft: 0px;\n    \tbackground: var(--infoBgColor);\n    \tpadding: 5px;\n    \tbox-shadow: var(--infoBoxShadow);\n    \tdisplay: ', ';\n    \tz-index: 1;\n\t}\n\t\n']),
+    _templateObject4 = _taggedTemplateLiteral(['\n\t  width: 100%;\n    position: absolute;\n    top : 105%;\n    background: var(--dropdownBgColor);\n    box-shadow: var(--dropdownShadow);\n    font-size: var(--fontSize);\n    color: var(--dropdownColor);\n    z-index:3;\n    max-height : 200px;\n    overflow : auto;\n'], ['\n\t  width: 100%;\n    position: absolute;\n    top : 105%;\n    background: var(--dropdownBgColor);\n    box-shadow: var(--dropdownShadow);\n    font-size: var(--fontSize);\n    color: var(--dropdownColor);\n    z-index:3;\n    max-height : 200px;\n    overflow : auto;\n']),
     _templateObject5 = _taggedTemplateLiteral(['\n\t  box-sizing: border-box;\n    padding: 10px 5px 10px 10px;\n    &:hover{\n    \tbackground-color: var(--dropdownHoverBgColor);\n\t    opacity: 0.8;\n\t    color: var(--dropdownHoverColor);\n    }\n'], ['\n\t  box-sizing: border-box;\n    padding: 10px 5px 10px 10px;\n    &:hover{\n    \tbackground-color: var(--dropdownHoverBgColor);\n\t    opacity: 0.8;\n\t    color: var(--dropdownHoverColor);\n    }\n']),
-    _templateObject6 = _taggedTemplateLiteral(['\n\tbackground-color : var(--dropdownHoverBgColor);\n\topacity: 0.8;\n\tcolor: var(--dropdownHoverColor);\n'], ['\n\tbackground-color : var(--dropdownHoverBgColor);\n\topacity: 0.8;\n\tcolor: var(--dropdownHoverColor);\n']);
+    _templateObject6 = _taggedTemplateLiteral(['\n  \tbackground-color : var(--dropdownHoverBgColor);\n  \topacity: 0.8;\n  \tcolor: var(--dropdownHoverColor);\n'], ['\n  \tbackground-color : var(--dropdownHoverBgColor);\n  \topacity: 0.8;\n  \tcolor: var(--dropdownHoverColor);\n']),
+    _templateObject7 = _taggedTemplateLiteral(['\n    display : ', ';\n    position : absolute;\n    top : 50%;\n    right : 0px;\n    width : 20px;\n    height : 20px;\n    transform : translateY(-50%);\n    font-size : 0;\n'], ['\n    display : ', ';\n    position : absolute;\n    top : 50%;\n    right : 0px;\n    width : 20px;\n    height : 20px;\n    transform : translateY(-50%);\n    font-size : 0;\n']);
 
 var _styledComponents = __webpack_require__(1);
 
@@ -2928,8 +2955,6 @@ var CSSVariables = _styledComponents2.default.div(_templateObject, function (pro
 }, function (props) {
   return props.INPUT_BORDER_COLOR;
 }, function (props) {
-  return props.INPUT_BORDER_WIDTH;
-}, function (props) {
   return props.DROPDOWN_COLOR;
 }, function (props) {
   return props.DROPDOWN_BACKGROUND;
@@ -2938,21 +2963,21 @@ var CSSVariables = _styledComponents2.default.div(_templateObject, function (pro
 }, function (props) {
   return props.DROPDOWN_HOVER_BG_COLOR;
 }, function (props) {
-  return props.LABEL_FONT_SIZE;
-}, function (props) {
-  return props.INPUT_FONT_SIZE;
+  return props.FONT_SIZE;
 }, function (props) {
   return props.DROPDOWN_SHADOW;
 }, function (props) {
-  return props.INPUT_PADDING;
+  return props.INPUT_BORDER_RADIUS;
 });
 
 var Wrapper = _styledComponents2.default.div(_templateObject2);
 
 var SearchBox = _styledComponents2.default.div(_templateObject3, function (props) {
-  return props.isValid ? '1px solid' : 'none';
+  return props.fullBorderStyle ? 'var(--inputBorderWidth)' : '0 0 var(--inputBorderWidth) 0';
 }, function (props) {
-  return props.isDown ? "translateY(0) scale(1)" : "translateY(-10px) scale(0.6)";
+  return props.fullBorderStyle ? 'var(--inputBorderRadius)' : '0';
+}, function (props) {
+  return props.isDown ? "translateY(0) scale(1)" : props.fullBorderStyle ? "translateY(-0.85em) scale(0.6)" : "translateY(-10px) scale(0.6)";
 }, function (props) {
   return props.isValid ? props.helpText : props.errorText;
 }, function (props) {
@@ -2967,12 +2992,17 @@ var ListItem = _styledComponents2.default.div(_templateObject5);
 
 var SelectedListItem = ListItem.extend(_templateObject6);
 
+var LoaderWrapper = _styledComponents2.default.div(_templateObject7, function (props) {
+  return props.show ? 'block' : 'none';
+});
+
 exports.CSSVariables = CSSVariables;
 exports.Wrapper = Wrapper;
 exports.SearchBox = SearchBox;
 exports.SearchList = SearchList;
 exports.ListItem = ListItem;
 exports.SelectedListItem = SelectedListItem;
+exports.LoaderWrapper = LoaderWrapper;
 
 /***/ }),
 /* 16 */
@@ -3016,35 +3046,26 @@ var CheckBox = function (_React$PureComponent) {
 	_createClass(CheckBox, [{
 		key: 'onChangeHandler',
 		value: function onChangeHandler(e) {
-			console.log('CheckBox', e, e.target.checked);
-			this.props.setItem(this.props.name, e.target.checked);
+			//console.log('CheckBox',e,e.target.checked);
+			this.props.setItem(this.props.name, !this.props.value);
 		}
 	}, {
 		key: 'render',
 		value: function render() {
 
 			var props = this.props;
-
 			return _react2.default.createElement(
-				_styledComponents.Wrapper,
-				{ isVisible: true, checked: props.value },
+				_styledComponents.CheckboxWrapper,
+				null,
 				_react2.default.createElement(
-					_styledComponents.CheckboxWrapper,
-					null,
-					_react2.default.createElement(
-						_styledComponents.InputWrapper,
-						null,
-						_react2.default.createElement('input', { id: props.name, type: 'checkbox',
-							name: props.name,
-							onChange: this.onChangeHandler,
-							readOnly: props.readOnly }),
-						_react2.default.createElement(_styledComponents.Tick, { checked: props.value })
-					),
-					_react2.default.createElement(
-						'label',
-						{ htmlFor: props.name },
-						props.label
-					)
+					_styledComponents.InputWrapper,
+					{ checked: props.value, onClick: this.onChangeHandler },
+					_react2.default.createElement(_styledComponents.Tick, { checked: props.value })
+				),
+				_react2.default.createElement(
+					'label',
+					{ onClick: this.onChangeHandler },
+					props.label
 				)
 			);
 		}
@@ -3068,11 +3089,11 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.InputWrapper = exports.Tick = exports.Wrapper = exports.CheckboxWrapper = exports.CSSVariables = undefined;
 
-var _templateObject = _taggedTemplateLiteral(['\n\t--labelColor : ', ';\n\t--helpTextColor : ', ';\n\t--errorTextColor : ', ';\n\t--defaultGreen : ', ';\n\t--defaultRed : ', ';\n\t--defaultBlue :', ';\n\t--labelFontSize : ', ';\n\t--inputFontSize : ', ';\n\t--infoFontSize : ', ';\n\t--infoBgColor : ', ';\n\t--infoBoxShadow : ', ';\n \t--checkboxBorderTrue : ', ';\n \t--checkboxBorderFalse : ', ';\n \t--checkboxTrikColor : ', ';\n'], ['\n\t--labelColor : ', ';\n\t--helpTextColor : ', ';\n\t--errorTextColor : ', ';\n\t--defaultGreen : ', ';\n\t--defaultRed : ', ';\n\t--defaultBlue :', ';\n\t--labelFontSize : ', ';\n\t--inputFontSize : ', ';\n\t--infoFontSize : ', ';\n\t--infoBgColor : ', ';\n\t--infoBoxShadow : ', ';\n \t--checkboxBorderTrue : ', ';\n \t--checkboxBorderFalse : ', ';\n \t--checkboxTrikColor : ', ';\n']),
-    _templateObject2 = _taggedTemplateLiteral(['\n\tposition:relative;\n\t//padding : 15px 0 0;\n\tinput[type=\'checkbox\']{\n\t\t-webkit-appearance: none;\n\t    width: 16px;\n\t    height: 16px;\n\t    border: 2px solid;\n\t    border-color : ', ';\n\t    vertical-align: bottom;\n\t    border-radius: 4px;\n\t    z-index:1;\n\t    position : relative;\n\t    outline : none;\n\t    margin : 3px;\n\t}\n\n\t&:hover{\n\t\tbackground : \'#c3c3c3\';\n\t}\n'], ['\n\tposition:relative;\n\t//padding : 15px 0 0;\n\tinput[type=\'checkbox\']{\n\t\t-webkit-appearance: none;\n\t    width: 16px;\n\t    height: 16px;\n\t    border: 2px solid;\n\t    border-color : ', ';\n\t    vertical-align: bottom;\n\t    border-radius: 4px;\n\t    z-index:1;\n\t    position : relative;\n\t    outline : none;\n\t    margin : 3px;\n\t}\n\n\t&:hover{\n\t\tbackground : \'#c3c3c3\';\n\t}\n']),
-    _templateObject3 = _taggedTemplateLiteral(['\n\tdisplay: inline-block;\n    position: relative;\n    z-index: 1;\n    background: transparent;\n\n    label{\n    \tfont-size : var(--labelFontSize);\n    \tcolor : var(--labelColor);\n    }\n\n\t&:after{\n\t\tposition: absolute;\n\t    content: \'\';\n\t    width: 46px;\n\t    height: 46px;\n\t    background: #333;\n\t    border-radius: 50%;\n\t    top: -9px;\n\t    left: -13px;\n\t    opacity: 0;\n\t    transform : scale(1);\n\t    transition : all 0.4s;\n\t    z-index : -1;\n\t}\n\n\t&:active:after{\n\t\topacity:1;\n\t\ttransform : scale(0);\n\t\ttransition : all 0s;\n\t}\n'], ['\n\tdisplay: inline-block;\n    position: relative;\n    z-index: 1;\n    background: transparent;\n\n    label{\n    \tfont-size : var(--labelFontSize);\n    \tcolor : var(--labelColor);\n    }\n\n\t&:after{\n\t\tposition: absolute;\n\t    content: \'\';\n\t    width: 46px;\n\t    height: 46px;\n\t    background: #333;\n\t    border-radius: 50%;\n\t    top: -9px;\n\t    left: -13px;\n\t    opacity: 0;\n\t    transform : scale(1);\n\t    transition : all 0.4s;\n\t    z-index : -1;\n\t}\n\n\t&:active:after{\n\t\topacity:1;\n\t\ttransform : scale(0);\n\t\ttransition : all 0s;\n\t}\n']),
-    _templateObject4 = _taggedTemplateLiteral(['\n\tdisplay : ', ';\n\tposition : absolute;\n\ttop : 50%;\n\tleft : 50%;\n\twidth : 6px;\n\theight : 2px;\n\tborder : 2px solid;\n\tborder-color : var(--checkboxTrikColor);\n\tborder-top-color : transparent;\n\tborder-right-color : transparent;\n\ttransform : translate(-50%,-50%) rotate(-45deg);\n\tz-index : 0;\t\n'], ['\n\tdisplay : ', ';\n\tposition : absolute;\n\ttop : 50%;\n\tleft : 50%;\n\twidth : 6px;\n\theight : 2px;\n\tborder : 2px solid;\n\tborder-color : var(--checkboxTrikColor);\n\tborder-top-color : transparent;\n\tborder-right-color : transparent;\n\ttransform : translate(-50%,-50%) rotate(-45deg);\n\tz-index : 0;\t\n']),
-    _templateObject5 = _taggedTemplateLiteral(['\n\tposition: relative;\n\tdisplay : inline-block;\n\n'], ['\n\tposition: relative;\n\tdisplay : inline-block;\n\n']);
+var _templateObject = _taggedTemplateLiteral(['\n\t--labelColor : ', ';\n\t--defaultGreen : ', ';\n\t--defaultRed : ', ';\n\t--defaultBlue :', ';\n\t--fontSize : ', ';\n\t--checkboxColorTrue : ', ';\n\t--checkboxColorFalse : ', ';\n\t--checkboxTickColor : ', ';\n'], ['\n\t--labelColor : ', ';\n\t--defaultGreen : ', ';\n\t--defaultRed : ', ';\n\t--defaultBlue :', ';\n\t--fontSize : ', ';\n\t--checkboxColorTrue : ', ';\n\t--checkboxColorFalse : ', ';\n\t--checkboxTickColor : ', ';\n']),
+    _templateObject2 = _taggedTemplateLiteral(['\n'], ['\n']),
+    _templateObject3 = _taggedTemplateLiteral(['\n\tdisplay: flex;\n\tjustify-content : flex-start;\n\talign-items : center;\n    position: relative;\n    z-index: 1;\n    background: transparent;\n    font-size : var(--fontSize);\n\n    label{\n    \tcolor : var(--labelColor);\n    \tmargin-left : 5px;\n    \tfont-size : 1em;\n    }\n\n    &:after{\n\t\tposition: absolute;\n\t    content: \'\';\n\t    width: 2.5em;\n\t    height: 2.5em;\n\t    background: #333;\n\t    border-radius: 50%;\n\t    top: -0.6em;\n\t    left: -0.6em;\n\t    opacity: 0;\n\t    transform : scale(1);\n\t    //transform-origin : center;\n\t    transition : all 0.4s;\n\n\t    z-index : -1;\n\t}\n\n\t&:active:after{\n\t\topacity:1;\n\t\ttransform : scale(0);\n\t\ttransition : all 0s;\n\t}\n'], ['\n\tdisplay: flex;\n\tjustify-content : flex-start;\n\talign-items : center;\n    position: relative;\n    z-index: 1;\n    background: transparent;\n    font-size : var(--fontSize);\n\n    label{\n    \tcolor : var(--labelColor);\n    \tmargin-left : 5px;\n    \tfont-size : 1em;\n    }\n\n    &:after{\n\t\tposition: absolute;\n\t    content: \'\';\n\t    width: 2.5em;\n\t    height: 2.5em;\n\t    background: #333;\n\t    border-radius: 50%;\n\t    top: -0.6em;\n\t    left: -0.6em;\n\t    opacity: 0;\n\t    transform : scale(1);\n\t    //transform-origin : center;\n\t    transition : all 0.4s;\n\n\t    z-index : -1;\n\t}\n\n\t&:active:after{\n\t\topacity:1;\n\t\ttransform : scale(0);\n\t\ttransition : all 0s;\n\t}\n']),
+    _templateObject4 = _taggedTemplateLiteral(['\n\tposition: relative;\n\tdisplay : inline-block;\n\twidth : 1em;\n\theight : 1em;\n\tborder: 2px solid;\n\tborder-color : ', ';    \n\tborder-radius: 4px;\n\tfont-size : inherit;\n\n\t// input[type=\'checkbox\']{\n\t// \t-webkit-appearance: none;\n\t//     width: 0.7em;\n\t//     height: 0.7em;\n\t//     vertical-align: bottom;\n\t//     z-index:1;\n\t//     position : relative;\n\t//     outline : none;\n\t//     font-size : inherit;\n\t// }\n\n'], ['\n\tposition: relative;\n\tdisplay : inline-block;\n\twidth : 1em;\n\theight : 1em;\n\tborder: 2px solid;\n\tborder-color : ', ';    \n\tborder-radius: 4px;\n\tfont-size : inherit;\n\n\t// input[type=\'checkbox\']{\n\t// \t-webkit-appearance: none;\n\t//     width: 0.7em;\n\t//     height: 0.7em;\n\t//     vertical-align: bottom;\n\t//     z-index:1;\n\t//     position : relative;\n\t//     outline : none;\n\t//     font-size : inherit;\n\t// }\n\n']),
+    _templateObject5 = _taggedTemplateLiteral(['\n\tdisplay : ', ';\n\tposition : absolute;\n\ttop : 50%;\n\tleft : 50%;\n\twidth : 0.4em;\n\theight : 0.1em;\n\tborder : 2px solid;\n\tborder-color : var(--checkboxTickColor);\n\tborder-top-color : transparent;\n\tborder-right-color : transparent;\n\ttransform : translate(-50%,-50%) rotate(-45deg);\n\tz-index : 0;\t\n'], ['\n\tdisplay : ', ';\n\tposition : absolute;\n\ttop : 50%;\n\tleft : 50%;\n\twidth : 0.4em;\n\theight : 0.1em;\n\tborder : 2px solid;\n\tborder-color : var(--checkboxTickColor);\n\tborder-top-color : transparent;\n\tborder-right-color : transparent;\n\ttransform : translate(-50%,-50%) rotate(-45deg);\n\tz-index : 0;\t\n']);
 
 var _styledComponents = __webpack_require__(1);
 
@@ -3085,44 +3106,32 @@ function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defi
 var CSSVariables = _styledComponents2.default.div(_templateObject, function (props) {
 	return props.LABEL_COLOR;
 }, function (props) {
-	return props.HELPTEXT_COLOR;
-}, function (props) {
-	return props.ERRORTEXT_COLOR;
-}, function (props) {
 	return props.DEFAULT_GREEN_COLOR;
 }, function (props) {
 	return props.DEFAULT_RED_COLOR;
 }, function (props) {
 	return props.DEFAULT_BLUE_COLOR;
 }, function (props) {
-	return props.LABEL_FONT_SIZE;
+	return props.FONT_SIZE;
 }, function (props) {
-	return props.INPUT_FONT_SIZE;
+	return props.CHECKBOX_COLOR_TRUE;
 }, function (props) {
-	return props.INFO_FONT_SIZE;
-}, function (props) {
-	return props.INFO_BG_COLOR;
-}, function (props) {
-	return props.INFO_BOX_SHADOW;
-}, function (props) {
-	return props.CHECKBOX_BORDER_TRUE;
-}, function (props) {
-	return props.CHECKBOX_BORDER_FALSE;
+	return props.CHECKBOX_COLOR_FALSE;
 }, function (props) {
 	return props.CHECKBOX_TICK_COLOR;
 });
 
-var Wrapper = _styledComponents2.default.div(_templateObject2, function (props) {
-	return props.checked ? 'var(--checkboxBorderTrue)' : 'var(--checkboxBorderFalse)';
-});
+var Wrapper = _styledComponents2.default.div(_templateObject2);
 
 var CheckboxWrapper = _styledComponents2.default.div(_templateObject3);
 
-var Tick = _styledComponents2.default.div(_templateObject4, function (props) {
-	return props.checked ? 'block' : 'none';
+var InputWrapper = _styledComponents2.default.div(_templateObject4, function (props) {
+	return props.checked ? 'var(--checkboxColorTrue)' : 'var(--checkboxColorFalse)';
 });
 
-var InputWrapper = _styledComponents2.default.div(_templateObject5);
+var Tick = _styledComponents2.default.div(_templateObject5, function (props) {
+	return props.checked ? 'block' : 'none';
+});
 
 exports.CSSVariables = CSSVariables;
 exports.CheckboxWrapper = CheckboxWrapper;
@@ -3147,17 +3156,17 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _timepicker = __webpack_require__(43);
+var _timepicker = __webpack_require__(48);
 
 var _timepicker2 = _interopRequireDefault(_timepicker);
 
-var _calendar = __webpack_require__(45);
+var _calendar = __webpack_require__(50);
 
 var _calendar2 = _interopRequireDefault(_calendar);
 
 var _sharedStyledComponents = __webpack_require__(3);
 
-var _input = __webpack_require__(47);
+var _input = __webpack_require__(52);
 
 var _input2 = _interopRequireDefault(_input);
 
@@ -3755,7 +3764,8 @@ var Dropdown = function (_React$PureComponent) {
 						_this3.tabPressed = false;
 					},
 					isValid: props.isValid,
-					helpText: props.helpText, errorText: props.errorText },
+					helpText: props.helpText, errorText: props.errorText,
+					fullBorderStyle: props.fullBorderStyle },
 				_react2.default.createElement(
 					'label',
 					null,
@@ -3763,7 +3773,7 @@ var Dropdown = function (_React$PureComponent) {
 				),
 				_react2.default.createElement(
 					'span',
-					{ onClick: this.toggleList /*onMouseDown={this.preventDropdownClose}*/ },
+					{ onClick: this.toggleList },
 					selectedValue
 				),
 				this.state.listOpen ? _react2.default.createElement(
@@ -3799,9 +3809,9 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.SelectedListItem = exports.ListItem = exports.DropdownListWrapper = exports.Wrapper = exports.CSSVariables = undefined;
 
-var _templateObject = _taggedTemplateLiteral(['\n  --labelColor : ', ';\n  --inputColor : ', ';\n  --inputBorderColor : ', ';\n  --helpTextColor : ', ';\n  --errorTextColor : ', ';\n  --dropdownColor : ', ';\n  --dropdownBgColor : ', ';\n  --dropdownHoverColor : ', ';\n  --dropdownHoverBgColor : ', ';\n  --defaultGreen : ', ';\n  --defaultRed : ', ';\n  --defaultBlue :', ';\n  --labelFontSizeSmall : ', ';\n  --inputFontSize : ', ';\n  --infoFontSize : ', ';\n  --dropdownShadow : ', ';\n  --infoBgColor : ', ';\n  --infoBoxShadow : ', ';\n  --inputBorderWidth : ', ';\n'], ['\n  --labelColor : ', ';\n  --inputColor : ', ';\n  --inputBorderColor : ', ';\n  --helpTextColor : ', ';\n  --errorTextColor : ', ';\n  --dropdownColor : ', ';\n  --dropdownBgColor : ', ';\n  --dropdownHoverColor : ', ';\n  --dropdownHoverBgColor : ', ';\n  --defaultGreen : ', ';\n  --defaultRed : ', ';\n  --defaultBlue :', ';\n  --labelFontSizeSmall : ', ';\n  --inputFontSize : ', ';\n  --infoFontSize : ', ';\n  --dropdownShadow : ', ';\n  --infoBgColor : ', ';\n  --infoBoxShadow : ', ';\n  --inputBorderWidth : ', ';\n']),
-    _templateObject2 = _taggedTemplateLiteral(['\n    //padding: 10px 0;\n    position:relative;\n    outline : none;\n\n    span{\n    \twidth: 100%;\n\t    display: block;\n\t    font-size : var(--inputFontSize);\n\t    padding: 15px 0px 0px;\n\t    box-sizing: border-box;\n      border-style : solid;\n      border-width : var(--inputBorderWidth);\n      border-color : var(--inputBorderColor);\n\t    color : var(--inputColor);\n    }\n\n    span:after{\n\t\tposition: absolute;\n\t    content: \'\';\n\t    right: 10px;\n\t    top: 45%;\n\t    border-top: 8px solid;\n\t    border-right: 6px solid transparent;\n\t    border-bottom: 6px solid transparent;\n\t    border-left: 6px solid transparent;\n\t}\n\n    label{\n    \tposition: absolute;\n\t    top: 2px;\n\t    left: 0px;\n\t    font-size: var(--labelFontSizeSmall);\n\t    color: var(--labelColor);\n    }\n\n    &:after{\n    \tcontent:"', '";\n      position: absolute;\n      left:0px;\n      top : 105%;\n      font-size: var(--infoFontSize);\n      color: ', ';\n    \tbackground: var(--infoBgColor);\n    \tpadding: 5px;\n    \tbox-shadow: var(--infoBoxShadow);\n    \tdisplay: ', ';\n        z-index: 1;\n    }\n'], ['\n    //padding: 10px 0;\n    position:relative;\n    outline : none;\n\n    span{\n    \twidth: 100%;\n\t    display: block;\n\t    font-size : var(--inputFontSize);\n\t    padding: 15px 0px 0px;\n\t    box-sizing: border-box;\n      border-style : solid;\n      border-width : var(--inputBorderWidth);\n      border-color : var(--inputBorderColor);\n\t    color : var(--inputColor);\n    }\n\n    span:after{\n\t\tposition: absolute;\n\t    content: \'\';\n\t    right: 10px;\n\t    top: 45%;\n\t    border-top: 8px solid;\n\t    border-right: 6px solid transparent;\n\t    border-bottom: 6px solid transparent;\n\t    border-left: 6px solid transparent;\n\t}\n\n    label{\n    \tposition: absolute;\n\t    top: 2px;\n\t    left: 0px;\n\t    font-size: var(--labelFontSizeSmall);\n\t    color: var(--labelColor);\n    }\n\n    &:after{\n    \tcontent:"', '";\n      position: absolute;\n      left:0px;\n      top : 105%;\n      font-size: var(--infoFontSize);\n      color: ', ';\n    \tbackground: var(--infoBgColor);\n    \tpadding: 5px;\n    \tbox-shadow: var(--infoBoxShadow);\n    \tdisplay: ', ';\n        z-index: 1;\n    }\n']),
-    _templateObject3 = _taggedTemplateLiteral(['\n\tposition : absolute;\n    background : var(--dropdownBgColor);\n    width : 100%;\n    box-shadow : var(--dropdownShadow);\n    font-size : var(--inputFontSize);\n    z-index : 3;\n    max-height : 200px;\n    overflow : auto;\n    input{\n    \twidth : 100%;\n    \tbox-sizing : border-box;\n    \tfont-size : 1rem;\n    \tpadding : 0 5px;\n    }\n'], ['\n\tposition : absolute;\n    background : var(--dropdownBgColor);\n    width : 100%;\n    box-shadow : var(--dropdownShadow);\n    font-size : var(--inputFontSize);\n    z-index : 3;\n    max-height : 200px;\n    overflow : auto;\n    input{\n    \twidth : 100%;\n    \tbox-sizing : border-box;\n    \tfont-size : 1rem;\n    \tpadding : 0 5px;\n    }\n']),
+var _templateObject = _taggedTemplateLiteral(['\n  --labelColor : ', ';\n  --inputColor : ', ';\n  --inputBorderColor : ', ';\n  --inputBorderWidth : 0.05em;\n  --inputBorderRadius : ', ';\n  --helpTextColor : ', ';\n  --errorTextColor : ', ';\n  --dropdownColor : ', ';\n  --dropdownBgColor : ', ';\n  --dropdownHoverColor : ', ';\n  --dropdownHoverBgColor : ', ';\n  --defaultGreen : ', ';\n  --defaultRed : ', ';\n  --defaultBlue :', ';\n  --fontSize : ', ';\n  --dropdownShadow : ', ';\n  --infoBgColor : ', ';\n  --infoBoxShadow : ', ';\n'], ['\n  --labelColor : ', ';\n  --inputColor : ', ';\n  --inputBorderColor : ', ';\n  --inputBorderWidth : 0.05em;\n  --inputBorderRadius : ', ';\n  --helpTextColor : ', ';\n  --errorTextColor : ', ';\n  --dropdownColor : ', ';\n  --dropdownBgColor : ', ';\n  --dropdownHoverColor : ', ';\n  --dropdownHoverBgColor : ', ';\n  --defaultGreen : ', ';\n  --defaultRed : ', ';\n  --defaultBlue :', ';\n  --fontSize : ', ';\n  --dropdownShadow : ', ';\n  --infoBgColor : ', ';\n  --infoBoxShadow : ', ';\n']),
+    _templateObject2 = _taggedTemplateLiteral(['\n    position:relative;\n    outline : none;\n    font-size : var(--fontSize);\n    font-weight : 300;\n    \n    span{\n    \twidth: 100%;\n\t    display: block;\n\t    font-size : 1em;\n\t    padding: 0.75em 1px 1px 1px;\n\t    box-sizing: border-box;                   \n      border-color : var(--inputBorderColor);\n\t    color : var(--inputColor);\n      border-style : solid;\n      border-width : ', ';\n      border-radius : ', '; \n    }\n\n    span:after{\n      position: absolute;\n      content: \'\';\n      right: 10px;\n      top: 45%;\n      border-top: 8px solid;\n      border-right: 6px solid transparent;\n      border-bottom: 6px solid transparent;\n      border-left: 6px solid transparent;\n\t }\n\n    label{\n    \tposition: absolute;\n\t    top: 2px;\n\t    left: 0.2em;\n\t    font-size : 0.7em; \n\t    color: var(--labelColor);\n    }\n\n    &:after{\n    \tcontent:"', '";\n      position: absolute;\n      left:0px;\n      top : 105%;\n      font-size: 0.7em;\n      color: ', ';\n    \tbackground: var(--infoBgColor);\n    \tpadding: 5px;\n    \tbox-shadow: var(--infoBoxShadow);\n    \tdisplay: ', ';\n        z-index: 1;\n    }\n'], ['\n    position:relative;\n    outline : none;\n    font-size : var(--fontSize);\n    font-weight : 300;\n    \n    span{\n    \twidth: 100%;\n\t    display: block;\n\t    font-size : 1em;\n\t    padding: 0.75em 1px 1px 1px;\n\t    box-sizing: border-box;                   \n      border-color : var(--inputBorderColor);\n\t    color : var(--inputColor);\n      border-style : solid;\n      border-width : ', ';\n      border-radius : ', '; \n    }\n\n    span:after{\n      position: absolute;\n      content: \'\';\n      right: 10px;\n      top: 45%;\n      border-top: 8px solid;\n      border-right: 6px solid transparent;\n      border-bottom: 6px solid transparent;\n      border-left: 6px solid transparent;\n\t }\n\n    label{\n    \tposition: absolute;\n\t    top: 2px;\n\t    left: 0.2em;\n\t    font-size : 0.7em; \n\t    color: var(--labelColor);\n    }\n\n    &:after{\n    \tcontent:"', '";\n      position: absolute;\n      left:0px;\n      top : 105%;\n      font-size: 0.7em;\n      color: ', ';\n    \tbackground: var(--infoBgColor);\n    \tpadding: 5px;\n    \tbox-shadow: var(--infoBoxShadow);\n    \tdisplay: ', ';\n        z-index: 1;\n    }\n']),
+    _templateObject3 = _taggedTemplateLiteral(['\n  \tposition : absolute;\n    top : 105%;\n    background : var(--dropdownBgColor);\n    width : 100%;\n    box-shadow : var(--dropdownShadow);\n    font-size : var(--fontSize);\n    z-index : 3;\n    max-height : 200px;\n    overflow : auto;\n    input{\n      \twidth : 98%;\n      \tbox-sizing : border-box;\n      \tfont-size : 1em;\n      \tpadding : 0 5px;\n        margin : 1%;\n        border : 1px solid var(--inputBorderColor);\n        border-radius: var(--inputBorderRadius);\n    }\n'], ['\n  \tposition : absolute;\n    top : 105%;\n    background : var(--dropdownBgColor);\n    width : 100%;\n    box-shadow : var(--dropdownShadow);\n    font-size : var(--fontSize);\n    z-index : 3;\n    max-height : 200px;\n    overflow : auto;\n    input{\n      \twidth : 98%;\n      \tbox-sizing : border-box;\n      \tfont-size : 1em;\n      \tpadding : 0 5px;\n        margin : 1%;\n        border : 1px solid var(--inputBorderColor);\n        border-radius: var(--inputBorderRadius);\n    }\n']),
     _templateObject4 = _taggedTemplateLiteral(['\n\tbox-sizing : border-box;\n   \tpadding : 3px 0px 3px 10px;\n\n\t&:hover{\n\t\tbackground-color: var(--dropdownHoverBgColor);\n\t    opacity: 0.8;\n\t    color: var(--dropdownHoverColor);\n\t}\n'], ['\n\tbox-sizing : border-box;\n   \tpadding : 3px 0px 3px 10px;\n\n\t&:hover{\n\t\tbackground-color: var(--dropdownHoverBgColor);\n\t    opacity: 0.8;\n\t    color: var(--dropdownHoverColor);\n\t}\n']),
     _templateObject5 = _taggedTemplateLiteral(['\n\tbackground-color: var(--dropdownHoverBgColor);\n    opacity: 0.8;\n    color: var(--dropdownHoverColor);\n'], ['\n\tbackground-color: var(--dropdownHoverBgColor);\n    opacity: 0.8;\n    color: var(--dropdownHoverColor);\n']);
 
@@ -3819,6 +3829,8 @@ var CSSVariables = _styledComponents2.default.div(_templateObject, function (pro
   return props.INPUT_COLOR;
 }, function (props) {
   return props.INPUT_BORDER_COLOR;
+}, function (props) {
+  return props.INPUT_BORDER_RADIUS;
 }, function (props) {
   return props.HELPTEXT_COLOR;
 }, function (props) {
@@ -3838,22 +3850,20 @@ var CSSVariables = _styledComponents2.default.div(_templateObject, function (pro
 }, function (props) {
   return props.DEFAULT_BLUE_COLOR;
 }, function (props) {
-  return props.LABEL_FONT_SIZE_SMALL;
-}, function (props) {
-  return props.INPUT_FONT_SIZE;
-}, function (props) {
-  return props.INFO_FONT_SIZE;
+  return props.FONT_SIZE;
 }, function (props) {
   return props.DROPDOWN_SHADOW;
 }, function (props) {
   return props.INFO_BG_COLOR;
 }, function (props) {
   return props.INFO_BOX_SHADOW;
-}, function (props) {
-  return props.INPUT_BORDER_WIDTH;
 });
 
 var Wrapper = _styledComponents2.default.div(_templateObject2, function (props) {
+  return props.fullBorderStyle ? 'var(--inputBorderWidth)' : '0 0 var(--inputBorderWidth) 0';
+}, function (props) {
+  return props.fullBorderStyle ? 'var(--inputBorderRadius)' : '0';
+}, function (props) {
   return props.isValid ? props.helpText : props.errorText;
 }, function (props) {
   return props.isValid ? 'var(--defaultGreen)' : 'var(--defaultRed)';
@@ -3960,21 +3970,29 @@ var LabeledInput = function (_React$PureComponent) {
 		value: function render() {
 			var props = this.props;
 			return _react2.default.createElement(
-				_styledComponents.InputWrapper,
-				{ isValid: props.isValid, errorText: props.errorText || '', helpText: props.helpText || '',
-					isDown: this.state.isDown },
-				_react2.default.createElement('input', { type: props.type, value: props.value || '',
-					onChange: this.changeHandler,
-					disabled: props.isDisabled,
-					onFocus: this.focusHandler,
-					onBlur: this.blurHandler,
-					readOnly: props.readOnly }),
-				_react2.default.createElement(_sharedStyledComponents.AnimatedBorder, { focused: this.state.isFocused,
-					valid: props.isValid }),
+				_styledComponents.Wrapper,
+				null,
 				_react2.default.createElement(
-					'label',
-					null,
-					props.label
+					_styledComponents.InputWrapper,
+					{ isValid: props.isValid,
+						errorText: props.errorText || '',
+						helpText: props.helpText || '',
+						isDown: this.state.isDown,
+						fullBorderStyle: props.fullBorderStyle },
+					_react2.default.createElement('input', { type: props.type, value: props.value || '',
+						onChange: this.changeHandler,
+						disabled: props.isDisabled,
+						onFocus: this.focusHandler,
+						onBlur: this.blurHandler,
+						readOnly: props.readOnly }),
+					_react2.default.createElement(_sharedStyledComponents.AnimatedBorder, { focused: this.state.isFocused,
+						valid: props.isValid,
+						show: props.isFormItem }),
+					_react2.default.createElement(
+						'label',
+						null,
+						props.label
+					)
 				)
 			);
 		}
@@ -3996,10 +4014,11 @@ module.exports = exports['default'];
 Object.defineProperty(exports, "__esModule", {
 	value: true
 });
-exports.InputWrapper = exports.CSSVariables = undefined;
+exports.Wrapper = exports.InputWrapper = exports.CSSVariables = undefined;
 
-var _templateObject = _taggedTemplateLiteral(['\n  --labelColor : ', ';\n  --inputColor : ', ';\n  --inputBorderColor : ', ';\n  --helpTextColor : ', ';\n  --errorTextColor : ', ';  \n  --defaultGreen : ', ';\n  --defaultRed : ', ';\n  --defaultBlue :', ';\n  --labelFontSize : ', ';\n  --inputFontSize : ', ';\n  --infoFontSize : ', ';\n  --infoBgColor : ', ';\n  --infoBoxShadow : ', ';\n'], ['\n  --labelColor : ', ';\n  --inputColor : ', ';\n  --inputBorderColor : ', ';\n  --helpTextColor : ', ';\n  --errorTextColor : ', ';  \n  --defaultGreen : ', ';\n  --defaultRed : ', ';\n  --defaultBlue :', ';\n  --labelFontSize : ', ';\n  --inputFontSize : ', ';\n  --infoFontSize : ', ';\n  --infoBgColor : ', ';\n  --infoBoxShadow : ', ';\n']),
-    _templateObject2 = _taggedTemplateLiteral(['\n\tpadding:15px 0 0;\n\tposition:relative;\n\n\t&:after{\n      content:"', '";\n      position: absolute;\n      left:0px;\n      font-size: var(--infoFontSize);\n      color: ', ';\n      background: var(--infoBgColor);\n\t    padding: 5px;\n\t    box-shadow: var(--infoBoxShadow);\n\t    display: ', ';\n\t    z-index: 1;\n    }\n\n\tinput{\n\t\tposition:relative;\n\t\tz-index:1;\n\t\toutline:none;\n\t\tborder:none;\n\t\tborder-bottom:', ';\n\t\tborder-bottom-color: var(--inputBorderColor);\n\t\tcolor: var(--inputColor);\n\t\twidth:100%;\n\t\tbackground:transparent;\n\t\tfont-size : var(--inputFontSize);\n\t\tbox-sizing : border-box;\n\t}\n\n\tlabel{\n\t\tposition:absolute;\n\t\tleft:0px;\n\t\ttop:14px;\n\t\tcolor: var(--labelColor);\n\t\ttransform:', ';\n\t\ttransform-origin:top left;\n\t\ttransition:all 0.4s;\t\n\t\tfont-size : var(--labelFontSize);\t\t\t\t\t\t\t\n\t}\n'], ['\n\tpadding:15px 0 0;\n\tposition:relative;\n\n\t&:after{\n      content:"', '";\n      position: absolute;\n      left:0px;\n      font-size: var(--infoFontSize);\n      color: ', ';\n      background: var(--infoBgColor);\n\t    padding: 5px;\n\t    box-shadow: var(--infoBoxShadow);\n\t    display: ', ';\n\t    z-index: 1;\n    }\n\n\tinput{\n\t\tposition:relative;\n\t\tz-index:1;\n\t\toutline:none;\n\t\tborder:none;\n\t\tborder-bottom:', ';\n\t\tborder-bottom-color: var(--inputBorderColor);\n\t\tcolor: var(--inputColor);\n\t\twidth:100%;\n\t\tbackground:transparent;\n\t\tfont-size : var(--inputFontSize);\n\t\tbox-sizing : border-box;\n\t}\n\n\tlabel{\n\t\tposition:absolute;\n\t\tleft:0px;\n\t\ttop:14px;\n\t\tcolor: var(--labelColor);\n\t\ttransform:', ';\n\t\ttransform-origin:top left;\n\t\ttransition:all 0.4s;\t\n\t\tfont-size : var(--labelFontSize);\t\t\t\t\t\t\t\n\t}\n']);
+var _templateObject = _taggedTemplateLiteral(['\n  --labelColor : ', ';\n  --inputColor : ', ';\n  --inputBorderColor : ', ';\n  --inputBorderWidth : 0.05em;\n  --inputBorderRadius : ', ';\n  --helpTextColor : ', ';\n  --errorTextColor : ', ';  \n  --defaultGreen : ', ';\n  --defaultRed : ', ';\n  --defaultBlue :', ';\n  --fontSize : ', ';\n  --infoFontSize : ', ';\n  --infoBgColor : ', ';\n  --infoBoxShadow : ', ';\n'], ['\n  --labelColor : ', ';\n  --inputColor : ', ';\n  --inputBorderColor : ', ';\n  --inputBorderWidth : 0.05em;\n  --inputBorderRadius : ', ';\n  --helpTextColor : ', ';\n  --errorTextColor : ', ';  \n  --defaultGreen : ', ';\n  --defaultRed : ', ';\n  --defaultBlue :', ';\n  --fontSize : ', ';\n  --infoFontSize : ', ';\n  --infoBgColor : ', ';\n  --infoBoxShadow : ', ';\n']),
+    _templateObject2 = _taggedTemplateLiteral(['\n\twidth : 100%;\n    position: relative;\n    outline : none;\n    padding: 0.75em 0 0;\n    font-size : var(--fontSize);\n'], ['\n\twidth : 100%;\n    position: relative;\n    outline : none;\n    padding: 0.75em 0 0;\n    font-size : var(--fontSize);\n']),
+    _templateObject3 = _taggedTemplateLiteral(['\n\tposition:relative;\n\tborder-style: solid;\n\tborder-width : ', ';\n\tborder-color: var(--inputBorderColor);\n\tborder-radius : ', ';\n\tfont-size : var(--fontSize);\n\n\t&:after{\n\t\tcontent:"', '";\n\t\tposition: absolute;\n\t\tleft:0px;\n\t\tfont-size: var(--infoFontSize);\n\t\tcolor: ', ';\n\t\tbackground: var(--infoBgColor);\n\t\tpadding: 5px;\n\t\tbox-shadow: var(--infoBoxShadow);\n\t\tdisplay: ', ';\n\t\tz-index: 1;\n    }\n\n\tinput{\n\t\tposition:relative;\n\t\tz-index:1;\n\t\toutline:none;\n\t\tborder:none;\n\t\tcolor: var(--inputColor);\n\t\twidth:100%;\n\t\tbackground:transparent;\n\t\tfont-size : var(--fontSize);\n\t}\n\n\tlabel{\n\t\tposition:absolute;\n\t\tleft : 0px;\n\t\ttop : 0px;\n\t\tpadding : 1px;\n\t\tcolor: var(--labelColor);\n\t\ttransform:', ';\n\t\ttransform-origin:top left;\n\t\ttransition:all 0.4s;\n\t\tfont-size : var(--fontSize);\t\t\t\t\t\t\n\t}\n'], ['\n\tposition:relative;\n\tborder-style: solid;\n\tborder-width : ', ';\n\tborder-color: var(--inputBorderColor);\n\tborder-radius : ', ';\n\tfont-size : var(--fontSize);\n\n\t&:after{\n\t\tcontent:"', '";\n\t\tposition: absolute;\n\t\tleft:0px;\n\t\tfont-size: var(--infoFontSize);\n\t\tcolor: ', ';\n\t\tbackground: var(--infoBgColor);\n\t\tpadding: 5px;\n\t\tbox-shadow: var(--infoBoxShadow);\n\t\tdisplay: ', ';\n\t\tz-index: 1;\n    }\n\n\tinput{\n\t\tposition:relative;\n\t\tz-index:1;\n\t\toutline:none;\n\t\tborder:none;\n\t\tcolor: var(--inputColor);\n\t\twidth:100%;\n\t\tbackground:transparent;\n\t\tfont-size : var(--fontSize);\n\t}\n\n\tlabel{\n\t\tposition:absolute;\n\t\tleft : 0px;\n\t\ttop : 0px;\n\t\tpadding : 1px;\n\t\tcolor: var(--labelColor);\n\t\ttransform:', ';\n\t\ttransform-origin:top left;\n\t\ttransition:all 0.4s;\n\t\tfont-size : var(--fontSize);\t\t\t\t\t\t\n\t}\n']);
 
 var _styledComponents = __webpack_require__(1);
 
@@ -4016,6 +4035,8 @@ var CSSVariables = _styledComponents2.default.div(_templateObject, function (pro
 }, function (props) {
 	return props.INPUT_BORDER_COLOR;
 }, function (props) {
+	return props.INPUT_BORDER_RADIUS;
+}, function (props) {
 	return props.HELPTEXT_COLOR;
 }, function (props) {
 	return props.ERRORTEXT_COLOR;
@@ -4026,9 +4047,7 @@ var CSSVariables = _styledComponents2.default.div(_templateObject, function (pro
 }, function (props) {
 	return props.DEFAULT_BLUE_COLOR;
 }, function (props) {
-	return props.LABEL_FONT_SIZE;
-}, function (props) {
-	return props.INPUT_FONT_SIZE;
+	return props.FONT_SIZE;
 }, function (props) {
 	return props.INFO_FONT_SIZE;
 }, function (props) {
@@ -4036,21 +4055,25 @@ var CSSVariables = _styledComponents2.default.div(_templateObject, function (pro
 }, function (props) {
 	return props.INFO_BOX_SHADOW;
 });
+var Wrapper = _styledComponents2.default.div(_templateObject2);
 
-var InputWrapper = _styledComponents2.default.div(_templateObject2, function (props) {
+var InputWrapper = _styledComponents2.default.div(_templateObject3, function (props) {
+	return props.fullBorderStyle ? 'var(--inputBorderWidth)' : '0 0 var(--inputBorderWidth) 0';
+}, function (props) {
+	return props.fullBorderStyle ? 'var(--inputBorderRadius)' : '0';
+}, function (props) {
 	return props.isValid ? props.helpText : props.errorText;
 }, function (props) {
 	return props.isValid ? 'var(--defaultGreen)' : 'var(--defaultRed)';
 }, function (props) {
 	return props.isValid && props.helpText || !props.isValid && props.errorText ? 'block' : 'none';
 }, function (props) {
-	return props.isValid ? '1px solid' : 'none';
-}, function (props) {
-	return props.isDown ? "translateY(0) scale(1)" : "translateY(-10px) scale(0.6)";
+	return props.isDown ? "translateY(0) scale(1)" : props.fullBorderStyle ? "translateY(-0.85em) scale(0.6)" : "translateY(-10px) scale(0.6)";
 });
 
 exports.CSSVariables = CSSVariables;
 exports.InputWrapper = InputWrapper;
+exports.Wrapper = Wrapper;
 
 /***/ }),
 /* 24 */
@@ -4455,29 +4478,29 @@ var _autocomplete = __webpack_require__(29);
 
 var _autocomplete2 = _interopRequireDefault(_autocomplete);
 
-var _checkbox = __webpack_require__(40);
+var _checkbox = __webpack_require__(45);
 
 var _checkbox2 = _interopRequireDefault(_checkbox);
 
-var _datetimeInput = __webpack_require__(42);
+var _datetimeInput = __webpack_require__(47);
 
 var _datetimeInput2 = _interopRequireDefault(_datetimeInput);
 
-var _dropdown = __webpack_require__(50);
+var _dropdown = __webpack_require__(55);
 
 var _dropdown2 = _interopRequireDefault(_dropdown);
 
-var _form = __webpack_require__(52);
+var _form = __webpack_require__(57);
 
 var _form2 = _interopRequireDefault(_form);
 
-var _labeledInput = __webpack_require__(60);
+var _labeledInput = __webpack_require__(65);
 
-var _radioButtonGroup = __webpack_require__(62);
+var _radioButtonGroup = __webpack_require__(67);
 
 var _radioButtonGroup2 = _interopRequireDefault(_radioButtonGroup);
 
-var _select = __webpack_require__(64);
+var _select = __webpack_require__(69);
 
 var _select2 = _interopRequireDefault(_select);
 
@@ -4514,7 +4537,7 @@ var _core = __webpack_require__(9);
 
 var _core2 = _interopRequireDefault(_core);
 
-var _colorConfig = __webpack_require__(39);
+var _colorConfig = __webpack_require__(44);
 
 var _colorConfig2 = _interopRequireDefault(_colorConfig);
 
@@ -7197,23 +7220,423 @@ module.exports = function debounce(func, wait, immediate) {
 Object.defineProperty(exports, "__esModule", {
 	value: true
 });
-exports.default = {
-	LABEL_FONT_SIZE: '1.1rem',
-	INPUT_FONT_SIZE: '1rem',
-	LABEL_COLOR: '#9896b1',
-	INPUT_COLOR: '#3b3a4b',
-	INPUT_BORDER_COLOR: '#9896b1',
-	INPUT_BORDER_WIDTH: '0px 0px 1px 0px',
-	DROPDOWN_COLOR: '#333',
-	DROPDOWN_BACKGROUND: 'white',
-	DROPDOWN_HOVER_COLOR: '#FFF',
-	DROPDOWN_HOVER_BG_COLOR: '#007FFF',
-	DROPDOWN_SHADOW: '2px 2px 10px 0px #d3d3d3'
-};
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+__webpack_require__(40);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Loaders = function (_React$Component) {
+	_inherits(Loaders, _React$Component);
+
+	function Loaders() {
+		_classCallCheck(this, Loaders);
+
+		return _possibleConstructorReturn(this, (Loaders.__proto__ || Object.getPrototypeOf(Loaders)).apply(this, arguments));
+	}
+
+	_createClass(Loaders, [{
+		key: 'render',
+		value: function render() {
+			return _react2.default.createElement(
+				'svg',
+				{ width: '20', height: '20' },
+				_react2.default.createElement(
+					'g',
+					{ className: 'rotate-group' },
+					_react2.default.createElement('path', { d: 'M2 10 A 8 8 0 0 0 18 10' })
+				)
+			);
+		}
+	}]);
+
+	return Loaders;
+}(_react2.default.Component);
+
+exports.default = Loaders;
 module.exports = exports['default'];
 
 /***/ }),
 /* 40 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(41);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// add the styles to the DOM
+var update = __webpack_require__(43)(content, {});
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../../../node_modules/css-loader/index.js!../../../node_modules/sass-loader/index.js!./main.scss", function() {
+			var newContent = require("!!../../../node_modules/css-loader/index.js!../../../node_modules/sass-loader/index.js!./main.scss");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 41 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(42)();
+// imports
+
+
+// module
+exports.push([module.i, "@keyframes rotate {\n  to {\n    transform: rotate(360deg); } }\n\n.rotate-group {\n  animation: rotate 0.4s linear infinite;\n  transform-origin: center;\n  stroke: var(--labelColor);\n  stroke-width: 2px;\n  fill: none; }\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 42 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/*
+	MIT License http://www.opensource.org/licenses/mit-license.php
+	Author Tobias Koppers @sokra
+*/
+// css base code, injected by the css-loader
+module.exports = function () {
+	var list = [];
+
+	// return the list of modules as css string
+	list.toString = function toString() {
+		var result = [];
+		for (var i = 0; i < this.length; i++) {
+			var item = this[i];
+			if (item[2]) {
+				result.push("@media " + item[2] + "{" + item[1] + "}");
+			} else {
+				result.push(item[1]);
+			}
+		}
+		return result.join("");
+	};
+
+	// import a list of modules into the list
+	list.i = function (modules, mediaQuery) {
+		if (typeof modules === "string") modules = [[null, modules, ""]];
+		var alreadyImportedModules = {};
+		for (var i = 0; i < this.length; i++) {
+			var id = this[i][0];
+			if (typeof id === "number") alreadyImportedModules[id] = true;
+		}
+		for (i = 0; i < modules.length; i++) {
+			var item = modules[i];
+			// skip already imported module
+			// this implementation is not 100% perfect for weird media query combinations
+			//  when a module is imported multiple times with different media queries.
+			//  I hope this will never occur (Hey this way we have smaller bundles)
+			if (typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
+				if (mediaQuery && !item[2]) {
+					item[2] = mediaQuery;
+				} else if (mediaQuery) {
+					item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
+				}
+				list.push(item);
+			}
+		}
+	};
+	return list;
+};
+
+/***/ }),
+/* 43 */
+/***/ (function(module, exports) {
+
+/*
+	MIT License http://www.opensource.org/licenses/mit-license.php
+	Author Tobias Koppers @sokra
+*/
+var stylesInDom = {},
+	memoize = function(fn) {
+		var memo;
+		return function () {
+			if (typeof memo === "undefined") memo = fn.apply(this, arguments);
+			return memo;
+		};
+	},
+	isOldIE = memoize(function() {
+		return /msie [6-9]\b/.test(window.navigator.userAgent.toLowerCase());
+	}),
+	getHeadElement = memoize(function () {
+		return document.head || document.getElementsByTagName("head")[0];
+	}),
+	singletonElement = null,
+	singletonCounter = 0,
+	styleElementsInsertedAtTop = [];
+
+module.exports = function(list, options) {
+	if(typeof DEBUG !== "undefined" && DEBUG) {
+		if(typeof document !== "object") throw new Error("The style-loader cannot be used in a non-browser environment");
+	}
+
+	options = options || {};
+	// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
+	// tags it will allow on a page
+	if (typeof options.singleton === "undefined") options.singleton = isOldIE();
+
+	// By default, add <style> tags to the bottom of <head>.
+	if (typeof options.insertAt === "undefined") options.insertAt = "bottom";
+
+	var styles = listToStyles(list);
+	addStylesToDom(styles, options);
+
+	return function update(newList) {
+		var mayRemove = [];
+		for(var i = 0; i < styles.length; i++) {
+			var item = styles[i];
+			var domStyle = stylesInDom[item.id];
+			domStyle.refs--;
+			mayRemove.push(domStyle);
+		}
+		if(newList) {
+			var newStyles = listToStyles(newList);
+			addStylesToDom(newStyles, options);
+		}
+		for(var i = 0; i < mayRemove.length; i++) {
+			var domStyle = mayRemove[i];
+			if(domStyle.refs === 0) {
+				for(var j = 0; j < domStyle.parts.length; j++)
+					domStyle.parts[j]();
+				delete stylesInDom[domStyle.id];
+			}
+		}
+	};
+}
+
+function addStylesToDom(styles, options) {
+	for(var i = 0; i < styles.length; i++) {
+		var item = styles[i];
+		var domStyle = stylesInDom[item.id];
+		if(domStyle) {
+			domStyle.refs++;
+			for(var j = 0; j < domStyle.parts.length; j++) {
+				domStyle.parts[j](item.parts[j]);
+			}
+			for(; j < item.parts.length; j++) {
+				domStyle.parts.push(addStyle(item.parts[j], options));
+			}
+		} else {
+			var parts = [];
+			for(var j = 0; j < item.parts.length; j++) {
+				parts.push(addStyle(item.parts[j], options));
+			}
+			stylesInDom[item.id] = {id: item.id, refs: 1, parts: parts};
+		}
+	}
+}
+
+function listToStyles(list) {
+	var styles = [];
+	var newStyles = {};
+	for(var i = 0; i < list.length; i++) {
+		var item = list[i];
+		var id = item[0];
+		var css = item[1];
+		var media = item[2];
+		var sourceMap = item[3];
+		var part = {css: css, media: media, sourceMap: sourceMap};
+		if(!newStyles[id])
+			styles.push(newStyles[id] = {id: id, parts: [part]});
+		else
+			newStyles[id].parts.push(part);
+	}
+	return styles;
+}
+
+function insertStyleElement(options, styleElement) {
+	var head = getHeadElement();
+	var lastStyleElementInsertedAtTop = styleElementsInsertedAtTop[styleElementsInsertedAtTop.length - 1];
+	if (options.insertAt === "top") {
+		if(!lastStyleElementInsertedAtTop) {
+			head.insertBefore(styleElement, head.firstChild);
+		} else if(lastStyleElementInsertedAtTop.nextSibling) {
+			head.insertBefore(styleElement, lastStyleElementInsertedAtTop.nextSibling);
+		} else {
+			head.appendChild(styleElement);
+		}
+		styleElementsInsertedAtTop.push(styleElement);
+	} else if (options.insertAt === "bottom") {
+		head.appendChild(styleElement);
+	} else {
+		throw new Error("Invalid value for parameter 'insertAt'. Must be 'top' or 'bottom'.");
+	}
+}
+
+function removeStyleElement(styleElement) {
+	styleElement.parentNode.removeChild(styleElement);
+	var idx = styleElementsInsertedAtTop.indexOf(styleElement);
+	if(idx >= 0) {
+		styleElementsInsertedAtTop.splice(idx, 1);
+	}
+}
+
+function createStyleElement(options) {
+	var styleElement = document.createElement("style");
+	styleElement.type = "text/css";
+	insertStyleElement(options, styleElement);
+	return styleElement;
+}
+
+function createLinkElement(options) {
+	var linkElement = document.createElement("link");
+	linkElement.rel = "stylesheet";
+	insertStyleElement(options, linkElement);
+	return linkElement;
+}
+
+function addStyle(obj, options) {
+	var styleElement, update, remove;
+
+	if (options.singleton) {
+		var styleIndex = singletonCounter++;
+		styleElement = singletonElement || (singletonElement = createStyleElement(options));
+		update = applyToSingletonTag.bind(null, styleElement, styleIndex, false);
+		remove = applyToSingletonTag.bind(null, styleElement, styleIndex, true);
+	} else if(obj.sourceMap &&
+		typeof URL === "function" &&
+		typeof URL.createObjectURL === "function" &&
+		typeof URL.revokeObjectURL === "function" &&
+		typeof Blob === "function" &&
+		typeof btoa === "function") {
+		styleElement = createLinkElement(options);
+		update = updateLink.bind(null, styleElement);
+		remove = function() {
+			removeStyleElement(styleElement);
+			if(styleElement.href)
+				URL.revokeObjectURL(styleElement.href);
+		};
+	} else {
+		styleElement = createStyleElement(options);
+		update = applyToTag.bind(null, styleElement);
+		remove = function() {
+			removeStyleElement(styleElement);
+		};
+	}
+
+	update(obj);
+
+	return function updateStyle(newObj) {
+		if(newObj) {
+			if(newObj.css === obj.css && newObj.media === obj.media && newObj.sourceMap === obj.sourceMap)
+				return;
+			update(obj = newObj);
+		} else {
+			remove();
+		}
+	};
+}
+
+var replaceText = (function () {
+	var textStore = [];
+
+	return function (index, replacement) {
+		textStore[index] = replacement;
+		return textStore.filter(Boolean).join('\n');
+	};
+})();
+
+function applyToSingletonTag(styleElement, index, remove, obj) {
+	var css = remove ? "" : obj.css;
+
+	if (styleElement.styleSheet) {
+		styleElement.styleSheet.cssText = replaceText(index, css);
+	} else {
+		var cssNode = document.createTextNode(css);
+		var childNodes = styleElement.childNodes;
+		if (childNodes[index]) styleElement.removeChild(childNodes[index]);
+		if (childNodes.length) {
+			styleElement.insertBefore(cssNode, childNodes[index]);
+		} else {
+			styleElement.appendChild(cssNode);
+		}
+	}
+}
+
+function applyToTag(styleElement, obj) {
+	var css = obj.css;
+	var media = obj.media;
+
+	if(media) {
+		styleElement.setAttribute("media", media)
+	}
+
+	if(styleElement.styleSheet) {
+		styleElement.styleSheet.cssText = css;
+	} else {
+		while(styleElement.firstChild) {
+			styleElement.removeChild(styleElement.firstChild);
+		}
+		styleElement.appendChild(document.createTextNode(css));
+	}
+}
+
+function updateLink(linkElement, obj) {
+	var css = obj.css;
+	var sourceMap = obj.sourceMap;
+
+	if(sourceMap) {
+		// http://stackoverflow.com/a/26603875
+		css += "\n/*# sourceMappingURL=data:application/json;base64," + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + " */";
+	}
+
+	var blob = new Blob([css], { type: "text/css" });
+
+	var oldSrc = linkElement.href;
+
+	linkElement.href = URL.createObjectURL(blob);
+
+	if(oldSrc)
+		URL.revokeObjectURL(oldSrc);
+}
+
+
+/***/ }),
+/* 44 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _FONT_SIZE$FONT_SIZE$;
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+exports.default = (_FONT_SIZE$FONT_SIZE$ = {
+	FONT_SIZE: '1.1rem'
+}, _defineProperty(_FONT_SIZE$FONT_SIZE$, 'FONT_SIZE', '1rem'), _defineProperty(_FONT_SIZE$FONT_SIZE$, 'LABEL_COLOR', '#9896b1'), _defineProperty(_FONT_SIZE$FONT_SIZE$, 'INPUT_COLOR', '#3b3a4b'), _defineProperty(_FONT_SIZE$FONT_SIZE$, 'INPUT_BORDER_COLOR', '#9896b1'), _defineProperty(_FONT_SIZE$FONT_SIZE$, 'DROPDOWN_COLOR', '#333'), _defineProperty(_FONT_SIZE$FONT_SIZE$, 'DROPDOWN_BACKGROUND', 'white'), _defineProperty(_FONT_SIZE$FONT_SIZE$, 'DROPDOWN_HOVER_COLOR', '#FFF'), _defineProperty(_FONT_SIZE$FONT_SIZE$, 'DROPDOWN_HOVER_BG_COLOR', '#007FFF'), _defineProperty(_FONT_SIZE$FONT_SIZE$, 'DROPDOWN_SHADOW', '2px 2px 10px 0px #d3d3d3'), _defineProperty(_FONT_SIZE$FONT_SIZE$, 'INPUT_BORDER_RADIUS', '4px'), _FONT_SIZE$FONT_SIZE$);
+module.exports = exports['default'];
+
+/***/ }),
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7233,7 +7656,7 @@ var _core = __webpack_require__(16);
 
 var _core2 = _interopRequireDefault(_core);
 
-var _colorConfig = __webpack_require__(41);
+var _colorConfig = __webpack_require__(46);
 
 var _colorConfig2 = _interopRequireDefault(_colorConfig);
 
@@ -7282,7 +7705,7 @@ exports.default = CheckBox;
 module.exports = exports['default'];
 
 /***/ }),
-/* 41 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7291,17 +7714,20 @@ module.exports = exports['default'];
 Object.defineProperty(exports, "__esModule", {
 	value: true
 });
-exports.default = {
-	LABEL_FONT_SIZE: '1.1rem',
+
+var _FONT_SIZE$LABEL_COLO;
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+exports.default = (_FONT_SIZE$LABEL_COLO = {
+	FONT_SIZE: '14px',
 	LABEL_COLOR: '#9896b1',
-	CHECKBOX_BORDER_FALSE: '#6C6D6D',
-	CHECKBOX_BORDER_TRUE: '#007FFF',
-	CHECKBOX_TICK_COLOR: '#007FFF'
-};
+	CHECKBOX_COLOR_TRUE: '#6C6D6D'
+}, _defineProperty(_FONT_SIZE$LABEL_COLO, 'CHECKBOX_COLOR_TRUE', '#007FFF'), _defineProperty(_FONT_SIZE$LABEL_COLO, 'CHECKBOX_TICK_COLOR', '#007FFF'), _FONT_SIZE$LABEL_COLO);
 module.exports = exports['default'];
 
 /***/ }),
-/* 42 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7321,7 +7747,7 @@ var _core = __webpack_require__(18);
 
 var _core2 = _interopRequireDefault(_core);
 
-var _colorConfig = __webpack_require__(49);
+var _colorConfig = __webpack_require__(54);
 
 var _colorConfig2 = _interopRequireDefault(_colorConfig);
 
@@ -7370,7 +7796,7 @@ exports.default = DateTime;
 module.exports = exports['default'];
 
 /***/ }),
-/* 43 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7386,7 +7812,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _styledComponents = __webpack_require__(44);
+var _styledComponents = __webpack_require__(49);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -7570,7 +7996,7 @@ exports.default = TimePickerCore;
 module.exports = exports['default'];
 
 /***/ }),
-/* 44 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7614,7 +8040,7 @@ exports.LastColumn = LastColumn;
 exports.CloseTimePicker = CloseTimePicker;
 
 /***/ }),
-/* 45 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7630,7 +8056,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _styledComponents = __webpack_require__(46);
+var _styledComponents = __webpack_require__(51);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -8010,7 +8436,7 @@ var MonthSelector = _react2.default.createClass({
 module.exports = exports['default'];
 
 /***/ }),
-/* 46 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8044,7 +8470,7 @@ exports.Header = Header;
 exports.CalenderContent = CalenderContent;
 
 /***/ }),
-/* 47 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8060,7 +8486,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _styledComponents = __webpack_require__(48);
+var _styledComponents = __webpack_require__(53);
 
 var _sharedStyledComponents = __webpack_require__(3);
 
@@ -8237,7 +8663,7 @@ exports.default = DatetimeInput;
 module.exports = exports['default'];
 
 /***/ }),
-/* 48 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8269,7 +8695,7 @@ exports.InputWrapper = InputWrapper;
 exports.InlineDateWrapper = InlineDateWrapper;
 
 /***/ }),
-/* 49 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8308,7 +8734,7 @@ exports.default = {
 module.exports = exports['default'];
 
 /***/ }),
-/* 50 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8328,7 +8754,7 @@ var _core = __webpack_require__(20);
 
 var _core2 = _interopRequireDefault(_core);
 
-var _colorConfig = __webpack_require__(51);
+var _colorConfig = __webpack_require__(56);
 
 var _colorConfig2 = _interopRequireDefault(_colorConfig);
 
@@ -8377,7 +8803,7 @@ exports.default = DateTime;
 module.exports = exports['default'];
 
 /***/ }),
-/* 51 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8387,24 +8813,23 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 exports.default = {
-	LABEL_FONT_SIZE_SMALL: '0.75rem',
-	INPUT_FONT_SIZE: '1rem',
+	FONT_SIZE: '1rem',
 	LABEL_COLOR: '#9896b1',
 	INPUT_COLOR: '#3b3a4b',
 	INPUT_BORDER_COLOR: '#9896b1',
+	INPUT_BORDER_RADIUS: '4px',
 	DROPDOWN_COLOR: '#333',
-	DROPDOWN_BACKGROUND: 'whitesmoke',
+	DROPDOWN_BACKGROUND: 'white',
 	DROPDOWN_INPUT_BACKGROUND: '#efedfb',
 	DROPDOWN_HOVER_COLOR: '#FFF',
 	DROPDOWN_HOVER_BG_COLOR: '#007FFF',
 	DROPDOWN_INPUT_SHADOW: '1px 1px 1px 1px #c3c3c3',
-	DROPDOWN_SHADOW: '2px 2px 10px 0px #8e8181',
-	INPUT_BORDER_WIDTH: '0 0 1px 0'
+	DROPDOWN_SHADOW: '0 1px 6px 0 rgba(0,0,0,.2), 0 1px 6px 0 rgba(0,0,0,.19)'
 };
 module.exports = exports['default'];
 
 /***/ }),
-/* 52 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8442,7 +8867,7 @@ var _core7 = __webpack_require__(20);
 
 var _core8 = _interopRequireDefault(_core7);
 
-var _colorConfig = __webpack_require__(53);
+var _colorConfig = __webpack_require__(58);
 
 var _colorConfig2 = _interopRequireDefault(_colorConfig);
 
@@ -8460,7 +8885,7 @@ var _core13 = __webpack_require__(18);
 
 var _core14 = _interopRequireDefault(_core13);
 
-var _core15 = __webpack_require__(54);
+var _core15 = __webpack_require__(59);
 
 var _core16 = _interopRequireDefault(_core15);
 
@@ -8468,7 +8893,7 @@ var _closePopupListener = __webpack_require__(5);
 
 var _closePopupListener2 = _interopRequireDefault(_closePopupListener);
 
-var _styledComponents = __webpack_require__(59);
+var _styledComponents = __webpack_require__(64);
 
 var _colorConfigMerger = __webpack_require__(2);
 
@@ -8685,7 +9110,8 @@ var GenericForm = function (_React$PureComponent) {
 							_styledComponents.InputWrapper,
 							null,
 							_react2.default.createElement(_core2.default, _extends({}, formItem, {
-								setItem: this.setItem }))
+								setItem: this.setItem,
+								isFormItem: true }))
 						);
 						break;
 					}
@@ -8697,7 +9123,8 @@ var GenericForm = function (_React$PureComponent) {
 							_styledComponents.DropdownInputWrapper,
 							null,
 							_react2.default.createElement(_core8.default, _extends({}, formItem, {
-								setItem: this.setItem }))
+								setItem: this.setItem,
+								isFormItem: true }))
 						);
 						break;
 					}
@@ -8709,7 +9136,8 @@ var GenericForm = function (_React$PureComponent) {
 							_styledComponents.CheckBoxInputWrapper,
 							null,
 							_react2.default.createElement(_core10.default, _extends({}, formItem, {
-								setItem: this.setItem }))
+								setItem: this.setItem,
+								isFormItem: true }))
 						);
 						break;
 					}
@@ -8727,7 +9155,8 @@ var GenericForm = function (_React$PureComponent) {
 							_styledComponents.InputWrapper,
 							null,
 							_react2.default.createElement(_core4.default, _extends({}, formItem, {
-								setItem: this.setItem }))
+								setItem: this.setItem,
+								isFormItem: true }))
 						);
 						break;
 					}
@@ -8739,7 +9168,8 @@ var GenericForm = function (_React$PureComponent) {
 							_styledComponents.DropdownInputWrapper,
 							null,
 							_react2.default.createElement(_core6.default, _extends({}, formItem, {
-								setItem: this.setItem }))
+								setItem: this.setItem,
+								isFormItem: true }))
 						);
 						break;
 					}
@@ -8751,7 +9181,8 @@ var GenericForm = function (_React$PureComponent) {
 							_styledComponents.RadioGroupInputWrapper,
 							null,
 							_react2.default.createElement(_core12.default, _extends({}, formItem, {
-								setItem: this.setItem }))
+								setItem: this.setItem,
+								isFormItem: true }))
 						);
 						break;
 					}
@@ -8785,7 +9216,8 @@ var GenericForm = function (_React$PureComponent) {
 							_styledComponents.InputWrapper,
 							null,
 							_react2.default.createElement(_core14.default, _extends({}, formItem, {
-								setItem: this.setItem }))
+								setItem: this.setItem,
+								isFormItem: true }))
 						);
 						break;
 					}
@@ -8796,7 +9228,8 @@ var GenericForm = function (_React$PureComponent) {
 							_styledComponents.InputWrapper,
 							null,
 							_react2.default.createElement(_core16.default, _extends({}, formItem, {
-								setItem: this.setItem }))
+								setItem: this.setItem,
+								isFormItem: true }))
 						);
 						break;
 					}
@@ -8865,7 +9298,7 @@ exports.default = GenericForm;
 module.exports = exports['default'];
 
 /***/ }),
-/* 53 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8884,7 +9317,7 @@ exports.default = {
 	LABEL_COLOR: '#9896b1',
 	INPUT_COLOR: '#3b3a4b',
 	INPUT_BORDER_COLOR: '#9896b1',
-	INPUT_BORDER_WIDTH: '0px 0px 1px 0px',
+	INPUT_BORDER_WIDTH: '1px',
 	HELPTEXT_COLOR: '#007FFF',
 	ERRORTEXT_COLOR: '#DF1D1D',
 	DROPDOWN_COLOR: '#333',
@@ -8930,7 +9363,7 @@ exports.default = {
 module.exports = exports['default'];
 
 /***/ }),
-/* 54 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8952,11 +9385,11 @@ var _styledComponents = __webpack_require__(1);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
-var _box = __webpack_require__(55);
+var _box = __webpack_require__(60);
 
 var _box2 = _interopRequireDefault(_box);
 
-var _transferIcons = __webpack_require__(57);
+var _transferIcons = __webpack_require__(62);
 
 var _transferIcons2 = _interopRequireDefault(_transferIcons);
 
@@ -9108,7 +9541,7 @@ exports.default = SuffleBox;
 module.exports = exports['default'];
 
 /***/ }),
-/* 55 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9131,7 +9564,7 @@ var _styledComponents = __webpack_require__(1);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
-var _listItem = __webpack_require__(56);
+var _listItem = __webpack_require__(61);
 
 var _listItem2 = _interopRequireDefault(_listItem);
 
@@ -9193,7 +9626,7 @@ exports.default = Box;
 module.exports = exports['default'];
 
 /***/ }),
-/* 56 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9266,7 +9699,7 @@ exports.default = ListItem;
 module.exports = exports['default'];
 
 /***/ }),
-/* 57 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9289,7 +9722,7 @@ var _styledComponents = __webpack_require__(1);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
-var _arrow = __webpack_require__(58);
+var _arrow = __webpack_require__(63);
 
 var _arrow2 = _interopRequireDefault(_arrow);
 
@@ -9346,7 +9779,7 @@ exports.default = TransferIcons;
 module.exports = exports['default'];
 
 /***/ }),
-/* 58 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9402,7 +9835,7 @@ exports.default = Arrow;
 module.exports = exports['default'];
 
 /***/ }),
-/* 59 */
+/* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9564,7 +9997,7 @@ exports.DropdownInputWrapper = DropdownInputWrapper;
 exports.RadioGroupInputWrapper = RadioGroupInputWrapper;
 
 /***/ }),
-/* 60 */
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9587,7 +10020,7 @@ var _core = __webpack_require__(22);
 
 var _core2 = _interopRequireDefault(_core);
 
-var _colorConfig = __webpack_require__(61);
+var _colorConfig = __webpack_require__(66);
 
 var _colorConfig2 = _interopRequireDefault(_colorConfig);
 
@@ -9618,7 +10051,7 @@ var NumberInput = function (_React$Component) {
 		key: 'render',
 		value: function render() {
 			var props = this.props,
-			    styleConfig = props.colorConfig || _colorConfig2.default,
+			    styleConfig = (0, _colorConfigMerger2.default)(props.colorConfig, _colorConfig2.default),
 			    inputConfig = props.inputConfig;
 
 			return _react2.default.createElement(
@@ -9663,7 +10096,7 @@ exports.NumberInput = NumberInput;
 exports.TextInput = TextInput;
 
 /***/ }),
-/* 61 */
+/* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9673,59 +10106,25 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 exports.default = {
-	FLEX_BASIS: '300px',
-	LABEL_FONT_SIZE: '1.1rem',
-	LABEL_FONT_SIZE_SMALL: '0.75rem',
-	INPUT_FONT_SIZE: '1rem',
+	FONT_SIZE: '20px',
 	INFO_FONT_SIZE: '0.8rem',
-	FORM_BACKGROUND: '#efedfb',
 	LABEL_COLOR: '#9896b1',
 	INPUT_COLOR: '#3b3a4b',
 	INPUT_BORDER_COLOR: '#9896b1',
+	INPUT_BORDER_WIDTH: '1px',
+	INPUT_BORDER_RADIUS: '4px',
 	HELPTEXT_COLOR: '#007FFF',
 	ERRORTEXT_COLOR: '#DF1D1D',
-	DROPDOWN_COLOR: '#333',
-	DROPDOWN_BACKGROUND: 'whitesmoke',
-	DROPDOWN_INPUT_BACKGROUND: '#efedfb',
-	DROPDOWN_HOVER_COLOR: '#FFF',
-	DROPDOWN_HOVER_BG_COLOR: '#007FFF',
-	DROPDOWN_INPUT_SHADOW: '1px 1px 1px 1px #c3c3c3',
-	DROPDOWN_SHADOW: '2px 2px 10px 0px #8e8181',
 	DEFAULT_GREEN_COLOR: '#008000',
 	DEFAULT_BLUE_COLOR: '#007FFF',
 	DEFAULT_RED_COLOR: '#DF1D1D',
-	CHECKBOX_BORDER_FALSE: '#6C6D6D',
-	CHECKBOX_BORDER_TRUE: '#007FFF',
-	CHECKBOX_TICK_COLOR: '#007FFF',
 	INFO_BG_COLOR: 'white',
-	INFO_BOX_SHADOW: '1px 1px 8px 0px #c3c3c3',
-	HEADING_BORDER: '1px solid #333',
-	DATE_PICKER_BG_COLOR: 'whitesmoke',
-	DATE_PICKER_HEADER_COLOR: '#333',
-	DATE_PICKER_HEADER_BORDER: "1px solid #333",
-	DATE_PICKER_ARROW_COLOR: '#333',
-	DATE_PICKER_DATE_COLOR: '007FFF',
-	DATE_PICKER_SELECTED_DATE_BG_COLOR: '#007FFF',
-	DATE_PICKER_SELECTED_DATE_COLOR: 'white',
-	TIME_PICKER_HEADER_BG_COLOR: 'whitesmoke',
-	TIME_PICKER_HEADER_COLOR: '#333',
-	TIME_PICKER_HEADER_BORDER_COLOR: '#c3c3c3',
-	TIME_PICKER_COLUMN_BORDER_COLOR: '#c3c3c3',
-	TIME_PICKER_COLUMN_BG_COLOR: 'white',
-	TIME_PICKER_COLUMN_COLOR: '#333',
-	TIME_PICKER_SELECTED_CELL_COLOR: '#007FFF',
-	TIME_PICKER_FOOTER_COLOR: '#333',
-	TIME_PICKER_FOOTER_BG_COLOR: 'whitesmoke',
-	HEADING_FONT_SIZE: '1.1rem',
-	SUB_HEADING_FONT_SIZE: '1rem',
-	DATE_PICKER_SHADOW: 'none',
-	TIME_PICKER_SHADOW: 'none',
-	POPUP_BG_COLOR: 'rgba(0,0,0,0.6)'
+	INFO_BOX_SHADOW: '1px 1px 8px 0px #c3c3c3'
 };
 module.exports = exports['default'];
 
 /***/ }),
-/* 62 */
+/* 67 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9745,7 +10144,7 @@ var _core = __webpack_require__(26);
 
 var _core2 = _interopRequireDefault(_core);
 
-var _colorConfig = __webpack_require__(63);
+var _colorConfig = __webpack_require__(68);
 
 var _colorConfig2 = _interopRequireDefault(_colorConfig);
 
@@ -9794,7 +10193,7 @@ exports.default = RadioGroupExample;
 module.exports = exports['default'];
 
 /***/ }),
-/* 63 */
+/* 68 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9856,7 +10255,7 @@ exports.default = {
 module.exports = exports['default'];
 
 /***/ }),
-/* 64 */
+/* 69 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9876,7 +10275,7 @@ var _core = __webpack_require__(24);
 
 var _core2 = _interopRequireDefault(_core);
 
-var _colorConfig = __webpack_require__(65);
+var _colorConfig = __webpack_require__(70);
 
 var _colorConfig2 = _interopRequireDefault(_colorConfig);
 
@@ -9925,7 +10324,7 @@ exports.default = SelectInput;
 module.exports = exports['default'];
 
 /***/ }),
-/* 65 */
+/* 70 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
