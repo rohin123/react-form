@@ -13,19 +13,27 @@ export default class CheckBox extends React.PureComponent{
 	}
 
 	render(){
-
 		let props = this.props
+		let svg = <svg viewBox="0 0 100 100">
+							 <g>
+							   <rect x='0' y='0' fill={props.bg_color} width='100' height='100'></rect>
+							  <path d="M10 55 L35 80 L90 20" fill='none' stroke={props.tick_color} style={{strokeWidth: '12px'}}></path>
+							 </g>
+							</svg>
+
 		return (
 				<CheckboxWrapper>
 					<InputWrapper checked={props.value} onClick={this.onChangeHandler}>
-						{/*<input id={props.name} type='checkbox' 
+						{/*<input id={props.name} type='checkbox'
 							name={props.name}
 							onChange={this.onChangeHandler}
 							readOnly={props.readOnly}/>*/}
-							<Tick checked={props.value}/>
+							<Tick checked={props.value}>
+							  {svg}
+							</Tick>
 					</InputWrapper>
-					<label onClick={this.onChangeHandler}>{props.label}</label>	
-				</CheckboxWrapper>	
+					<label onClick={this.onChangeHandler}>{props.label}</label>
+				</CheckboxWrapper>
 			)
 	}
 }

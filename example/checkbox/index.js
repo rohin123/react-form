@@ -37,15 +37,17 @@ export default class CheckboxExample extends React.Component{
 
 			colorConfig = {
 				FONT_SIZE : '26px'
-			}
+			},
+
+			colorConfig2 = {CHECKBOX_BG_COLOR:'blue',CHECKBOX_COLOR:'blue',CHECKBOX_TICK_COLOR:'white'}
 
 		return(
 			<Wrapper>
-				<CheckBox inputConfig={config}/>
+				<CheckBox inputConfig={config} colorConfig={colorConfig2}/>
 				<Wrapper2>
 					<CheckBox inputConfig={config} colorConfig={colorConfig}/>
-				</Wrapper2>	
-			</Wrapper>					
+				</Wrapper2>
+			</Wrapper>
 			)
 	}
 

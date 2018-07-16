@@ -13,7 +13,7 @@ export default class CheckBox extends React.Component {
 
 		return (
 					<CSSVariables {...styleConfig}>
-						<CheckBoxCore {...inputConfig}/>
+						<CheckBoxCore {...inputConfig} tick_color={styleConfig.CHECKBOX_TICK_COLOR} bg_color={styleConfig.CHECKBOX_BG_COLOR}/>
 					</CSSVariables>
 				)
 	}

@@ -2,14 +2,15 @@ import React from 'react'
 import AutoComplete from '../../src/components/autocomplete'
 import styled from 'styled-components'
 import Promise from 'promise'
+import cities from 'cities.json'
 
 const Wrapper = styled.div`
 	width : 300px;
+	margin : 10px;
 `
 
-const Wrapper2 = styled.div`
+const Wrapper3 = styled.div`
 	width : 400px;
-	margin-top : 10px;
 `
 
 export default class AutocompleteExample extends React.Component{
@@ -31,45 +32,35 @@ export default class AutocompleteExample extends React.Component{
 	}
 
 	fetchFunc(payload){
-		console.log(payload)	
-		
+		console.log('fetchFunc',payload)
+		let op = []
 		let promiseFunc = (resolve,reject)=>{
+			if(payload){
+				console.log('start',payload)
+				op = cities.filter((c)=>{
+					let reg = new RegExp(payload)
+					return c['name'].search(reg)>-1
+				}).map((c)=>{
+					return {
+						label : c.name,
+						id :`${c.name}_${c.country}`
+					}
+				})
 
-			setTimeout(function(){
-				if(payload&&payload.length){
-					let data = [	
-								{
-									label:'option 1',
-									id:1
-								},
-								{
-									label:'option 2',
-									id:2
-								},
-								{
-									label:'option 3',
-									id:3
-								},
-								{
-									label:'option 4',
-									id:4
-								},
-
-							]
-					resolve(data)
-				}else{	
-					resolve([])
-				}	
-			},1000)
-			
+				let end = op.length > 20 ? 20 : op.length
+				console.log('end',op.length)
+				resolve(op.slice(0,end))
+			}else{
+				resolve([])
+			}
 		}
 
-		return new Promise(promiseFunc)	
+		return new Promise(promiseFunc)
 	}
 
 	render(){
 		let config1 = {
-			label : 'Dummy Label',
+			label : 'Search City',
 			name : 'test_input',
 			setItem : this.setItem,
 			fetchFunc : this.fetchFunc,
@@ -77,7 +68,7 @@ export default class AutocompleteExample extends React.Component{
 		},
 
 		config2 = {
-			label : 'Dummy Label',
+			label : 'Search City',
 			name : 'test_input',
 			setItem : this.setItem,
 			fetchFunc : this.fetchFunc,
@@ -86,7 +77,7 @@ export default class AutocompleteExample extends React.Component{
 		},
 
 		colorConfig = {
-			FONT_SIZE : '36px',
+			FONT_SIZE : '30px',
 			LABEL_COLOR : '#0d47a1',
 			INPUT_COLOR : '#212121',
 			INPUT_BORDER_COLOR : '#0d47a1',
@@ -114,15 +105,17 @@ export default class AutocompleteExample extends React.Component{
 		}
 
 		return(
-				<Wrapper>
-					<AutoComplete inputConfig={config1}/>
-					<Wrapper2>
-						<AutoComplete inputConfig={config2} colorConfig={colorConfig}/> 			
-					</Wrapper2>
-					<Wrapper2>
-						<AutoComplete inputConfig={config2} colorConfig={colorConfig2}/> 			
-					</Wrapper2>
-				</Wrapper>	
+				<div>
+					<Wrapper>
+						<AutoComplete inputConfig={config1}/>
+					</Wrapper>
+					<Wrapper>
+						<AutoComplete inputConfig={config2} colorConfig={colorConfig2}/>
+					</Wrapper>
+					{/*}<Wrapper>
+						<AutoComplete inputConfig={config2} colorConfig={colorConfig}/>
+					</Wrapper>*/}
+				</div>
 			)
 	}
 

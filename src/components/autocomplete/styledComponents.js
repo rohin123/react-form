@@ -26,7 +26,7 @@ const Wrapper = styled.div`
 const SearchBox = styled.div`
 	position : relative;
 	border-style: solid;
-  border-width : ${props => props.fullBorderStyle ? 'var(--inputBorderWidth)' : 
+  border-width : ${props => props.fullBorderStyle ? 'var(--inputBorderWidth)' :
                                   '0 0 var(--inputBorderWidth) 0'};
   border-color: var(--inputBorderColor);
   border-radius : ${props => props.fullBorderStyle ? 'var(--inputBorderRadius)' : '0'};
@@ -39,7 +39,7 @@ const SearchBox = styled.div`
 	    border: none;
 	    font-size: var(--fontSize);
 	    background-color: transparent;
-	    color : var(--inputColor);	
+	    color : var(--inputColor);
 	    outline : none;
       padding : 1px 20px 1px 1px;
       box-sizing : border-box;
@@ -69,11 +69,11 @@ const SearchBox = styled.div`
     	background: var(--infoBgColor);
     	padding: 5px;
     	box-shadow: var(--infoBoxShadow);
-    	display: ${props=>( (props.isValid && props.helpText) || 
+    	display: ${props=>( (props.isValid && props.helpText) ||
     						(!props.isValid && props.errorText) )?'block':'none'};
     	z-index: 1;
 	}
-	
+
 `
 
 const SearchList = styled.div`

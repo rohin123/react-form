@@ -20,7 +20,13 @@ export default class DropDownExample extends React.Component{
 		this.setItem = this.setItem.bind(this)
 		this.optionsList = [{label : 'option1', id: 1},
 							{label : 'option2', id: 2},
-							{label : 'option3', id: 3}]
+							{label : 'option3', id: 3},
+							{label : 'option4', id: 4},
+							{label : 'option5', id: 5},
+							{label : 'option6', id: 6},
+							{label : 'option7', id: 7},
+							{label : 'option8', id: 8},
+							{label : 'option9', id: 9}]
 		this.state = {
 			value : null
 		}

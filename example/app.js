@@ -45,7 +45,7 @@ const MenuList = {
 	TextInput : 'textInput',
 	Reactform : 'form',
 	LineChart : 'chart',
-	NavMenu : 'nav-menu' 
+	NavMenu : 'nav-menu'
 }
 
 const Wrapper = styled.div`
@@ -75,12 +75,17 @@ const Content = styled.div`
 		margin : 20px 0;
 		background-color : whitesmoke;
 		font-weight: 400;
-    	padding: 0 10px;
+    padding: 5px 10px;
+	}
+
+	p{
+		margin-left: 10px;
+		font-weight: 300;
 	}
 `
 
 const InfoWrapper = styled.div`
-	margin-top : 200px;
+	//margin-top : 20px;
 `
 const InputWrapper = styled.div`
 	width : 300px;
@@ -162,7 +167,7 @@ class App extends React.Component{
 
 			this.state = {
 				selectedItem : MenuList.Autocomplete
-			}			
+			}
 	}
 
 	getSelectedElem(){
@@ -170,101 +175,101 @@ class App extends React.Component{
 		switch(this.state.selectedItem){
 			case MenuList.Autocomplete : {
 				ret.elem = <AutocompleteExample/>
-				
-				ret.inputConfigInfo = <TableElement tableHeader={AutoCompInputInfo.tableHeader} 
+
+				ret.inputConfigInfo = <TableElement tableHeader={AutoCompInputInfo.tableHeader}
 													tableContent={AutoCompInputInfo.tableContent}/>
-				
-				
+
+
 				ret.colorConfigInfo = <TableElement tableHeader={AutoCompColorInfo.tableHeader}
-													tableContent={AutoCompColorInfo.tableContent}/>				
+													tableContent={AutoCompColorInfo.tableContent}/>
 				break
 			}
 
 			case MenuList.DropDown : {
 				ret.elem = <DropDown/>
-				ret.inputConfigInfo = <TableElement tableHeader={DropdownInputInfo.tableHeader} 
+				ret.inputConfigInfo = <TableElement tableHeader={DropdownInputInfo.tableHeader}
 													tableContent={DropdownInputInfo.tableContent}/>
-				
-				
+
+
 				ret.colorConfigInfo = <TableElement tableHeader={DropdownColorInfo.tableHeader}
-													tableContent={DropdownColorInfo.tableContent}/>				
+													tableContent={DropdownColorInfo.tableContent}/>
 				break
 			}
 
 			case MenuList.CheckBox : {
 				ret.elem = <CheckBoxExample/>
-				ret.inputConfigInfo = <TableElement tableHeader={CheckboxInputInfo.tableHeader} 
+				ret.inputConfigInfo = <TableElement tableHeader={CheckboxInputInfo.tableHeader}
 													tableContent={CheckboxInputInfo.tableContent}/>
-				
-				
+
+
 				ret.colorConfigInfo = <TableElement tableHeader={CheckboxColorInfo.tableHeader}
-													tableContent={CheckboxColorInfo.tableContent}/>				
+													tableContent={CheckboxColorInfo.tableContent}/>
 				break
 			}
 
 			case MenuList.DateTime : {
 				ret.elem = <DateTime/>
-				ret.inputConfigInfo = <TableElement tableHeader={DatetimeInputInfo.tableHeader} 
+				ret.inputConfigInfo = <TableElement tableHeader={DatetimeInputInfo.tableHeader}
 													tableContent={DatetimeInputInfo.tableContent}/>
-				
-				
+
+
 				ret.colorConfigInfo = <TableElement tableHeader={DatetimeColorInfo.tableHeader}
-													tableContent={DatetimeColorInfo.tableContent}/>					
+													tableContent={DatetimeColorInfo.tableContent}/>
 				break
 			}
 
 			case MenuList.NumberInput : {
 				ret.elem = <NumberInput/>
-				ret.inputConfigInfo = <TableElement tableHeader={NumberInputInfo.tableHeader} 
+				ret.inputConfigInfo = <TableElement tableHeader={NumberInputInfo.tableHeader}
 													tableContent={NumberInputInfo.tableContent}/>
-				
-				
+
+
 				ret.colorConfigInfo = <TableElement tableHeader={NumberColorInfo.tableHeader}
-													tableContent={NumberColorInfo.tableContent}/>				
+													tableContent={NumberColorInfo.tableContent}/>
 				break
 			}
 
 			case MenuList.RadioGroup : {
 				ret.elem = <RadioGroup/>
-				ret.inputConfigInfo = <TableElement tableHeader={RadioInputInfo.tableHeader} 
+				ret.inputConfigInfo = <TableElement tableHeader={RadioInputInfo.tableHeader}
 													tableContent={RadioInputInfo.tableContent}/>
-				
-				
+
+
 				ret.colorConfigInfo = <TableElement tableHeader={RadioColorInfo.tableHeader}
-													tableContent={RadioColorInfo.tableContent}/>					
-				break	
+													tableContent={RadioColorInfo.tableContent}/>
+				break
 			}
 
 			case MenuList.SelectInput : {
 				ret.elem = <SelectInput/>
-				ret.inputConfigInfo = <TableElement tableHeader={SelectInputInfo.tableHeader} 
+				ret.inputConfigInfo = <TableElement tableHeader={SelectInputInfo.tableHeader}
 													tableContent={SelectInputInfo.tableContent}/>
-				
-				
+
+
 				ret.colorConfigInfo = <TableElement tableHeader={SelectColorInfo.tableHeader}
-													tableContent={SelectColorInfo.tableContent}/>			
+													tableContent={SelectColorInfo.tableContent}/>
 				break
 			}
 
 			case MenuList.TextInput : {
 				ret.elem = <TextInput/>
-				ret.inputConfigInfo = <TableElement tableHeader={TextInputInfo.tableHeader} 
+				ret.inputConfigInfo = <TableElement tableHeader={TextInputInfo.tableHeader}
 													tableContent={TextInputInfo.tableContent}/>
-				
-				
+
+
 				ret.colorConfigInfo = <TableElement tableHeader={TextColorInfo.tableHeader}
-													tableContent={TextColorInfo.tableContent}/>			
+													tableContent={TextColorInfo.tableContent}/>
 				break
 			}
 
 			case MenuList.Reactform : {
 				ret.elem = <TestForm/>
-				ret.inputConfigInfo = <TableElement tableHeader={FormInputInfo.tableHeader} 
+				ret.inputConfigInfo = <TableElement tableHeader={FormInputInfo.tableHeader}
 													tableContent={FormInputInfo.tableContent}/>
-				
-				
+
+
 				ret.colorConfigInfo = <TableElement tableHeader={FormColorInfo.tableHeader}
-													tableContent={FormColorInfo.tableContent}/>			
+													tableContent={FormColorInfo.tableContent}/>
 				break
 			}
 
@@ -301,25 +306,25 @@ class App extends React.Component{
 						<SideMenu menuList={this.menuList}/>
 					</MenuWrapper>
 					<Content>
-						<h1>Demo</h1>	
+						<h1>Demo</h1>
 							{inputHtml.elem}
 						<InfoWrapper>
 							<h1>Code</h1>
-							<p>{"import {" +this.state.selectedItem+"} from 'react-ui-components'"}</p> 
+							<p>{"import {" +this.state.selectedItem+"} from 'react-ui-components'"}</p>
 							<h2>Props</h2>
-							<span>{"inputConfig(required), styleConfig(optional)"}</span>
-							<pre>
+							<p>{"inputConfig(required), styleConfig(optional)"}</p>
+							<div>
 								<h3>inputConfig object properties</h3>
 								{
 									inputHtml.inputConfigInfo
 								}
 								<h3>
 									colorConfig object properties
-								</h3>	
+								</h3>
 								{
 									inputHtml.colorConfigInfo
 								}
-							</pre>	
+							</div>
 						</InfoWrapper>
 					</Content>
 				</Wrapper>

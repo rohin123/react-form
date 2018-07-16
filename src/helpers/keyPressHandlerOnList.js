@@ -2,13 +2,14 @@ const KeyUp = 38
 const KeyDown = 40
 
 export default class KeyPressHandlerOnList{
-	constructor(listLength){
+	constructor(containerElem, listLength){
 		this.listLength = listLength
 		this.index = -1
+		this.container = containerElem
 	}
 
 	handleKeyPress(keyCode){
-		//debugger
+		console.log('handleKeyPress',this.listLength,this.index)
 		switch(keyCode){
 			case KeyDown : {
 				let tempIndex = this.index + 1
@@ -35,5 +36,26 @@ export default class KeyPressHandlerOnList{
 	updateListLength(newLength){
 		this.listLength = newLength
 		this.index = -1
+	}
+
+	scrollDropDown(listElemId){
+		console.log(listElemId)
+		if(!this.parentHeight){
+			this.parentHeight = this.container.clientHeight
+		}
+
+		const childElem = document.getElementById(listElemId),
+					childHeight = childElem.clientHeight,
+					childOffsetTop = childElem.offsetTop,
+					scrollTop = this.container.scrollTop
+
+		console.log(childOffsetTop,scrollTop,childHeight,this.parentHeight)			
+		if(childOffsetTop < scrollTop){
+			this.container.scrollTop = childOffsetTop
+		}
+
+		if((childOffsetTop+childHeight) > (scrollTop+this.parentHeight)){
+			this.container.scrollTop = (childOffsetTop - (this.parentHeight - childHeight))
+		}
 	}
 }

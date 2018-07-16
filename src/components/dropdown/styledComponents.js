@@ -27,7 +27,7 @@ const Wrapper = styled.div`
     font-size : var(--fontSize);
     font-weight : 300;
     
-    span{
+    input.drop-down-input{
     	width: 100%;
 	    display: block;
 	    font-size : 1em;
@@ -39,18 +39,19 @@ const Wrapper = styled.div`
       border-width : ${props => props.fullBorderStyle ? 'var(--inputBorderWidth)' : 
                                 '0 0 var(--inputBorderWidth) 0'};
       border-radius : ${props => props.fullBorderStyle ? 'var(--inputBorderRadius)' : '0'}; 
+      background: inherit;
     }
 
-    span:after{
-      position: absolute;
-      content: '';
-      right: 10px;
-      top: 45%;
-      border-top: 8px solid;
-      border-right: 6px solid transparent;
-      border-bottom: 6px solid transparent;
-      border-left: 6px solid transparent;
-	 }
+  //   &:after{
+  //     position: absolute;
+  //     content: '';
+  //     right: 10px;
+  //     top: 45%;
+  //     border-top: 8px solid;
+  //     border-right: 6px solid transparent;
+  //     border-bottom: 6px solid transparent;
+  //     border-left: 6px solid transparent;
+	 // }
 
     label{
     	position: absolute;
@@ -113,4 +114,9 @@ const SelectedListItem = ListItem.extend`
     color: var(--dropdownHoverColor);
 `
 
-export {CSSVariables,Wrapper,DropdownListWrapper,ListItem,SelectedListItem}
+const DropdownWrapper = styled.div`
+  position: absolute;
+  width: 100%;
+` 
+
+export {CSSVariables,Wrapper,DropdownListWrapper,ListItem,SelectedListItem,DropdownWrapper}

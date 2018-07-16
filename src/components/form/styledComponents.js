@@ -60,7 +60,7 @@ const FormWrapper = styled.div`
 	font-weight:300;
 	input{
 		font-weight:300;
-		padding:4px;
+		//padding:4px;
 	}
 
 	input[type='number'] {

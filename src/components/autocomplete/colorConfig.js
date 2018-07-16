@@ -1,5 +1,4 @@
 export default {
-	FONT_SIZE : '1.1rem',
 	FONT_SIZE : '1rem',
 	LABEL_COLOR:'#9896b1',
 	INPUT_COLOR:'#3b3a4b',
