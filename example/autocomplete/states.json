@@ -1,0 +1,107 @@
+[{
+	"name" : "Andhra Pradesh",
+	"id" : 1
+},
+{
+	"name" : "Nagaland",
+	"id" : 2
+},{
+	"name" : "Odisha",
+	"id": 3
+},{
+	"name" : "Assam",
+	"id" : 4
+},{
+	"name" : "Punjab",
+	"id" : 5
+},{
+	"name" : "Bihar",
+	"id" : 6
+},{
+	"name" : "Rajasthan",
+	"id" : 7
+},{
+	"name" : "Chhattisgarh",
+	"id" : 8
+},{
+	"name" : "Sikkim",
+	"id" : 9
+},{
+	"name" : "Tamil Nadu",
+	"id" : 10
+},{
+	"name" : "Goa",
+	"id" : 11
+},{
+	"name" : "Kerala",
+	"id" : 12
+},{
+	"name" : "Chandigarh",
+	"id" : 13
+},{
+	"name" : "Madhya Pradesh",
+	"id" : 14
+},{
+	"name" : "Gujarat",
+	"id" : 15
+},{
+	"name" : "Dadra and Nagar Haveli",
+	"id" : 16
+},{
+	"name" : "Andaman and Nicobar Islands",
+	"id" : 17
+},{
+	"name" : "Karnataka",
+	"id" : 18
+},{
+	"name" : "Jharkhand",
+	"id" : 19
+},{
+	"name" : "West Bengal",
+	"id" : 20
+},{
+	"name" : "Uttarakhand",
+	"id" : 21
+},{
+	"name" : "Jammu and Kashmir",
+	"id" : 22
+},{
+	"name" : "Uttar Pradesh",
+	"id" : 23
+},{
+	"name" : "Himachal Pradesh",
+	"id" : 24
+},{
+	"name" : "Tripura",
+	"id" : 25
+},{
+	"name" : "Haryana",
+	"id" : 26
+},{
+	"name" : "Telangana",
+	"id" : 27
+},{
+	"name" : "Puducherry",
+	"id" : 28
+},{
+	"name" : "Mizoram",
+	"id" : 29
+},{
+	"name" : "Delhi",
+	"id" : 30
+},{
+	"name" : "Meghalaya",
+	"id" : 31
+},{
+	"name" : "Lakshadweep",
+	"id" : 32
+},{
+	"name" : "Manipur",
+	"id" : 33
+},{
+	"name" : "Daman and Diu",
+	"id" : 34
+},{
+	"name" : "Maharashtra",
+	"id" : 35
+}]

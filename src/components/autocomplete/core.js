@@ -1,5 +1,4 @@
 import React from 'react'
-import ClosePopupListener from '../../helpers/closePopupListener.js'
 import {AnimatedBorder} from '../sharedStyledComponents.js'
 import debounce from 'debounce'
 import KeyPressHandlerOnList from '../../helpers/keyPressHandlerOnList.js'
@@ -13,14 +12,7 @@ class AutoComplete extends React.PureComponent{
 
 	constructor(props){
 		super(props)
-		this.blurHandler = this.blurHandler.bind(this)
-		this.focusHandler = this.focusHandler.bind(this)
-		this.onChangeHandler = this.onChangeHandler.bind(this)
-		this.handleKeyPress = this.handleKeyPress.bind(this)
-		this.preventDropdownClose = this.preventDropdownClose.bind(this)
-		this.setItem = this.setItem.bind(this)
-		this.onListItemClick = this.onListItemClick.bind(this)
-
+		
 		this.state = {
 			isDown : props.value && props.value.label ? false : true ,
 			autoCompList : [],
@@ -45,8 +37,8 @@ class AutoComplete extends React.PureComponent{
 					this.keyPressHandlerInstance.updateListLength(res.length)
 					this.setState(function(state,props){
 						return {
-							autoCompList : res,
-							loaderCount : state.loaderCount - 1
+							autoCompList: this.state.value? res : [],
+							loaderCount: state.loaderCount - 1
 						}
 					})
 				},(err)=>{
@@ -68,12 +60,11 @@ class AutoComplete extends React.PureComponent{
 
 
 
-	onChangeHandler(e){
+	onChangeHandler = (e)=>{
 		let	value = e.target.value.length?e.target.value:null
 
-		this.debounceFunc(value)
-
 		if(value){
+			this.debounceFunc(value)
 			this.setState({
 				value:{
 					label:value,
@@ -82,27 +73,28 @@ class AutoComplete extends React.PureComponent{
 			})
 		}else{
 			this.setState({
-				value : null
+				value: null,
+				autoCompList: []
 			})
 		}
-
 	}
 
 	componentWillReceiveProps(nextProps){
 		this.setState({
 			value : nextProps.value||null,
-			isDown : nextProps.value && nextProps.value.label ? false : true
+			isDown : nextProps.value && nextProps.value.label ? false : true,
+			selectedListIndex : -1
 		})
 	}
 
-	focusHandler(e){
+	focusHandler = (e)=>{
 		this.setState({
 			isDown : false,
 			isFocused : true
 		})
 	}
 
-	blurHandler(e){
+	blurHandler = (e)=>{
 		if(!this.forceDropdownOpen){
 
 			this.setState({
@@ -129,6 +121,8 @@ class AutoComplete extends React.PureComponent{
 		}
 
 		if(selectedListItemId){
+			this.forceDropdownOpen = true
+			this.inputRef.blur()
 			this.setItem(selectedListItemId)
 		}
 	}
@@ -157,24 +151,26 @@ class AutoComplete extends React.PureComponent{
 		}
 	}
 
-	onListItemClick(e){
+	onListItemClick = (e)=>{
 		this.setItem(e.target.id)
 	}
 
-	handleKeyPress(e){
+	handleKeyPress = (e)=>{
 		e.stopPropagation()
 		if(e.keyCode=='13'){
 			this.setSelectedItem()
 		}else{
 			let index = this.keyPressHandlerInstance.handleKeyPress(e.keyCode)
-			this.keyPressHandlerInstance.scrollDropDown(this.state.autoCompList[index].id)
-			this.setState({
-				selectedListIndex : index
-			})
+			if(index > -1){
+				this.keyPressHandlerInstance.scrollDropDown(this.state.autoCompList[index].id)
+				this.setState({
+					selectedListIndex : index
+				})	
+			}
 		}
 	}
 
-	preventDropdownClose(){
+	preventDropdownClose = ()=>{
 		this.forceDropdownOpen = true
 	}
 
@@ -192,21 +188,22 @@ class AutoComplete extends React.PureComponent{
 						</SelectedListItem>
 			}
 			return <ListItem id={item.id}
-								onClick={this.onListItemClick}
-								onMouseDown={this.preventDropdownClose}>
-							{item.label}
-						</ListItem>
+							onClick={this.onListItemClick}
+							onMouseDown={this.preventDropdownClose}>
+						{item.label}
+					</ListItem>
 		})
 
 		return (
-					<Wrapper tabIndex={-1} id={props.name}
+					<Wrapper id={props.name}
 							onKeyDown={this.handleKeyPress}>
 						<SearchBox isDown={this.state.isDown}
 									isValid={props.isValid}
 									errorText={props.errorText||''}
 									helpText={props.helpText||''}
 									fullBorderStyle = {props.fullBorderStyle}>
-							<input type='text' value={(this.state.value && this.state.value.label)||''}
+							<input type='text' ref={(elem)=>{this.inputRef = elem}}
+												value={(this.state.value && this.state.value.label)||''}
 												onChange={this.onChangeHandler}
 												onBlur={this.blurHandler}
 												onFocus={this.focusHandler}

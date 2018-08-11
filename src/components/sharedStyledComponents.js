@@ -59,5 +59,20 @@ const FixedDivWrapper = styled.div`
 	display : ${props => props.open?'block':'none'};
 `
 
-export {BlockWrapper,AnimatedBorder,HeadingWrapper,VhAlignedWrapper,
-		InlineWrapper,SubHeadingWrapper,FixedDivWrapper}
+const InfoTextStyles = (props)=>`
+	position: absolute;
+	left:0px;
+	top : 105%;
+	font-size: var(--infoFontSize);
+	color: ${props=>props.isValid?'var(--defaultGreen)':'var(--defaultRed)'};
+	background: var(--infoBgColor);
+	padding: 5px;
+	box-shadow: var(--infoBoxShadow);
+	display: ${props=>( (props.isValid && props.helpText) || 
+						(!props.isValid && props.errorText) )?'block':'none'};
+	z-index: 1;
+`
+
+export {BlockWrapper, AnimatedBorder, HeadingWrapper, VhAlignedWrapper,
+		InlineWrapper, SubHeadingWrapper, FixedDivWrapper, InfoTextStyles}
+

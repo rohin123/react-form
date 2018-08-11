@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import {InfoTextStyles} from '../sharedStyledComponents.js'
 
 const CSSVariables = styled.div`
   --labelColor : ${props => props.LABEL_COLOR};
@@ -61,17 +62,8 @@ const SearchBox = styled.div`
 	}
 
 	&:after{
-		  content:"${props=>props.isValid?props.helpText:props.errorText}";
-      position: absolute;
-      font-size: var(--infoFontSize);
-      color: ${props=>props.isValid?'var(--defaultGreen)':'var(--defaultRed)'};
-    	left: 0px;
-    	background: var(--infoBgColor);
-    	padding: 5px;
-    	box-shadow: var(--infoBoxShadow);
-    	display: ${props=>( (props.isValid && props.helpText) ||
-    						(!props.isValid && props.errorText) )?'block':'none'};
-    	z-index: 1;
+      content:"${props=>props.isValid?props.helpText:props.errorText}";
+		  ${props => InfoTextStyles(props)};
 	}
 
 `
@@ -109,7 +101,7 @@ const LoaderWrapper = styled.div`
     display : ${props => props.show ? 'block' : 'none'};
     position : absolute;
     top : 50%;
-    right : 0px;
+    right : 2px;
     width : 20px;
     height : 20px;
     transform : translateY(-50%);

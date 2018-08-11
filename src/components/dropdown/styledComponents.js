@@ -31,6 +31,7 @@ const Wrapper = styled.div`
     	width: 100%;
 	    display: block;
 	    font-size : 1em;
+      outline: none;
 	    padding: 0.75em 1px 1px 1px;
 	    box-sizing: border-box;                   
       border-color : var(--inputBorderColor);
@@ -42,16 +43,16 @@ const Wrapper = styled.div`
       background: inherit;
     }
 
-  //   &:after{
-  //     position: absolute;
-  //     content: '';
-  //     right: 10px;
-  //     top: 45%;
-  //     border-top: 8px solid;
-  //     border-right: 6px solid transparent;
-  //     border-bottom: 6px solid transparent;
-  //     border-left: 6px solid transparent;
-	 // }
+    &:before{
+      position: absolute;
+      content: '';
+      right: 10px;
+      top: ${props => props.listOpen? "25%" : "45%" };
+      border-top: ${props => props.listOpen? "6px solid transparent" : "8px solid" };
+      border-right: 6px solid transparent;
+      border-bottom: ${props => props.listOpen? "8px solid" : "6px solid transparent" };
+      border-left: 6px solid transparent;
+    }
 
     label{
     	position: absolute;
@@ -66,7 +67,7 @@ const Wrapper = styled.div`
       position: absolute;
       left:0px;
       top : 105%;
-      font-size: 0.7em;
+      font-size: var(--infoFontSize);
       color: ${props=>props.isValid?'var(--defaultGreen)':'var(--defaultRed)'};
     	background: var(--infoBgColor);
     	padding: 5px;

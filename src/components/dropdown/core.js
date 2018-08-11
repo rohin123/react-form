@@ -7,16 +7,15 @@ import SearchBox from './searchBox.js'
 class Dropdown extends React.PureComponent{
 	constructor(props){
 		super(props)
-		this.toggleList = this.toggleList.bind(this)
-		this.setOption = this.setOption.bind(this)
-		this.filterOptions = this.filterOptions.bind(this)
-		this.handleKeyPress = this.handleKeyPress.bind(this)
+		this.setOption= this.setOption.bind(this)
+		this.filterOptions= this.filterOptions.bind(this)
+		this.handleKeyPress= this.handleKeyPress.bind(this)
 
 		this.state = {
-			selectedItem:props.value,
-			optionsList:props.optionsList||[],
-			listOpen:false,
-			selectedListIndex : -1
+			searchText: props.value && props.value.label || '',
+			optionsList: props.optionsList||[],
+			listOpen: false,
+			selectedListIndex: -1
 		}
 	}
 
@@ -42,13 +41,13 @@ class Dropdown extends React.PureComponent{
 		//console.log('dd',nextProps)
 		this.keyPressHandlerInstance.updateListLength((nextProps.optionsList||[]).length)
 		this.setState({
-			selectedItem:nextProps.value,
-			optionsList:nextProps.optionsList||[]
+			searchText: nextProps.value && nextProps.value.label || '',
+			optionsList:nextProps.optionsList||[],
+			selectedListIndex: -1
 		})
 	}
 
-	toggleList(){
-		this.mmouseDown = false
+	toggleList = ()=>{
 		if(!this.props.readOnly){
 			this.setState((prevState)=>{
 				return {
@@ -70,7 +69,7 @@ class Dropdown extends React.PureComponent{
 
 	closeList(){
 		if(!this.props.readOnly){
-			this.inputRef.blur()
+			//this.inputRef.blur()
 			this.setState({
 				listOpen:false,
 				filteredList:null
@@ -79,13 +78,12 @@ class Dropdown extends React.PureComponent{
 	}
 
 	setItem(option){
-		this.searchText = option.label
 		this.props.setItem(this.props.name,option)
 	}
 
 	filterOptions(e){
 		let searchVal = e.target.value
-		this.searchText = searchVal 
+		this
 		let filteredList = this.state.optionsList.filter((option)=>{
 			let patt = new RegExp(searchVal,'i')
 			return patt.test(option.label)
@@ -94,7 +92,8 @@ class Dropdown extends React.PureComponent{
 		this.keyPressHandlerInstance.updateListLength((filteredList||[]).length)
 
 		this.setState({
-			filteredList:filteredList
+			filteredList: filteredList,
+			searchText: searchVal 
 		})
 	}
 
@@ -144,29 +143,31 @@ class Dropdown extends React.PureComponent{
 	}
 
 	focusHandler = ()=>{
+		console.log('focus')
 		if(!this.mouseDown){
 			this.openList()
 		}
 	}
 
 	mouseDownHandler = (e)=>{
+		console.log('down')
 		this.mouseDown = true
 	}
 
 	mouseUpHandler = (e)=>{
+		console.log('up')
 		this.mouseDown = false
 	}
 
 	blurHandler = (e)=>{
+		console.log('blur')
 		if(!this.mouseDown){
 			this.closeList()	
 		}
 	}
 
 	render(){
-		let props = this.props
-		let selectedValue = (this.state.selectedItem && this.state.selectedItem.label) ||
-										'Select an option',
+		let props = this.props,
 			listHtml = 	(this.state.filteredList||this.state.optionsList).map((option,index)=>{
 
 				if(index == this.state.selectedListIndex){
@@ -188,12 +189,13 @@ class Dropdown extends React.PureComponent{
 							onFocus={this.focusHandler}
 							onMouseDown={this.mouseDownHandler}
 							onMouseUp={this.mouseUpHandler}
-							onBlur={this.blurHandler}>
+							onBlur={this.blurHandler}
+							listOpen={this.state.listOpen}>
 					<label>{props.label}</label>
 					<input  className='drop-down-input'
 							type='text' 
 							ref={(elem)=>{this.inputRef = elem}}
-							value={this.searchText} 
+							value={this.state.searchText} 
 							onClick={this.toggleList}
 							onChange={this.filterOptions}
 							placeholder={'Select Option'}/>

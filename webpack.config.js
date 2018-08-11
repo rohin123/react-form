@@ -11,15 +11,7 @@ const loaders = {
       test: /\.jsx?$/,
       exclude : /node-modules/,
       use: {
-        loader : 'babel-loader',
-         // options: {
-         //      babelrc: false,
-         //      presets: [
-         //        'es2015',
-         //        'react',
-         //        'stage-0'
-         //      ]
-         //    }
+        loader : 'babel-loader'
       }
     },
     {
@@ -33,11 +25,12 @@ const loaders = {
 module.exports = [{
   name: 'client',
   target: 'web',
+  mode: 'production',
   context: CLIENT_DIR,
   entry: './index.js',
   output: {
     library: 'reactformlib',
-    libraryTarget: 'umd',
+    libraryTarget: 'commonjs',
     path: DIST_DIR,
     filename: 'bundle.js'
   },
@@ -45,7 +38,7 @@ module.exports = [{
         xmlhttprequest: '{XMLHttpRequest:XMLHttpRequest}'
     },{
         react : 'react'
-    }],
+  }],
   module: loaders,
   resolve: {
   },
@@ -58,22 +51,18 @@ module.exports = [{
   context: EXAMPLE_DIR,
   entry: './app.js',
   output: {
-    //library: 'reactformlib',
-    //libraryTarget: 'umd',
     path: DIST_DIR,
     filename: 'example.js'
   },
   module: loaders,
-   externals:[{
+  externals:[{
         xmlhttprequest: '{XMLHttpRequest:XMLHttpRequest}'
-    }],
+  }],
   devServer: {
     historyApiFallback: true,
     noInfo: true
   },
   resolve: {
   },
-  plugins: [
-  ]
-}
-];
+  plugins: [] 
+}];
